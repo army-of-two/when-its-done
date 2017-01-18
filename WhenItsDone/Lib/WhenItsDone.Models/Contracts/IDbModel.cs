@@ -4,6 +4,6 @@
     {
         int Id { get; }
 
-        bool IsDeleted { get; }
+        bool IsDeleted { get; set; }
     }
 }
