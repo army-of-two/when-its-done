@@ -26,19 +26,27 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                     throw new ArgumentException("Expected at least 3 parameters.");
                 }
 
+                var viewType = (Type)parameters[1];
+                if (viewType == null)
+                {
+                    throw new ArgumentNullException("Invalid view type.");
+                }
+
                 var view = (IView)parameters[2];
                 if (view == null)
                 {
-                    var viewType = (Type)parameters[1];
-                    if (viewType == null)
-                    {
-                        throw new ArgumentNullException("Invalid view type.");
-                    }
-
                     view = (IView)ctx.Kernel.Get(viewType);
                 }
 
-                this.Bind(typeof(IView)).ToMethod(context => view);
+                var bindingExists = this.Kernel.GetBindings(viewType).Any();
+                if (bindingExists)
+                {
+                    this.Rebind(viewType).ToMethod(context => view);
+                }
+                else
+                {
+                    this.Bind(viewType).ToMethod(context => view);
+                }
 
                 return (IPresenter)ctx.Kernel.Get(requestedType);
             })
