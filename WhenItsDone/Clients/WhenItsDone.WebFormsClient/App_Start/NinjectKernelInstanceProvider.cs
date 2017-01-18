@@ -11,7 +11,7 @@ namespace WhenItsDone.WebFormsClient.App_Start
     /// 
     /// Singleton should not be required,
     /// Ninject kernel is guaranteed to be only 
-    /// registered once, by Ninject itself. (?)
+    /// registered once by Ninject itself. (?)
     /// </summary>
     public sealed class NinjectKernelInstanceProvider
     {

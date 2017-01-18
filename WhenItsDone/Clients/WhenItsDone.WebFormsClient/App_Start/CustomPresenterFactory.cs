@@ -28,7 +28,8 @@ namespace WhenItsDone.WebFormsClient.App_Start
                 throw new ArgumentNullException(nameof(presenterType));
             }
 
-            var presenterInstance = this.ninjectKernel.Get(presenterType) as IPresenter;
+            var returnedInstance = this.ninjectKernel.Get(presenterType);
+            var presenterInstance = returnedInstance as IPresenter;
             if (presenterInstance == null)
             {
                 throw new ArgumentException("Generated object could not be cast to IPresenter");
@@ -39,7 +40,7 @@ namespace WhenItsDone.WebFormsClient.App_Start
 
         /// <summary>
         /// Ignore this, 
-        /// Lifetime managerment delegated to Ninject.
+        /// Lifetime management delegated to Ninject.
         /// </summary>
         /// <param name="presenter"></param>
         public void Release(IPresenter presenter)

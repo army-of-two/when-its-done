@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
-using System.Web.Security;
-using System.Web.SessionState;
+
+using Ninject;
+
+using WebFormsMvp.Binder;
+using WhenItsDone.WebFormsClient.App_Start;
 
 namespace WhenItsDone.WebFormsClient
 {
@@ -17,7 +18,14 @@ namespace WhenItsDone.WebFormsClient
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            
+
+            this.AttackCustomPresenterFactory();
+        }
+
+        private void AttackCustomPresenterFactory()
+        {
+            var customPresenterFactory = NinjectKernelInstanceProvider.Instance.Get<IPresenterFactory>();
+            PresenterBinder.Factory = customPresenterFactory;
         }
     }
 }
