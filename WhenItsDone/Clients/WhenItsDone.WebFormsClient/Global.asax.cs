@@ -11,6 +11,7 @@ namespace WhenItsDone.WebFormsClient
 {
     public class Global : HttpApplication
     {
+        // Ninject setup first.
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
