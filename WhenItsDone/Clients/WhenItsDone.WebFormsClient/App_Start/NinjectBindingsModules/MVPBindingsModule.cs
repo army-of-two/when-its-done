@@ -38,6 +38,8 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                     view = (IView)ctx.Kernel.Get(viewType);
                 }
 
+                // Unknown possible parameters for each separate IPresenter
+                // Binding the view so Ninject can resolve each of them separately.
                 var bindingExists = this.Kernel.GetBindings(viewType).Any();
                 if (bindingExists)
                 {
