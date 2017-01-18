@@ -40,7 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstraction\GenericService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WhenItsDone.Data\WhenItsDone.Data.csproj">
+      <Project>{D3085631-83D5-4525-B69C-DFDC47BC7F9B}</Project>
+      <Name>WhenItsDone.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WhenItsDone.Models\WhenItsDone.Models.csproj">
+      <Project>{E10CC5A1-7DD9-4F43-8798-AA58882CAF6F}</Project>
+      <Name>WhenItsDone.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
