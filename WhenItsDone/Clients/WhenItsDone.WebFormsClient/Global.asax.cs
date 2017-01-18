@@ -19,10 +19,10 @@ namespace WhenItsDone.WebFormsClient
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            this.AttackCustomPresenterFactory();
+            this.AttachCustomPresenterFactory();
         }
 
-        private void AttackCustomPresenterFactory()
+        private void AttachCustomPresenterFactory()
         {
             var customPresenterFactory = NinjectKernelInstanceProvider.Instance.Get<IPresenterFactory>();
             PresenterBinder.Factory = customPresenterFactory;
