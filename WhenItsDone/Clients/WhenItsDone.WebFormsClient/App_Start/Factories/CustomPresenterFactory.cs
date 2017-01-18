@@ -28,6 +28,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.Factories
                 throw new ArgumentNullException(nameof(presenterType));
             }
 
+            // Is this even needed ? Ninject should take care of it ?  
             if (viewInstance == null)
             {
                 viewInstance = this.CreateView(viewType);

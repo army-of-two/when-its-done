@@ -20,6 +20,12 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 var bindingName = ctx.Parameters.First().GetValue(ctx, null).ToString();
                 var parameters = ctx.Parameters.ToList();
 
+                // If view object -> return view object
+                // If no object -> create it.
+                IView view = null;
+
+                this.Bind(typeof(IView)).ToMethod(context => view);
+
                 return ctx.Kernel.Get<IPresenter>(bindingName);
             })
             .NamedLikeFactoryMethod((ICustomPresenterFactory factory) => factory.CreatePresenter(null, null, null));
