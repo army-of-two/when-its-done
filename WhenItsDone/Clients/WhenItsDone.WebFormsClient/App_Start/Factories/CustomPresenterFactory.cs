@@ -30,20 +30,10 @@ namespace WhenItsDone.WebFormsClient.App_Start.Factories
 
             if (viewInstance == null)
             {
-                viewInstance = this.ninjectKernel.Get(viewType) as IView;
+                viewInstance = this.CreateView(viewType);
             }
 
-            if (viewInstance == null)
-            {
-                throw new ArgumentException("Could not create View instance.");
-            }
-
-            var returnedInstance = this.ninjectKernel.Get(presenterType);
-            var presenterInstance = returnedInstance as IPresenter;
-            if (presenterInstance == null)
-            {
-                throw new ArgumentException("Generated object could not be cast to IPresenter.");
-            }
+            var presenterInstance = this.CreatePresenter(presenterType);
 
             return presenterInstance;
         }
@@ -60,6 +50,36 @@ namespace WhenItsDone.WebFormsClient.App_Start.Factories
             //{
             //    disposablePresenter.Dispose();
             //}
+        }
+
+        private IPresenter CreatePresenter(Type presenterType)
+        {
+            var returnedPresenterInstance = this.ninjectKernel.Get(presenterType);
+            var presenterInstance = returnedPresenterInstance as IPresenter;
+            if (presenterInstance == null)
+            {
+                throw new ArgumentException("Generated object could not be cast to IPresenter.");
+            }
+
+            return presenterInstance;
+        }
+
+        private IView CreateView(Type viewType)
+        {
+            if (viewType == null)
+            {
+                throw new ArgumentNullException(nameof(viewType));
+            }
+
+            var returnedViewInstance = this.ninjectKernel.Get(viewType);
+
+            var castViewInstance = this.ninjectKernel.Get(viewType) as IView;
+            if (castViewInstance == null)
+            {
+                throw new ArgumentException("Generated object could not be cast to IView.");
+            }
+
+            return castViewInstance;
         }
     }
 }
