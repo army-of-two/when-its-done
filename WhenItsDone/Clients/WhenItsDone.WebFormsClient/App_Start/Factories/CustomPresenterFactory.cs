@@ -1,7 +1,5 @@
 ﻿using System;
 
-using Ninject;
-
 using WebFormsMvp;
 using WebFormsMvp.Binder;
 
@@ -9,16 +7,16 @@ namespace WhenItsDone.WebFormsClient.App_Start.Factories
 {
     public class WebFormsMvpPresenterFactory : IPresenterFactory
     {
-        private readonly IKernel ninjectKernel;
+        private readonly ICustomPresenterFactory presenterFactory;
 
-        public WebFormsMvpPresenterFactory(IKernel ninjectKernel)
+        public WebFormsMvpPresenterFactory(ICustomPresenterFactory presenterFactory)
         {
-            if (ninjectKernel == null)
+            if (presenterFactory == null)
             {
-                throw new ArgumentNullException(nameof(ninjectKernel));
+                throw new ArgumentNullException(nameof(presenterFactory));
             }
 
-            this.ninjectKernel = ninjectKernel;
+            this.presenterFactory = presenterFactory;
         }
 
         public IPresenter Create(Type presenterType, Type viewType, IView viewInstance)
@@ -28,13 +26,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.Factories
                 throw new ArgumentNullException(nameof(presenterType));
             }
 
-            // Is this even needed ? Ninject should take care of it ?  
-            if (viewInstance == null)
-            {
-                viewInstance = this.CreateView(viewType);
-            }
-
-            var presenterInstance = this.CreatePresenter(presenterType);
+            var presenterInstance = this.presenterFactory.CreatePresenter(presenterType, viewType, viewInstance);
 
             return presenterInstance;
         }
@@ -53,34 +45,34 @@ namespace WhenItsDone.WebFormsClient.App_Start.Factories
             //}
         }
 
-        private IPresenter CreatePresenter(Type presenterType)
-        {
-            var returnedPresenterInstance = this.ninjectKernel.Get(presenterType);
-            var presenterInstance = returnedPresenterInstance as IPresenter;
-            if (presenterInstance == null)
-            {
-                throw new ArgumentException("Generated object could not be cast to IPresenter.");
-            }
+        //private IPresenter CreatePresenter(Type presenterType)
+        //{
+        //    var returnedPresenterInstance = this.ninjectKernel.Get(presenterType);
+        //    var presenterInstance = returnedPresenterInstance as IPresenter;
+        //    if (presenterInstance == null)
+        //    {
+        //        throw new ArgumentException("Generated object could not be cast to IPresenter.");
+        //    }
 
-            return presenterInstance;
-        }
+        //    return presenterInstance;
+        //}
 
-        private IView CreateView(Type viewType)
-        {
-            if (viewType == null)
-            {
-                throw new ArgumentNullException(nameof(viewType));
-            }
+        //private IView CreateView(Type viewType)
+        //{
+        //    if (viewType == null)
+        //    {
+        //        throw new ArgumentNullException(nameof(viewType));
+        //    }
 
-            var returnedViewInstance = this.ninjectKernel.Get(viewType);
+        //    var returnedViewInstance = this.ninjectKernel.Get(viewType);
 
-            var castViewInstance = this.ninjectKernel.Get(viewType) as IView;
-            if (castViewInstance == null)
-            {
-                throw new ArgumentException("Generated object could not be cast to IView.");
-            }
+        //    var castViewInstance = this.ninjectKernel.Get(viewType) as IView;
+        //    if (castViewInstance == null)
+        //    {
+        //        throw new ArgumentException("Generated object could not be cast to IView.");
+        //    }
 
-            return castViewInstance;
-        }
+        //    return castViewInstance;
+        //}
     }
 }
