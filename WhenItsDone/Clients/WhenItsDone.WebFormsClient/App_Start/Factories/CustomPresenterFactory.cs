@@ -5,13 +5,13 @@ using Ninject;
 using WebFormsMvp;
 using WebFormsMvp.Binder;
 
-namespace WhenItsDone.WebFormsClient.App_Start
+namespace WhenItsDone.WebFormsClient.App_Start.Factories
 {
-    public class CustomPresenterFactory : IPresenterFactory
+    public class WebFormsMvpPresenterFactory : IPresenterFactory
     {
         private readonly IKernel ninjectKernel;
 
-        public CustomPresenterFactory(IKernel ninjectKernel)
+        public WebFormsMvpPresenterFactory(IKernel ninjectKernel)
         {
             if (ninjectKernel == null)
             {
@@ -28,11 +28,21 @@ namespace WhenItsDone.WebFormsClient.App_Start
                 throw new ArgumentNullException(nameof(presenterType));
             }
 
+            if (viewInstance == null)
+            {
+                viewInstance = this.ninjectKernel.Get(viewType) as IView;
+            }
+
+            if (viewInstance == null)
+            {
+                throw new ArgumentException("Could not create View instance.");
+            }
+
             var returnedInstance = this.ninjectKernel.Get(presenterType);
             var presenterInstance = returnedInstance as IPresenter;
             if (presenterInstance == null)
             {
-                throw new ArgumentException("Generated object could not be cast to IPresenter");
+                throw new ArgumentException("Generated object could not be cast to IPresenter.");
             }
 
             return presenterInstance;
@@ -40,7 +50,7 @@ namespace WhenItsDone.WebFormsClient.App_Start
 
         /// <summary>
         /// Ignore this, 
-        /// Lifetime management delegated to Ninject.
+        /// Lifetime managerment delegated to Ninject.
         /// </summary>
         /// <param name="presenter"></param>
         public void Release(IPresenter presenter)
