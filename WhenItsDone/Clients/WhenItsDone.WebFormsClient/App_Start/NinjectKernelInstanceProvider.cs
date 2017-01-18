@@ -10,7 +10,7 @@ namespace WhenItsDone.WebFormsClient.App_Start
     /// https://msdn.microsoft.com/en-us/library/ff650316.aspx
     /// 
     /// Singleton should not be required,
-    /// Ninject kerner is guaranteed to be only 
+    /// Ninject kernel is guaranteed to be only 
     /// registered once, by Ninject itself. (?)
     /// </summary>
     public sealed class NinjectKernelInstanceProvider
