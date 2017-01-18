@@ -4,7 +4,7 @@ using WhenItsDone.Data.Contracts;
 
 namespace WhenItsDone.Data
 {
-    public class UnitOfWork : IUnitOfWork, IDisposable
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly IWhenItsDoneDbContext dbContext;
 
@@ -17,12 +17,7 @@ namespace WhenItsDone.Data
 
             this.dbContext = dbContext;
         }
-
-        public void Dispose()
-        {
-            // do nothing
-        }
-
+        
         public async Task<int> SaveChanges()
         {
             return await this.dbContext.SaveChangesAsync();

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using WhenItsDone.Data.Contracts;
@@ -68,11 +67,8 @@ namespace WhenItsDone.Services.Abstraction
                 throw new ArgumentException("Invalid item for add!");
             }
 
-            using (this.unitOfWork)
-            {
-                this.repo.Add(item);
-                await this.unitOfWork.SaveChanges();
-            }
+            this.repo.Add(item);
+            await this.unitOfWork.SaveChanges();
 
             return this.GetById(item.Id);
         }
@@ -84,11 +80,8 @@ namespace WhenItsDone.Services.Abstraction
                 throw new ArgumentException("Invalid item for update!");
             }
 
-            using (this.unitOfWork)
-            {
-                this.repo.Update(item);
-                await this.unitOfWork.SaveChanges();
-            }
+            this.repo.Update(item);
+            await this.unitOfWork.SaveChanges();
 
             return this.GetById(item.Id);
         }
@@ -100,12 +93,9 @@ namespace WhenItsDone.Services.Abstraction
                 throw new ArgumentException("Invalid item for hide!");
             }
 
-            using (this.unitOfWork)
-            {
-                item.IsDeleted = true;
-                this.repo.Update(item);
-                return await this.unitOfWork.SaveChanges();
-            }
+            item.IsDeleted = true;
+            this.repo.Update(item);
+            return await this.unitOfWork.SaveChanges();
         }
 
         public virtual async Task<int> Delete(T item)
@@ -115,11 +105,8 @@ namespace WhenItsDone.Services.Abstraction
                 throw new ArgumentException("Invalid item for delete!");
             }
 
-            using (this.unitOfWork)
-            {
-                this.repo.Delete(item);
-                return await this.unitOfWork.SaveChanges();
-            }
+            this.repo.Delete(item);
+            return await this.unitOfWork.SaveChanges();
         }
 
         public virtual async Task<IEnumerable<T>> GetAll()
