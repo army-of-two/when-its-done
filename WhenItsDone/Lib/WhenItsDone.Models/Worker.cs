@@ -33,10 +33,10 @@ namespace WhenItsDone.Models
             {
                 return this.Jobs;
             }
+
             set
             {
                 this.Jobs = value;
-
             }
         }
 
