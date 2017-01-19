@@ -16,6 +16,9 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
     {
         public override void Load()
         {
+            this.Bind<IPresenterFactory>().To<CustomWebFormsMvpPresenterFactory>().InSingletonScope();
+            this.Bind<ICustomPresenterFactory>().ToFactory().InSingletonScope();
+
             this.Bind<IPresenter>().ToMethod(ctx =>
             {
                 var parameters = ctx.Parameters.ToList();
@@ -25,7 +28,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 {
                     throw new ArgumentNullException("Invalid requested presenter type.");
                 }
-                
+
                 var viewType = (Type)parameters[1];
                 if (viewType == null)
                 {
@@ -53,8 +56,6 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 return (IPresenter)ctx.Kernel.Get(requestedType);
             })
             .NamedLikeFactoryMethod((ICustomPresenterFactory factory) => factory.GetPresenter(null, null, null));
-
-            this.Bind<IPresenterFactory>().To<CustomWebFormsMvpPresenterFactory>().InSingletonScope();
         }
     }
 }
