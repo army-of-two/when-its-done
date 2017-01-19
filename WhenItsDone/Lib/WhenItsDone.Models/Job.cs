@@ -4,7 +4,7 @@ using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Models
 {
-    public class Task : IDbModel
+    public class Job : IDbModel
     {
         public int Id { get; set; }
 

@@ -8,7 +8,7 @@ namespace WhenItsDone.Models
     {
         public Worker()
         {
-            this.Tasks = new HashSet<Task>();
+            this.Tasks = new HashSet<Job>();
         }
 
         public int Id { get; set; }
@@ -27,7 +27,7 @@ namespace WhenItsDone.Models
 
         public virtual ContactInformation ContactInformation { get; set; }
 
-        public virtual ICollection<Task> Tasks
+        public virtual ICollection<Job> Tasks
         {
             get
             {
