@@ -18,24 +18,24 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
         {
             this.Bind<IPresenter>().ToMethod(ctx =>
             {
-                var requestedType = (Type)ctx.Parameters.First().GetValue(ctx, null);
                 var parameters = ctx.Parameters.ToList();
 
-                if (parameters.Count < 3)
+                var requestedType = (Type)parameters[0];
+                if (requestedType == null)
                 {
-                    throw new ArgumentException("Expected at least 3 parameters.");
+                    throw new ArgumentNullException("Invalid requested presenter type.");
                 }
-
+                
                 var viewType = (Type)parameters[1];
                 if (viewType == null)
                 {
-                    throw new ArgumentNullException("Invalid view type.");
+                    throw new ArgumentNullException("Invalid requested view type.");
                 }
 
-                var view = (IView)parameters[2];
-                if (view == null)
+                var viewInstance = (IView)parameters[2];
+                if (viewInstance == null)
                 {
-                    view = (IView)ctx.Kernel.Get(viewType);
+                    viewInstance = (IView)ctx.Kernel.Get(viewType);
                 }
 
                 // Unknown possible parameters for each separate IPresenter
@@ -43,18 +43,18 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 var bindingExists = this.Kernel.GetBindings(viewType).Any();
                 if (bindingExists)
                 {
-                    this.Rebind(viewType).ToMethod(context => view);
+                    this.Rebind(viewType).ToMethod(context => viewInstance);
                 }
                 else
                 {
-                    this.Bind(viewType).ToMethod(context => view);
+                    this.Bind(viewType).ToMethod(context => viewInstance);
                 }
 
                 return (IPresenter)ctx.Kernel.Get(requestedType);
             })
             .NamedLikeFactoryMethod((ICustomPresenterFactory factory) => factory.CreatePresenter(null, null, null));
 
-            this.Kernel.Bind<IPresenterFactory>().To<WebFormsMvpPresenterFactory>().InSingletonScope();
+            this.Bind<IPresenterFactory>().To<CustomWebFormsMvpPresenterFactory>().InSingletonScope();
         }
     }
 }

@@ -5,11 +5,11 @@ using WebFormsMvp.Binder;
 
 namespace WhenItsDone.WebFormsClient.App_Start.Factories
 {
-    public class WebFormsMvpPresenterFactory : IPresenterFactory
+    public class CustomWebFormsMvpPresenterFactory : IPresenterFactory
     {
         private readonly ICustomPresenterFactory presenterFactory;
 
-        public WebFormsMvpPresenterFactory(ICustomPresenterFactory presenterFactory)
+        public CustomWebFormsMvpPresenterFactory(ICustomPresenterFactory presenterFactory)
         {
             if (presenterFactory == null)
             {
