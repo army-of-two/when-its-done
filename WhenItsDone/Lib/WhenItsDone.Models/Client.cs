@@ -8,7 +8,7 @@ namespace WhenItsDone.Models
     {
         public Client()
         {
-            this.Tasks = new HashSet<Task>();
+            this.Jobs = new HashSet<Job>();
         }
 
         public int Id { get; set; }
@@ -27,20 +27,19 @@ namespace WhenItsDone.Models
 
         public virtual ContactInformation ContactInformation { get; set; }
 
-        public virtual ICollection<Task> Tasks
+        public virtual ICollection<Job> Jobs
         {
             get
             {
-                return this.Tasks;
+                return this.Jobs;
             }
+
             set
             {
-                this.Tasks = value;
-
+                this.Jobs = value;
             }
         }
 
         public bool IsDeleted { get; set; }
     }
 }
-
