@@ -5,6 +5,7 @@ using Ninject;
 using Ninject.Activation;
 using Ninject.Extensions.Factory;
 using Ninject.Modules;
+using Ninject.Parameters;
 
 using WebFormsMvp;
 using WebFormsMvp.Binder;
@@ -71,6 +72,13 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
             }
 
             return (IPresenter)ctx.Kernel.Get(requestedType);
+
+            // Alternative binding.
+            // http://webformsmvpcontrib.codeplex.com/SourceControl/latest#WebFormsMvp.Contrib/WebFormsMvp.Contrib.Ninject/MvpPresenterKernel.cs
+            // Depends on correct constructor parameter name.
+            //var viewInstanceParameter = new ConstructorArgument("view", viewInstance);
+
+            //return (IPresenter)ctx.Kernel.Get(requestedType, viewInstanceParameter);
         }
     }
 }
