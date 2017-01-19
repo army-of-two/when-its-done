@@ -34,19 +34,19 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
         {
             var parameters = ctx.Parameters.ToList();
 
-            var requestedType = (Type)parameters[0];
+            var requestedType = (Type)parameters[0].GetValue(ctx, null);
             if (requestedType == null)
             {
                 throw new ArgumentNullException("Invalid requested presenter type.");
             }
 
-            var viewType = (Type)parameters[1];
+            var viewType = (Type)parameters[1].GetValue(ctx, null);
             if (viewType == null)
             {
                 throw new ArgumentNullException("Invalid requested view type.");
             }
 
-            var viewInstance = (IView)parameters[2];
+            var viewInstance = (IView)parameters[2].GetValue(ctx, null);
             if (viewInstance == null)
             {
                 viewInstance = (IView)ctx.Kernel.Get(viewType);
