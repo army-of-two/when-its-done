@@ -46,6 +46,12 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 throw new ArgumentNullException("Invalid requested view type.");
             }
 
+            var viewTypeInterface = viewType.GetInterfaces().FirstOrDefault(x => x.Name.Contains("View") && !x.Name.Contains("IView"));
+            if (viewTypeInterface == null)
+            {
+                throw new ArgumentNullException("Invalid requested view type.");
+            }
+
             var viewInstance = (IView)parameters[2].GetValue(ctx, null);
             if (viewInstance == null)
             {
@@ -54,14 +60,14 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 
             // Unknown possible parameters for each separate IPresenter
             // Binding the view so Ninject can resolve each of them separately.
-            var bindingExists = this.Kernel.GetBindings(viewType).Any();
+            var bindingExists = this.Kernel.GetBindings(viewTypeInterface).Any();
             if (bindingExists)
             {
-                this.Rebind(viewType).ToMethod(context => viewInstance);
+                this.Rebind(viewTypeInterface).ToMethod(context => viewInstance);
             }
             else
             {
-                this.Bind(viewType).ToMethod(context => viewInstance);
+                this.Bind(viewTypeInterface).ToMethod(context => viewInstance);
             }
 
             return (IPresenter)ctx.Kernel.Get(requestedType);
