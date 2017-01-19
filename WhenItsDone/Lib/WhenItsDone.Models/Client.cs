@@ -43,4 +43,3 @@ namespace WhenItsDone.Models
         public bool IsDeleted { get; set; }
     }
 }
-
