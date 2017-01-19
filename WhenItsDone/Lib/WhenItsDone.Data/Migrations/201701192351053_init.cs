@@ -26,15 +26,15 @@ namespace WhenItsDone.Data.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         ReviewContent = c.String(),
                         Score = c.Int(nullable: false),
-                        ClientId = c.Int(nullable: false),
+                        WorkerId = c.Int(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Clients", t => t.ClientId, cascadeDelete: true)
-                .Index(t => t.ClientId);
+                .ForeignKey("dbo.Workers", t => t.WorkerId, cascadeDelete: true)
+                .Index(t => t.WorkerId);
             
             CreateTable(
-                "dbo.Clients",
+                "dbo.Workers",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -47,7 +47,7 @@ namespace WhenItsDone.Data.Migrations
                         IsDeleted = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.ContactInformations", t => t.ContactInformationId, cascadeDelete: true)
+                .ForeignKey("dbo.ContactInformations", t => t.ContactInformationId, cascadeDelete: false)
                 .Index(t => t.ContactInformationId);
             
             CreateTable(
@@ -83,7 +83,7 @@ namespace WhenItsDone.Data.Migrations
                 .Index(t => t.ClientId);
             
             CreateTable(
-                "dbo.Workers",
+                "dbo.Clients",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -96,7 +96,7 @@ namespace WhenItsDone.Data.Migrations
                         IsDeleted = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.ContactInformations", t => t.ContactInformationId, cascadeDelete: false)
+                .ForeignKey("dbo.ContactInformations", t => t.ContactInformationId, cascadeDelete: true)
                 .Index(t => t.ContactInformationId);
             
             CreateTable(
@@ -118,24 +118,24 @@ namespace WhenItsDone.Data.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.WorkerReviews", "ClientId", "dbo.Clients");
-            DropForeignKey("dbo.ClientReviews", "ClientId", "dbo.Clients");
+            DropForeignKey("dbo.ClientReviews", "WorkerId", "dbo.Workers");
             DropForeignKey("dbo.Jobs", "WorkerId", "dbo.Workers");
-            DropForeignKey("dbo.Workers", "ContactInformationId", "dbo.ContactInformations");
             DropForeignKey("dbo.Jobs", "ClientId", "dbo.Clients");
             DropForeignKey("dbo.Clients", "ContactInformationId", "dbo.ContactInformations");
+            DropForeignKey("dbo.Workers", "ContactInformationId", "dbo.ContactInformations");
             DropForeignKey("dbo.ContactInformations", "AddressId", "dbo.Addresses");
             DropIndex("dbo.WorkerReviews", new[] { "ClientId" });
-            DropIndex("dbo.Workers", new[] { "ContactInformationId" });
+            DropIndex("dbo.Clients", new[] { "ContactInformationId" });
             DropIndex("dbo.Jobs", new[] { "ClientId" });
             DropIndex("dbo.Jobs", new[] { "WorkerId" });
             DropIndex("dbo.ContactInformations", new[] { "AddressId" });
-            DropIndex("dbo.Clients", new[] { "ContactInformationId" });
-            DropIndex("dbo.ClientReviews", new[] { "ClientId" });
+            DropIndex("dbo.Workers", new[] { "ContactInformationId" });
+            DropIndex("dbo.ClientReviews", new[] { "WorkerId" });
             DropTable("dbo.WorkerReviews");
-            DropTable("dbo.Workers");
+            DropTable("dbo.Clients");
             DropTable("dbo.Jobs");
             DropTable("dbo.ContactInformations");
-            DropTable("dbo.Clients");
+            DropTable("dbo.Workers");
             DropTable("dbo.ClientReviews");
             DropTable("dbo.Addresses");
         }

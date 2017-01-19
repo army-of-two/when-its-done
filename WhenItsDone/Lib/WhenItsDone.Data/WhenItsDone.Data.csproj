@@ -52,9 +52,9 @@
     <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Contracts\IWhenItsDoneDbContext.cs" />
-    <Compile Include="Migrations\201701192343174_init.cs" />
-    <Compile Include="Migrations\201701192343174_init.Designer.cs">
-      <DependentUpon>201701192343174_init.cs</DependentUpon>
+    <Compile Include="Migrations\201701192351053_init.cs" />
+    <Compile Include="Migrations\201701192351053_init.Designer.cs">
+      <DependentUpon>201701192351053_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UnitOfWork.cs" />
@@ -73,8 +73,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201701192343174_init.resx">
-      <DependentUpon>201701192343174_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701192351053_init.resx">
+      <DependentUpon>201701192351053_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
