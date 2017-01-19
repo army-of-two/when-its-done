@@ -52,7 +52,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 
                 return (IPresenter)ctx.Kernel.Get(requestedType);
             })
-            .NamedLikeFactoryMethod((ICustomPresenterFactory factory) => factory.CreatePresenter(null, null, null));
+            .NamedLikeFactoryMethod((ICustomPresenterFactory factory) => factory.GetPresenter(null, null, null));
 
             this.Bind<IPresenterFactory>().To<CustomWebFormsMvpPresenterFactory>().InSingletonScope();
         }

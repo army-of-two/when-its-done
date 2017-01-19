@@ -26,7 +26,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.Factories
                 throw new ArgumentNullException(nameof(presenterType));
             }
 
-            var presenterInstance = this.presenterFactory.CreatePresenter(presenterType, viewType, viewInstance);
+            var presenterInstance = this.presenterFactory.GetPresenter(presenterType, viewType, viewInstance);
 
             return presenterInstance;
         }
