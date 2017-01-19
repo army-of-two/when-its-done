@@ -2,6 +2,7 @@
 using System.Linq;
 
 using Ninject;
+using Ninject.Activation;
 using Ninject.Extensions.Factory;
 using Ninject.Modules;
 
@@ -9,7 +10,6 @@ using WebFormsMvp;
 using WebFormsMvp.Binder;
 
 using WhenItsDone.WebFormsClient.App_Start.Factories;
-using Ninject.Activation;
 
 namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 {
@@ -17,10 +17,16 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
     {
         public override void Load()
         {
-            this.Bind<IPresenterFactory>().To<CustomWebFormsMvpPresenterFactory>().InSingletonScope();
-            this.Bind<ICustomPresenterFactory>().ToFactory().InSingletonScope();
+            this.Bind<IPresenterFactory>()
+                .To<CustomWebFormsMvpPresenterFactory>()
+                .InSingletonScope();
 
-            this.Bind<IPresenter>().ToMethod(this.PresenterFactoryMethod)
+            this.Bind<ICustomPresenterFactory>()
+                .ToFactory()
+                .InSingletonScope();
+
+            this.Bind<IPresenter>()
+                .ToMethod(this.PresenterFactoryMethod)
                 .NamedLikeFactoryMethod((ICustomPresenterFactory factory) => factory.GetPresenter(null, null, null));
         }
 
