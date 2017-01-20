@@ -72,6 +72,7 @@
     <Compile Include="ClientTests\ClientConstructorTests.cs" />
     <Compile Include="ClientTests\ClientFirstNameTestts.cs" />
     <Compile Include="ClientTests\ClientIdTests.cs" />
+    <Compile Include="ClientTests\ClientJobsTests.cs" />
     <Compile Include="ClientTests\ClientLastNameTests.cs" />
     <Compile Include="ClientTests\ClientRatingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
