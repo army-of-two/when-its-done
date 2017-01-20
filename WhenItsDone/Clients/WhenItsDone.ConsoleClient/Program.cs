@@ -12,7 +12,7 @@ namespace WhenItsDone.ConsoleClient
             {
                 // this will only be executed if the 
                 // operation is completed BEFORE the console app has finished execution.
-                // thus counter to 100
+                // side effect of having a console app, thus counter is set to 100
                 Console.WriteLine($"Counter - resulting value - Async - {task.Result}");
             });
 
