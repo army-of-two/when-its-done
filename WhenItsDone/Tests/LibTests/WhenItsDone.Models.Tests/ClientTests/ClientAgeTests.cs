@@ -50,7 +50,7 @@ namespace WhenItsDone.Models.Tests.ClientTests
                             .SingleOrDefault();
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ValidationConstants.AgeMinValue, result.Maximum);
+            Assert.AreEqual(ValidationConstants.AgeMaxValue, result.Maximum);
         }
 
         [TestCase(8)]

@@ -109,7 +109,7 @@ namespace WhenItsDone.Models.Tests.ClientTests
                             .FirstOrDefault();
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ValidationConstants.NameMinLength, result.Pattern);
+            Assert.AreEqual(RegexConstants.EnBgSpaceMinus, result.Pattern);
         }
 
         [TestCase("_Totally_Random_String_")]
