@@ -44,7 +44,10 @@ namespace WhenItsDone.Services.Abstraction
             }
 
             this.repository.Add(item);
-            this.SaveChangesToDb();
+            using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
+            {
+                await uow.SaveChanges();
+            }
 
             return this.GetById(item.Id);
         }
@@ -57,7 +60,10 @@ namespace WhenItsDone.Services.Abstraction
             }
 
             this.repository.Update(item);
-            this.SaveChangesToDb();
+            using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
+            {
+                await uow.SaveChanges();
+            }
 
             return this.GetById(item.Id);
         }
@@ -71,7 +77,10 @@ namespace WhenItsDone.Services.Abstraction
 
             item.IsDeleted = true;
             this.repository.Update(item);
-            this.SaveChangesToDb();
+            using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
+            {
+                return await uow.SaveChanges();
+            }
         }
 
         public virtual async Task<int> Delete(T item)
@@ -82,7 +91,10 @@ namespace WhenItsDone.Services.Abstraction
             }
 
             this.repository.Delete(item);
-            this.SaveChangesToDb();
+            using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
+            {
+                return await uow.SaveChanges();
+            }
         }
 
         public virtual async Task<IEnumerable<T>> GetAll()
@@ -138,13 +150,5 @@ namespace WhenItsDone.Services.Abstraction
         }
 
         protected abstract bool IsValid(T item);
-
-        private async void SaveChangesToDb()
-        {
-            using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
-            {
-                await uow.SaveChanges();
-            }
-        }
     }
 }
