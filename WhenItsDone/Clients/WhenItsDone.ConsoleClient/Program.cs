@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace WhenItsDone.ConsoleClient
@@ -10,37 +7,56 @@ namespace WhenItsDone.ConsoleClient
     {
         public static void Main()
         {
-            Program.AsyncTest();
-            var result = Program.SyncTest();
-            Console.WriteLine(result.Result);
-        }
-
-        private static void AsyncTest()
-        {
-            var counter = 0;
-            Task.Run(() =>
+            var asyncResult = Program.AsyncTest();
+            asyncResult.ContinueWith((task) =>
             {
-                for (long i = 0; i < 999999999999; i++)
-                {
-                    counter++;
-                }
+                // this will only be executed if the 
+                // operation is completed BEFORE the console app has finished execution.
+                // thus counter to 100
+                Console.WriteLine($"Counter - resulting value - Async - {task.Result}");
             });
 
-            Console.WriteLine(counter);
+            var syncResult = Program.SyncTest();
+            Console.WriteLine($"Counter - value - Sync - {syncResult.Result}");
         }
 
-        private async static Task<long> SyncTest()
+        private static Task<long> AsyncTest()
         {
-            var counter = 0;
-            return await Task.Run(() =>
+            long counter = 0;
+            var runTask = Task.Run(() =>
              {
-                 for (long i = 0; i < 999999999999; i++)
+                 for (long i = 0; i < 100; i++)
                  {
                      counter++;
                  }
 
                  return counter;
              });
+
+            // This is executed before the task has even been assigned a thread.
+            Console.WriteLine($"Counter - initial value - Async - {counter}");
+
+            return runTask;
+        }
+
+        private async static Task<long> SyncTest()
+        {
+            var counter = 0;
+            var result = await Task.Run(() =>
+             {
+                 // Add zeroes for increased effect
+                 for (long i = 0; i < 999999999; i++)
+                 {
+                     counter++;
+                 }
+
+                 return counter;
+             });
+
+            // This is executed AFTER the task is completed
+            Console.WriteLine($"Counter - initial value - Sync (cw afer await) - {counter}");
+
+            return result;
         }
     }
 }
