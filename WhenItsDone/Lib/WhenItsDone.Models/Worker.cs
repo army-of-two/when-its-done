@@ -9,12 +9,14 @@ namespace WhenItsDone.Models
     public class Worker : IDbModel
     {
         private ICollection<Job> jobs;
-        private ICollection<MediaItem> mediaItems;
+        private ICollection<PhotoItem> photoItems;
+        private ICollection<VideoItem> videoItems;
 
         public Worker()
         {
             this.jobs = new HashSet<Job>();
-            this.mediaItems = new HashSet<MediaItem>();
+            this.photoItems = new HashSet<PhotoItem>();
+            this.videoItems = new HashSet<VideoItem>();
 
             this.IsAvailable = true;
         }
@@ -56,16 +58,29 @@ namespace WhenItsDone.Models
 
         public virtual ContactInformation ContactInformation { get; set; }
 
-        public virtual ICollection<MediaItem> MediaItems
+        public virtual ICollection<VideoItem> VideoItems
         {
             get
             {
-                return this.mediaItems;
+                return this.videoItems;
             }
 
             set
             {
-                this.mediaItems = value;
+                this.videoItems = value;
+            }
+        }
+
+        public virtual ICollection<PhotoItem> PhotoItems
+        {
+            get
+            {
+                return this.photoItems;
+            }
+
+            set
+            {
+                this.photoItems = value;
             }
         }
 

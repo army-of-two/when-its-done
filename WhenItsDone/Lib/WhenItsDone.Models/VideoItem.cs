@@ -1,6 +1,6 @@
 ﻿namespace WhenItsDone.Models
 {
-    public class PhotoItem
+    public class VideoItem
     {
         public int Id { get; set; }
 
