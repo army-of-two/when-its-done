@@ -2,62 +2,38 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+
 using WhenItsDone.Data.Contracts;
+using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Services.Abstraction
 {
-    public abstract class GenericService<T>
+    public abstract class FactoryGenericAsyncService<T>
             where T : class, IDbModel
     {
-        private IRepository<T> repo;
-        private IUnitOfWork unitOfWork;
+        private readonly IRepository<T> repository;
+        private readonly IUnitOfWorkFactory unitOfWorkFactory;
 
-        public GenericService(IRepository<T> repo, IUnitOfWork unitOfWork)
+        public FactoryGenericAsyncService(IRepository<T> repository, IUnitOfWorkFactory unitOfWorkFactory)
         {
-            this.Repo = repo;
-            this.UnitOfWork = unitOfWork;
-        }
-
-        protected IRepository<T> Repo
-        {
-            get
+            if (repository == null)
             {
-                return this.repo;
+                throw new ArgumentNullException(nameof(repository));
             }
 
-            private set
+            if (unitOfWorkFactory == null)
             {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("Repository");
-                }
-
-                this.repo = value;
-            }
-        }
-
-        protected IUnitOfWork UnitOfWork
-        {
-            get
-            {
-                return this.unitOfWork;
+                throw new ArgumentNullException(nameof(unitOfWorkFactory));
             }
 
-            private set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("UnitOfWork");
-                }
-
-                this.unitOfWork = value;
-            }
+            this.repository = repository;
+            this.unitOfWorkFactory = unitOfWorkFactory;
         }
 
         public virtual T GetById(int id)
         {
-            return this.repo.GetById(id);
+            return this.repository.GetById(id);
         }
 
         public virtual async Task<T> Add(T item)
@@ -67,8 +43,11 @@ namespace WhenItsDone.Services.Abstraction
                 throw new ArgumentException("Invalid item for add!");
             }
 
-            this.repo.Add(item);
-            await this.unitOfWork.SaveChanges();
+            this.repository.Add(item);
+            using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
+            {
+                await uow.SaveChanges();
+            }
 
             return this.GetById(item.Id);
         }
@@ -80,8 +59,11 @@ namespace WhenItsDone.Services.Abstraction
                 throw new ArgumentException("Invalid item for update!");
             }
 
-            this.repo.Update(item);
-            await this.unitOfWork.SaveChanges();
+            this.repository.Update(item);
+            using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
+            {
+                await uow.SaveChanges();
+            }
 
             return this.GetById(item.Id);
         }
@@ -94,8 +76,11 @@ namespace WhenItsDone.Services.Abstraction
             }
 
             item.IsDeleted = true;
-            this.repo.Update(item);
-            return await this.unitOfWork.SaveChanges();
+            this.repository.Update(item);
+            using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
+            {
+                return await uow.SaveChanges();
+            }
         }
 
         public virtual async Task<int> Delete(T item)
@@ -105,38 +90,41 @@ namespace WhenItsDone.Services.Abstraction
                 throw new ArgumentException("Invalid item for delete!");
             }
 
-            this.repo.Delete(item);
-            return await this.unitOfWork.SaveChanges();
+            this.repository.Delete(item);
+            using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
+            {
+                return await uow.SaveChanges();
+            }
         }
 
         public virtual async Task<IEnumerable<T>> GetAll()
         {
-            return await Task.Run(() => this.repo.GetAll());
+            return await Task.Run(() => this.repository.GetAll());
         }
 
         public virtual async Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> filter)
         {
-            return await Task.Run(() => this.repo.GetAll(filter));
+            return await Task.Run(() => this.repository.GetAll(filter));
         }
 
         public virtual async Task<IEnumerable<T>> GetAll<T1>(Expression<Func<T, bool>> filter,
                                                     Expression<Func<T, T1>> orderBy)
         {
-            return await Task.Run(() => this.repo.GetAll(filter, orderBy));
+            return await Task.Run(() => this.repository.GetAll(filter, orderBy));
         }
 
         public virtual async Task<IEnumerable<TResult>> GetAll<T1, TResult>(Expression<Func<T, bool>> filter,
                                             Expression<Func<T, T1>> orderBy,
                                             Expression<Func<T, TResult>> select)
         {
-            return await Task.Run(() => this.repo.GetAll(filter, orderBy, select));
+            return await Task.Run(() => this.repository.GetAll(filter, orderBy, select));
         }
 
         public virtual async Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> filter,
                                         int page,
                                         int pageSize)
         {
-            return await Task.Run(() => this.repo.GetAll(filter, page, pageSize));
+            return await Task.Run(() => this.repository.GetAll(filter, page, pageSize));
         }
 
         public virtual async Task<IEnumerable<T>> GetAll<T1>(Expression<Func<T, bool>> filter,
@@ -144,7 +132,7 @@ namespace WhenItsDone.Services.Abstraction
                                         int page,
                                         int pageSize)
         {
-            return await Task.Run(() => this.repo.GetAll(filter, orderBy, page, pageSize));
+            return await Task.Run(() => this.repository.GetAll(filter, orderBy, page, pageSize));
         }
 
         public virtual async Task<IEnumerable<TResult>> GetAll<T1, TResult>(Expression<Func<T, bool>> filter,
@@ -153,7 +141,7 @@ namespace WhenItsDone.Services.Abstraction
                                             int page,
                                             int pageSize)
         {
-            return await Task.Run(() => this.repo.GetAll(filter, orderBy, select, page, pageSize));
+            return await Task.Run(() => this.repository.GetAll(filter, orderBy, select, page, pageSize));
         }
 
         public virtual async Task<IEnumerable<T>> GetDeleted()

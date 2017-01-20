@@ -68,6 +68,8 @@ namespace WhenItsDone.WebFormsClient.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Load(new MVPBindingsModule());
+            kernel.Load(new DataBindingsModule());
+            kernel.Load(new ServicesBindingsModule());
         }
     }
 }

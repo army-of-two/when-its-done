@@ -7,6 +7,7 @@ namespace WhenItsDone.Models
 {
     public class ReceivedPayment : IDbModel
     {
+        [Key]
         public int Id { get; set; }
 
         public bool IsDeleted { get; set; }
