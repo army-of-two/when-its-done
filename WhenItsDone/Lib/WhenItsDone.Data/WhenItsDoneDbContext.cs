@@ -24,6 +24,8 @@ namespace WhenItsDone.Data
 
         public virtual IDbSet<PhotoItem> PhotoItems { get; set; }
 
+        public virtual IDbSet<ReceivedPayment> ReceivedPayments { get; set; }
+
         public virtual IDbSet<VideoItem> VideoItems { get; set; }
 
         public virtual IDbSet<Worker> Workers { get; set; }
