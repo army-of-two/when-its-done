@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+
 using WhenItsDone.Models.Constants;
 using WhenItsDone.Models.Contracts;
 
@@ -34,7 +35,17 @@ namespace WhenItsDone.Models
         [Range(ValidationConstants.AgeMinValue, ValidationConstants.AgeMaxValue)]
         public int Age { get; set; }
 
+        public int HeightInCm { get; set; }
+
+        public int WeightInKg { get; set; }
+
+        public int BMI { get; set; }
+
         public bool IsAvailable { get; set; }
+
+        public int VitalStatisticsId { get; set; }
+
+        public virtual VitalStatistics VitalStatistics { get; set; }
 
         [Range(ValidationConstants.RatingMinValue, ValidationConstants.RatingMaxValue)]
         public int Rating { get; set; }
