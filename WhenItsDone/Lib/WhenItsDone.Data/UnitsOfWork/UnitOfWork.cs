@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
+
 using WhenItsDone.Data.Contracts;
 
-namespace WhenItsDone.Data
+namespace WhenItsDone.Data.UnitsOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
