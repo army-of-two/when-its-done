@@ -43,6 +43,8 @@
     <Compile Include="Address.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="ClientReview.cs" />
+    <Compile Include="Constants\RegexConstants.cs" />
+    <Compile Include="Constants\ValidationConstants.cs" />
     <Compile Include="ContactInformation.cs" />
     <Compile Include="Contracts\IDbModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
