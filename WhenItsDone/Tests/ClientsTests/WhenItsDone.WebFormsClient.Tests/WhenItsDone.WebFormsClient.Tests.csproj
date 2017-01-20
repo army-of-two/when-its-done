@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A5859D27-21D2-4439-A1A0-4567A6DE6813}</ProjectGuid>
+    <ProjectGuid>{52AE096D-C7A2-4268-9865-01FC89256AE3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WhenItsDone.ServicesTests</RootNamespace>
-    <AssemblyName>WhenItsDone.ServicesTests</AssemblyName>
+    <RootNamespace>WhenItsDone.WebFormsClient.Tests</RootNamespace>
+    <AssemblyName>WhenItsDone.WebFormsClient.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

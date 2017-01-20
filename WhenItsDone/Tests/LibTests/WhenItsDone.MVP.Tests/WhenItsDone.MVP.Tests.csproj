@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0CD0FA64-98AD-4211-90F5-066B7D4D02FB}</ProjectGuid>
+    <ProjectGuid>{DA1F42BA-2A1A-4CDA-A683-B2DFEF6934A7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WhenItsDone.MVPTests</RootNamespace>
-    <AssemblyName>WhenItsDone.MVPTests</AssemblyName>
+    <RootNamespace>WhenItsDone.MVP.Tests</RootNamespace>
+    <AssemblyName>WhenItsDone.MVP.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
