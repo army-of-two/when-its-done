@@ -69,6 +69,7 @@
     <Compile Include="AddressTests\AddressIsDeletedTests.cs" />
     <Compile Include="AddressTests\AddressStreetTests.cs" />
     <Compile Include="ClientTests\ClientAsDbModelTests.cs" />
+    <Compile Include="ClientTests\ClientConstructorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

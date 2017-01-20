@@ -1,5 +1,7 @@
 ﻿using NUnit.Framework;
+using System;
 using System.Linq;
+using WhenItsDone.Models;
 using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Models.Tests.ClientTests
