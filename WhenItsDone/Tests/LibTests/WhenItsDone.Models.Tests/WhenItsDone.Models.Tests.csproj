@@ -67,6 +67,7 @@
     <Compile Include="AddressTests\AddressCountryTests.cs" />
     <Compile Include="AddressTests\AddressIdTests.cs" />
     <Compile Include="AddressTests\AddressStreetTests.cs" />
+    <Compile Include="ClientTests\ClientAgeTests.cs" />
     <Compile Include="ClientTests\ClientAsDbModelTests.cs" />
     <Compile Include="ClientTests\ClientConstructorTests.cs" />
     <Compile Include="ClientTests\ClientFirstNameTestts.cs" />
