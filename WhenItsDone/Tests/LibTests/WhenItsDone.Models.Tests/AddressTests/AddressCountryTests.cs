@@ -111,5 +111,16 @@ namespace WhenItsDone.Models.Tests.AddressTests
             Assert.IsNotNull(result);
             Assert.AreEqual(RegexConstants.EnBgSpaceMinus, result.Pattern);
         }
+
+        [TestCase("White shark")]
+        [TestCase("The country that is far far away")]
+        public void Country_GetAndSetShould_WorkProperly(string randomString)
+        {
+            var obj = new Address();
+
+            obj.Country = randomString;
+
+            Assert.AreEqual(randomString, obj.Country);
+        }
     }
 }

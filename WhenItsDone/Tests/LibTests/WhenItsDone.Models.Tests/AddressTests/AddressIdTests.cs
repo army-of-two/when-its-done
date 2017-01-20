@@ -20,5 +20,16 @@ namespace WhenItsDone.Models.Tests.AddressTests
 
             Assert.IsTrue(result);
         }
+
+        [TestCase(6)]
+        [TestCase(231232141)]
+        public void Id_GetAndSetShould_WorkProperly(int randomNumber)
+        {
+            var obj = new Address();
+
+            obj.Id = randomNumber;
+
+            Assert.AreEqual(randomNumber, obj.Id);
+        }
     }
 }

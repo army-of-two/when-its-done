@@ -111,5 +111,16 @@ namespace WhenItsDone.Models.Tests.AddressTests
             Assert.IsNotNull(result);
             Assert.AreEqual(RegexConstants.EnBgSpaceMinus, result.Pattern);
         }
+
+        [TestCase("Pernik bace")]
+        [TestCase("Just another test where I havent random string in mind")]
+        public void City_GetAndSetShould_WorkProperly(string randomString)
+        {
+            var obj = new Address();
+
+            obj.City = randomString;
+
+            Assert.AreEqual(randomString, obj.City);
+        }
     }
 }
