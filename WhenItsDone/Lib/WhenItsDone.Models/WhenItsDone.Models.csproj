@@ -49,6 +49,7 @@
     <Compile Include="ContactInformation.cs" />
     <Compile Include="Contracts\IDbModel.cs" />
     <Compile Include="Enums\GenderType.cs" />
+    <Compile Include="Payment.cs" />
     <Compile Include="PhotoItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Job.cs" />
