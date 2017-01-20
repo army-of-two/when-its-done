@@ -4,56 +4,31 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 using WhenItsDone.Data.Contracts;
+using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Services.Abstraction
 {
-    public abstract class GenericAsyncService<T>
+    public abstract class FactoryGenericAsyncService<T>
             where T : class, IDbModel
     {
-        private IRepository<T> repository;
-        private IDisposableUnitOfWork unitOfWork;
+        private readonly IRepository<T> repository;
+        private readonly IUnitOfWorkFactory unitOfWorkFactory;
 
-        public GenericAsyncService(IRepository<T> repository, IDisposableUnitOfWork unitOfWork)
+        public FactoryGenericAsyncService(IRepository<T> repository, IUnitOfWorkFactory unitOfWorkFactory)
         {
-            this.Repository = repository;
-            this.UnitOfWork = unitOfWork;
-        }
-
-        protected IRepository<T> Repository
-        {
-            get
+            if (repository == null)
             {
-                return this.repository;
+                throw new ArgumentNullException(nameof(repository));
             }
 
-            private set
+            if (unitOfWorkFactory == null)
             {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("Repository");
-                }
-
-                this.repository = value;
-            }
-        }
-
-        protected IDisposableUnitOfWork UnitOfWork
-        {
-            get
-            {
-                return this.unitOfWork;
+                throw new ArgumentNullException(nameof(unitOfWorkFactory));
             }
 
-            private set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException("UnitOfWork");
-                }
-
-                this.unitOfWork = value;
-            }
+            this.repository = repository;
+            this.unitOfWorkFactory = unitOfWorkFactory;
         }
 
         public virtual T GetById(int id)
@@ -69,7 +44,7 @@ namespace WhenItsDone.Services.Abstraction
             }
 
             this.repository.Add(item);
-            await this.unitOfWork.SaveChanges();
+            this.SaveChangesToDb();
 
             return this.GetById(item.Id);
         }
@@ -82,7 +57,7 @@ namespace WhenItsDone.Services.Abstraction
             }
 
             this.repository.Update(item);
-            await this.unitOfWork.SaveChanges();
+            this.SaveChangesToDb();
 
             return this.GetById(item.Id);
         }
@@ -96,7 +71,7 @@ namespace WhenItsDone.Services.Abstraction
 
             item.IsDeleted = true;
             this.repository.Update(item);
-            return await this.unitOfWork.SaveChanges();
+            this.SaveChangesToDb();
         }
 
         public virtual async Task<int> Delete(T item)
@@ -107,7 +82,7 @@ namespace WhenItsDone.Services.Abstraction
             }
 
             this.repository.Delete(item);
-            return await this.unitOfWork.SaveChanges();
+            this.SaveChangesToDb();
         }
 
         public virtual async Task<IEnumerable<T>> GetAll()
@@ -163,5 +138,13 @@ namespace WhenItsDone.Services.Abstraction
         }
 
         protected abstract bool IsValid(T item);
+
+        private async void SaveChangesToDb()
+        {
+            using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
+            {
+                await uow.SaveChanges();
+            }
+        }
     }
 }

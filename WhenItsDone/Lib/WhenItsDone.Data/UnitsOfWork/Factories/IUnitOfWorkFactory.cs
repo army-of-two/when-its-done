@@ -4,6 +4,6 @@ namespace WhenItsDone.Data.UnitsOfWork.Factories
 {
     public interface IUnitOfWorkFactory
     {
-        IUnitOfWork CreateUnitOfWork();
+        IDisposableUnitOfWork CreateUnitOfWork();
     }
 }
