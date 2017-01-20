@@ -49,5 +49,8 @@
 
         public const int HipSizeMinValue = 64;
         public const int HipSizeMaxValue = 256;
+
+        public const int AmountPaidMinValue = 0;
+        public const int AmountPaidMaxValue = int.MaxValue;
     }
 }
