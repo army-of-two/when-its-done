@@ -14,9 +14,11 @@ namespace WhenItsDone.Models.Tests.AddressTests
         {
             var obj = new Address();
 
-            Assert.IsTrue(obj.GetType()
+            var result = obj.GetType()
                             .GetInterfaces()
-                            .Any(x=>x==typeof(IDbModel)));
+                            .Any(x => x == typeof(IDbModel));
+
+            Assert.IsTrue(result);
         }
     }
 }
