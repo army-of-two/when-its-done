@@ -52,5 +52,16 @@ namespace WhenItsDone.Models.Tests.ClientTests
             Assert.IsNotNull(result);
             Assert.AreEqual(ValidationConstants.RatingMaxValue, result.Maximum);
         }
+
+        [TestCase(6)]
+        [TestCase(54353453)]
+        public void Rating_GetAndSetShould_WorkProperly(int randomNumber)
+        {
+            var obj = new Client();
+
+            obj.Rating = randomNumber;
+
+            Assert.AreEqual(randomNumber, obj.Rating);
+        }
     }
 }

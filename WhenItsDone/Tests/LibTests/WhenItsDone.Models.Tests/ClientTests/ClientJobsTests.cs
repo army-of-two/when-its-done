@@ -8,7 +8,7 @@ namespace WhenItsDone.Models.Tests.ClientTests
     public class ClientJobsTests
     {
         [Test]
-        public void Jobs_GetAndSet_ShouldWorkProperly()
+        public void Jobs_GetAndSetShould_WorkProperly()
         {
             var mockedCollection = new Mock<ICollection<Job>>();
 

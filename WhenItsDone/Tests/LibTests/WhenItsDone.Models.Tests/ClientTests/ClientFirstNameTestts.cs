@@ -111,5 +111,17 @@ namespace WhenItsDone.Models.Tests.ClientTests
             Assert.IsNotNull(result);
             Assert.AreEqual(ValidationConstants.NameMinLength, result.Pattern);
         }
+
+        [TestCase("_Totally_Random_String_")]
+        [TestCase("JustAnotherTotallyRandomString")]
+        [TestCase("")]
+        public void FirstName_GetAndSetShould_WorkProperly(string randomString)
+        {
+            var obj = new Client();
+
+            obj.FirstName = randomString;
+
+            Assert.AreEqual(randomString, obj.FirstName);
+        }
     }
 }

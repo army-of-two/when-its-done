@@ -52,5 +52,16 @@ namespace WhenItsDone.Models.Tests.ClientTests
             Assert.IsNotNull(result);
             Assert.AreEqual(ValidationConstants.AgeMinValue, result.Maximum);
         }
+
+        [TestCase(8)]
+        [TestCase(7000)]
+        public void Age_GetAndSetShould_WorkProperly(int randomNumber)
+        {
+            var obj = new Client();
+
+            obj.Age = randomNumber;
+
+            Assert.AreEqual(randomNumber, obj.Age);
+        }
     }
 }

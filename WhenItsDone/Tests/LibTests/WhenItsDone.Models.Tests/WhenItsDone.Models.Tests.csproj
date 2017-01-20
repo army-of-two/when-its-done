@@ -70,8 +70,12 @@
     <Compile Include="ClientTests\ClientAgeTests.cs" />
     <Compile Include="ClientTests\ClientAsDbModelTests.cs" />
     <Compile Include="ClientTests\ClientConstructorTests.cs" />
+    <Compile Include="ClientTests\ClientContactInformationIdTests.cs" />
+    <Compile Include="ClientTests\ClientContactInformationTests.cs" />
     <Compile Include="ClientTests\ClientFirstNameTestts.cs" />
     <Compile Include="ClientTests\ClientIdTests.cs" />
+    <Compile Include="ClientTests\ClientIsAvailableTests.cs" />
+    <Compile Include="ClientTests\ClientIsDeletedTests.cs" />
     <Compile Include="ClientTests\ClientJobsTests.cs" />
     <Compile Include="ClientTests\ClientLastNameTests.cs" />
     <Compile Include="ClientTests\ClientRatingTests.cs" />

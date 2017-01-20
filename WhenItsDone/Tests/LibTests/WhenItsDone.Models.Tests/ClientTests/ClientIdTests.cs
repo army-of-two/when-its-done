@@ -20,5 +20,16 @@ namespace WhenItsDone.Models.Tests.ClientTests
 
             Assert.IsTrue(result);
         }
+
+        [TestCase(90)]
+        [TestCase(4993993)]
+        public void Id_GetAndSetShould_WorkProperly(int randomNumber)
+        {
+            var obj = new Client();
+
+            obj.Id = randomNumber;
+
+            Assert.AreEqual(randomNumber, obj.Id);
+        }
     }
 }
