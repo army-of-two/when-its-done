@@ -25,7 +25,7 @@ namespace WhenItsDone.ConsoleClient
             long counter = 0;
             var runTask = Task.Run(() =>
              {
-                 for (long i = 0; i < 100; i++)
+                 for (long i = 0; i < 100000; i++)
                  {
                      counter++;
                  }
@@ -33,7 +33,7 @@ namespace WhenItsDone.ConsoleClient
                  return counter;
              });
 
-            // This is executed before the task has even been assigned a thread.
+            // This is executed before the task has even been assigned a thread (on my pc at least , always prints 0).
             Console.WriteLine($"Counter - initial value - Async - {counter}");
 
             return runTask;
@@ -54,6 +54,8 @@ namespace WhenItsDone.ConsoleClient
              });
 
             // This is executed AFTER the task is completed
+            // and BEFORE the result is returned to the Main method for printing.
+            // Therefore this is executed syncronously.
             Console.WriteLine($"Counter - initial value - Sync (cw afer await) - {counter}");
 
             return result;
