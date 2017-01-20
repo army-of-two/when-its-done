@@ -31,5 +31,8 @@
 
         public const int PhoneMinLength = 4;
         public const int PhoneMaxLength = 15;
+
+        public const int PriceMinValue = 0;
+        public const int PriceMaxValue = int.MaxValue;
     }
 }
