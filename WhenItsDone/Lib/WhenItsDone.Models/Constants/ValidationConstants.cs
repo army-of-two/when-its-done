@@ -34,5 +34,11 @@
 
         public const int PriceMinValue = 0;
         public const int PriceMaxValue = int.MaxValue;
+
+        public const int HeightMinValue = 64;
+        public const int HeightMaxValue = 256;
+
+        public const int WeightMinValue = 32;
+        public const int WeightMaxValue = 256;
     }
 }
