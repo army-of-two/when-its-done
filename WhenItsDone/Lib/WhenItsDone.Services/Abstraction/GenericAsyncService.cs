@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Services.Abstraction
 {
-    public abstract class GenericService<T>
+    public abstract class GenericAsyncService<T>
             where T : class, IDbModel
     {
         private IRepository<T> repository;
         private IUnitOfWork unitOfWork;
 
-        public GenericService(IRepository<T> repository, IUnitOfWork unitOfWork)
+        public GenericAsyncService(IRepository<T> repository, IUnitOfWork unitOfWork)
         {
             this.Repository = repository;
             this.UnitOfWork = unitOfWork;
