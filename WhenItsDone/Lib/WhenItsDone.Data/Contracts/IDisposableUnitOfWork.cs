@@ -2,7 +2,7 @@
 
 namespace WhenItsDone.Data.Contracts
 {
-    public interface IDisposableUnitOfWork : IDisposableUnitOfWork, IDisposable
+    public interface IDisposableUnitOfWork : IUnitOfWork, IDisposable
     {
     }
 }
