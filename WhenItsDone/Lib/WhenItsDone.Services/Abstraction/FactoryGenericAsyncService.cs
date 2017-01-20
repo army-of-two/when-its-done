@@ -38,7 +38,7 @@ namespace WhenItsDone.Services.Abstraction
 
         public virtual async Task<T> Add(T item)
         {
-            if (item == null || !this.IsValid(item))
+            if (item == null)
             {
                 throw new ArgumentException("Invalid item for add!");
             }
@@ -54,7 +54,7 @@ namespace WhenItsDone.Services.Abstraction
 
         public virtual async Task<T> Update(T item)
         {
-            if (item == null || !this.IsValid(item))
+            if (item == null)
             {
                 throw new ArgumentException("Invalid item for update!");
             }
@@ -70,7 +70,7 @@ namespace WhenItsDone.Services.Abstraction
 
         public virtual async Task<int> Hide(T item)
         {
-            if (item == null || !this.IsValid(item))
+            if (item == null)
             {
                 throw new ArgumentException("Invalid item for hide!");
             }
@@ -85,7 +85,7 @@ namespace WhenItsDone.Services.Abstraction
 
         public virtual async Task<int> Delete(T item)
         {
-            if (item == null || !this.IsValid(item))
+            if (item == null)
             {
                 throw new ArgumentException("Invalid item for delete!");
             }
