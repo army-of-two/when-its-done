@@ -7,9 +7,11 @@ namespace WhenItsDone.Models
 {
     public class Client : IDbModel
     {
+        private ICollection<Job> jobs;
+
         public Client()
         {
-            this.Jobs = new HashSet<Job>();
+            this.jobs = new HashSet<Job>();
         }
 
         [Key]
@@ -43,12 +45,12 @@ namespace WhenItsDone.Models
         {
             get
             {
-                return this.Jobs;
+                return this.jobs;
             }
 
             set
             {
-                this.Jobs = value;
+                this.jobs = value;
             }
         }
 
