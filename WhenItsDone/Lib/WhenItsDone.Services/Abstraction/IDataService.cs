@@ -32,10 +32,10 @@ namespace WhenItsDone.Services.Abstraction
             int pageSize);
 
         Task<IEnumerable<T>> GetAll<T1>(
-              Expression<Func<T, bool>> filter,
-              Expression<Func<T, T1>> orderBy,
-              int page,
-              int pageSize);
+            Expression<Func<T, bool>> filter,
+            Expression<Func<T, T1>> orderBy,
+            int page,
+            int pageSize);
 
         Task<IEnumerable<TResult>> GetAll<T1, TResult>(
            Expression<Func<T, bool>> filter,
