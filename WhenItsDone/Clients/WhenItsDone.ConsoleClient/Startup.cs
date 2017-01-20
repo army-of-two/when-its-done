@@ -3,11 +3,11 @@ using System.Threading.Tasks;
 
 namespace WhenItsDone.ConsoleClient
 {
-    public class Program
+    public class Startup
     {
         public static void Main()
         {
-            var asyncResult = Program.AsyncTest();
+            var asyncResult = Startup.AsyncTest();
             asyncResult.ContinueWith((task) =>
             {
                 // this will only be executed if the 
@@ -16,7 +16,7 @@ namespace WhenItsDone.ConsoleClient
                 Console.WriteLine($"Counter - resulting value - Async - {task.Result}");
             });
 
-            var syncResult = Program.SyncTest();
+            var syncResult = Startup.SyncTest();
             Console.WriteLine($"Counter - value - Sync - {syncResult.Result}");
         }
 
