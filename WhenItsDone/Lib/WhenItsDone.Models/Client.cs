@@ -14,6 +14,8 @@ namespace WhenItsDone.Models
         public Client()
         {
             this.jobs = new HashSet<Job>();
+
+            this.IsAvailable = true;
         }
 
         [Key]
@@ -32,7 +34,7 @@ namespace WhenItsDone.Models
         public string LastName { get; set; }
 
         public GenderType Gender { get; set; }
-        
+
         [Range(ValidationConstants.AgeMinValue, ValidationConstants.AgeMaxValue)]
         public int Age { get; set; }
 
