@@ -372,7 +372,9 @@
     <Compile Include="App_Start\Factories\CustomPresenterFactory.cs" />
     <Compile Include="App_Start\Factories\ICustomPresenterFactory.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\NinjectBindingsModules\DataBindingsModule.cs" />
     <Compile Include="App_Start\NinjectBindingsModules\MVPBindingsModule.cs" />
+    <Compile Include="App_Start\NinjectBindingsModules\ServicesBindingsModule.cs" />
     <Compile Include="App_Start\NinjectKernelInstanceProvider.cs" />
     <Compile Include="App_Start\NinjectWeb.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
@@ -422,6 +424,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Lib\WhenItsDone.Data\WhenItsDone.Data.csproj">
+      <Project>{D3085631-83D5-4525-B69C-DFDC47BC7F9B}</Project>
+      <Name>WhenItsDone.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\WhenItsDone.Models\WhenItsDone.Models.csproj">
+      <Project>{E10CC5A1-7DD9-4F43-8798-AA58882CAF6F}</Project>
+      <Name>WhenItsDone.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\WhenItsDone.Services\WhenItsDone.Services.csproj">
+      <Project>{5C51DB50-52FB-4B9C-8B16-B3B104FFA090}</Project>
+      <Name>WhenItsDone.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
