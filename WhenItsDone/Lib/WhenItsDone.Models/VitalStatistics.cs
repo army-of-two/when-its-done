@@ -8,6 +8,7 @@ namespace WhenItsDone.Models
     // Bust/waist/hip measurements a.k.a. vital statistics ( according to wikipedia )
     public class VitalStatistics
     {
+        [Key]
         public int Id { get; set; }
 
         [Range(ValidationConstants.BustSizeMinValue, ValidationConstants.BustSizeMaxValue)]
