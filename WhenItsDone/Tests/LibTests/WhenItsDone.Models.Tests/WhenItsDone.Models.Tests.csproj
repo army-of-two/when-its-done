@@ -70,6 +70,7 @@
     <Compile Include="AddressTests\AddressStreetTests.cs" />
     <Compile Include="ClientReviewTests\ClientReviewAsDbModel.cs" />
     <Compile Include="ClientReviewTests\ClientReviewIdTests.cs" />
+    <Compile Include="ClientReviewTests\ClientReviewReviewContentTests.cs" />
     <Compile Include="ClientTests\ClientAgeTests.cs" />
     <Compile Include="ClientTests\ClientAsDbModelTests.cs" />
     <Compile Include="ClientTests\ClientConstructorTests.cs" />
