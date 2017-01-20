@@ -1,15 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+
 using WhenItsDone.Models.Constants;
 using WhenItsDone.Models.Contracts;
+using WhenItsDone.Models.Enums;
 
 namespace WhenItsDone.Models
 {
     public class Client : IDbModel
     {
+        private ICollection<Job> jobs;
+
         public Client()
         {
-            this.Jobs = new HashSet<Job>();
+            this.jobs = new HashSet<Job>();
         }
 
         [Key]
@@ -27,6 +31,8 @@ namespace WhenItsDone.Models
         [RegularExpression(RegexConstants.EnBgSpaceMinus)]
         public string LastName { get; set; }
 
+        public GenderType Gender { get; set; }
+        
         [Range(ValidationConstants.AgeMinValue, ValidationConstants.AgeMaxValue)]
         public int Age { get; set; }
 
@@ -43,12 +49,12 @@ namespace WhenItsDone.Models
         {
             get
             {
-                return this.Jobs;
+                return this.jobs;
             }
 
             set
             {
-                this.Jobs = value;
+                this.jobs = value;
             }
         }
 
