@@ -56,6 +56,10 @@
     <Compile Include="Migrations\201701192351053_init.Designer.cs">
       <DependentUpon>201701192351053_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701202140063_updated-models.cs" />
+    <Compile Include="Migrations\201701202140063_updated-models.Designer.cs">
+      <DependentUpon>201701202140063_updated-models.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="GenericRepository.cs" />
@@ -75,6 +79,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201701192351053_init.resx">
       <DependentUpon>201701192351053_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701202140063_updated-models.resx">
+      <DependentUpon>201701202140063_updated-models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

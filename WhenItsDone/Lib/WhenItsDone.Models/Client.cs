@@ -10,10 +10,12 @@ namespace WhenItsDone.Models
     public class Client : IDbModel
     {
         private ICollection<Job> jobs;
+        private ICollection<Payment> payments;
 
         public Client()
         {
             this.jobs = new HashSet<Job>();
+            this.payments = new HashSet<Payment>();
 
             this.IsAvailable = true;
         }
@@ -46,6 +48,19 @@ namespace WhenItsDone.Models
         public int ContactInformationId { get; set; }
 
         public virtual ContactInformation ContactInformation { get; set; }
+
+        public virtual ICollection<Payment> Payments
+        {
+            get
+            {
+                return this.payments;
+            }
+
+            set
+            {
+                this.payments = value;
+            }
+        }
 
         public virtual ICollection<Job> Jobs
         {

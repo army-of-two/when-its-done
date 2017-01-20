@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 using WhenItsDone.Models.Constants;
+using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Models
 {
     // https://en.wikipedia.org/wiki/Bust/waist/hip_measurements
     // Bust/waist/hip measurements a.k.a. vital statistics ( according to wikipedia )
-    public class VitalStatistics
+    public class VitalStatistics : IDbModel
     {
         [Key]
         public int Id { get; set; }
@@ -19,5 +20,7 @@ namespace WhenItsDone.Models
 
         [Range(ValidationConstants.HipSizeMinValue, ValidationConstants.HipSizeMaxValue)]
         public int HipSizeInCm { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }
