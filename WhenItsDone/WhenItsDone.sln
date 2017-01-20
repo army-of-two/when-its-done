@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhenItsDone.MVP.Tests", "Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhenItsDone.Services.Tests", "Tests\LibTests\WhenItsDone.Services.Tests\WhenItsDone.Services.Tests.csproj", "{9053D772-D983-4B8C-B585-697BD5AE3023}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhenItsDone.ConsoleClient", "Clients\WhenItsDone.ConsoleClient\WhenItsDone.ConsoleClient.csproj", "{3E36D44F-6D8D-4A23-9C27-947A497E8DF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{9053D772-D983-4B8C-B585-697BD5AE3023}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9053D772-D983-4B8C-B585-697BD5AE3023}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9053D772-D983-4B8C-B585-697BD5AE3023}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E36D44F-6D8D-4A23-9C27-947A497E8DF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E36D44F-6D8D-4A23-9C27-947A497E8DF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E36D44F-6D8D-4A23-9C27-947A497E8DF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E36D44F-6D8D-4A23-9C27-947A497E8DF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,5 +116,6 @@ Global
 		{88EDC90C-ABCE-49CA-BAA7-BC2D5E5DD15F} = {62DB6C31-590A-4D2C-BCA1-E4759872FF75}
 		{DA1F42BA-2A1A-4CDA-A683-B2DFEF6934A7} = {62DB6C31-590A-4D2C-BCA1-E4759872FF75}
 		{9053D772-D983-4B8C-B585-697BD5AE3023} = {62DB6C31-590A-4D2C-BCA1-E4759872FF75}
+		{3E36D44F-6D8D-4A23-9C27-947A497E8DF6} = {C7D816B5-7CBB-4454-98E6-39A82A481DD3}
 	EndGlobalSection
 EndGlobal
