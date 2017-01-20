@@ -148,7 +148,5 @@ namespace WhenItsDone.Services.Abstraction
         {
             return await Task.Run(() => this.GetAll((x) => x.IsDeleted));
         }
-
-        protected abstract bool IsValid(T item);
     }
 }

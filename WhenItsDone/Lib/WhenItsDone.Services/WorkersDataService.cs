@@ -13,10 +13,5 @@ namespace WhenItsDone.Services
             : base(repository, unitOfWorkFactory)
         {
         }
-
-        protected override bool IsValid(Worker item)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
