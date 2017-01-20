@@ -38,7 +38,7 @@ namespace WhenItsDone.Services.Abstraction
 
         public virtual async Task<T> Add(T item)
         {
-            if (item == null || !this.IsValid(item))
+            if (item == null)
             {
                 throw new ArgumentException("Invalid item for add!");
             }
@@ -54,7 +54,7 @@ namespace WhenItsDone.Services.Abstraction
 
         public virtual async Task<T> Update(T item)
         {
-            if (item == null || !this.IsValid(item))
+            if (item == null)
             {
                 throw new ArgumentException("Invalid item for update!");
             }
@@ -70,7 +70,7 @@ namespace WhenItsDone.Services.Abstraction
 
         public virtual async Task<int> Hide(T item)
         {
-            if (item == null || !this.IsValid(item))
+            if (item == null)
             {
                 throw new ArgumentException("Invalid item for hide!");
             }
@@ -85,7 +85,7 @@ namespace WhenItsDone.Services.Abstraction
 
         public virtual async Task<int> Delete(T item)
         {
-            if (item == null || !this.IsValid(item))
+            if (item == null)
             {
                 throw new ArgumentException("Invalid item for delete!");
             }
@@ -107,39 +107,44 @@ namespace WhenItsDone.Services.Abstraction
             return await Task.Run(() => this.repository.GetAll(filter));
         }
 
-        public virtual async Task<IEnumerable<T>> GetAll<T1>(Expression<Func<T, bool>> filter,
-                                                    Expression<Func<T, T1>> orderBy)
+        public virtual async Task<IEnumerable<T>> GetAll<T1>(
+            Expression<Func<T, bool>> filter,
+            Expression<Func<T, T1>> orderBy)
         {
             return await Task.Run(() => this.repository.GetAll(filter, orderBy));
         }
 
-        public virtual async Task<IEnumerable<TResult>> GetAll<T1, TResult>(Expression<Func<T, bool>> filter,
-                                            Expression<Func<T, T1>> orderBy,
-                                            Expression<Func<T, TResult>> select)
+        public virtual async Task<IEnumerable<TResult>> GetAll<T1, TResult>(
+            Expression<Func<T, bool>> filter,
+            Expression<Func<T, T1>> orderBy,
+            Expression<Func<T, TResult>> select)
         {
             return await Task.Run(() => this.repository.GetAll(filter, orderBy, select));
         }
 
-        public virtual async Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> filter,
-                                        int page,
-                                        int pageSize)
+        public virtual async Task<IEnumerable<T>> GetAll(
+            Expression<Func<T, bool>> filter,
+            int page,
+            int pageSize)
         {
             return await Task.Run(() => this.repository.GetAll(filter, page, pageSize));
         }
 
-        public virtual async Task<IEnumerable<T>> GetAll<T1>(Expression<Func<T, bool>> filter,
-                                        Expression<Func<T, T1>> orderBy,
-                                        int page,
-                                        int pageSize)
+        public virtual async Task<IEnumerable<T>> GetAll<T1>(
+            Expression<Func<T, bool>> filter,
+            Expression<Func<T, T1>> orderBy,
+            int page,
+            int pageSize)
         {
             return await Task.Run(() => this.repository.GetAll(filter, orderBy, page, pageSize));
         }
 
-        public virtual async Task<IEnumerable<TResult>> GetAll<T1, TResult>(Expression<Func<T, bool>> filter,
-                                            Expression<Func<T, T1>> orderBy,
-                                            Expression<Func<T, TResult>> select,
-                                            int page,
-                                            int pageSize)
+        public virtual async Task<IEnumerable<TResult>> GetAll<T1, TResult>(
+            Expression<Func<T, bool>> filter,
+            Expression<Func<T, T1>> orderBy,
+            Expression<Func<T, TResult>> select,
+            int page,
+            int pageSize)
         {
             return await Task.Run(() => this.repository.GetAll(filter, orderBy, select, page, pageSize));
         }
@@ -148,7 +153,5 @@ namespace WhenItsDone.Services.Abstraction
         {
             return await Task.Run(() => this.GetAll((x) => x.IsDeleted));
         }
-
-        protected abstract bool IsValid(T item);
     }
 }
