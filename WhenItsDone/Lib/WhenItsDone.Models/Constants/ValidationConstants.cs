@@ -40,5 +40,14 @@
 
         public const int WeightMinValue = 32;
         public const int WeightMaxValue = 256;
+
+        public const int BustSizeMinValue = 64;
+        public const int BustSizeMaxValue = 256;
+
+        public const int WaistSizeMinValue = 32;
+        public const int WaistSizeMaxValue = 256;
+
+        public const int HipSizeMinValue = 64;
+        public const int HipSizeMaxValue = 256;
     }
 }
