@@ -66,6 +66,7 @@
     <Compile Include="AddressTests\AddressConstructorTests.cs" />
     <Compile Include="AddressTests\AddressCountryTests.cs" />
     <Compile Include="AddressTests\AddressIdTests.cs" />
+    <Compile Include="AddressTests\AddressIsDeletedTests.cs" />
     <Compile Include="AddressTests\AddressStreetTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
