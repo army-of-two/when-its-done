@@ -48,8 +48,12 @@
     <Compile Include="Constants\ValidationConstants.cs" />
     <Compile Include="ContactInformation.cs" />
     <Compile Include="Contracts\IDbModel.cs" />
+    <Compile Include="Enums\GenderType.cs" />
+    <Compile Include="PhotoItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Job.cs" />
+    <Compile Include="VideoItem.cs" />
+    <Compile Include="VitalStatistics.cs" />
     <Compile Include="Worker.cs" />
     <Compile Include="WorkerReview.cs" />
   </ItemGroup>
