@@ -96,6 +96,24 @@ namespace WhenItsDone.Models.Tests.AddressTests
         }
 
         /// <summary>
+        /// At that moment TestClass contains 0 TestCase attributes - fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void AddressAsDbModelTests_VeryfyTestCaseAttributes()
+        {
+            var obj = new AddressAsDbModelTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Select(x => x.GetCustomAttributes(false)
+                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
+                                        .Count())
+                            .Sum();
+
+            Assert.AreEqual(0, result);
+        }
+
+        /// <summary>
         /// At that moment TestClass contains 8 tests - fail mean someone changed it
         /// </summary>
         [Test]
@@ -118,7 +136,7 @@ namespace WhenItsDone.Models.Tests.AddressTests
         /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
         /// </summary>
         [Test]
-        public void AddressCityTest_VeryfyTestCaseAttributes()
+        public void AddressCityTests_VeryfyTestCaseAttributes()
         {
             var obj = new AddressCityTests();
 
@@ -155,7 +173,7 @@ namespace WhenItsDone.Models.Tests.AddressTests
         /// At that moment TestClass contains 0 TestCase attributes - fail mean someone changed it
         /// </summary>
         [Test]
-        public void AddressConstructorTest_VeryfyTestCaseAttributes()
+        public void AddressConstructorTests_VeryfyTestCaseAttributes()
         {
             var obj = new AddressConstructorTests();
 
@@ -192,7 +210,7 @@ namespace WhenItsDone.Models.Tests.AddressTests
         /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
         /// </summary>
         [Test]
-        public void AddressCountryTest_VeryfyTestCaseAttributes()
+        public void AddressCountryTests_VeryfyTestCaseAttributes()
         {
             var obj = new AddressCountryTests();
 
@@ -229,7 +247,7 @@ namespace WhenItsDone.Models.Tests.AddressTests
         /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
         /// </summary>
         [Test]
-        public void AddressIdTest_VeryfyTestCaseAttributes()
+        public void AddressIdTests_VeryfyTestCaseAttributes()
         {
             var obj = new AddressIdTests();
 
@@ -266,7 +284,7 @@ namespace WhenItsDone.Models.Tests.AddressTests
         /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
         /// </summary>
         [Test]
-        public void AddressIsDeletedTest_VeryfyTestCaseAttributes()
+        public void AddressIsDeletedTests_VeryfyTestCaseAttributes()
         {
             var obj = new AddressIsDeletedTests();
 
@@ -303,7 +321,7 @@ namespace WhenItsDone.Models.Tests.AddressTests
         /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
         /// </summary>
         [Test]
-        public void AddressStreetTest_VeryfyTestCaseAttributes()
+        public void AddressStreetTests_VeryfyTestCaseAttributes()
         {
             var obj = new AddressStreetTests();
 
