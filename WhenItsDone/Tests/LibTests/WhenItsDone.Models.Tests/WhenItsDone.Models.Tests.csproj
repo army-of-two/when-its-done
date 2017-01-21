@@ -137,6 +137,7 @@
     <Compile Include="ReceivedPaymentTests\ReceivedPaymentIdTests.cs" />
     <Compile Include="ReceivedPaymentTests\ReceivedPaymentIsDeletedTests.cs" />
     <Compile Include="ReceivedPaymentTests\ReceivedPaymentTestingTests.cs" />
+    <Compile Include="VideoItemTests\VideoItemIsDeletedTests.cs" />
     <Compile Include="VideoItemTests\VideoItemIdTests.cs" />
     <Compile Include="VideoItemTests\VideoItemConstructorTests.cs" />
     <Compile Include="VideoItemTests\VideoItemAsDbModelTests.cs" />
