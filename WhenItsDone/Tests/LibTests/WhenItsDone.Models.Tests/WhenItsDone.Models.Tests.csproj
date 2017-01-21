@@ -107,6 +107,7 @@
     <Compile Include="JobTests\JobPriceTests.cs" />
     <Compile Include="JobTests\JobScheduledTimeTests.cs" />
     <Compile Include="JobTests\JobWorkerIdTests.cs" />
+    <Compile Include="JobTests\JobWorkerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
