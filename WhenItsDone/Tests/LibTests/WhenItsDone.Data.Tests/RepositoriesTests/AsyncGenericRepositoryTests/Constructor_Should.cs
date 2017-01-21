@@ -84,7 +84,11 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         [Test]
         public void ShouldSetCorrectValueToPrivateFieldDbContext_WhenParametersAreCorrect()
         {
+            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { }, null);
+            var fakeDbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
+
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
+            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet);
 
             var actualAsyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
 
