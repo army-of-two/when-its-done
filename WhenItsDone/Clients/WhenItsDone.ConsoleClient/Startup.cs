@@ -17,7 +17,7 @@ namespace WhenItsDone.ConsoleClient
             });
 
             var syncResult = Startup.SyncTest();
-            Console.WriteLine($"Counter - value - Sync - {syncResult.Result}");
+            Console.WriteLine($"Counter - resulting value - Sync - {syncResult.Result}");
         }
 
         private static Task<long> AsyncTest()
@@ -41,7 +41,7 @@ namespace WhenItsDone.ConsoleClient
 
         private async static Task<long> SyncTest()
         {
-            var counter = 0;
+            long counter = 0;
             var result = await Task.Run(() =>
              {
                  // Add zeroes for increased effect
@@ -56,7 +56,7 @@ namespace WhenItsDone.ConsoleClient
             // This is executed AFTER the task is completed
             // and BEFORE the result is returned to the Main method for printing.
             // Therefore this is executed syncronously.
-            Console.WriteLine($"Counter - initial value - Sync (cw afer await) - {counter}");
+            Console.WriteLine($"Counter - initial value - Sync - {counter}");
 
             return result;
         }
