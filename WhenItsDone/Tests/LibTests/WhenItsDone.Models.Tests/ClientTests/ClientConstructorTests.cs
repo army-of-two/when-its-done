@@ -5,7 +5,7 @@ using WhenItsDone.Models.Enums;
 namespace WhenItsDone.Models.Tests.ClientTests
 {
     [TestFixture]
-    class ClientConstructorTests
+    public class ClientConstructorTests
     {
         [Test]
         public void ClientClass_ShouldHave_ParameterlessConstructor()

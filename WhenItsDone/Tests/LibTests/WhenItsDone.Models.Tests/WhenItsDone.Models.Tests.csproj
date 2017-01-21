@@ -83,7 +83,7 @@
     <Compile Include="ClientTests\ClientConstructorTests.cs" />
     <Compile Include="ClientTests\ClientContactInformationIdTests.cs" />
     <Compile Include="ClientTests\ClientContactInformationTests.cs" />
-    <Compile Include="ClientTests\ClientFirstNameTestts.cs" />
+    <Compile Include="ClientTests\ClientFirstNameTests.cs" />
     <Compile Include="ClientTests\ClientGenderTests.cs" />
     <Compile Include="ClientTests\ClientIdTests.cs" />
     <Compile Include="ClientTests\ClientIsAvailableTests.cs" />
@@ -92,6 +92,7 @@
     <Compile Include="ClientTests\ClientLastNameTests.cs" />
     <Compile Include="ClientTests\ClientPaymentsTests.cs" />
     <Compile Include="ClientTests\ClientRatingTests.cs" />
+    <Compile Include="ClientTests\ClientTestingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
