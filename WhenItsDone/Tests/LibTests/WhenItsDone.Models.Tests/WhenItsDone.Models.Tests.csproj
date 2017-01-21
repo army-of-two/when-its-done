@@ -84,6 +84,7 @@
     <Compile Include="ClientTests\ClientContactInformationIdTests.cs" />
     <Compile Include="ClientTests\ClientContactInformationTests.cs" />
     <Compile Include="ClientTests\ClientFirstNameTestts.cs" />
+    <Compile Include="ClientTests\ClientGenderTests.cs" />
     <Compile Include="ClientTests\ClientIdTests.cs" />
     <Compile Include="ClientTests\ClientIsAvailableTests.cs" />
     <Compile Include="ClientTests\ClientIsDeletedTests.cs" />
