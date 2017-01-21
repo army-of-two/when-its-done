@@ -62,6 +62,7 @@
       <DependentUpon>201701202140063_updated-models.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\AsyncGenericRepository.cs" />
     <Compile Include="UnitsOfWork\DisposableUnitOfWork.cs" />
     <Compile Include="UnitsOfWork\Factories\IUnitOfWorkFactory.cs" />
     <Compile Include="UnitsOfWork\UnitOfWork.cs" />

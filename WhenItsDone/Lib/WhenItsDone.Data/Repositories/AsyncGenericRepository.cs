@@ -4,19 +4,20 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Data.Repositories
 {
-    public class GenericRepository<TEntity> : IRepository<TEntity>
+    public class AsyncGenericRepository<TEntity> : IRepository<TEntity>
         where TEntity : class, IDbModel
     {
         private readonly IWhenItsDoneDbContext dbContext;
         private readonly IDbSet<TEntity> dbSet;
 
-        public GenericRepository(IWhenItsDoneDbContext dbContext)
+        public AsyncGenericRepository(IWhenItsDoneDbContext dbContext)
         {
             if (dbContext == null)
             {
