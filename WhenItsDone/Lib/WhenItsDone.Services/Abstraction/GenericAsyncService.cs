@@ -41,13 +41,13 @@ namespace WhenItsDone.Services.Abstraction
         {
             if (item == null)
             {
-                throw new ArgumentException("Invalid item for add!");
+                throw new ArgumentException("Invalid item to add!");
             }
 
             this.asyncRepository.Add(item);
-            using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
+            using (var unitOfWork = this.unitOfWorkFactory.CreateUnitOfWork())
             {
-                uow.SaveChangesAsync();
+                unitOfWork.SaveChangesAsync();
             }
 
             return item;
@@ -57,13 +57,13 @@ namespace WhenItsDone.Services.Abstraction
         {
             if (item == null)
             {
-                throw new ArgumentException("Invalid item for update!");
+                throw new ArgumentException("Invalid item to update!");
             }
 
             this.asyncRepository.Update(item);
-            using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
+            using (var unitOfWork = this.unitOfWorkFactory.CreateUnitOfWork())
             {
-                uow.SaveChangesAsync();
+                unitOfWork.SaveChangesAsync();
             }
 
             return item;
@@ -73,14 +73,14 @@ namespace WhenItsDone.Services.Abstraction
         {
             if (item == null)
             {
-                throw new ArgumentException("Invalid item for hide!");
+                throw new ArgumentException("Invalid item to hide!");
             }
 
             item.IsDeleted = true;
             this.asyncRepository.Update(item);
-            using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
+            using (var unitOfWork = this.unitOfWorkFactory.CreateUnitOfWork())
             {
-                uow.SaveChangesAsync();
+                unitOfWork.SaveChangesAsync();
             }
         }
 
@@ -88,13 +88,13 @@ namespace WhenItsDone.Services.Abstraction
         {
             if (item == null)
             {
-                throw new ArgumentException("Invalid item for delete!");
+                throw new ArgumentException("Invalid item to delete!");
             }
 
             this.asyncRepository.Delete(item);
-            using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
+            using (var unitOfWork = this.unitOfWorkFactory.CreateUnitOfWork())
             {
-                uow.SaveChangesAsync();
+                unitOfWork.SaveChangesAsync();
             }
         }
 
