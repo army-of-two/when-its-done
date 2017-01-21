@@ -48,3 +48,4 @@ namespace WhenItsDone.Data.Contracts
 
         void Update(TEntity entity);
     }
+}
