@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Reflection;
 
 using Moq;
 using NUnit.Framework;
 
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork;
-using System.Reflection;
 
 namespace WhenItsDone.Data.Tests.UnitsOfWorkTests.UnitOfWorkTests
 {
