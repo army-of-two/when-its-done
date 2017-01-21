@@ -4,6 +4,8 @@ namespace WhenItsDone.Data.Contracts
 {
     public interface IUnitOfWork
     {
-        Task<int> SaveChanges();
+        Task<int> SaveChangesAsync();
+
+        int SaveChanges();
     }
 }

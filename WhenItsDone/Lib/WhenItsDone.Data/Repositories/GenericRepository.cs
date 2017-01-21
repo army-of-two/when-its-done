@@ -27,7 +27,7 @@ namespace WhenItsDone.Data.Repositories
 
             if (dbContext.Set<TEntity>() == null)
             {
-                throw new ArgumentNullException("DbSet");
+                throw new ArgumentNullException("DbContext does not contain DbSet<{0}>", typeof(TEntity).Name);
             }
 
             this.dbSet = dbContext.Set<TEntity>();

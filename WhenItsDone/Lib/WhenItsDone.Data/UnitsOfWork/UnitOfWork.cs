@@ -18,10 +18,15 @@ namespace WhenItsDone.Data.UnitsOfWork
 
             this.dbContext = dbContext;
         }
-        
-        public async Task<int> SaveChanges()
+
+        public Task<int> SaveChangesAsync()
         {
-            return await this.dbContext.SaveChangesAsync();
+            return this.dbContext.SaveChangesAsync();
+        }
+
+        public int SaveChanges()
+        {
+            return this.dbContext.SaveChanges();
         }
     }
 }
