@@ -52,5 +52,8 @@
 
         public const int AmountPaidMinValue = 0;
         public const int AmountPaidMaxValue = int.MaxValue;
+
+        public const int UrlLengthMinLength = 3;
+        public const int UrlLengthMaxValue = 100;
     }
 }
