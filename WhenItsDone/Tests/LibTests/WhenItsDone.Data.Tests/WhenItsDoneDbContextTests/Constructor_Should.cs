@@ -65,5 +65,83 @@ namespace WhenItsDone.Data.Tests.WhenItsDoneDbContextTests
 
             Assert.That(addressesProperty.PropertyType, Is.EqualTo(typeof(IDbSet<Address>)));
         }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithClientsProperty()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "Clients";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty, Is.Not.Null);
+        }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithClientsVirtualProperty()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "Clients";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty.GetGetMethod().IsVirtual, Is.True);
+        }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithClientsVirtualProperty_OfTypeIDbSetClients()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "Clients";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty.PropertyType, Is.EqualTo(typeof(IDbSet<Client>)));
+        }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithClientReviewsProperty()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "ClientReviews";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty, Is.Not.Null);
+        }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithClientReviewsVirtualProperty()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "ClientReviews";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty.GetGetMethod().IsVirtual, Is.True);
+        }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithClientReviewsVirtualProperty_OfTypeIDbSetClientReviews()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "ClientReviews";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty.PropertyType, Is.EqualTo(typeof(IDbSet<ClientReview>)));
+        }
     }
 }
