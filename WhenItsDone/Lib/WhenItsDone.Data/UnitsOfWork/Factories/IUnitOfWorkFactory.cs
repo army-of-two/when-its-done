@@ -2,7 +2,7 @@
 
 namespace WhenItsDone.Data.UnitsOfWork.Factories
 {
-    public interface IUnitOfWorkFactory
+    public interface IDisposableUnitOfWorkFactory
     {
         IDisposableUnitOfWork CreateUnitOfWork();
     }

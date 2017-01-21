@@ -13,9 +13,9 @@ namespace WhenItsDone.Services.Abstraction
             where T : class, IDbModel
     {
         private readonly IRepository<T> repository;
-        private readonly IUnitOfWorkFactory unitOfWorkFactory;
+        private readonly IDisposableUnitOfWorkFactory unitOfWorkFactory;
 
-        public FactoryGenericAsyncService(IRepository<T> repository, IUnitOfWorkFactory unitOfWorkFactory)
+        public FactoryGenericAsyncService(IRepository<T> repository, IDisposableUnitOfWorkFactory unitOfWorkFactory)
         {
             if (repository == null)
             {

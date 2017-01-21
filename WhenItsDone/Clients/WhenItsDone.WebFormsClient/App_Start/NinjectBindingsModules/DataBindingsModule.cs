@@ -15,7 +15,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
         {
             this.Bind<IDisposableUnitOfWork>().To<DisposableUnitOfWork>();
 
-            this.Bind<IUnitOfWorkFactory>()
+            this.Bind<IDisposableUnitOfWorkFactory>()
                 .ToFactory()
                 .InSingletonScope();
 
