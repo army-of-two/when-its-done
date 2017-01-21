@@ -66,6 +66,7 @@
     <Compile Include="RepositoriesTests\AsyncGenericRepositoryTests\Add_Should.cs" />
     <Compile Include="RepositoriesTests\AsyncGenericRepositoryTests\Constructor_Should.cs" />
     <Compile Include="RepositoriesTests\AsyncGenericRepositoryTests\Delete_Should.cs" />
+    <Compile Include="RepositoriesTests\AsyncGenericRepositoryTests\GetAllAsync_Should.cs" />
     <Compile Include="RepositoriesTests\AsyncGenericRepositoryTests\GetByIdAsync_Should.cs" />
     <Compile Include="UnitsOfWorkTests\UnitOfWorkTests\Constructor_Should.cs" />
     <Compile Include="UnitsOfWorkTests\UnitOfWorkTests\SaveChangesAsync_Should.cs" />
