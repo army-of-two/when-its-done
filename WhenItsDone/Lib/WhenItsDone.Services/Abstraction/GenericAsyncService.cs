@@ -41,7 +41,7 @@ namespace WhenItsDone.Services.Abstraction
         {
             if (item == null)
             {
-                throw new ArgumentException("Invalid item for add!");
+                throw new ArgumentException("Invalid item to add!");
             }
 
             this.asyncRepository.Add(item);
@@ -57,7 +57,7 @@ namespace WhenItsDone.Services.Abstraction
         {
             if (item == null)
             {
-                throw new ArgumentException("Invalid item for update!");
+                throw new ArgumentException("Invalid item to update!");
             }
 
             this.asyncRepository.Update(item);
@@ -73,7 +73,7 @@ namespace WhenItsDone.Services.Abstraction
         {
             if (item == null)
             {
-                throw new ArgumentException("Invalid item for hide!");
+                throw new ArgumentException("Invalid item to hide!");
             }
 
             item.IsDeleted = true;
@@ -88,7 +88,7 @@ namespace WhenItsDone.Services.Abstraction
         {
             if (item == null)
             {
-                throw new ArgumentException("Invalid item for delete!");
+                throw new ArgumentException("Invalid item to delete!");
             }
 
             this.asyncRepository.Delete(item);
