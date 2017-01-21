@@ -41,7 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstraction\FactoryGenericAsyncService.cs" />
-    <Compile Include="Abstraction\GenericAsyncService.cs" />
     <Compile Include="Abstraction\IAsyncDataService.cs" />
     <Compile Include="Contracts\IFactoryGenericAsyncService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
