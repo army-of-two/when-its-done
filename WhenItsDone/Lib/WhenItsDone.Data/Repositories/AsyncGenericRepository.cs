@@ -50,7 +50,7 @@ namespace WhenItsDone.Data.Repositories
 
             if (this.dbSet == null)
             {
-                throw new ArgumentNullException("DbContext does not contain DbSet<{0}>", typeof(TEntity).Name);
+                throw new ArgumentException("DbContext does not contain DbSet<{0}>", typeof(TEntity).Name);
             }
         }
 
