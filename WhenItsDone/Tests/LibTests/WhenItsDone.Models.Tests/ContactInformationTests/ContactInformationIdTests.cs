@@ -10,7 +10,7 @@ namespace WhenItsDone.Models.Tests.ContactInformationTests
         [Test]
         public void Id_ShouldHave_KeyAttribute()
         {
-            var obj = new Client();
+            var obj = new ContactInformation();
 
             var result = obj.GetType()
                             .GetProperty("Id")
@@ -25,7 +25,7 @@ namespace WhenItsDone.Models.Tests.ContactInformationTests
         [TestCase(3123)]
         public void Id_GetAndSetShould_WorkProperly(int randomNumber)
         {
-            var obj = new Client();
+            var obj = new ContactInformation();
 
             obj.Id = randomNumber;
 
