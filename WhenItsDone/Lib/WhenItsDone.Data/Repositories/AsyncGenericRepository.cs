@@ -11,7 +11,7 @@ using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Data.Repositories
 {
-    public class AsyncGenericRepository<TEntity> : IRepository<TEntity>
+    public class AsyncGenericRepository<TEntity> : IAsyncRepository<TEntity>
         where TEntity : class, IDbModel
     {
         private readonly IWhenItsDoneDbContext dbContext;
