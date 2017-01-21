@@ -56,6 +56,11 @@ namespace WhenItsDone.Data.Repositories
 
         public Task<TEntity> GetByIdAsync(int id)
         {
+            if (id < 0)
+            {
+                throw new ArgumentException("Id must be a positive integer.");
+            }
+
             var getByIdTask = Task.Run(() => this.getByIdDelegate(this, id));
 
             return getByIdTask;

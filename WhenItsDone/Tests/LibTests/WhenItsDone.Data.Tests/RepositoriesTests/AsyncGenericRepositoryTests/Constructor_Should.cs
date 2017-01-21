@@ -27,7 +27,9 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         [Test]
         public void ShouldInvoke_DbContextSetMethodOnce()
         {
-            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { }, null);
+            var ctorParameters = new Type[] { };
+            var ctorBindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
+            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(ctorBindingFlags, null, ctorParameters, null);
             var fakeDbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
 
             // Return type of DbContext.Set<>() method is DbSet, rather than IDbSet
@@ -56,7 +58,11 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         [Test]
         public void ShouldNotThrow_WhenParametersAreCorrect()
         {
-            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { }, null);
+            // This is needed to create the instance.
+            // DbContext.Set<>() returns DbSet rather than IDbSet<>.
+            var ctorParameters = new Type[] { };
+            var ctorBindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
+            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(ctorBindingFlags, null, ctorParameters, null);
             var fakeDbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
 
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
@@ -70,7 +76,11 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         [Test]
         public void ShouldCreateAnObjectWhichImplementsIAsyncRepository()
         {
-            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { }, null);
+            // This is needed to create the instance.
+            // DbContext.Set<>() returns DbSet rather than IDbSet<>.
+            var ctorParameters = new Type[] { };
+            var ctorBindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
+            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(ctorBindingFlags, null, ctorParameters, null);
             var fakeDbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
 
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
@@ -84,7 +94,11 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         [Test]
         public void ShouldSetCorrectValueToPrivateFieldDbContext_WhenParametersAreCorrect()
         {
-            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { }, null);
+            // This is needed to create the instance.
+            // DbContext.Set<>() returns DbSet rather than IDbSet<>.
+            var ctorParameters = new Type[] { };
+            var ctorBindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
+            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(ctorBindingFlags, null, ctorParameters, null);
             var fakeDbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
 
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
@@ -103,7 +117,11 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         [Test]
         public void ShouldSetCorrectValueToPrivateFieldDbSet_WhenParametersAreCorrect()
         {
-            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { }, null);
+            // This is needed to create the instance.
+            // DbContext.Set<>() returns DbSet rather than IDbSet<>.
+            var ctorParameters = new Type[] { };
+            var ctorBindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
+            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(ctorBindingFlags, null, ctorParameters, null);
             var fakeDbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
 
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
