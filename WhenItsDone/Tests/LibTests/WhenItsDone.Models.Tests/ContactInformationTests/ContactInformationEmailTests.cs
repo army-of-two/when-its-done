@@ -6,7 +6,7 @@ using WhenItsDone.Models.Constants;
 namespace WhenItsDone.Models.Tests.ContactInformationTests
 {
     [TestFixture]
-    public class ContanctInformationEmailTests
+    public class ContactInformationEmailTests
     {
         [Test]
         public void Email_ShouldHave_MinLengthAttribute()

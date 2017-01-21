@@ -95,12 +95,13 @@
     <Compile Include="ClientTests\ClientTestingTests.cs" />
     <Compile Include="ContactInformationTests\ContactInformationAddressIdTests.cs" />
     <Compile Include="ContactInformationTests\ContactInformationAddressTests.cs" />
-    <Compile Include="ContactInformationTests\ContactInformationAsDbModel.cs" />
+    <Compile Include="ContactInformationTests\ContactInformationAsDbModelTests.cs" />
     <Compile Include="ContactInformationTests\ContactInformationConstructorTests.cs" />
     <Compile Include="ContactInformationTests\ContactInformationIdTests.cs" />
     <Compile Include="ContactInformationTests\ContactInformationIsDeletedTests.cs" />
     <Compile Include="ContactInformationTests\ContactInformationPhoneNumberTests.cs" />
-    <Compile Include="ContactInformationTests\ContanctInformationEmailTests.cs" />
+    <Compile Include="ContactInformationTests\ContactInformationTestingTests.cs" />
+    <Compile Include="ContactInformationTests\ContactInformationEmailTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

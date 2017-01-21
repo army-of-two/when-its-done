@@ -3,7 +3,7 @@
 namespace WhenItsDone.Models.Tests.ContactInformationTests
 {
     [TestFixture]
-    class ContactInformationIsDeletedTests
+    public class ContactInformationIsDeletedTests
     {
         [TestCase(true)]
         [TestCase(false)]
