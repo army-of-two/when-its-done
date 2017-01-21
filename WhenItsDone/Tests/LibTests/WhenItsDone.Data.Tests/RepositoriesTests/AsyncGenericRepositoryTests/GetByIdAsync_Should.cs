@@ -76,7 +76,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         }
 
         [Test]
-        public void ShouldInvokeDbSetFindMethodWithCorrectIdParameter_WhenParametersAreValid()
+        public async Task ShouldInvokeDbSetFindMethodWithCorrectIdParameter_WhenParametersAreValid()
         {
             // This is needed to create the instance.
             // DbContext.Set<>() returns DbSet rather than IDbSet<>.
@@ -100,7 +100,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.Setup(mock => mock.Find(It.IsAny<int>())).Returns<IDbModel>(null);
 
             var validId = 42;
-            asyncGenericRepositoryInstace.GetByIdAsync(validId);
+            await asyncGenericRepositoryInstace.GetByIdAsync(validId);
 
             mockDbSet.Verify(mock => mock.Find(validId), Times.Once());
         }
