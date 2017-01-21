@@ -24,7 +24,7 @@ namespace WhenItsDone.Data.Tests.UnitsOfWorkTests.UnitOfWorkTests
         }
 
         [Test]
-        public void ReturnCorrectTaskValue()
+        public void ReturnCorrectTask()
         {
             var expectedTaskReturnValue = 42;
             var expectedTask = new Task<int>(() =>
@@ -39,6 +39,27 @@ namespace WhenItsDone.Data.Tests.UnitsOfWorkTests.UnitOfWorkTests
             var actualTask = unitOfWork.SaveChangesAsync();
 
             Assert.That(actualTask, Is.EqualTo(expectedTask));
+        }
+
+        [Test]
+        public async Task ReturnCorrectTaskValue()
+        {
+            var expectedTaskReturnValue = 42;
+            var expectedTask = new Task<int>(() =>
+            {
+                return expectedTaskReturnValue;
+            });
+
+            var mockDbContext = new Mock<IWhenItsDoneDbContext>();
+            mockDbContext.Setup(mock => mock.SaveChangesAsync()).Returns(expectedTask);
+
+            var unitOfWork = new UnitOfWork(mockDbContext.Object);
+            var actualTask = unitOfWork.SaveChangesAsync();
+
+            actualTask.Start();
+            var actualTaskValue = await actualTask;
+
+            Assert.That(actualTaskValue, Is.EqualTo(expectedTaskReturnValue));
         }
     }
 }
