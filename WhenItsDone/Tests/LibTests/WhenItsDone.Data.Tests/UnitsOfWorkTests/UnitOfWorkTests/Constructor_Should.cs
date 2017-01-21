@@ -69,8 +69,9 @@ namespace WhenItsDone.Data.Tests.UnitsOfWorkTests.UnitOfWorkTests
 
             var actualUnitOfWorkInstace = new UnitOfWork(validDbContext.Object);
 
+            var fieldName = "dbContext";
             var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
-            var dbContextField = actualUnitOfWorkInstace.GetType().GetField("dbContext", bindingFlags);
+            var dbContextField = actualUnitOfWorkInstace.GetType().GetField(fieldName, bindingFlags);
             var dbContextFieldValue = dbContextField.GetValue(actualUnitOfWorkInstace);
 
             Assert.That(dbContextFieldValue, Is.Not.Null.And.EqualTo(validDbContext.Object));
