@@ -2,15 +2,15 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace WhenItsDone.Models.Tests.JobTests
+namespace WhenItsDone.Models.Tests.VideoItemTests
 {
     [TestFixture]
-    public class JobIdTests
+    public class VideoItemIdTests
     {
         [Test]
         public void Id_ShouldHave_KeyAttribute()
         {
-            var obj = new Job();
+            var obj = new VideoItem();
 
             var result = obj.GetType()
                             .GetProperty("Id")
@@ -21,11 +21,11 @@ namespace WhenItsDone.Models.Tests.JobTests
             Assert.IsTrue(result);
         }
 
-        [TestCase(66444555)]
-        [TestCase(2)]
+        [TestCase(4)]
+        [TestCase(66665666)]
         public void Id_GetAndSetShould_WorkProperly(int randomNumber)
         {
-            var obj = new Job();
+            var obj = new VideoItem();
 
             obj.Id = randomNumber;
 
