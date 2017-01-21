@@ -3,21 +3,21 @@ using System.Threading.Tasks;
 
 namespace WhenItsDone.ConsoleClient
 {
-    public class Program
+    public class Startup
     {
         public static void Main()
         {
-            var asyncResult = Program.AsyncTest();
+            var asyncResult = Startup.AsyncTest();
             asyncResult.ContinueWith((task) =>
             {
                 // this will only be executed if the 
                 // operation is completed BEFORE the console app has finished execution.
-                // thus counter to 100
+                // side effect of having a console app, thus counter is set to 100
                 Console.WriteLine($"Counter - resulting value - Async - {task.Result}");
             });
 
-            var syncResult = Program.SyncTest();
-            Console.WriteLine($"Counter - value - Sync - {syncResult.Result}");
+            var syncResult = Startup.SyncTest();
+            Console.WriteLine($"Counter - resulting value - Sync - {syncResult.Result}");
         }
 
         private static Task<long> AsyncTest()
@@ -25,7 +25,7 @@ namespace WhenItsDone.ConsoleClient
             long counter = 0;
             var runTask = Task.Run(() =>
              {
-                 for (long i = 0; i < 100; i++)
+                 for (long i = 0; i < 100000; i++)
                  {
                      counter++;
                  }
@@ -33,7 +33,7 @@ namespace WhenItsDone.ConsoleClient
                  return counter;
              });
 
-            // This is executed before the task has even been assigned a thread.
+            // This is executed before the task has even been assigned a thread (on my pc at least , always prints 0).
             Console.WriteLine($"Counter - initial value - Async - {counter}");
 
             return runTask;
@@ -41,7 +41,7 @@ namespace WhenItsDone.ConsoleClient
 
         private async static Task<long> SyncTest()
         {
-            var counter = 0;
+            long counter = 0;
             var result = await Task.Run(() =>
              {
                  // Add zeroes for increased effect
@@ -54,7 +54,9 @@ namespace WhenItsDone.ConsoleClient
              });
 
             // This is executed AFTER the task is completed
-            Console.WriteLine($"Counter - initial value - Sync (cw afer await) - {counter}");
+            // and BEFORE the result is returned to the Main method for printing.
+            // Therefore this is executed syncronously.
+            Console.WriteLine($"Counter - initial value - Sync - {counter}");
 
             return result;
         }
