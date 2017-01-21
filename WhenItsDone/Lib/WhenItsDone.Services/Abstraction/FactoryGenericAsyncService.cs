@@ -37,7 +37,7 @@ namespace WhenItsDone.Services.Abstraction
             return await this.asyncRepository.GetByIdAsync(id);
         }
 
-        public virtual async Task<T> Add(T item)
+        public virtual T Add(T item)
         {
             if (item == null)
             {
@@ -47,13 +47,13 @@ namespace WhenItsDone.Services.Abstraction
             this.asyncRepository.Add(item);
             using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
             {
-                await uow.SaveChangesAsync();
+                uow.SaveChangesAsync();
             }
 
             return item;
         }
 
-        public virtual async Task<T> Update(T item)
+        public virtual T Update(T item)
         {
             if (item == null)
             {
@@ -63,13 +63,13 @@ namespace WhenItsDone.Services.Abstraction
             this.asyncRepository.Update(item);
             using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
             {
-                await uow.SaveChangesAsync();
+                uow.SaveChangesAsync();
             }
 
             return item;
         }
 
-        public virtual async Task<int> Hide(T item)
+        public virtual void Hide(T item)
         {
             if (item == null)
             {
@@ -80,11 +80,11 @@ namespace WhenItsDone.Services.Abstraction
             this.asyncRepository.Update(item);
             using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
             {
-                return await uow.SaveChangesAsync();
+                uow.SaveChangesAsync();
             }
         }
 
-        public virtual async Task<int> Delete(T item)
+        public virtual void Delete(T item)
         {
             if (item == null)
             {
@@ -94,7 +94,7 @@ namespace WhenItsDone.Services.Abstraction
             this.asyncRepository.Delete(item);
             using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
             {
-                return await uow.SaveChangesAsync();
+                uow.SaveChangesAsync();
             }
         }
 

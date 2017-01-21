@@ -9,13 +9,13 @@ namespace WhenItsDone.Services.Contracts
     {
         Task<T> GetById(int id);
 
-        Task<T> Add(T item);
+        T Add(T item);
 
-        Task<T> Update(T item);
+        T Update(T item);
 
-        Task<int> Hide(T item);
+        void Hide(T item);
 
-        Task<int> Delete(T item);
+        void Delete(T item);
 
         Task<IEnumerable<T>> GetAll();
 
