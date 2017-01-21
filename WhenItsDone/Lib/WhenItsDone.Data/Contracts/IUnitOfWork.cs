@@ -2,7 +2,7 @@
 
 namespace WhenItsDone.Data.Contracts
 {
-    public interface IUnitOfWork 
+    public interface IUnitOfWork
     {
         Task<int> SaveChanges();
     }

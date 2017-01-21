@@ -22,7 +22,11 @@ namespace WhenItsDone.Data
 
         public virtual IDbSet<Job> Jobs { get; set; }
 
+        public virtual IDbSet<Payment> Payments { get; set; }
+
         public virtual IDbSet<PhotoItem> PhotoItems { get; set; }
+
+        public virtual IDbSet<ReceivedPayment> ReceivedPayments { get; set; }
 
         public virtual IDbSet<VideoItem> VideoItems { get; set; }
 

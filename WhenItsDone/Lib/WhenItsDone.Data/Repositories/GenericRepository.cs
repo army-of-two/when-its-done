@@ -4,10 +4,11 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
+
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Models.Contracts;
 
-namespace WhenItsDone.Data
+namespace WhenItsDone.Data.Repositories
 {
     public class GenericRepository<TEntity> : IRepository<TEntity>
         where TEntity : class, IDbModel
