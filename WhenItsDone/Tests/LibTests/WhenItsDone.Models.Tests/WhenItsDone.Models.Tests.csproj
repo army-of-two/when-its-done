@@ -107,6 +107,7 @@
     <Compile Include="JobTests\JobClientTests.cs" />
     <Compile Include="JobTests\JobConstructorTests.cs" />
     <Compile Include="JobTests\JobIsCompletedTests.cs" />
+    <Compile Include="JobTests\JobIsDeletedTests.cs" />
     <Compile Include="JobTests\JobPriceTests.cs" />
     <Compile Include="JobTests\JobScheduledTimeTests.cs" />
     <Compile Include="JobTests\JobWorkerIdTests.cs" />
