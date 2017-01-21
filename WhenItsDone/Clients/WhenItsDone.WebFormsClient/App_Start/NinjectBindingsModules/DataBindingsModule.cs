@@ -3,6 +3,7 @@ using Ninject.Extensions.Factory;
 
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Models;
+using WhenItsDone.Data.Repositories;
 using WhenItsDone.Services;
 using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.Data.UnitsOfWork;
@@ -19,8 +20,8 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 .ToFactory()
                 .InSingletonScope();
 
-            this.Bind(typeof(IRepository<>))
-                .To<IRepository<Worker>>()
+            this.Bind(typeof(IAsyncRepository<>))
+                .To<AsyncGenericRepository<Worker>>()
                 .WhenInjectedInto<WorkersDataService>()
                 .InSingletonScope();
         }
