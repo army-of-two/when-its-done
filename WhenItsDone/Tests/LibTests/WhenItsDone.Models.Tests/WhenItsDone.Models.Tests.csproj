@@ -103,6 +103,7 @@
     <Compile Include="ContactInformationTests\ContactInformationTestingTests.cs" />
     <Compile Include="ContactInformationTests\ContactInformationEmailTests.cs" />
     <Compile Include="JobTests\JobAsDbModelTests.cs" />
+    <Compile Include="JobTests\JobClientIdTests.cs" />
     <Compile Include="JobTests\JobConstructorTests.cs" />
     <Compile Include="JobTests\JobPriceTests.cs" />
     <Compile Include="JobTests\JobScheduledTimeTests.cs" />
