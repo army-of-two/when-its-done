@@ -1,6 +1,7 @@
 ﻿using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace WhenItsDone.Models.Tests.ClientTests
 {
@@ -17,6 +18,19 @@ namespace WhenItsDone.Models.Tests.ClientTests
             obj.Jobs = mockedCollection.Object;
 
             Assert.AreSame(mockedCollection.Object, obj.Jobs);
+        }
+
+        [Test]
+        public void Jobs_ShouldBe_Virtual()
+        {
+            var obj = new Client();
+
+            var result = obj.GetType()
+                            .GetProperty("Jobs")
+                            .GetAccessors()
+                            .Any(x => x.IsVirtual);
+
+            Assert.IsTrue(result);
         }
     }
 }
