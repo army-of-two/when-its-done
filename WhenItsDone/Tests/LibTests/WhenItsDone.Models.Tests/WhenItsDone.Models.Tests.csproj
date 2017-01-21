@@ -125,6 +125,8 @@
     <Compile Include="PhotoItemTests\PhotoItemAsDbModelTests.cs" />
     <Compile Include="PhotoItemTests\PhotoItemConstructorTests.cs" />
     <Compile Include="PhotoItemTests\PhotoItemIdTests.cs" />
+    <Compile Include="PhotoItemTests\PhotoItemIsDeletedTests.cs" />
+    <Compile Include="PhotoItemTests\PhotoItemUrlTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
