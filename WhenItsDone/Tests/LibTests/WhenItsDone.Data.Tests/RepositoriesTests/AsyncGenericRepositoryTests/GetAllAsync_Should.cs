@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Reflection;
@@ -10,7 +11,6 @@ using NUnit.Framework;
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.Repositories;
 using WhenItsDone.Models.Contracts;
-using System.Collections.Generic;
 
 namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
 {
@@ -39,18 +39,12 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var dbSetField = asyncGenericRepositoryInstace.GetType().GetField(fieldName, bindingFlags);
             dbSetField.SetValue(asyncGenericRepositoryInstace, mockDbSet.Object);
 
-            var fakeData = new List<IDbModel>()
-            {
-                new Mock<IDbModel>().Object,
-                new Mock<IDbModel>().Object,
-                new Mock<IDbModel>().Object,
-                new Mock<IDbModel>().Object
-            };
+            var fakeData = new List<IDbModel>();
             mockDbSet.Setup(mock => mock.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
             var actualReturnedCollection = asyncGenericRepositoryInstace.GetAllAsync();
 
-            Assert.That(actualReturnedCollection.Result, Is.Null);
+            Assert.That(actualReturnedCollection.Result.Count, Is.EqualTo(0));
         }
 
         [Test]
