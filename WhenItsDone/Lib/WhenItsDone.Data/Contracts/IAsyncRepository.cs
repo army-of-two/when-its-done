@@ -13,8 +13,9 @@ namespace WhenItsDone.Data.Contracts
 
         void Delete(TEntity entity);
 
+        
         Task<IEnumerable<TEntity>> GetAllAsync();
-
+        
         Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter);
 
         Task<IEnumerable<TEntity>> GetAll<T>(
