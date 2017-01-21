@@ -144,9 +144,9 @@ namespace WhenItsDone.Data.Repositories
             }
 
             queryToExecute = queryToExecute
-                        .Where(x => !x.IsDeleted)
-                        .Skip(page * pageSize)
-                        .Take(pageSize);
+                .Where(x => !x.IsDeleted)
+                .Skip(page * pageSize)
+                .Take(pageSize);
 
             var runningTask = Task.Run(() =>
             {
