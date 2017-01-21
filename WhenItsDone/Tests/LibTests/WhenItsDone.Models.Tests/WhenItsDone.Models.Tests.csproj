@@ -90,6 +90,7 @@
     <Compile Include="ClientTests\ClientIsDeletedTests.cs" />
     <Compile Include="ClientTests\ClientJobsTests.cs" />
     <Compile Include="ClientTests\ClientLastNameTests.cs" />
+    <Compile Include="ClientTests\ClientPaymentsTests.cs" />
     <Compile Include="ClientTests\ClientRatingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
