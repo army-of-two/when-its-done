@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="Contracts\IAsyncRepository.cs" />
     <Compile Include="Contracts\IDisposableUnitOfWork.cs" />
-    <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Contracts\IWhenItsDoneDbContext.cs" />
     <Compile Include="Migrations\201701192351053_init.cs" />
@@ -64,10 +63,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\AsyncGenericRepository.cs" />
-    <Compile Include="UnitsOfWork\DisposableUnitOfWork.cs" />
-    <Compile Include="UnitsOfWork\Factories\IUnitOfWorkFactory.cs" />
     <Compile Include="UnitsOfWork\UnitOfWork.cs" />
-    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="UnitsOfWork\Factories\IUnitOfWorkFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WhenItsDoneDbContext.cs" />
   </ItemGroup>
