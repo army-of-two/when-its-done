@@ -1,13 +1,12 @@
 ﻿using System;
+using System.Data.Entity;
+using System.Reflection;
 
 using Moq;
 using NUnit.Framework;
 
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.Repositories;
-using WhenItsDone.Data.Tests.Mocks;
-using System.Data.Entity;
-using System.Reflection;
 using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
@@ -28,10 +27,12 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         [Test]
         public void ShouldInvoke_DbContextSetMethodOnce()
         {
-            var stubModel = new Mock<IDbModel>();
-
             var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[0], null);
             var dbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
+
+            // Return type of DbContext.Set<>() method is DbSet, rather than IDbSet
+            // mocking IDbSet does not work.
+            //var dbSet = new Mock<IDbSet<IDbModel>>();
 
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(dbSet);
