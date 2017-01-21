@@ -18,18 +18,18 @@ namespace WhenItsDone.Data.Repositories
         private readonly IDbSet<TEntity> dbSet;
 
         private readonly Func<AsyncGenericRepository<TEntity>, int, TEntity> getByIdDelegate = (AsyncGenericRepository<TEntity> context, int id) =>
-       {
-           var result = context.dbSet.Find(id);
+        {
+            var result = context.dbSet.Find(id);
 
-           return result;
-       };
+            return result;
+        };
 
         private readonly Func<AsyncGenericRepository<TEntity>, IEnumerable<TEntity>> getAllDelegate = (AsyncGenericRepository<TEntity> context) =>
-       {
-           var result = context.dbSet.ToList().AsEnumerable();
+        {
+            var result = context.dbSet.ToList().AsEnumerable();
 
-           return result;
-       };
+            return result;
+        };
 
         public AsyncGenericRepository(IWhenItsDoneDbContext dbContext)
         {
@@ -46,13 +46,6 @@ namespace WhenItsDone.Data.Repositories
             }
 
             this.dbSet = dbContext.Set<TEntity>();
-        }
-
-        public Task<IEnumerable<TEntity>> GetAllAsync()
-        {
-            var getAllTask = Task.Run(() => this.getAllDelegate(this));
-
-            return getAllTask;
         }
 
         public Task<TEntity> GetByIdAsync(int id)
@@ -72,6 +65,13 @@ namespace WhenItsDone.Data.Repositories
         {
             var entry = AttachIfDetached(entity);
             entry.State = EntityState.Deleted;
+        }
+
+        public Task<IEnumerable<TEntity>> GetAllAsync()
+        {
+            var getAllTask = Task.Run(() => this.getAllDelegate(this));
+
+            return getAllTask;
         }
 
         public IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> filter)
@@ -107,37 +107,45 @@ namespace WhenItsDone.Data.Repositories
             return this.GetAll<T, TEntity>(filter, orderBy, null, page, pageSize);
         }
 
-        public IEnumerable<TResult> GetAll<T, TResult>(Expression<Func<TEntity, bool>> filter,
-                                            Expression<Func<TEntity, T>> orderBy,
-                                            Expression<Func<TEntity, TResult>> select,
-                                            int page,
-                                            int pageSize)
+        public Task<IEnumerable<TResult>> GetAll<T, TResult>(
+            Expression<Func<TEntity, bool>> filter,
+            Expression<Func<TEntity, T>> orderBy,
+            Expression<Func<TEntity, TResult>> select,
+            int page,
+            int pageSize)
         {
-            IQueryable<TEntity> result = this.dbSet;
+            IQueryable<TEntity> resultingQuery = this.dbSet;
 
-            result = result.OrderBy(x => x.Id);
+            resultingQuery = resultingQuery.OrderBy(x => x.Id);
 
             if (filter != null)
             {
-                result = result.Where(filter);
+                resultingQuery = resultingQuery.Where(filter);
             }
 
             if (orderBy != null)
             {
-                result = result.OrderBy(orderBy);
+                resultingQuery = resultingQuery.OrderBy(orderBy);
             }
 
             if (select != null)
             {
-                result.Select(select);
+                resultingQuery.Select(select);
             }
 
-            result = result
+            resultingQuery = resultingQuery
                         .Where(x => !x.IsDeleted)
                         .Skip(page * pageSize)
                         .Take(pageSize);
 
-            return result.OfType<TResult>().ToList();
+            var runningTask = Task.Run(() =>
+            {
+                var result = resultingQuery.OfType<TResult>().ToList().AsEnumerable();
+
+                return result;
+            });
+
+            return runningTask;
         }
 
         public IEnumerable<TEntity> GetDeleted()
