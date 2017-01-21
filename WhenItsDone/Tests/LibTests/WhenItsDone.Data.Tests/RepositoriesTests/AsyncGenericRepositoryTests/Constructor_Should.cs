@@ -52,5 +52,35 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
                 () => new AsyncGenericRepository<IDbModel>(mockDbContext.Object),
                 Throws.InstanceOf<ArgumentException>().With.Message.Contains("DbContext does not contain DbSet"));
         }
+
+        [Test]
+        public void ShouldNotThrow_WhenParametersAreCorrect()
+        {
+            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { }, null);
+            var dbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
+
+            var mockDbContext = new Mock<IWhenItsDoneDbContext>();
+            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(dbSet);
+
+            var asyncGenericRepository = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+
+            Assert.That(asyncGenericRepository, Is.Not.Null);
+        }
+
+        [Test]
+        public void ShouldCreateAnObjectWhichImplementsIAsyncRepository()
+        {
+            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { }, null);
+            var dbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
+
+            var mockDbContext = new Mock<IWhenItsDoneDbContext>();
+            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(dbSet);
+
+            var asyncGenericRepository = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+
+            Assert.That(asyncGenericRepository, Is.InstanceOf<IAsyncRepository<IDbModel>>());
+        }
+        
+        // assigns fields
     }
 }
