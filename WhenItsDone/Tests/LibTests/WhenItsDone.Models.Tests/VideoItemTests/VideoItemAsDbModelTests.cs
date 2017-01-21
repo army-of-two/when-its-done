@@ -5,7 +5,7 @@ using WhenItsDone.Models.Contracts;
 namespace WhenItsDone.Models.Tests.VideoItemTests
 {
     [TestFixture]
-    public class VidoItemAsDbModelTests
+    public class VideoItemAsDbModelTests
     {
         [Test]
         public void VideoItem_ShouldImplement_IDbModelInterface()
