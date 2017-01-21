@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.Models.Contracts;
+using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.Services.Abstraction
 {
-    public abstract class FactoryGenericAsyncService<T>
+    public abstract class FactoryGenericAsyncService<T> : IFactoryGenericAsyncService<T>
             where T : class, IDbModel
     {
         private readonly IAsyncRepository<T> asyncRepository;
