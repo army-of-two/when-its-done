@@ -10,8 +10,8 @@ namespace WhenItsDone.Data.Contracts
 
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
 
-        // int SaveChanges();
-
         Task<int> SaveChangesAsync();
+
+        int SaveChanges();
     }
 }

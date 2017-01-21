@@ -69,7 +69,7 @@ namespace WhenItsDone.Services.Abstraction
             }
 
             this.repository.Add(item);
-            await this.unitOfWork.SaveChanges();
+            await this.unitOfWork.SaveChangesAsync();
 
             return this.GetById(item.Id);
         }
@@ -82,7 +82,7 @@ namespace WhenItsDone.Services.Abstraction
             }
 
             this.repository.Update(item);
-            await this.unitOfWork.SaveChanges();
+            await this.unitOfWork.SaveChangesAsync();
 
             return this.GetById(item.Id);
         }
@@ -96,7 +96,7 @@ namespace WhenItsDone.Services.Abstraction
 
             item.IsDeleted = true;
             this.repository.Update(item);
-            return await this.unitOfWork.SaveChanges();
+            return await this.unitOfWork.SaveChangesAsync();
         }
 
         public virtual async Task<int> Delete(T item)
@@ -107,7 +107,7 @@ namespace WhenItsDone.Services.Abstraction
             }
 
             this.repository.Delete(item);
-            return await this.unitOfWork.SaveChanges();
+            return await this.unitOfWork.SaveChangesAsync();
         }
 
         public virtual async Task<IEnumerable<T>> GetAll()

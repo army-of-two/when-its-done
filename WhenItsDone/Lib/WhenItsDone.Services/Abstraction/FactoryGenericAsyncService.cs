@@ -46,7 +46,7 @@ namespace WhenItsDone.Services.Abstraction
             this.repository.Add(item);
             using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
             {
-                await uow.SaveChanges();
+                await uow.SaveChangesAsync();
             }
 
             return this.GetById(item.Id);
@@ -62,7 +62,7 @@ namespace WhenItsDone.Services.Abstraction
             this.repository.Update(item);
             using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
             {
-                await uow.SaveChanges();
+                await uow.SaveChangesAsync();
             }
 
             return this.GetById(item.Id);
@@ -79,7 +79,7 @@ namespace WhenItsDone.Services.Abstraction
             this.repository.Update(item);
             using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
             {
-                return await uow.SaveChanges();
+                return await uow.SaveChangesAsync();
             }
         }
 
@@ -93,7 +93,7 @@ namespace WhenItsDone.Services.Abstraction
             this.repository.Delete(item);
             using (var uow = this.unitOfWorkFactory.CreateUnitOfWork())
             {
-                return await uow.SaveChanges();
+                return await uow.SaveChangesAsync();
             }
         }
 
