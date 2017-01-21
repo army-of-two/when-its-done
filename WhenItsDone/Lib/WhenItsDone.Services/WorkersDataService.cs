@@ -7,7 +7,7 @@ namespace WhenItsDone.Services
 {
     public class WorkersDataService : FactoryGenericAsyncService<Worker>
     {
-        public WorkersDataService(IRepository<Worker> repository, IDisposableUnitOfWorkFactory unitOfWorkFactory)
+        public WorkersDataService(IAsyncRepository<Worker> repository, IDisposableUnitOfWorkFactory unitOfWorkFactory)
             : base(repository, unitOfWorkFactory)
         {
         }

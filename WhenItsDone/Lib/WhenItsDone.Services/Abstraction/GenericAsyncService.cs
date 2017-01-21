@@ -8,6 +8,10 @@ using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Services.Abstraction
 {
+    /// <summary>
+    /// Deprecated!
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public abstract class GenericAsyncService<T>
             where T : class, IDbModel
     {
