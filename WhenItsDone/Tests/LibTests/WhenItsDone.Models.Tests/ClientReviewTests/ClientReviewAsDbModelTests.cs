@@ -5,7 +5,7 @@ using WhenItsDone.Models.Contracts;
 namespace WhenItsDone.Models.Tests.ClientReviewTests
 {
     [TestFixture]
-    public class ClientReviewAsDbModel
+    public class ClientReviewAsDbModelTests
     {
         [Test]
         public void ClientReviewClass_ShouldImplement_IDbModelInterface()
