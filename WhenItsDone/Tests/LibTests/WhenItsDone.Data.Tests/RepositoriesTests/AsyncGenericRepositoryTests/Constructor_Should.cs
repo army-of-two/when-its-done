@@ -27,7 +27,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         [Test]
         public void ShouldInvoke_DbContextSetMethodOnce()
         {
-            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[0], null);
+            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { }, null);
             var dbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
 
             // Return type of DbContext.Set<>() method is DbSet, rather than IDbSet
