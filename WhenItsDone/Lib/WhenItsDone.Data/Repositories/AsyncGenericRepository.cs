@@ -68,6 +68,11 @@ namespace WhenItsDone.Data.Repositories
 
         public void Add(TEntity entity)
         {
+            if (entity == null)
+            {
+                throw new ArgumentNullException(nameof(entity));
+            }
+
             var entry = AttachIfDetached(entity);
             entry.State = EntityState.Added;
         }
