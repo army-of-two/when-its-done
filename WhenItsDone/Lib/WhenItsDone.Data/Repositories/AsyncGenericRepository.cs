@@ -73,13 +73,18 @@ namespace WhenItsDone.Data.Repositories
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            var entry = AttachIfDetached(entity);
+            var entry = this.dbContext.Entry(entity);
             entry.State = EntityState.Added;
         }
 
         public void Delete(TEntity entity)
         {
-            var entry = AttachIfDetached(entity);
+            if (entity == null)
+            {
+                throw new ArgumentNullException(nameof(entity));
+            }
+
+            var entry = this.dbContext.Entry(entity);
             entry.State = EntityState.Deleted;
         }
 
