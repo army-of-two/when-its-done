@@ -294,5 +294,43 @@ namespace WhenItsDone.Models.Tests.ClientReviewTests
 
             Assert.AreEqual(2, result);
         }
+
+
+        /// <summary>
+        /// At that moment TestClas contain 2 Test methods = fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void ClientReviewWorkerTests_VerifyNumberOfTests()
+        {
+            var methodsFromFramework = 4;
+            var expectedMethods = 2;
+            var totalExpectedMethods = methodsFromFramework + expectedMethods;
+
+            var obj = new ClientReviewWorkerTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Count();
+
+            Assert.AreEqual(totalExpectedMethods, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClass contains 0 TestCase attributes - fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void ClientReviewWorkerTests_VeryfyTestCaseAttributes()
+        {
+            var obj = new ClientReviewWorkerTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Select(x => x.GetCustomAttributes(false)
+                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
+                                        .Count())
+                            .Sum();
+
+            Assert.AreEqual(0, result);
+        }
     }
 }

@@ -76,6 +76,7 @@
     <Compile Include="ClientReviewTests\ClientReviewScoreTests.cs" />
     <Compile Include="ClientReviewTests\ClientReviewTestingTests.cs" />
     <Compile Include="ClientReviewTests\ClientReviewWorkerIdTests.cs" />
+    <Compile Include="ClientReviewTests\ClientReviewWorkerTests.cs" />
     <Compile Include="ClientTests\ClientAgeTests.cs" />
     <Compile Include="ClientTests\ClientAsDbModelTests.cs" />
     <Compile Include="ClientTests\ClientConstructorTests.cs" />
