@@ -129,6 +129,7 @@
     <Compile Include="PhotoItemTests\PhotoItemTestingTest.cs" />
     <Compile Include="PhotoItemTests\PhotoItemUrlTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReceivedPaymentTests\ReceivedPaymentAmountPaidTests.cs" />
     <Compile Include="ReceivedPaymentTests\ReceivedPaymentAsDbModelTests.cs" />
     <Compile Include="ReceivedPaymentTests\ReceivedPaymentClientIdTests.cs" />
     <Compile Include="ReceivedPaymentTests\ReceivedPaymentClientTests.cs" />
