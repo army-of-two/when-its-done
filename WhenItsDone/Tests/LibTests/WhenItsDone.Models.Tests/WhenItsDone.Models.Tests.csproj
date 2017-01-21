@@ -95,6 +95,7 @@
     <Compile Include="ClientTests\ClientTestingTests.cs" />
     <Compile Include="ContactInformationTests\ContactInformationAsDbModel.cs" />
     <Compile Include="ContactInformationTests\ContactInformationConstructorTests.cs" />
+    <Compile Include="ContactInformationTests\ContactInformationIdTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
