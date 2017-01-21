@@ -115,6 +115,7 @@
     <Compile Include="JobTests\JobWorkerTests.cs" />
     <Compile Include="PaymentTests\PaymentAsDbModelTests.cs" />
     <Compile Include="PaymentTests\PaymentConstructorTests.cs" />
+    <Compile Include="PaymentTests\PaymentIdTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
