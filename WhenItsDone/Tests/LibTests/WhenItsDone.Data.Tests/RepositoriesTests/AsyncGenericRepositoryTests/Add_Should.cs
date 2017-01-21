@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Reflection;
+using System.Runtime.Serialization;
 
 using Moq;
 using NUnit.Framework;
@@ -46,7 +47,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(ctorBindingFlags, null, ctorParameters, null);
             var fakeDbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
 
-            var entity = (DbEntityEntry<IDbModel>)System.Runtime.Serialization.FormatterServices.GetSafeUninitializedObject(typeof(DbEntityEntry<IDbModel>));
+            var entity = (DbEntityEntry<IDbModel>)FormatterServices.GetSafeUninitializedObject(typeof(DbEntityEntry<IDbModel>));
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet);
             mockDbContext.Setup(mock => mock.Entry(It.IsAny<IDbModel>())).Returns(entity);
@@ -82,7 +83,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(ctorBindingFlags, null, ctorParameters, null);
             var fakeDbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
 
-            var entity = (DbEntityEntry<IDbModel>)System.Runtime.Serialization.FormatterServices.GetSafeUninitializedObject(typeof(DbEntityEntry<IDbModel>));
+            var entity = (DbEntityEntry<IDbModel>)FormatterServices.GetSafeUninitializedObject(typeof(DbEntityEntry<IDbModel>));
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet);
             mockDbContext.Setup(mock => mock.Entry(It.IsAny<IDbModel>())).Returns(entity);
