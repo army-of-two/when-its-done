@@ -31,6 +31,13 @@ namespace WhenItsDone.Data.Repositories
             return result;
         };
 
+        private readonly Func<AsyncGenericRepository<TEntity>, IEnumerable<TEntity>> getDeletedDelegate = (AsyncGenericRepository<TEntity> context) =>
+        {
+            var result = context.dbSet.Where(x => x.IsDeleted).ToList().AsEnumerable();
+
+            return result;
+        };
+
         public AsyncGenericRepository(IWhenItsDoneDbContext dbContext)
         {
             if (dbContext == null)
@@ -39,13 +46,12 @@ namespace WhenItsDone.Data.Repositories
             }
 
             this.dbContext = dbContext;
+            this.dbSet = dbContext.Set<TEntity>();
 
-            if (dbContext.Set<TEntity>() == null)
+            if (this.dbSet == null)
             {
                 throw new ArgumentNullException("DbContext does not contain DbSet<{0}>", typeof(TEntity).Name);
             }
-
-            this.dbSet = dbContext.Set<TEntity>();
         }
 
         public Task<TEntity> GetByIdAsync(int id)
@@ -152,9 +158,11 @@ namespace WhenItsDone.Data.Repositories
             return runningTask;
         }
 
-        public IEnumerable<TEntity> GetDeleted()
+        public Task<IEnumerable<TEntity>> GetDeleted()
         {
-            return this.dbSet.Where(x => x.IsDeleted);
+            var getDeletedTask = Task.Run(() => this.getDeletedDelegate(this));
+
+            return getDeletedTask;
         }
 
         public void Update(TEntity entity)
