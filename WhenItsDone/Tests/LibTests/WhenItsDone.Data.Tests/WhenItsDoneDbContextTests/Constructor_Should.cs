@@ -416,5 +416,44 @@ namespace WhenItsDone.Data.Tests.WhenItsDoneDbContextTests
 
             Assert.That(clientsProperty.PropertyType, Is.EqualTo(typeof(IDbSet<Worker>)));
         }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithVitalStatisticsProperty()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "VitalStatistics";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty, Is.Not.Null);
+        }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithVitalStatisticsVirtualProperty()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "VitalStatistics";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty.GetGetMethod().IsVirtual, Is.True);
+        }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithVitalStatisticsVirtualProperty_OfTypeIDbSetVitalStatistics()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "VitalStatistics";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty.PropertyType, Is.EqualTo(typeof(IDbSet<VitalStatistic>)));
+        }
     }
 }
