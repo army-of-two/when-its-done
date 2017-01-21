@@ -299,5 +299,44 @@ namespace WhenItsDone.Data.Tests.WhenItsDoneDbContextTests
 
             Assert.That(clientsProperty.PropertyType, Is.EqualTo(typeof(IDbSet<PhotoItem>)));
         }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithReceivedPaymentsProperty()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "ReceivedPayments";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty, Is.Not.Null);
+        }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithReceivedPaymentsVirtualProperty()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "ReceivedPayments";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty.GetGetMethod().IsVirtual, Is.True);
+        }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithReceivedPaymentsVirtualProperty_OfTypeIDbSetReceivedPayments()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "ReceivedPayments";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty.PropertyType, Is.EqualTo(typeof(IDbSet<ReceivedPayment>)));
+        }
     }
 }
