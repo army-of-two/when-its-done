@@ -1,9 +1,9 @@
 ﻿using System.Data.Entity;
+using System.Reflection;
 
 using NUnit.Framework;
 
 using WhenItsDone.Data.Contracts;
-using System.Reflection;
 using WhenItsDone.Models;
 
 namespace WhenItsDone.Data.Tests.WhenItsDoneDbContextTests
@@ -453,7 +453,7 @@ namespace WhenItsDone.Data.Tests.WhenItsDoneDbContextTests
 
             var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
 
-            Assert.That(clientsProperty.PropertyType, Is.EqualTo(typeof(IDbSet<VitalStatistic>)));
+            Assert.That(clientsProperty.PropertyType, Is.EqualTo(typeof(IDbSet<VitalStatistics>)));
         }
 
         [Test]
