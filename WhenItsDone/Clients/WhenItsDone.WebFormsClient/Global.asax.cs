@@ -7,9 +7,7 @@ using Ninject;
 
 using WebFormsMvp.Binder;
 
-using WhenItsDone.Models;
 using WhenItsDone.WebFormsClient.App_Start;
-using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.WebFormsClient
 {
@@ -21,8 +19,6 @@ namespace WhenItsDone.WebFormsClient
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            var test = NinjectKernelInstanceProvider.Instance.Get<IFactoryGenericAsyncService<Worker>>();
 
             this.AttachCustomPresenterFactory();
         }
