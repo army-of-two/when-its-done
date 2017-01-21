@@ -76,6 +76,10 @@
       <Project>{D3085631-83D5-4525-B69C-DFDC47BC7F9B}</Project>
       <Name>WhenItsDone.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Lib\WhenItsDone.Models\WhenItsDone.Models.csproj">
+      <Project>{E10CC5A1-7DD9-4F43-8798-AA58882CAF6F}</Project>
+      <Name>WhenItsDone.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
