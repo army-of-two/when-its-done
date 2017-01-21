@@ -16,7 +16,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
     {
         public override void Load()
         {
-            this.Bind<IDisposableUnitOfWork>().To<DisposableUnitOfWork>();
+            this.Bind<IDisposableUnitOfWork>().To<UnitOfWork>();
 
             this.Bind<IDisposableUnitOfWorkFactory>()
                 .ToFactory()

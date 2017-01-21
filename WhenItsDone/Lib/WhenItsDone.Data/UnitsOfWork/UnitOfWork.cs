@@ -5,7 +5,7 @@ using WhenItsDone.Data.Contracts;
 
 namespace WhenItsDone.Data.UnitsOfWork
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IDisposableUnitOfWork, IUnitOfWork, IDisposable
     {
         private readonly IWhenItsDoneDbContext dbContext;
 
@@ -27,6 +27,10 @@ namespace WhenItsDone.Data.UnitsOfWork
         public int SaveChanges()
         {
             return this.dbContext.SaveChanges();
+        }
+
+        public void Dispose()
+        {
         }
     }
 }
