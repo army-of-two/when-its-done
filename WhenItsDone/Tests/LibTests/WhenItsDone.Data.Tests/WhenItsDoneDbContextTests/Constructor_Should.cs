@@ -182,5 +182,83 @@ namespace WhenItsDone.Data.Tests.WhenItsDoneDbContextTests
 
             Assert.That(clientsProperty.PropertyType, Is.EqualTo(typeof(IDbSet<ContactInformation>)));
         }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithJobsProperty()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "Jobs";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty, Is.Not.Null);
+        }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithJobsVirtualProperty()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "Jobs";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty.GetGetMethod().IsVirtual, Is.True);
+        }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithJobsVirtualProperty_OfTypeIDbSetJobs()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "Jobs";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty.PropertyType, Is.EqualTo(typeof(IDbSet<Job>)));
+        }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithPaymentsProperty()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "Payments";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty, Is.Not.Null);
+        }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithPaymentsVirtualProperty()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "Payments";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty.GetGetMethod().IsVirtual, Is.True);
+        }
+
+        [Test]
+        public void ShouldCreateAValidInstance_WithPaymentsVirtualProperty_OfTypeIDbSetPayments()
+        {
+            var whenItsDoneDbContext = new WhenItsDoneDbContext();
+
+            var propertyName = "Payments";
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+            var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
+
+            Assert.That(clientsProperty.PropertyType, Is.EqualTo(typeof(IDbSet<Payment>)));
+        }
     }
 }
