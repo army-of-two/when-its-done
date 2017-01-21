@@ -444,5 +444,42 @@ namespace WhenItsDone.Models.Tests.JobTests
 
             Assert.AreEqual(0, result);
         }
+
+        /// <summary>
+        /// At that moment TestClas contain 2 Test methods = fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void JobIdTests_VerifyNumberOfTests()
+        {
+            var methodsFromFramework = 4;
+            var expectedMethods = 2;
+            var totalExpectedMethods = methodsFromFramework + expectedMethods;
+
+            var obj = new JobIdTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Count();
+
+            Assert.AreEqual(totalExpectedMethods, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void JobIdTests_VeryfyTestCaseAttributes()
+        {
+            var obj = new JobIdTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Select(x => x.GetCustomAttributes(false)
+                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
+                                        .Count())
+                            .Sum();
+
+            Assert.AreEqual(2, result);
+        }
     }
 }
