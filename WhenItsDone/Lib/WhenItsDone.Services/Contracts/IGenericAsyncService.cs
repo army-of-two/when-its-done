@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WhenItsDone.Services.Contracts
 {
-    public interface IFactoryGenericAsyncService<T>
+    public interface IGenericAsyncService<T>
     {
         Task<T> GetById(int id);
 

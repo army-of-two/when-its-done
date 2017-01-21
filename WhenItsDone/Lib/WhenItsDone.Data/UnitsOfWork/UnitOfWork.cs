@@ -5,11 +5,11 @@ using WhenItsDone.Data.Contracts;
 
 namespace WhenItsDone.Data.UnitsOfWork
 {
-    public class DisposableUnitOfWork : IDisposableUnitOfWork, IUnitOfWork, IDisposable
+    public class UnitOfWork : IDisposableUnitOfWork, IUnitOfWork, IDisposable
     {
         private readonly IWhenItsDoneDbContext dbContext;
 
-        public DisposableUnitOfWork(IWhenItsDoneDbContext dbContext)
+        public UnitOfWork(IWhenItsDoneDbContext dbContext)
         {
             if (dbContext == null)
             {

@@ -10,13 +10,13 @@ using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.Services.Abstraction
 {
-    public abstract class FactoryGenericAsyncService<T> : IFactoryGenericAsyncService<T>
+    public abstract class GenericAsyncService<T> : IGenericAsyncService<T>
             where T : class, IDbModel
     {
         private readonly IAsyncRepository<T> asyncRepository;
         private readonly IDisposableUnitOfWorkFactory unitOfWorkFactory;
 
-        public FactoryGenericAsyncService(IAsyncRepository<T> asyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory)
+        public GenericAsyncService(IAsyncRepository<T> asyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory)
         {
             if (asyncRepository == null)
             {

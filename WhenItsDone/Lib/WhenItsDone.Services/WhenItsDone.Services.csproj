@@ -40,9 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstraction\FactoryGenericAsyncService.cs" />
+    <Compile Include="Abstraction\GenericAsyncService.cs" />
     <Compile Include="Abstraction\IAsyncDataService.cs" />
-    <Compile Include="Contracts\IFactoryGenericAsyncService.cs" />
+    <Compile Include="Contracts\IGenericAsyncService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkersDataService.cs" />
   </ItemGroup>
