@@ -94,6 +94,7 @@
     <Compile Include="ClientTests\ClientRatingTests.cs" />
     <Compile Include="ClientTests\ClientTestingTests.cs" />
     <Compile Include="ContactInformationTests\ContactInformationAddressIdTests.cs" />
+    <Compile Include="ContactInformationTests\ContactInformationAddressTests.cs" />
     <Compile Include="ContactInformationTests\ContactInformationAsDbModel.cs" />
     <Compile Include="ContactInformationTests\ContactInformationConstructorTests.cs" />
     <Compile Include="ContactInformationTests\ContactInformationIdTests.cs" />
