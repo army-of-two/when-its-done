@@ -17,12 +17,19 @@ namespace WhenItsDone.Data.Repositories
         private readonly IWhenItsDoneDbContext dbContext;
         private readonly IDbSet<TEntity> dbSet;
 
-        private readonly Func<int, AsyncGenericRepository<TEntity>, TEntity> getByIdDelegate = (int id, AsyncGenericRepository<TEntity> context) =>
-        {
-            var result = context.dbSet.Find(id);
+        private readonly Func<AsyncGenericRepository<TEntity>, int, TEntity> getByIdDelegate = (AsyncGenericRepository<TEntity> context, int id) =>
+       {
+           var result = context.dbSet.Find(id);
 
-            return result;
-        };
+           return result;
+       };
+
+        private readonly Func<AsyncGenericRepository<TEntity>, IEnumerable<TEntity>> getAllDelegate = (AsyncGenericRepository<TEntity> context) =>
+       {
+           var result = context.dbSet.ToList().AsEnumerable();
+
+           return result;
+       };
 
         public AsyncGenericRepository(IWhenItsDoneDbContext dbContext)
         {
@@ -43,16 +50,15 @@ namespace WhenItsDone.Data.Repositories
 
         public Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return Task.Run(() =>
-            {
-                var result = this.dbSet.ToList();
-                return (IEnumerable<TEntity>)result;
-            });
+            var getAllTask = Task.Run(() => this.getAllDelegate(this));
+
+            return getAllTask;
         }
 
         public Task<TEntity> GetByIdAsync(int id)
         {
-            var getByIdTask = Task.Run(() => this.getByIdDelegate(id, this));
+            var getByIdTask = Task.Run(() => this.getByIdDelegate(this, id));
+
             return getByIdTask;
         }
 
