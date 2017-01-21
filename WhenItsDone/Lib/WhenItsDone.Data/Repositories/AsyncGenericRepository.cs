@@ -74,35 +74,39 @@ namespace WhenItsDone.Data.Repositories
             return getAllTask;
         }
 
-        public IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> filter)
+        public Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter)
         {
             return this.GetAll<TEntity, TEntity>(filter, null, null);
         }
 
-        public IEnumerable<TEntity> GetAll<T>(Expression<Func<TEntity, bool>> filter,
-                                                    Expression<Func<TEntity, T>> orderBy)
+        public Task<IEnumerable<TEntity>> GetAll<T>(
+            Expression<Func<TEntity, bool>> filter,
+            Expression<Func<TEntity, T>> orderBy)
         {
             return this.GetAll<T, TEntity>(filter, orderBy, null);
         }
 
-        public IEnumerable<TResult> GetAll<T, TResult>(Expression<Func<TEntity, bool>> filter,
-                                            Expression<Func<TEntity, T>> orderBy,
-                                            Expression<Func<TEntity, TResult>> select)
+        public Task<IEnumerable<TResult>> GetAll<T, TResult>(
+            Expression<Func<TEntity, bool>> filter,
+            Expression<Func<TEntity, T>> orderBy,
+            Expression<Func<TEntity, TResult>> select)
         {
             return this.GetAll(filter, orderBy, select, 0, int.MaxValue);
         }
 
-        public IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> filter,
-                                        int page,
-                                        int pageSize)
+        public Task<IEnumerable<TEntity>> GetAll(
+            Expression<Func<TEntity, bool>> filter,
+            int page,
+            int pageSize)
         {
             return this.GetAll<TEntity, TEntity>(filter, null, null, page, pageSize);
         }
 
-        public IEnumerable<TEntity> GetAll<T>(Expression<Func<TEntity, bool>> filter,
-                                        Expression<Func<TEntity, T>> orderBy,
-                                        int page,
-                                        int pageSize)
+        public Task<IEnumerable<TEntity>> GetAll<T>(
+            Expression<Func<TEntity, bool>> filter,
+            Expression<Func<TEntity, T>> orderBy,
+            int page,
+            int pageSize)
         {
             return this.GetAll<T, TEntity>(filter, orderBy, null, page, pageSize);
         }
@@ -114,33 +118,33 @@ namespace WhenItsDone.Data.Repositories
             int page,
             int pageSize)
         {
-            IQueryable<TEntity> resultingQuery = this.dbSet;
+            IQueryable<TEntity> queryToExecute = this.dbSet;
 
-            resultingQuery = resultingQuery.OrderBy(x => x.Id);
+            queryToExecute = queryToExecute.OrderBy(x => x.Id);
 
             if (filter != null)
             {
-                resultingQuery = resultingQuery.Where(filter);
+                queryToExecute = queryToExecute.Where(filter);
             }
 
             if (orderBy != null)
             {
-                resultingQuery = resultingQuery.OrderBy(orderBy);
+                queryToExecute = queryToExecute.OrderBy(orderBy);
             }
 
             if (select != null)
             {
-                resultingQuery.Select(select);
+                queryToExecute.Select(select);
             }
 
-            resultingQuery = resultingQuery
+            queryToExecute = queryToExecute
                         .Where(x => !x.IsDeleted)
                         .Skip(page * pageSize)
                         .Take(pageSize);
 
             var runningTask = Task.Run(() =>
             {
-                var result = resultingQuery.OfType<TResult>().ToList().AsEnumerable();
+                var result = queryToExecute.OfType<TResult>().ToList().AsEnumerable();
 
                 return result;
             });
@@ -150,8 +154,7 @@ namespace WhenItsDone.Data.Repositories
 
         public IEnumerable<TEntity> GetDeleted()
         {
-            return this.dbSet
-                        .Where(x => x.IsDeleted);
+            return this.dbSet.Where(x => x.IsDeleted);
         }
 
         public void Update(TEntity entity)
