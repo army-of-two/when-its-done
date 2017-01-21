@@ -17,6 +17,13 @@ namespace WhenItsDone.Data.Repositories
         private readonly IWhenItsDoneDbContext dbContext;
         private readonly IDbSet<TEntity> dbSet;
 
+        private readonly Func<int, AsyncGenericRepository<TEntity>, TEntity> getByIdDelegate = (int id, AsyncGenericRepository<TEntity> context) =>
+        {
+            var result = context.dbSet.Find(id);
+
+            return result;
+        };
+
         public AsyncGenericRepository(IWhenItsDoneDbContext dbContext)
         {
             if (dbContext == null)
@@ -34,9 +41,19 @@ namespace WhenItsDone.Data.Repositories
             this.dbSet = dbContext.Set<TEntity>();
         }
 
-        public TEntity GetById(object id)
+        public Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return this.dbSet.Find(id);
+            return Task.Run(() =>
+            {
+                var result = this.dbSet.ToList();
+                return (IEnumerable<TEntity>)result;
+            });
+        }
+
+        public Task<TEntity> GetByIdAsync(int id)
+        {
+            var getByIdTask = Task.Run(() => this.getByIdDelegate(id, this));
+            return getByIdTask;
         }
 
         public void Add(TEntity entity)
@@ -49,11 +66,6 @@ namespace WhenItsDone.Data.Repositories
         {
             var entry = AttachIfDetached(entity);
             entry.State = EntityState.Deleted;
-        }
-
-        public IEnumerable<TEntity> GetAll()
-        {
-            return this.dbSet.ToList();
         }
 
         public IEnumerable<TEntity> GetAll(Expression<Func<TEntity, bool>> filter)
