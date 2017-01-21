@@ -1,10 +1,11 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
+using WhenItsDone.Models.Enums;
 
 namespace WhenItsDone.Models.Tests.ClientTests
 {
     [TestFixture]
-    class ClientConstructorTests
+    public class ClientConstructorTests
     {
         [Test]
         public void ClientClass_ShouldHave_ParameterlessConstructor()
@@ -20,6 +21,16 @@ namespace WhenItsDone.Models.Tests.ClientTests
             var obj = new Client();
 
             var result = obj.Jobs.GetType() == typeof(HashSet<Job>);
+
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void Constructor_ShouldSet_Hashset_ToPaymentsCollection()
+        {
+            var obj = new Client();
+
+            var result = obj.Payments.GetType() == typeof(HashSet<Payment>);
 
             Assert.IsTrue(result);
         }
@@ -94,6 +105,16 @@ namespace WhenItsDone.Models.Tests.ClientTests
             var obj = new Client();
 
             Assert.IsFalse(obj.IsDeleted);
+        }
+
+        [Test]
+        public void Constructor_ShouldNotSet_GenderProperty()
+        {
+            GenderType expectedDefault = GenderType.Undefined;
+
+            var obj = new Client();
+
+            Assert.AreEqual(expectedDefault, obj.Gender); 
         }
     }
 }

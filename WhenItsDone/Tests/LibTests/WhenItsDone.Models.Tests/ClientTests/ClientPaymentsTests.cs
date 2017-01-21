@@ -1,31 +1,32 @@
 ﻿using Moq;
 using NUnit.Framework;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace WhenItsDone.Models.Tests.ClientTests
 {
     [TestFixture]
-    public class ClientContactInformationTests
+    public class ClientPaymentsTests
     {
         [Test]
-        public void ContactInformation_GetAndSetShould_WorkProperly()
+        public void Payments_GetAndSetShould_WorkProperly()
         {
-            var mockedInfo = new Mock<ContactInformation>();
+            var mockedPayments = new Mock<ICollection<Payment>>();
 
             var obj = new Client();
 
-            obj.ContactInformation = mockedInfo.Object;
+            obj.Payments = mockedPayments.Object;
 
-            Assert.AreSame(mockedInfo.Object, obj.ContactInformation);
+            Assert.AreSame(mockedPayments.Object, obj.Payments);
         }
 
         [Test]
-        public void ContactInformation_ShouldBe_Virtual()
+        public void Payments_ShouldBe_Virtual()
         {
             var obj = new Client();
 
             var result = obj.GetType()
-                            .GetProperty("ContactInformation")
+                            .GetProperty("Payments")
                             .GetAccessors()
                             .Any(x => x.IsVirtual);
 

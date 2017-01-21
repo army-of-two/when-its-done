@@ -6,7 +6,7 @@ using WhenItsDone.Models.Constants;
 namespace WhenItsDone.Models.Tests.ClientTests
 {
     [TestFixture]
-    class ClientLastNameTests
+    public class ClientLastNameTests
     {
         [Test]
         public void LastName_ShouldHave_RequireAttribute()
