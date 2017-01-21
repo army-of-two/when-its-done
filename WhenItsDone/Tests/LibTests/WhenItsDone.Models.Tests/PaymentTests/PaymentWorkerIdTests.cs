@@ -9,7 +9,7 @@ namespace WhenItsDone.Models.Tests.PaymentTests
         [TestCase(31)]
         public void WorkerId_GetAndSetShould_workProperly(int randomNumber)
         {
-            var obj = new Job();
+            var obj = new Payment();
 
             obj.WorkerId = randomNumber;
 
