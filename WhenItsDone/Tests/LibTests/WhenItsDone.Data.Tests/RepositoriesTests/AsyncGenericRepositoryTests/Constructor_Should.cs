@@ -28,14 +28,14 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         public void ShouldInvoke_DbContextSetMethodOnce()
         {
             var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { }, null);
-            var dbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
+            var fakeDbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
 
             // Return type of DbContext.Set<>() method is DbSet, rather than IDbSet
             // mocking IDbSet does not work.
             //var dbSet = new Mock<IDbSet<IDbModel>>();
 
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
-            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(dbSet);
+            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet);
 
             var asyncGenericRepository = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
 
@@ -57,10 +57,10 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         public void ShouldNotThrow_WhenParametersAreCorrect()
         {
             var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { }, null);
-            var dbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
+            var fakeDbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
 
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
-            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(dbSet);
+            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet);
 
             var asyncGenericRepository = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
 
@@ -71,16 +71,48 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         public void ShouldCreateAnObjectWhichImplementsIAsyncRepository()
         {
             var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { }, null);
-            var dbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
+            var fakeDbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
 
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
-            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(dbSet);
+            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet);
 
             var asyncGenericRepository = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
 
             Assert.That(asyncGenericRepository, Is.InstanceOf<IAsyncRepository<IDbModel>>());
         }
-        
-        // assigns fields
+
+        [Test]
+        public void ShouldSetCorrectValueToPrivateFieldDbContext_WhenParametersAreCorrect()
+        {
+            var mockDbContext = new Mock<IWhenItsDoneDbContext>();
+
+            var actualAsyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+
+            var fieldName = "dbContext";
+            var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
+            var dbContextField = actualAsyncGenericRepositoryInstace.GetType().GetField(fieldName, bindingFlags);
+            var dbContextFieldValue = dbContextField.GetValue(actualAsyncGenericRepositoryInstace);
+
+            Assert.That(dbContextFieldValue, Is.Not.Null.And.EqualTo(mockDbContext.Object));
+        }
+
+        [Test]
+        public void ShouldSetCorrectValueToPrivateFieldDbSet_WhenParametersAreCorrect()
+        {
+            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(BindingFlags.NonPublic | BindingFlags.Instance, null, new Type[] { }, null);
+            var fakeDbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
+
+            var mockDbContext = new Mock<IWhenItsDoneDbContext>();
+            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet);
+
+            var actualAsyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+
+            var fieldName = "dbSet";
+            var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
+            var dbSetField = actualAsyncGenericRepositoryInstace.GetType().GetField(fieldName, bindingFlags);
+            var dbSetFieldValue = dbSetField.GetValue(actualAsyncGenericRepositoryInstace);
+
+            Assert.That(dbSetFieldValue, Is.Not.Null.And.EqualTo(fakeDbSet));
+        }
     }
 }

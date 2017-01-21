@@ -35,9 +35,9 @@ namespace WhenItsDone.Data.Tests.UnitsOfWorkTests.UnitOfWorkTests
         [Test]
         public void CreateAnObjectImplementingIDisposableUnitOfWork_WhenParametersAreCorrect()
         {
-            var validDbContext = new Mock<IWhenItsDoneDbContext>();
+            var mockDbContext = new Mock<IWhenItsDoneDbContext>();
 
-            var actualUnitOfWorkInstace = new UnitOfWork(validDbContext.Object);
+            var actualUnitOfWorkInstace = new UnitOfWork(mockDbContext.Object);
 
             Assert.That(actualUnitOfWorkInstace, Is.InstanceOf<IDisposableUnitOfWork>());
         }
@@ -45,9 +45,9 @@ namespace WhenItsDone.Data.Tests.UnitsOfWorkTests.UnitOfWorkTests
         [Test]
         public void CreateAnObjectImplementingIUnitOfWork_WhenParametersAreCorrect()
         {
-            var validDbContext = new Mock<IWhenItsDoneDbContext>();
+            var mockDbContext = new Mock<IWhenItsDoneDbContext>();
 
-            var actualUnitOfWorkInstace = new UnitOfWork(validDbContext.Object);
+            var actualUnitOfWorkInstace = new UnitOfWork(mockDbContext.Object);
 
             Assert.That(actualUnitOfWorkInstace, Is.InstanceOf<IUnitOfWork>());
         }
@@ -55,9 +55,9 @@ namespace WhenItsDone.Data.Tests.UnitsOfWorkTests.UnitOfWorkTests
         [Test]
         public void CreateAnObjectImplementingIDisposable_WhenParametersAreCorrect()
         {
-            var validDbContext = new Mock<IWhenItsDoneDbContext>();
+            var mockDbContext = new Mock<IWhenItsDoneDbContext>();
 
-            var actualUnitOfWorkInstace = new UnitOfWork(validDbContext.Object);
+            var actualUnitOfWorkInstace = new UnitOfWork(mockDbContext.Object);
 
             Assert.That(actualUnitOfWorkInstace, Is.InstanceOf<IDisposable>());
         }
@@ -65,16 +65,16 @@ namespace WhenItsDone.Data.Tests.UnitsOfWorkTests.UnitOfWorkTests
         [Test]
         public void ShouldSetCorrectValueToPrivateFieldDbContext_WhenParametersAreCorrect()
         {
-            var validDbContext = new Mock<IWhenItsDoneDbContext>();
+            var mockDbContext = new Mock<IWhenItsDoneDbContext>();
 
-            var actualUnitOfWorkInstace = new UnitOfWork(validDbContext.Object);
+            var actualUnitOfWorkInstace = new UnitOfWork(mockDbContext.Object);
 
             var fieldName = "dbContext";
             var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
             var dbContextField = actualUnitOfWorkInstace.GetType().GetField(fieldName, bindingFlags);
             var dbContextFieldValue = dbContextField.GetValue(actualUnitOfWorkInstace);
 
-            Assert.That(dbContextFieldValue, Is.Not.Null.And.EqualTo(validDbContext.Object));
+            Assert.That(dbContextFieldValue, Is.Not.Null.And.EqualTo(mockDbContext.Object));
         }
     }
 }
