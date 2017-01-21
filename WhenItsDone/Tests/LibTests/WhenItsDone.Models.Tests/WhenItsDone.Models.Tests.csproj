@@ -102,6 +102,7 @@
     <Compile Include="ContactInformationTests\ContactInformationPhoneNumberTests.cs" />
     <Compile Include="ContactInformationTests\ContactInformationTestingTests.cs" />
     <Compile Include="ContactInformationTests\ContactInformationEmailTests.cs" />
+    <Compile Include="JobTests\JobAsDbModelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
