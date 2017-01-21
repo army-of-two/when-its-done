@@ -1,34 +1,34 @@
 ﻿using NUnit.Framework;
 using System.Linq;
 
-namespace WhenItsDone.Models.Tests.JobTests
+namespace WhenItsDone.Models.Tests.PaymentTests
 {
     [TestFixture]
-    public class JobTestingTests
+    public class PaymentTestingTests
     {
         /// <summary>
-        /// At that moment Job class have 9 tested properties .. if another property is added this test will fail
+        /// At that moment Payment class have 5 tested properties .. if another property is added this test will fail
         /// That mean new tests are REQUIRED!
         /// </summary>
         [Test]
-        public void JobClass_VerifyNumberOfProperties()
+        public void Payment_VerifyNumberOfProperties()
         {
-            var obj = new Job();
+            var obj = new Payment();
 
             var result = obj.GetType()
                             .GetProperties()
                             .Count();
 
-            Assert.AreEqual(9, result);
+            Assert.AreEqual(5, result);
         }
 
         /// <summary>
-        /// At that moment Job class have 1 tested constructor
+        /// At that moment Payment class have 1 tested constructor
         /// </summary>
         [Test]
-        public void JobClass_VerifyNumberOfConstructors()
+        public void Payment_VerifyNumberOfConstructors()
         {
-            var obj = new Job();
+            var obj = new Payment();
 
             var methodsCount = obj.GetType()
                                     .GetMethods()
@@ -48,16 +48,16 @@ namespace WhenItsDone.Models.Tests.JobTests
         }
 
         /// <summary>
-        /// At that moment Job class have 0 tested methods
+        /// At that moment Payment class have 0 tested methods
         /// </summary>
         [Test]
-        public void JobClass_VerifyNumberOfMethods()
+        public void Payment_VerifyNumberOfMethods()
         {
             var methodsFromFramework = 4;
             var expectedMethodsCount = 0;
             var totalMethodsCount = methodsFromFramework + expectedMethodsCount;
 
-            var obj = new Job();
+            var obj = new Payment();
 
             var numberOfMethodsComeFromProperties = obj.GetType()
                                                         .GetProperties()
@@ -74,388 +74,16 @@ namespace WhenItsDone.Models.Tests.JobTests
         }
 
         /// <summary>
-        /// At that moment TestClas contain 1 Test method = fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobAsDbModelTests_VerifyNumberOfTests()
-        {
-            var methodsFromFramework = 4;
-            var expectedMethods = 1;
-            var totalExpectedMethods = methodsFromFramework + expectedMethods;
-
-            var obj = new JobAsDbModelTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Count();
-
-            Assert.AreEqual(totalExpectedMethods, result);
-        }
-
-        /// <summary>
-        /// At that moment TestClass contains 0 TestCase attributes - fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobAsDbModelTests_VeryfyTestCaseAttributes()
-        {
-            var obj = new JobAsDbModelTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Select(x => x.GetCustomAttributes(false)
-                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
-                                        .Count())
-                            .Sum();
-
-            Assert.AreEqual(0, result);
-        }
-
-        /// <summary>
-        /// At that moment TestClas contain 1 Test method = fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobClientIdTests_VerifyNumberOfTests()
-        {
-            var methodsFromFramework = 4;
-            var expectedMethods = 1;
-            var totalExpectedMethods = methodsFromFramework + expectedMethods;
-
-            var obj = new JobClientIdTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Count();
-
-            Assert.AreEqual(totalExpectedMethods, result);
-        }
-
-        /// <summary>
-        /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobClientIdTests_VeryfyTestCaseAttributes()
-        {
-            var obj = new JobClientIdTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Select(x => x.GetCustomAttributes(false)
-                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
-                                        .Count())
-                            .Sum();
-
-            Assert.AreEqual(2, result);
-        }
-
-        /// <summary>
-        /// At that moment TestClas contain 1 Test method = fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobClientTests_VerifyNumberOfTests()
-        {
-            var methodsFromFramework = 4;
-            var expectedMethods = 1;
-            var totalExpectedMethods = methodsFromFramework + expectedMethods;
-
-            var obj = new JobClientTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Count();
-
-            Assert.AreEqual(totalExpectedMethods, result);
-        }
-
-        /// <summary>
-        /// At that moment TestClass contains 0 TestCase attributes - fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobClientTests_VeryfyTestCaseAttributes()
-        {
-            var obj = new JobClientTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Select(x => x.GetCustomAttributes(false)
-                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
-                                        .Count())
-                            .Sum();
-
-            Assert.AreEqual(0, result);
-        }
-
-
-        /// <summary>
-        /// At that moment TestClas contain 10 Test methods = fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobConstructorTests_VerifyNumberOfTests()
-        {
-            var methodsFromFramework = 4;
-            var expectedMethods = 10;
-            var totalExpectedMethods = methodsFromFramework + expectedMethods;
-
-            var obj = new JobConstructorTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Count();
-
-            Assert.AreEqual(totalExpectedMethods, result);
-        }
-
-        /// <summary>
-        /// At that moment TestClass contains 0 TestCase attributes - fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobConstructorTests_VeryfyTestCaseAttributes()
-        {
-            var obj = new JobConstructorTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Select(x => x.GetCustomAttributes(false)
-                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
-                                        .Count())
-                            .Sum();
-
-            Assert.AreEqual(0, result);
-        }
-
-        /// <summary>
-        /// At that moment TestClas contain 1 Test method = fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobIsCompletedTests_VerifyNumberOfTests()
-        {
-            var methodsFromFramework = 4;
-            var expectedMethods = 1;
-            var totalExpectedMethods = methodsFromFramework + expectedMethods;
-
-            var obj = new JobIsCompletedTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Count();
-
-            Assert.AreEqual(totalExpectedMethods, result);
-        }
-
-        /// <summary>
-        /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobIsCompletedTests_VeryfyTestCaseAttributes()
-        {
-            var obj = new JobIsCompletedTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Select(x => x.GetCustomAttributes(false)
-                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
-                                        .Count())
-                            .Sum();
-
-            Assert.AreEqual(2, result);
-        }
-
-        /// <summary>
-        /// At that moment TestClas contain 1 Test method = fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobIsDeletedTests_VerifyNumberOfTests()
-        {
-            var methodsFromFramework = 4;
-            var expectedMethods = 1;
-            var totalExpectedMethods = methodsFromFramework + expectedMethods;
-
-            var obj = new JobIsDeletedTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Count();
-
-            Assert.AreEqual(totalExpectedMethods, result);
-        }
-
-        /// <summary>
-        /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobIsDeletedTests_VeryfyTestCaseAttributes()
-        {
-            var obj = new JobIsDeletedTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Select(x => x.GetCustomAttributes(false)
-                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
-                                        .Count())
-                            .Sum();
-
-            Assert.AreEqual(2, result);
-        }
-        
-        /// <summary>
-        /// At that moment TestClas contain 5 Test methods = fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobPriceTests_VerifyNumberOfTests()
-        {
-            var methodsFromFramework = 4;
-            var expectedMethods = 5;
-            var totalExpectedMethods = methodsFromFramework + expectedMethods;
-
-            var obj = new JobPriceTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Count();
-
-            Assert.AreEqual(totalExpectedMethods, result);
-        }
-
-        /// <summary>
-        /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobPriceTests_VeryfyTestCaseAttributes()
-        {
-            var obj = new JobPriceTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Select(x => x.GetCustomAttributes(false)
-                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
-                                        .Count())
-                            .Sum();
-
-            Assert.AreEqual(2, result);
-        }
-
-
-        /// <summary>
-        /// At that moment TestClas contain 1 Test method = fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobScheduledTimeTests_VerifyNumberOfTests()
-        {
-            var methodsFromFramework = 4;
-            var expectedMethods = 1;
-            var totalExpectedMethods = methodsFromFramework + expectedMethods;
-
-            var obj = new JobScheduledTimeTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Count();
-
-            Assert.AreEqual(totalExpectedMethods, result);
-        }
-
-        /// <summary>
-        /// At that moment TestClass contains 3 TestCase attributes - fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobScheduledTimeTests_VeryfyTestCaseAttributes()
-        {
-            var obj = new JobScheduledTimeTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Select(x => x.GetCustomAttributes(false)
-                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
-                                        .Count())
-                            .Sum();
-
-            Assert.AreEqual(3, result);
-        }
-        
-        /// <summary>
-        /// At that moment TestClas contain 1 Test method = fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobWorkerIdTests_VerifyNumberOfTests()
-        {
-            var methodsFromFramework = 4;
-            var expectedMethods = 1;
-            var totalExpectedMethods = methodsFromFramework + expectedMethods;
-
-            var obj = new JobWorkerIdTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Count();
-
-            Assert.AreEqual(totalExpectedMethods, result);
-        }
-
-        /// <summary>
-        /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobWorkerIdTests_VeryfyTestCaseAttributes()
-        {
-            var obj = new JobWorkerIdTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Select(x => x.GetCustomAttributes(false)
-                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
-                                        .Count())
-                            .Sum();
-
-            Assert.AreEqual(2, result);
-        }
-
-        /// <summary>
-        /// At that moment TestClas contain 1 Test method = fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobWorkerTests_VerifyNumberOfTests()
-        {
-            var methodsFromFramework = 4;
-            var expectedMethods = 1;
-            var totalExpectedMethods = methodsFromFramework + expectedMethods;
-
-            var obj = new JobWorkerTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Count();
-
-            Assert.AreEqual(totalExpectedMethods, result);
-        }
-
-        /// <summary>
-        /// At that moment TestClass contains 0 TestCase attributes - fail mean someone changed it
-        /// </summary>
-        [Test]
-        public void JobWorkerTests_VeryfyTestCaseAttributes()
-        {
-            var obj = new JobWorkerTests();
-
-            var result = obj.GetType()
-                            .GetMethods()
-                            .Select(x => x.GetCustomAttributes(false)
-                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
-                                        .Count())
-                            .Sum();
-
-            Assert.AreEqual(0, result);
-        }
-
-        /// <summary>
         /// At that moment TestClas contain 2 Test methods = fail mean someone changed it
         /// </summary>
         [Test]
-        public void JobIdTests_VerifyNumberOfTests()
+        public void PaymentIdTests_VerifyNumberOfTests()
         {
             var methodsFromFramework = 4;
             var expectedMethods = 2;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
-            var obj = new JobIdTests();
+            var obj = new PaymentIdTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -468,9 +96,9 @@ namespace WhenItsDone.Models.Tests.JobTests
         /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
         /// </summary>
         [Test]
-        public void JobIdTests_VeryfyTestCaseAttributes()
+        public void PaymentIdTests_VeryfyTestCaseAttributes()
         {
-            var obj = new JobIdTests();
+            var obj = new PaymentIdTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -480,6 +108,228 @@ namespace WhenItsDone.Models.Tests.JobTests
                             .Sum();
 
             Assert.AreEqual(2, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClas contain 4 Test methods = fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void PaymentAmountPaidTests_VerifyNumberOfTests()
+        {
+            var methodsFromFramework = 4;
+            var expectedMethods = 4;
+            var totalExpectedMethods = methodsFromFramework + expectedMethods;
+
+            var obj = new PaymentAmountPaidTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Count();
+
+            Assert.AreEqual(totalExpectedMethods, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void PaymentAmountPaidTests_VeryfyTestCaseAttributes()
+        {
+            var obj = new PaymentAmountPaidTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Select(x => x.GetCustomAttributes(false)
+                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
+                                        .Count())
+                            .Sum();
+
+            Assert.AreEqual(2, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClas contain 1 Test method = fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void PaymentAsDbModelTests_VerifyNumberOfTests()
+        {
+            var methodsFromFramework = 4;
+            var expectedMethods = 1;
+            var totalExpectedMethods = methodsFromFramework + expectedMethods;
+
+            var obj = new PaymentAsDbModelTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Count();
+
+            Assert.AreEqual(totalExpectedMethods, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClass contains 0 TestCase attributes - fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void PaymentAsDbModelTests_VeryfyTestCaseAttributes()
+        {
+            var obj = new PaymentAsDbModelTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Select(x => x.GetCustomAttributes(false)
+                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
+                                        .Count())
+                            .Sum();
+
+            Assert.AreEqual(0, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClas contain 6 Test methods = fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void PaymentConstructorTests_VerifyNumberOfTests()
+        {
+            var methodsFromFramework = 4;
+            var expectedMethods = 6;
+            var totalExpectedMethods = methodsFromFramework + expectedMethods;
+
+            var obj = new PaymentConstructorTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Count();
+
+            Assert.AreEqual(totalExpectedMethods, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClass contains 0 TestCase attributes - fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void PaymentConstructorTests_VeryfyTestCaseAttributes()
+        {
+            var obj = new PaymentConstructorTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Select(x => x.GetCustomAttributes(false)
+                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
+                                        .Count())
+                            .Sum();
+
+            Assert.AreEqual(0, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClas contain 1 Test method = fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void PaymentIsDeletedTests_VerifyNumberOfTests()
+        {
+            var methodsFromFramework = 4;
+            var expectedMethods = 1;
+            var totalExpectedMethods = methodsFromFramework + expectedMethods;
+
+            var obj = new PaymentIsDeletedTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Count();
+
+            Assert.AreEqual(totalExpectedMethods, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void PaymentIsDeletedTests_VeryfyTestCaseAttributes()
+        {
+            var obj = new PaymentIsDeletedTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Select(x => x.GetCustomAttributes(false)
+                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
+                                        .Count())
+                            .Sum();
+
+            Assert.AreEqual(2, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClas contain 1 Test method = fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void PaymentWorkerIdTests_VerifyNumberOfTests()
+        {
+            var methodsFromFramework = 4;
+            var expectedMethods = 1;
+            var totalExpectedMethods = methodsFromFramework + expectedMethods;
+
+            var obj = new PaymentWorkerIdTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Count();
+
+            Assert.AreEqual(totalExpectedMethods, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void PaymentWorkerIdTests_VeryfyTestCaseAttributes()
+        {
+            var obj = new PaymentWorkerIdTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Select(x => x.GetCustomAttributes(false)
+                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
+                                        .Count())
+                            .Sum();
+
+            Assert.AreEqual(2, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClas contain 1 Test method = fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void PaymentWorkerTests_VerifyNumberOfTests()
+        {
+            var methodsFromFramework = 4;
+            var expectedMethods = 1;
+            var totalExpectedMethods = methodsFromFramework + expectedMethods;
+
+            var obj = new PaymentWorkerTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Count();
+
+            Assert.AreEqual(totalExpectedMethods, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClass contains 0 TestCase attributes - fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void PaymentWorkerTests_VeryfyTestCaseAttributes()
+        {
+            var obj = new PaymentWorkerTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Select(x => x.GetCustomAttributes(false)
+                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
+                                        .Count())
+                            .Sum();
+
+            Assert.AreEqual(0, result);
         }
     }
 }
