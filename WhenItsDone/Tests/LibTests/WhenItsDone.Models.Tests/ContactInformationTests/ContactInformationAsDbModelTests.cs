@@ -5,7 +5,7 @@ using WhenItsDone.Models.Contracts;
 namespace WhenItsDone.Models.Tests.ContactInformationTests
 {
     [TestFixture]
-    public class ContactInformationAsDbModel
+    public class ContactInformationAsDbModelTests
     {
         [Test]
         public void ContactInformationClass_ShouldImplement_IDbModelInterface()

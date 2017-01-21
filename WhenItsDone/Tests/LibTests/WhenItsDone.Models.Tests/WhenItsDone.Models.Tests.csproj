@@ -93,8 +93,26 @@
     <Compile Include="ClientTests\ClientPaymentsTests.cs" />
     <Compile Include="ClientTests\ClientRatingTests.cs" />
     <Compile Include="ClientTests\ClientTestingTests.cs" />
-    <Compile Include="ContactInformationTests\ContactInformationAsDbModel.cs" />
+    <Compile Include="ContactInformationTests\ContactInformationAddressIdTests.cs" />
+    <Compile Include="ContactInformationTests\ContactInformationAddressTests.cs" />
+    <Compile Include="ContactInformationTests\ContactInformationAsDbModelTests.cs" />
     <Compile Include="ContactInformationTests\ContactInformationConstructorTests.cs" />
+    <Compile Include="ContactInformationTests\ContactInformationIdTests.cs" />
+    <Compile Include="ContactInformationTests\ContactInformationIsDeletedTests.cs" />
+    <Compile Include="ContactInformationTests\ContactInformationPhoneNumberTests.cs" />
+    <Compile Include="ContactInformationTests\ContactInformationTestingTests.cs" />
+    <Compile Include="ContactInformationTests\ContactInformationEmailTests.cs" />
+    <Compile Include="JobTests\JobAsDbModelTests.cs" />
+    <Compile Include="JobTests\JobClientIdTests.cs" />
+    <Compile Include="JobTests\JobClientTests.cs" />
+    <Compile Include="JobTests\JobConstructorTests.cs" />
+    <Compile Include="JobTests\JobIsCompletedTests.cs" />
+    <Compile Include="JobTests\JobIsDeletedTests.cs" />
+    <Compile Include="JobTests\JobPriceTests.cs" />
+    <Compile Include="JobTests\JobScheduledTimeTests.cs" />
+    <Compile Include="JobTests\JobTestingTests.cs" />
+    <Compile Include="JobTests\JobWorkerIdTests.cs" />
+    <Compile Include="JobTests\JobWorkerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
