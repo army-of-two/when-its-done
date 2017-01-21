@@ -124,6 +124,7 @@
     <Compile Include="PaymentTests\PaymentWorkerTests.cs" />
     <Compile Include="PhotoItemTests\PhotoItemAsDbModelTests.cs" />
     <Compile Include="PhotoItemTests\PhotoItemConstructorTests.cs" />
+    <Compile Include="PhotoItemTests\PhotoItemIdTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

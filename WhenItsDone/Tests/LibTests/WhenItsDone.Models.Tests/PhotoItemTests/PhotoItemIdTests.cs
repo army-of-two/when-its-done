@@ -2,15 +2,15 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace WhenItsDone.Models.Tests.PaymentTests
+namespace WhenItsDone.Models.Tests.PhotoItemTests
 {
     [TestFixture]
-    public class PaymentIdTests
+    public class PhotoItemIdTests
     {
         [Test]
         public void Id_ShouldHave_KeyAttribute()
         {
-            var obj = new Payment();
+            var obj = new PhotoItem();
 
             var result = obj.GetType()
                             .GetProperty("Id")
@@ -21,11 +21,11 @@ namespace WhenItsDone.Models.Tests.PaymentTests
             Assert.IsTrue(result);
         }
 
-        [TestCase(2)]
-        [TestCase(7773777)]
+        [TestCase(23212)]
+        [TestCase(1111111)]
         public void Id_GetAndSetShould_WorkProperly(int randomNumber)
         {
-            var obj = new Payment();
+            var obj = new PhotoItem();
 
             obj.Id = randomNumber;
 
