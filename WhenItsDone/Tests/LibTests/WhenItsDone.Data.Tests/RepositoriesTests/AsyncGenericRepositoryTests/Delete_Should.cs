@@ -14,7 +14,7 @@ using WhenItsDone.Models.Contracts;
 namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
 {
     [TestFixture]
-    public class Add_Should
+    public class Delete_Should
     {
         [Test]
         public void ThrowArgumentNullExceptionWithCorrectMessage_WhenEntityParameterIsNull()
@@ -33,7 +33,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
 
             IDbModel entity = null;
             Assert.That(
-                () => asyncGenericRepositoryInstace.Add(entity),
+                () => asyncGenericRepositoryInstace.Delete(entity),
                 Throws.InstanceOf<ArgumentNullException>().With.Message.Contains(nameof(entity)));
         }
 
@@ -57,7 +57,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
 
             try
             {
-                asyncGenericRepositoryInstace.Add(fakeDbModel.Object);
+                asyncGenericRepositoryInstace.Delete(fakeDbModel.Object);
             }
             catch (NullReferenceException)
             {
@@ -92,7 +92,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
 
             try
             {
-                asyncGenericRepositoryInstace.Add(fakeDbModel.Object);
+                asyncGenericRepositoryInstace.Delete(fakeDbModel.Object);
             }
             catch (NullReferenceException)
             {
