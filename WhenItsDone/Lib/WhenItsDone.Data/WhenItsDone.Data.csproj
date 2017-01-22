@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapters\StatefulEntry.cs" />
     <Compile Include="Contracts\IAsyncRepository.cs" />
     <Compile Include="Contracts\IDisposableUnitOfWork.cs" />
     <Compile Include="Contracts\IStateful.cs" />
