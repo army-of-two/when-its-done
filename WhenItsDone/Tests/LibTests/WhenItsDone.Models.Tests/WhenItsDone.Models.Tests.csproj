@@ -146,6 +146,7 @@
     <Compile Include="VitalStatisticsTests\VitalStatisticsAsDbModelTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsBustSizeInCmTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsConstructorTests.cs" />
+    <Compile Include="VitalStatisticsTests\VitalStatisticsHipSizeInCmTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsIdTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsWaistSizeInCmTests.cs" />
   </ItemGroup>
