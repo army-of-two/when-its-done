@@ -115,6 +115,11 @@ namespace WhenItsDone.Data.Repositories
 
         public Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter)
         {
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
             var queryToExecute = this.BuildQuery<int>(filter, null, 0, int.MaxValue);
 
             var task = this.CreateTask(queryToExecute);
@@ -126,6 +131,16 @@ namespace WhenItsDone.Data.Repositories
             Expression<Func<TEntity, bool>> filter,
             Expression<Func<TEntity, T>> orderBy)
         {
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            if (orderBy == null)
+            {
+                throw new ArgumentNullException(nameof(orderBy));
+            }
+
             var queryToExecute = this.BuildQuery<T>(filter, orderBy, 0, int.MaxValue);
 
             var task = this.CreateTask(queryToExecute);
@@ -138,6 +153,21 @@ namespace WhenItsDone.Data.Repositories
             Expression<Func<TEntity, T>> orderBy,
             Expression<Func<TEntity, TResult>> select)
         {
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            if (orderBy == null)
+            {
+                throw new ArgumentNullException(nameof(orderBy));
+            }
+
+            if (select == null)
+            {
+                throw new ArgumentNullException(nameof(select));
+            }
+
             IQueryable<TEntity> queryToExecute = this.BuildQuery<T>(filter, orderBy, 0, int.MaxValue);
 
             var queryWithSelect = queryToExecute.Select(select);
