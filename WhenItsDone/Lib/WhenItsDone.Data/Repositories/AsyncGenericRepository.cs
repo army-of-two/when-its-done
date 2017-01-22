@@ -153,6 +153,21 @@ namespace WhenItsDone.Data.Repositories
             Expression<Func<TEntity, T>> orderBy,
             Expression<Func<TEntity, TResult>> select)
         {
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            if (orderBy == null)
+            {
+                throw new ArgumentNullException(nameof(orderBy));
+            }
+
+            if (select == null)
+            {
+                throw new ArgumentNullException(nameof(select));
+            }
+
             IQueryable<TEntity> queryToExecute = this.BuildQuery<T>(filter, orderBy, 0, int.MaxValue);
 
             var queryWithSelect = queryToExecute.Select(select);
