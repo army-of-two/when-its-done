@@ -149,6 +149,7 @@
     <Compile Include="VitalStatisticsTests\VitalStatisticsHipSizeInCmTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsIdTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsIsDeletedTests.cs" />
+    <Compile Include="VitalStatisticsTests\VitalStatisticsTestingTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsWaistSizeInCmTests.cs" />
   </ItemGroup>
   <ItemGroup>
