@@ -166,10 +166,11 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
 
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
             Expression<Func<IDbModel, int>> orderBy = (IDbModel model) => model.Id;
+            Expression<Func<IDbModel, Type>> select = (IDbModel model) => model.GetType();
+            
+            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, orderBy, select);
 
-            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, orderBy);
-
-            Assert.That(actualReturnedCollection.GetType(), Is.EqualTo(typeof(Task<IEnumerable<IDbModel>>)));
+            Assert.That(actualReturnedCollection.GetType(), Is.EqualTo(typeof(Task<IEnumerable<Type>>)));
         }
 
         [Test]
@@ -217,8 +218,9 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
 
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
             Expression<Func<IDbModel, int>> orderBy = (IDbModel model) => model.Id;
+            Expression<Func<IDbModel, Type>> select = (IDbModel model) => model.GetType();
 
-            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, orderBy);
+            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, orderBy, select);
 
             Assert.That(actualReturnedCollection.Status, Is.EqualTo(TaskStatus.Running).Or.EqualTo(TaskStatus.WaitingToRun));
         }
