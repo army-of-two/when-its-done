@@ -118,11 +118,21 @@ namespace WhenItsDone.Services.Abstraction
             return this.asyncRepository.GetAll(filter).Result;
         }
 
-        public virtual async Task<IEnumerable<T>> GetAll<T1>(
+        public virtual IEnumerable<T> GetAll<T1>(
             Expression<Func<T, bool>> filter,
             Expression<Func<T, T1>> orderBy)
         {
-            return await this.asyncRepository.GetAll(filter, orderBy);
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            if (orderBy == null)
+            {
+                throw new ArgumentNullException(nameof(orderBy));
+            }
+
+            return this.asyncRepository.GetAll(filter, orderBy).Result;
         }
 
         public virtual async Task<IEnumerable<TResult>> GetAll<T1, TResult>(

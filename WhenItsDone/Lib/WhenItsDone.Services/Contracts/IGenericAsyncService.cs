@@ -21,7 +21,7 @@ namespace WhenItsDone.Services.Contracts
 
         IEnumerable<T> GetAll(Expression<Func<T, bool>> filter);
 
-        Task<IEnumerable<T>> GetAll<T1>(
+        IEnumerable<T> GetAll<T1>(
            Expression<Func<T, bool>> filter,
            Expression<Func<T, T1>> orderBy);
 

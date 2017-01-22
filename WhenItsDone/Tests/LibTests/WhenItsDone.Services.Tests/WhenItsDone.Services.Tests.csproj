@@ -55,8 +55,10 @@
     <Compile Include="AbstractionTests\GenericAsyncServiceTests\Add_Should.cs" />
     <Compile Include="AbstractionTests\GenericAsyncServiceTests\Constructor_Should.cs" />
     <Compile Include="AbstractionTests\GenericAsyncServiceTests\Delete_Should.cs" />
+    <Compile Include="AbstractionTests\GenericAsyncServiceTests\GetAllFilterOrderBy_Should.cs" />
     <Compile Include="AbstractionTests\GenericAsyncServiceTests\GetAllFilter_Should.cs" />
     <Compile Include="AbstractionTests\GenericAsyncServiceTests\GetAll_Should.cs" />
+    <Compile Include="AbstractionTests\GenericAsyncServiceTests\GetDeleted_Should.cs" />
     <Compile Include="AbstractionTests\GenericAsyncServiceTests\Hide_Should.cs" />
     <Compile Include="AbstractionTests\GenericAsyncServiceTests\Update_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
