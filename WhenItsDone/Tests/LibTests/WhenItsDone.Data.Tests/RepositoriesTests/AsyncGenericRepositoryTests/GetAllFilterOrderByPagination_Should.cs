@@ -106,11 +106,13 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.ElementType).Returns(fakeData.ElementType);
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
+            var page = 0;
+            var pageSize = 5;
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
             Expression<Func<IDbModel, int>> orderBy = null;
 
             Assert.That(
-                () => asyncGenericRepositoryInstace.GetAll(filter, orderBy),
+                () => asyncGenericRepositoryInstace.GetAll(filter, orderBy, page, pageSize),
                 Throws.InstanceOf<ArgumentNullException>().With.Message.Contains(nameof(orderBy)));
         }
 
