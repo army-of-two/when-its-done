@@ -109,7 +109,9 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
-            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter);
+            Expression<Func<IDbModel, int>> orderBy = (IDbModel model) => model.Id;
+
+            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, orderBy);
 
             var expectedCollection = new List<IDbModel>() { fakeMatchingModel.Object };
 
