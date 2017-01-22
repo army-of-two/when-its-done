@@ -296,13 +296,13 @@ namespace WhenItsDone.Models.Tests.PaymentTests
         }
 
         /// <summary>
-        /// At that moment TestClas contain 1 Test method = fail mean someone changed it
+        /// At that moment TestClas contain 2 Test methods = fail mean someone changed it
         /// </summary>
         [Test]
         public void PaymentWorkerTests_VerifyNumberOfTests()
         {
             var methodsFromFramework = 4;
-            var expectedMethods = 1;
+            var expectedMethods = 2;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
             var obj = new PaymentWorkerTests();
