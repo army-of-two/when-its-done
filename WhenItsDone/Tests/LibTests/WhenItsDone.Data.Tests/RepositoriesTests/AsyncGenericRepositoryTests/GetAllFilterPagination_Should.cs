@@ -361,7 +361,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
             var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, page, pageSize);
 
-            Assert.That(actualReturnedCollection.Status, Is.EqualTo(TaskStatus.Running).Or.EqualTo(TaskStatus.WaitingToRun));
+            Assert.That(actualReturnedCollection.Status, Is.EqualTo(TaskStatus.Running).Or.EqualTo(TaskStatus.WaitingToRun).Or.EqualTo(TaskStatus.RanToCompletion));
         }
     }
 }
