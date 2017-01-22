@@ -209,8 +209,10 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.ElementType).Returns(fakeData.ElementType);
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
+            var page = 0;
+            var pageSize = 5;
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
-            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter);
+            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, page, pageSize);
 
             Assert.That(actualReturnedCollection.GetType(), Is.EqualTo(typeof(Task<IEnumerable<IDbModel>>)));
         }
@@ -258,8 +260,10 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.ElementType).Returns(fakeData.ElementType);
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
+            var page = 0;
+            var pageSize = 5;
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
-            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter);
+            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, page, pageSize);
 
             Assert.That(actualReturnedCollection.Status, Is.EqualTo(TaskStatus.Running).Or.EqualTo(TaskStatus.WaitingToRun));
         }
