@@ -225,7 +225,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var validId = 42;
             var actualReturnedModel = asyncGenericRepositoryInstace.GetByIdAsync(validId);
 
-            Assert.That(actualReturnedModel.Status, Is.EqualTo(TaskStatus.Running).Or.EqualTo(TaskStatus.WaitingToRun));
+            Assert.That(actualReturnedModel.Status, Is.EqualTo(TaskStatus.Running).Or.EqualTo(TaskStatus.WaitingToRun).Or.EqualTo(TaskStatus.RanToCompletion));
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -187,6 +186,21 @@ namespace WhenItsDone.Data.Repositories
             int page,
             int pageSize)
         {
+            if (page < 0)
+            {
+                throw new ArgumentException("Page must be a value equal to or greater than zero.");
+            }
+
+            if (pageSize < 0)
+            {
+                throw new ArgumentException("Page Size must be a value equal to or greater than zero.");
+            }
+
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
             var queryToExecute = this.BuildQuery<int>(filter, null, page, pageSize);
 
             var task = this.CreateTask(queryToExecute);
@@ -200,6 +214,26 @@ namespace WhenItsDone.Data.Repositories
             int page,
             int pageSize)
         {
+            if (page < 0)
+            {
+                throw new ArgumentException("Page must be a value equal to or greater than zero.");
+            }
+
+            if (pageSize < 0)
+            {
+                throw new ArgumentException("Page Size must be a value equal to or greater than zero.");
+            }
+
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            if (orderBy == null)
+            {
+                throw new ArgumentNullException(nameof(orderBy));
+            }
+
             var queryToExecute = this.BuildQuery<T>(filter, orderBy, page, pageSize);
 
             var task = this.CreateTask(queryToExecute);
@@ -214,6 +248,31 @@ namespace WhenItsDone.Data.Repositories
             int page,
             int pageSize)
         {
+            if (page < 0)
+            {
+                throw new ArgumentException("Page must be a value equal to or greater than zero.");
+            }
+
+            if (pageSize < 0)
+            {
+                throw new ArgumentException("Page Size must be a value equal to or greater than zero.");
+            }
+
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            if (orderBy == null)
+            {
+                throw new ArgumentNullException(nameof(orderBy));
+            }
+
+            if (select == null)
+            {
+                throw new ArgumentNullException(nameof(select));
+            }
+
             IQueryable<TEntity> queryToExecute = this.BuildQuery<T>(filter, orderBy, page, pageSize);
 
             var queryWithSelect = queryToExecute.Select(select);
