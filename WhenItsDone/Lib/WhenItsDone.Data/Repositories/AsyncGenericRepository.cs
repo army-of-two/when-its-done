@@ -88,6 +88,17 @@ namespace WhenItsDone.Data.Repositories
             entry.State = EntityState.Deleted;
         }
 
+        public void Update(TEntity entity)
+        {
+            if (entity == null)
+            {
+                throw new ArgumentNullException(nameof(entity));
+            }
+
+            var entry = this.dbContext.Entry(entity);
+            entry.State = EntityState.Modified;
+        }
+
         public Task<IEnumerable<TEntity>> GetAllAsync()
         {
             var getAllTask = Task.Run(() => this.getAllDelegate(this));
@@ -141,27 +152,62 @@ namespace WhenItsDone.Data.Repositories
         {
             IQueryable<TEntity> queryToExecute = this.dbSet;
 
-            queryToExecute = queryToExecute.OrderBy(x => x.Id);
-
-            if (filter != null)
+            try
             {
-                queryToExecute = queryToExecute.Where(filter);
+                queryToExecute = queryToExecute.OrderBy(x => x.Id);
+            }
+            catch (NullReferenceException)
+            {
+                // Log
             }
 
-            if (orderBy != null)
+            try
             {
-                queryToExecute = queryToExecute.OrderBy(orderBy);
+                if (filter != null)
+                {
+                    queryToExecute = queryToExecute.Where(filter);
+                }
+            }
+            catch (NullReferenceException)
+            {
+                // Log
             }
 
-            if (select != null)
+            try
             {
-                queryToExecute.Select(select);
+                if (orderBy != null)
+                {
+                    queryToExecute = queryToExecute.OrderBy(orderBy);
+                }
+            }
+            catch (NullReferenceException)
+            {
+                // Log
             }
 
-            queryToExecute = queryToExecute
-                .Where(x => !x.IsDeleted)
-                .Skip(page * pageSize)
-                .Take(pageSize);
+            try
+            {
+                if (select != null)
+                {
+                    queryToExecute.Select(select);
+                }
+            }
+            catch (NullReferenceException)
+            {
+                // Log
+            }
+
+            try
+            {
+                queryToExecute = queryToExecute
+                    .Where(x => !x.IsDeleted)
+                    .Skip(page * pageSize)
+                    .Take(pageSize);
+            }
+            catch (NullReferenceException)
+            {
+                // Log
+            }
 
             var runningTask = Task.Run(() =>
             {
@@ -178,12 +224,6 @@ namespace WhenItsDone.Data.Repositories
             var getDeletedTask = Task.Run(() => this.getDeletedDelegate(this));
 
             return getDeletedTask;
-        }
-
-        public void Update(TEntity entity)
-        {
-            var entry = AttachIfDetached(entity);
-            entry.State = EntityState.Modified;
         }
 
         private DbEntityEntry AttachIfDetached(TEntity entity)
