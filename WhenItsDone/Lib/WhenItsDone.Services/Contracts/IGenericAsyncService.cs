@@ -30,7 +30,7 @@ namespace WhenItsDone.Services.Contracts
            Expression<Func<T, T1>> orderBy,
            Expression<Func<T, TResult>> select);
 
-        Task<IEnumerable<T>> GetAll(
+        IEnumerable<T> GetAll(
            Expression<Func<T, bool>> filter,
            int page,
            int pageSize);

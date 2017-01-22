@@ -158,12 +158,27 @@ namespace WhenItsDone.Services.Abstraction
             return this.asyncRepository.GetAll(filter, orderBy, select).Result;
         }
 
-        public virtual async Task<IEnumerable<T>> GetAll(
+        public virtual IEnumerable<T> GetAll(
             Expression<Func<T, bool>> filter,
             int page,
             int pageSize)
         {
-            return await this.asyncRepository.GetAll(filter, page, pageSize);
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            if (page < 0)
+            {
+                throw new ArgumentException("Page value must be greater than or equal to 0.");
+            }
+
+            if (pageSize < 0)
+            {
+                throw new ArgumentException("Page Size value must be greater than or equal to 0.");
+            }
+
+            return this.asyncRepository.GetAll(filter, page, pageSize).Result;
         }
 
         public virtual async Task<IEnumerable<T>> GetAll<T1>(
