@@ -97,15 +97,20 @@ namespace WhenItsDone.Services.Abstraction
                 unitOfWork.SaveChangesAsync();
             }
         }
-
-        public virtual async Task<IEnumerable<T>> GetAll()
+        
+        public virtual IEnumerable<T> GetDeleted()
         {
-            return await this.asyncRepository.GetAllAsync();
+            return this.GetAll((x) => x.IsDeleted);
         }
 
-        public virtual async Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> filter)
+        public virtual IEnumerable<T> GetAll()
         {
-            return await this.asyncRepository.GetAll(filter);
+            return this.asyncRepository.GetAllAsync().Result;
+        }
+
+        public virtual IEnumerable<T> GetAll(Expression<Func<T, bool>> filter)
+        {
+            return this.asyncRepository.GetAll(filter).Result;
         }
 
         public virtual async Task<IEnumerable<T>> GetAll<T1>(
@@ -148,11 +153,6 @@ namespace WhenItsDone.Services.Abstraction
             int pageSize)
         {
             return await this.asyncRepository.GetAll(filter, orderBy, select, page, pageSize);
-        }
-
-        public virtual async Task<IEnumerable<T>> GetDeleted()
-        {
-            return await this.GetAll((x) => x.IsDeleted);
         }
     }
 }

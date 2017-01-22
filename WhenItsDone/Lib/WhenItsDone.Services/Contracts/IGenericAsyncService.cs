@@ -17,9 +17,9 @@ namespace WhenItsDone.Services.Contracts
 
         void Delete(T item);
 
-        Task<IEnumerable<T>> GetAll();
+        IEnumerable<T> GetAll();
 
-        Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> filter);
+        IEnumerable<T> GetAll(Expression<Func<T, bool>> filter);
 
         Task<IEnumerable<T>> GetAll<T1>(
            Expression<Func<T, bool>> filter,
@@ -48,7 +48,7 @@ namespace WhenItsDone.Services.Contracts
             int page,
             int pageSize);
 
-        Task<IEnumerable<T>> GetDeleted();
+        IEnumerable<T> GetDeleted();
     }
 }
 
