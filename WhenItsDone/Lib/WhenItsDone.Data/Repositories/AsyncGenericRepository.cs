@@ -186,6 +186,16 @@ namespace WhenItsDone.Data.Repositories
             int page,
             int pageSize)
         {
+            if (page < 0)
+            {
+                throw new ArgumentException("Page must be a value equal to or greater than zero.");
+            }
+
+            if (pageSize < 0)
+            {
+                throw new ArgumentException("Page Size must be a value equal to or greater than zero.");
+            }
+
             if (filter == null)
             {
                 throw new ArgumentNullException(nameof(filter));
