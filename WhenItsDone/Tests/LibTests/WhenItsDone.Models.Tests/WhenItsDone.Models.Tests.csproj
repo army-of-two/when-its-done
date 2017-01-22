@@ -158,6 +158,7 @@
     <Compile Include="WorkerTests\WorkerIsDeletedTests.cs" />
     <Compile Include="WorkerTests\WorkerRatingTests.cs" />
     <Compile Include="WorkerTests\WorkerReceivedPaymentsTests.cs" />
+    <Compile Include="WorkerTests\WorkerVideoItemsTests.cs" />
     <Compile Include="WorkerTests\WorkerVitalStatisticsIdTests.cs" />
     <Compile Include="WorkerTests\WorkerVitalStatisticsTests.cs" />
     <Compile Include="WorkerTests\WorkerWeightInKgTests.cs" />
