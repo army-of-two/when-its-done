@@ -18,12 +18,15 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         [Test]
         public void ThrowArgumentNullExceptionWithCorrectMessage_WhenEntityParameterIsNull()
         {
+            // Arange
             var fakeDbSet = new Mock<DbSet<IDbModel>>();
+            
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet.Object);
 
             var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
 
+            // Act & Assert
             IDbModel entity = null;
             Assert.That(
                 () => asyncGenericRepositoryInstace.Add(entity),
@@ -31,61 +34,74 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         }
 
         [Test]
-        public void InvokeDbContextEntryMethodOnce_WhenParametersAreValid()
+        public void InvokeDbContextGetStatefulMethodOnce_WhenParametersAreValid()
         {
+            // Arange
+            var mockedStaful = new Mock<IStateful<IDbModel>>();
+
             var fakeDbSet = new Mock<DbSet<IDbModel>>();
-            var entity = (DbEntityEntry<IDbModel>)FormatterServices.GetSafeUninitializedObject(typeof(DbEntityEntry<IDbModel>));
+
+            var fakeDbModel = new Mock<IDbModel>();
+            
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet.Object);
-            mockDbContext.Setup(mock => mock.Entry(It.IsAny<IDbModel>())).Returns(entity);
+            mockDbContext.Setup(mock => mock.GetStateful(It.IsAny<IDbModel>())).Returns(mockedStaful.Object);
 
             var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
-            var fakeDbModel = new Mock<IDbModel>();
 
-            try
-            {
-                asyncGenericRepositoryInstace.Add(fakeDbModel.Object);
-            }
-            catch (NullReferenceException)
-            {
-                // This will throw due to not being able to instantiate an InternalEntityEntry object.
-                // Because of that all DbEntityEntry<T> public properties throw a NullReferenceException.
+            // Act
+            asyncGenericRepositoryInstace.Add(fakeDbModel.Object);
 
-                // namespace System.Data.Entity.Internal
-                // internal class InternalEntityEntry
-                // https://github.com/mono/entityframework/blob/master/src/EntityFramework/Internal/EntityEntries/InternalEntityEntry.cs
-            }
-
-            mockDbContext.Verify(mock => mock.Entry(It.IsAny<IDbModel>()), Times.Once());
+            // Assert
+            mockDbContext.Verify(mock => mock.GetStateful(It.IsAny<IDbModel>()), Times.Once());
         }
 
         [Test]
-        public void InvokeDbContextEntryMethodWithCorrectParameter_WhenParametersAreValid()
+        public void InvokeDbContextGetStatefulMethodWithCorrectParameter_WhenParametersAreValid()
         {
-            var fakeDbSet = new Mock<DbSet<IDbModel>>();
-            var entity = (DbEntityEntry<IDbModel>)FormatterServices.GetSafeUninitializedObject(typeof(DbEntityEntry<IDbModel>));
-            var mockDbContext = new Mock<IWhenItsDoneDbContext>();
-            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet.Object);
-            mockDbContext.Setup(mock => mock.Entry(It.IsAny<IDbModel>())).Returns(entity);
+            // Arange
+            var mockedStaful = new Mock<IStateful<IDbModel>>();
 
-            var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+            var fakeDbSet = new Mock<DbSet<IDbModel>>();
+
             var fakeDbModel = new Mock<IDbModel>();
 
-            try
-            {
-                asyncGenericRepositoryInstace.Add(fakeDbModel.Object);
-            }
-            catch (NullReferenceException)
-            {
-                // This will throw due to not being able to instantiate an InternalEntityEntry object.
-                // Because of that all DbEntityEntry<T> public properties throw a NullReferenceException.
+            var mockDbContext = new Mock<IWhenItsDoneDbContext>();
+            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet.Object);
+            mockDbContext.Setup(mock => mock.GetStateful(It.IsAny<IDbModel>())).Returns(mockedStaful.Object);
 
-                // namespace System.Data.Entity.Internal
-                // internal class InternalEntityEntry
-                // https://github.com/mono/entityframework/blob/master/src/EntityFramework/Internal/EntityEntries/InternalEntityEntry.cs
-            }
+            var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
 
-            mockDbContext.Verify(mock => mock.Entry(fakeDbModel.Object), Times.Once());
+            // Act
+            asyncGenericRepositoryInstace.Add(fakeDbModel.Object);
+
+            // Assert
+            mockDbContext.Verify(mock => mock.GetStateful(fakeDbModel.Object), Times.Once());
+        }
+
+        [Test]
+        public void ChangeStateOf_Stateful_WhenCalledWithValidParameters()
+        {
+            // Arange
+            var mockedStaful = new Mock<IStateful<IDbModel>>();
+            mockedStaful.SetupSet(x => x.State = EntityState.Added).Verifiable();
+
+            var fakeDbSet = new Mock<DbSet<IDbModel>>();
+
+            var fakeDbModel = new Mock<IDbModel>();
+
+
+            var mockDbContext = new Mock<IWhenItsDoneDbContext>();
+            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet.Object);
+            mockDbContext.Setup(mock => mock.GetStateful(It.IsAny<IDbModel>())).Returns(mockedStaful.Object);
+
+            var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+
+            // Act
+            asyncGenericRepositoryInstace.Add(fakeDbModel.Object);
+
+            // Assert
+            mockedStaful.Verify();
         }
     }
 }
