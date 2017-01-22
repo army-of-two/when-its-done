@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq.Expressions;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -11,7 +12,6 @@ using NUnit.Framework;
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.Repositories;
 using WhenItsDone.Models.Contracts;
-using System.Linq.Expressions;
 
 namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
 {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq.Expressions;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -11,7 +12,6 @@ using NUnit.Framework;
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.Repositories;
 using WhenItsDone.Models.Contracts;
-using System.Linq.Expressions;
 
 namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
 {
@@ -58,7 +58,9 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
-            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter);
+            Expression<Func<IDbModel, int>> orderBy = (IDbModel model) => model.Id;
+
+            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, orderBy);
 
             Assert.That(actualReturnedCollection.Result.Count, Is.EqualTo(0));
         }
