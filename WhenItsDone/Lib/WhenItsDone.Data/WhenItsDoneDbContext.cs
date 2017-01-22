@@ -1,5 +1,6 @@
-﻿using System.Data.Entity;
-
+﻿using System;
+using System.Data.Entity;
+using WhenItsDone.Data.Adapters;
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Models;
 
@@ -35,5 +36,10 @@ namespace WhenItsDone.Data
         public virtual IDbSet<VitalStatistics> VitalStatistics { get; set; }
 
         public virtual IDbSet<WorkerReview> WorkerReviews { get; set; }
+
+        public IStateful<TEntity> GetStateful<TEntity>(TEntity entity) where TEntity : class
+        {
+            return new Stateful<TEntity>(base.Entry<TEntity>(entity));
+        }
     }
 }
