@@ -73,13 +73,14 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var dbSetField = asyncGenericRepositoryInstace.GetType().GetField(fieldName, bindingFlags);
             dbSetField.SetValue(asyncGenericRepositoryInstace, mockDbSet.Object);
 
+            var fakeDeletedModel = new Mock<IDbModel>();
+            fakeDeletedModel.SetupGet(model => model.IsDeleted).Returns(true);
+
             var fakeData = new List<IDbModel>()
             {
-                new Mock<IDbModel>().Object,
-                new Mock<IDbModel>().Object,
-                new Mock<IDbModel>().Object,
-                new Mock<IDbModel>().Object
-            }.AsQueryable();
+                fakeDeletedModel.Object
+            }
+            .AsQueryable();
 
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.Provider).Returns(fakeData.Provider);
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.Expression).Returns(fakeData.Expression);
@@ -113,13 +114,14 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var dbSetField = asyncGenericRepositoryInstace.GetType().GetField(fieldName, bindingFlags);
             dbSetField.SetValue(asyncGenericRepositoryInstace, mockDbSet.Object);
 
+            var fakeDeletedModel = new Mock<IDbModel>();
+            fakeDeletedModel.SetupGet(model => model.IsDeleted).Returns(true);
+
             var fakeData = new List<IDbModel>()
             {
-                new Mock<IDbModel>().Object,
-                new Mock<IDbModel>().Object,
-                new Mock<IDbModel>().Object,
-                new Mock<IDbModel>().Object
-            }.AsQueryable();
+               fakeDeletedModel.Object
+            }
+            .AsQueryable();
 
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.Provider).Returns(fakeData.Provider);
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.Expression).Returns(fakeData.Expression);
@@ -153,13 +155,14 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var dbSetField = asyncGenericRepositoryInstace.GetType().GetField(fieldName, bindingFlags);
             dbSetField.SetValue(asyncGenericRepositoryInstace, mockDbSet.Object);
 
+            var fakeDeletedModel = new Mock<IDbModel>();
+            fakeDeletedModel.SetupGet(model => model.IsDeleted).Returns(true);
+
             var fakeData = new List<IDbModel>()
             {
-                new Mock<IDbModel>().Object,
-                new Mock<IDbModel>().Object,
-                new Mock<IDbModel>().Object,
-                new Mock<IDbModel>().Object
-            }.AsQueryable();
+               fakeDeletedModel.Object
+            }
+            .AsQueryable();
 
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.Provider).Returns(fakeData.Provider);
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.Expression).Returns(fakeData.Expression);
