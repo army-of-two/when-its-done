@@ -72,7 +72,7 @@ namespace WhenItsDone.Data.Repositories
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            var entry = this.dbContext.Entry(entity);
+            var entry = this.dbContext.GetStateful(entity);
             entry.State = EntityState.Added;
         }
 
@@ -83,7 +83,7 @@ namespace WhenItsDone.Data.Repositories
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            var entry = this.dbContext.Entry(entity);
+            var entry = this.dbContext.GetStateful(entity);
             entry.State = EntityState.Deleted;
         }
 
@@ -94,7 +94,7 @@ namespace WhenItsDone.Data.Repositories
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            var entry = this.dbContext.Entry(entity);
+            var entry = this.dbContext.GetStateful(entity);
             entry.State = EntityState.Modified;
         }
 
