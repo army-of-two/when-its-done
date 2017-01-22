@@ -153,6 +153,7 @@
     <Compile Include="VitalStatisticsTests\VitalStatisticsWaistSizeInCmTests.cs" />
     <Compile Include="WorkerTests\WorkerBMITests.cs" />
     <Compile Include="WorkerTests\WorkerIsAvailableTests.cs" />
+    <Compile Include="WorkerTests\WorkerIsDeletedTests.cs" />
     <Compile Include="WorkerTests\WorkerWeightInKgTests.cs" />
     <Compile Include="WorkerTests\WorkerAgeTests.cs" />
     <Compile Include="WorkerTests\WorkerAsDbModelTests.cs" />
