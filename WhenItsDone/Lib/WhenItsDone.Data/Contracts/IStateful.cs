@@ -2,7 +2,7 @@
 
 namespace WhenItsDone.Data.Contracts
 {
-    public interface IStateful
+    public interface IStateful<T>
     {
         EntityState State { get; set; }
     }
