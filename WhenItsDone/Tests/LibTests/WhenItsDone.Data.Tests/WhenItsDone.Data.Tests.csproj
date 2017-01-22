@@ -61,7 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mocks\FakeDbModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoriesTests\AsyncGenericRepositoryTests\Add_Should.cs" />
     <Compile Include="RepositoriesTests\AsyncGenericRepositoryTests\Constructor_Should.cs" />

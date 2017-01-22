@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using System.Reflection;
 using System.Runtime.Serialization;
 
 using Moq;
@@ -19,15 +18,9 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         [Test]
         public void ThrowArgumentNullExceptionWithCorrectMessage_WhenEntityParameterIsNull()
         {
-            // This is needed to create the instance.
-            // DbContext.Set<>() returns DbSet rather than IDbSet<>.
-            var ctorParameters = new Type[] { };
-            var ctorBindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
-            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(ctorBindingFlags, null, ctorParameters, null);
-            var fakeDbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
-
+            var fakeDbSet = new Mock<DbSet<IDbModel>>();
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
-            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet);
+            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet.Object);
 
             var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
 
@@ -40,16 +33,10 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         [Test]
         public void InvokeDbContextEntryMethodOnce_WhenParametersAreValid()
         {
-            // This is needed to create the instance.
-            // DbContext.Set<>() returns DbSet rather than IDbSet<>.
-            var ctorParameters = new Type[] { };
-            var ctorBindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
-            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(ctorBindingFlags, null, ctorParameters, null);
-            var fakeDbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
-
+            var fakeDbSet = new Mock<DbSet<IDbModel>>();
             var entity = (DbEntityEntry<IDbModel>)FormatterServices.GetSafeUninitializedObject(typeof(DbEntityEntry<IDbModel>));
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
-            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet);
+            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet.Object);
             mockDbContext.Setup(mock => mock.Entry(It.IsAny<IDbModel>())).Returns(entity);
 
             var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
@@ -75,16 +62,10 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         [Test]
         public void InvokeDbContextEntryMethodWithCorrectParameter_WhenParametersAreValid()
         {
-            // This is needed to create the instance.
-            // DbContext.Set<>() returns DbSet rather than IDbSet<>.
-            var ctorParameters = new Type[] { };
-            var ctorBindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
-            var dbSetConstructor = typeof(DbSet<IDbModel>).GetConstructor(ctorBindingFlags, null, ctorParameters, null);
-            var fakeDbSet = (DbSet<IDbModel>)dbSetConstructor.Invoke(null);
-
+            var fakeDbSet = new Mock<DbSet<IDbModel>>();
             var entity = (DbEntityEntry<IDbModel>)FormatterServices.GetSafeUninitializedObject(typeof(DbEntityEntry<IDbModel>));
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
-            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet);
+            mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet.Object);
             mockDbContext.Setup(mock => mock.Entry(It.IsAny<IDbModel>())).Returns(entity);
 
             var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
