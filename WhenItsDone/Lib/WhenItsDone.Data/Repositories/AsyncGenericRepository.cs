@@ -186,6 +186,11 @@ namespace WhenItsDone.Data.Repositories
             int page,
             int pageSize)
         {
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
             var queryToExecute = this.BuildQuery<int>(filter, null, page, pageSize);
 
             var task = this.CreateTask(queryToExecute);
