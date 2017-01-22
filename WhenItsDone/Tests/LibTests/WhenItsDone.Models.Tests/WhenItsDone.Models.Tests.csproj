@@ -151,6 +151,7 @@
     <Compile Include="VitalStatisticsTests\VitalStatisticsIsDeletedTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsTestingTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsWaistSizeInCmTests.cs" />
+    <Compile Include="WorkerTests\WorkerAsDbModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
