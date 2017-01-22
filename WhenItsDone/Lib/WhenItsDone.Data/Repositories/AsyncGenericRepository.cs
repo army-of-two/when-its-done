@@ -248,6 +248,31 @@ namespace WhenItsDone.Data.Repositories
             int page,
             int pageSize)
         {
+            if (page < 0)
+            {
+                throw new ArgumentException("Page must be a value equal to or greater than zero.");
+            }
+
+            if (pageSize < 0)
+            {
+                throw new ArgumentException("Page Size must be a value equal to or greater than zero.");
+            }
+
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            if (orderBy == null)
+            {
+                throw new ArgumentNullException(nameof(orderBy));
+            }
+
+            if (select == null)
+            {
+                throw new ArgumentNullException(nameof(select));
+            }
+
             IQueryable<TEntity> queryToExecute = this.BuildQuery<T>(filter, orderBy, page, pageSize);
 
             var queryWithSelect = queryToExecute.Select(select);
