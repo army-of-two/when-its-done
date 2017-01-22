@@ -144,6 +144,7 @@
     <Compile Include="VideoItemTests\VideoItemConstructorTests.cs" />
     <Compile Include="VideoItemTests\VideoItemAsDbModelTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsAsDbModelTests.cs" />
+    <Compile Include="VitalStatisticsTests\VitalStatisticsBustSizeInCmTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsConstructorTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsIdTests.cs" />
   </ItemGroup>
