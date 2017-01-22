@@ -97,7 +97,7 @@ namespace WhenItsDone.Services.Abstraction
                 unitOfWork.SaveChangesAsync();
             }
         }
-        
+
         public virtual IEnumerable<T> GetDeleted()
         {
             return this.GetAll((x) => x.IsDeleted);
@@ -110,6 +110,11 @@ namespace WhenItsDone.Services.Abstraction
 
         public virtual IEnumerable<T> GetAll(Expression<Func<T, bool>> filter)
         {
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
             return this.asyncRepository.GetAll(filter).Result;
         }
 
