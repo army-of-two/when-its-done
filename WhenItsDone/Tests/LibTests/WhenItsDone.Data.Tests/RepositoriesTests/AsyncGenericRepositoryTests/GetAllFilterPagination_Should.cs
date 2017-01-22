@@ -43,10 +43,10 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.ElementType).Returns(fakeData.ElementType);
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
-            Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
             var page = -1000;
             var pageSize = 5;
-
+            Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
+           
             Assert.That(
                 () => asyncGenericRepositoryInstace.GetAll(filter, page, pageSize),
                 Throws.InstanceOf<ArgumentException>().With.Message.Contains("Page must be a value equal to or greater than zero."));
@@ -78,10 +78,10 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.ElementType).Returns(fakeData.ElementType);
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
-            Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
             var page = 1;
             var pageSize = -5;
-
+            Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
+            
             Assert.That(
                 () => asyncGenericRepositoryInstace.GetAll(filter, page, pageSize),
                 Throws.InstanceOf<ArgumentException>().With.Message.Contains("Page Size must be a value equal to or greater than zero."));
@@ -113,9 +113,9 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.ElementType).Returns(fakeData.ElementType);
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
-            Expression<Func<IDbModel, bool>> filter = null;
             var page = 0;
             var pageSize = 5;
+            Expression<Func<IDbModel, bool>> filter = null;
 
             Assert.That(
                 () => asyncGenericRepositoryInstace.GetAll(filter, page, pageSize),
@@ -151,6 +151,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var page = 0;
             var pageSize = 5;
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
+
             var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, page, pageSize);
 
             Assert.That(actualReturnedCollection.Result.Count, Is.EqualTo(0));
@@ -189,6 +190,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var page = 0;
             var pageSize = 5;
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
+
             var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, page, pageSize);
 
             var expectedCollection = new List<IDbModel>() { fakeMatchingModel.Object };
@@ -229,6 +231,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var page = 0;
             var pageSize = 5;
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
+
             var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, page, pageSize);
 
             Assert.That(actualReturnedCollection.GetType(), Is.EqualTo(typeof(Task<IEnumerable<IDbModel>>)));
@@ -267,6 +270,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var page = 0;
             var pageSize = 5;
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
+
             var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, page, pageSize);
 
             Assert.That(actualReturnedCollection.Status, Is.EqualTo(TaskStatus.Running).Or.EqualTo(TaskStatus.WaitingToRun).Or.EqualTo(TaskStatus.RanToCompletion));

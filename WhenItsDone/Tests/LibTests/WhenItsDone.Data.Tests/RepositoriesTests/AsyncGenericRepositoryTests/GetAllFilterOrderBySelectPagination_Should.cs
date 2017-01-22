@@ -278,8 +278,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, orderBy, select, page, pageSize);
 
             var expectedCollection = new List<Type>() { fakeMatchingModel.Object.GetType() };
-
-            var test = actualReturnedCollection.Result;
+            
             Assert.That(actualReturnedCollection.Result, Is.Not.Null.And.EquivalentTo(expectedCollection));
         }
 
