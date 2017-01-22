@@ -156,6 +156,7 @@
     <Compile Include="WorkerTests\WorkerContactInformationTests.cs" />
     <Compile Include="WorkerTests\WorkerIsAvailableTests.cs" />
     <Compile Include="WorkerTests\WorkerIsDeletedTests.cs" />
+    <Compile Include="WorkerTests\WorkerPhotoItemsTests.cs" />
     <Compile Include="WorkerTests\WorkerRatingTests.cs" />
     <Compile Include="WorkerTests\WorkerReceivedPaymentsTests.cs" />
     <Compile Include="WorkerTests\WorkerVideoItemsTests.cs" />
