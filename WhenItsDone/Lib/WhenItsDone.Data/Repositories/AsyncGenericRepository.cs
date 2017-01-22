@@ -106,6 +106,13 @@ namespace WhenItsDone.Data.Repositories
             return getAllTask;
         }
 
+        public Task<IEnumerable<TEntity>> GetDeleted()
+        {
+            var getDeletedTask = Task.Run(() => this.getDeletedDelegate(this));
+
+            return getDeletedTask;
+        }
+
         public Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter)
         {
             return this.GetAll<TEntity, TEntity>(filter, null, null);
@@ -217,13 +224,6 @@ namespace WhenItsDone.Data.Repositories
             });
 
             return runningTask;
-        }
-
-        public Task<IEnumerable<TEntity>> GetDeleted()
-        {
-            var getDeletedTask = Task.Run(() => this.getDeletedDelegate(this));
-
-            return getDeletedTask;
         }
 
         private DbEntityEntry AttachIfDetached(TEntity entity)
