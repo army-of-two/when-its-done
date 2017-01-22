@@ -157,7 +157,11 @@ namespace WhenItsDone.Data.Repositories
             int page,
             int pageSize)
         {
-            return this.GetAll<TEntity, TEntity>(filter, null, null, page, pageSize);
+            var queryToExecute = this.BuildQuery<int>(filter, null, page, pageSize);
+
+            var task = this.CreateTask(queryToExecute);
+
+            return task;
         }
 
         public Task<IEnumerable<TEntity>> GetAll<T>(
@@ -166,7 +170,11 @@ namespace WhenItsDone.Data.Repositories
             int page,
             int pageSize)
         {
-            return this.GetAll<T, TEntity>(filter, orderBy, null, page, pageSize);
+            var queryToExecute = this.BuildQuery<T>(filter, orderBy, page, pageSize);
+
+            var task = this.CreateTask(queryToExecute);
+
+            return task;
         }
 
         public Task<IEnumerable<TResult>> GetAll<T, TResult>(
