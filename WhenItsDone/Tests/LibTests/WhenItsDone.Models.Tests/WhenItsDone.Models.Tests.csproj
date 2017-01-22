@@ -155,6 +155,7 @@
     <Compile Include="WorkerTests\WorkerConstructorTests.cs" />
     <Compile Include="WorkerTests\WorkerFirstNameTests.cs" />
     <Compile Include="WorkerTests\WorkerIdTests.cs" />
+    <Compile Include="WorkerTests\WorkerLastNameTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
