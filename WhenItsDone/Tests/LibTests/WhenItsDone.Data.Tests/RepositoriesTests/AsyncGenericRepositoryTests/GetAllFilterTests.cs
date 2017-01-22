@@ -185,12 +185,19 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var dbSetField = asyncGenericRepositoryInstace.GetType().GetField(fieldName, bindingFlags);
             dbSetField.SetValue(asyncGenericRepositoryInstace, mockDbSet.Object);
 
-            var fakeDeletedModel = new Mock<IDbModel>();
-            fakeDeletedModel.SetupGet(model => model.IsDeleted).Returns(true);
+            // Setup Data
+            var fakeMatchingModel = new Mock<IDbModel>();
+            fakeMatchingModel.SetupGet(model => model.Id).Returns(1);
 
             var fakeData = new List<IDbModel>()
             {
-               fakeDeletedModel.Object
+                fakeMatchingModel.Object,
+                new Mock<IDbModel>().Object,
+                new Mock<IDbModel>().Object,
+                new Mock<IDbModel>().Object,
+                new Mock<IDbModel>().Object,
+                new Mock<IDbModel>().Object,
+                new Mock<IDbModel>().Object
             }
             .AsQueryable();
 
@@ -199,7 +206,8 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.ElementType).Returns(fakeData.ElementType);
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
-            var actualReturnedCollection = asyncGenericRepositoryInstace.GetDeleted();
+            Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
+            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter);
 
             Assert.That(actualReturnedCollection.Status, Is.EqualTo(TaskStatus.Running).Or.EqualTo(TaskStatus.WaitingToRun));
         }
