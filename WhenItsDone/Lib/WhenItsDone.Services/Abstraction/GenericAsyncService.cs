@@ -10,7 +10,7 @@ using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.Services.Abstraction
 {
-    public abstract class GenericAsyncService<T> : IGenericAsyncService<T>
+    public class GenericAsyncService<T> : IGenericAsyncService<T>
             where T : class, IDbModel
     {
         private readonly IAsyncRepository<T> asyncRepository;
