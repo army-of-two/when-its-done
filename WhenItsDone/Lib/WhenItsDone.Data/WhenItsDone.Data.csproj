@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Contracts\IAsyncRepository.cs" />
     <Compile Include="Contracts\IDisposableUnitOfWork.cs" />
+    <Compile Include="Contracts\IStateful.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Contracts\IWhenItsDoneDbContext.cs" />
     <Compile Include="Migrations\201701192351053_init.cs" />
