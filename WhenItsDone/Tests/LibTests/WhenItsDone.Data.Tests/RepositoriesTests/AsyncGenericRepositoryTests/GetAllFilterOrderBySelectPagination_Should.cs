@@ -107,12 +107,14 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.ElementType).Returns(fakeData.ElementType);
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
+            var page = 0;
+            var pageSize = 5;
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
             Expression<Func<IDbModel, int>> orderBy = null;
             Expression<Func<IDbModel, Type>> select = (IDbModel model) => model.GetType();
 
             Assert.That(
-                () => asyncGenericRepositoryInstace.GetAll(filter, orderBy, select),
+                () => asyncGenericRepositoryInstace.GetAll(filter, orderBy, select, page, pageSize),
                 Throws.InstanceOf<ArgumentNullException>().With.Message.Contains(nameof(orderBy)));
         }
 
@@ -155,12 +157,14 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.ElementType).Returns(fakeData.ElementType);
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
+            var page = 0;
+            var pageSize = 5;
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
             Expression<Func<IDbModel, int>> orderBy = (IDbModel model) => model.Id;
             Expression<Func<IDbModel, Type>> select = null;
 
             Assert.That(
-                () => asyncGenericRepositoryInstace.GetAll(filter, orderBy, select),
+                () => asyncGenericRepositoryInstace.GetAll(filter, orderBy, select, page, pageSize),
                 Throws.InstanceOf<ArgumentNullException>().With.Message.Contains(nameof(select)));
         }
 
