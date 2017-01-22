@@ -217,6 +217,31 @@ namespace WhenItsDone.Services.Abstraction
             int page,
             int pageSize)
         {
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            if (orderBy == null)
+            {
+                throw new ArgumentNullException(nameof(orderBy));
+            }
+
+            if (select == null)
+            {
+                throw new ArgumentNullException(nameof(select));
+            }
+
+            if (page < 0)
+            {
+                throw new ArgumentException("Page value must be greater than or equal to 0.");
+            }
+
+            if (pageSize < 0)
+            {
+                throw new ArgumentException("Page Size value must be greater than or equal to 0.");
+            }
+
             return this.asyncRepository.GetAll(filter, orderBy, select, page, pageSize).Result;
         }
     }
