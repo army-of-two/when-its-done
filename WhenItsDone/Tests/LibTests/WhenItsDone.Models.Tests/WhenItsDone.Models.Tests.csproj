@@ -151,6 +151,15 @@
     <Compile Include="VitalStatisticsTests\VitalStatisticsIsDeletedTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsTestingTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsWaistSizeInCmTests.cs" />
+    <Compile Include="WorkerReviewTests\WorkerReviewTestingTests.cs" />
+    <Compile Include="WorkerReviewTests\WorkerReviewClientTests.cs" />
+    <Compile Include="WorkerReviewTests\WorkerReviewClientIdTests.cs" />
+    <Compile Include="WorkerReviewTests\WorkerReviewScoreTests.cs" />
+    <Compile Include="WorkerReviewTests\WorkerReviewReviewContentTests.cs" />
+    <Compile Include="WorkerReviewTests\WorkerReviewIsDeletedTests.cs" />
+    <Compile Include="WorkerReviewTests\WorkerReviewIdTests.cs" />
+    <Compile Include="WorkerReviewTests\WorkerReviewConstructorTests.cs" />
+    <Compile Include="WorkerReviewTests\WorkerReviewAsDbModelTests.cs" />
     <Compile Include="WorkerTests\WorkerBMITests.cs" />
     <Compile Include="WorkerTests\WorkerContactInformationIdTests.cs" />
     <Compile Include="WorkerTests\WorkerContactInformationTests.cs" />
