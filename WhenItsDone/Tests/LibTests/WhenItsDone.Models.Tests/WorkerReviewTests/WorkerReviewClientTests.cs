@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using System.Linq;
 
-namespace WhenItsDone.Models.Tests.ClientReviewTests
+namespace WhenItsDone.Models.Tests.WorkerReviewTests
 {
     [TestFixture]
     public class WorkerReviewClientTests

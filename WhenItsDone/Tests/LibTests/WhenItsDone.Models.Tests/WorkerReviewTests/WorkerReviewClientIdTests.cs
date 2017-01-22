@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace WhenItsDone.Models.Tests.ClientReviewTests
+namespace WhenItsDone.Models.Tests.WorkerReviewTests
 {
     [TestFixture]
     public class WorkerReviewClientIdTests
