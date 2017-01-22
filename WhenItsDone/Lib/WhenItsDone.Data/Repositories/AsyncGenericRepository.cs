@@ -126,7 +126,11 @@ namespace WhenItsDone.Data.Repositories
             Expression<Func<TEntity, bool>> filter,
             Expression<Func<TEntity, T>> orderBy)
         {
-            return this.GetAll<T, TEntity>(filter, orderBy, null);
+            var queryToExecute = this.BuildQuery<T>(filter, orderBy, 0, int.MaxValue);
+
+            var task = this.CreateTask(queryToExecute);
+
+            return task;
         }
 
         public Task<IEnumerable<TResult>> GetAll<T, TResult>(
@@ -134,7 +138,18 @@ namespace WhenItsDone.Data.Repositories
             Expression<Func<TEntity, T>> orderBy,
             Expression<Func<TEntity, TResult>> select)
         {
-            return this.GetAll(filter, orderBy, select, 0, int.MaxValue);
+            IQueryable<TEntity> queryToExecute = this.BuildQuery<T>(filter, orderBy, 0, int.MaxValue);
+
+            var queryWithSelect = queryToExecute.Select(select);
+
+            var runningTask = Task.Run(() =>
+            {
+                var result = queryWithSelect.ToList().AsEnumerable();
+
+                return result;
+            });
+
+            return runningTask;
         }
 
         public Task<IEnumerable<TEntity>> GetAll(
@@ -202,7 +217,7 @@ namespace WhenItsDone.Data.Repositories
 
             return queryToExecute;
         }
-        
+
         private Task<IEnumerable<TEntity>> CreateTask(IQueryable<TEntity> queryToExecute)
         {
             return Task.Run(() =>
