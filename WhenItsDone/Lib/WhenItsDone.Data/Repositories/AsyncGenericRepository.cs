@@ -159,62 +159,27 @@ namespace WhenItsDone.Data.Repositories
         {
             IQueryable<TEntity> queryToExecute = this.dbSet;
 
-            try
+            queryToExecute = queryToExecute.OrderBy(x => x.Id);
+
+            if (filter != null)
             {
-                queryToExecute = queryToExecute.OrderBy(x => x.Id);
-            }
-            catch (NullReferenceException)
-            {
-                // Log
+                queryToExecute = queryToExecute.Where(filter);
             }
 
-            try
+            if (orderBy != null)
             {
-                if (filter != null)
-                {
-                    queryToExecute = queryToExecute.Where(filter);
-                }
-            }
-            catch (NullReferenceException)
-            {
-                // Log
+                queryToExecute = queryToExecute.OrderBy(orderBy);
             }
 
-            try
+            if (select != null)
             {
-                if (orderBy != null)
-                {
-                    queryToExecute = queryToExecute.OrderBy(orderBy);
-                }
-            }
-            catch (NullReferenceException)
-            {
-                // Log
+                queryToExecute.Select(select);
             }
 
-            try
-            {
-                if (select != null)
-                {
-                    queryToExecute.Select(select);
-                }
-            }
-            catch (NullReferenceException)
-            {
-                // Log
-            }
-
-            try
-            {
-                queryToExecute = queryToExecute
-                    .Where(x => !x.IsDeleted)
-                    .Skip(page * pageSize)
-                    .Take(pageSize);
-            }
-            catch (NullReferenceException)
-            {
-                // Log
-            }
+            queryToExecute = queryToExecute
+                .Where(x => !x.IsDeleted)
+                .Skip(page * pageSize)
+                .Take(pageSize);
 
             var runningTask = Task.Run(() =>
             {
