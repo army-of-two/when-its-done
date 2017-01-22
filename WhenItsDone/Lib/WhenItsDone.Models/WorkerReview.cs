@@ -14,6 +14,7 @@ namespace WhenItsDone.Models
         [MaxLength(ValidationConstants.ReviewContentMaxLength)]
         public string ReviewContent { get; set; }
 
+        [Range(ValidationConstants.ScoreMinValue, ValidationConstants.ScoreMaxValue)]
         public int Score { get; set; }
 
         public int ClientId { get; set; }
