@@ -111,11 +111,13 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
 
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
             Expression<Func<IDbModel, int>> orderBy = (IDbModel model) => model.Id;
+            Expression<Func<IDbModel, Type>> select = (IDbModel model) => model.GetType();
 
-            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, orderBy);
+            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, orderBy, select);
 
-            var expectedCollection = new List<IDbModel>() { fakeMatchingModel.Object };
+            var expectedCollection = new List<Type>() { fakeMatchingModel.Object.GetType() };
 
+            var test = actualReturnedCollection.Result;
             Assert.That(actualReturnedCollection.Result, Is.Not.Null.And.EquivalentTo(expectedCollection));
         }
 

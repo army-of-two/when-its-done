@@ -115,7 +115,11 @@ namespace WhenItsDone.Data.Repositories
 
         public Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter)
         {
-            return this.GetAll<TEntity, TEntity>(filter, null, null);
+            var queryToExecute = this.BuildQuery<int>(filter, null, 0, int.MaxValue);
+
+            var task = this.CreateTask(queryToExecute);
+
+            return task;
         }
 
         public Task<IEnumerable<TEntity>> GetAll<T>(
@@ -157,6 +161,26 @@ namespace WhenItsDone.Data.Repositories
             int page,
             int pageSize)
         {
+            IQueryable<TEntity> queryToExecute = this.BuildQuery<T>(filter, orderBy, page, pageSize);
+
+            var queryWithSelect = queryToExecute.Select(select);
+
+            var runningTask = Task.Run(() =>
+            {
+                var result = queryWithSelect.ToList().AsEnumerable();
+
+                return result;
+            });
+
+            return runningTask;
+        }
+
+        private IQueryable<TEntity> BuildQuery<T>(
+            Expression<Func<TEntity, bool>> filter,
+            Expression<Func<TEntity, T>> orderBy,
+            int page,
+            int pageSize)
+        {
             IQueryable<TEntity> queryToExecute = this.dbSet;
 
             queryToExecute = queryToExecute.OrderBy(x => x.Id);
@@ -171,36 +195,22 @@ namespace WhenItsDone.Data.Repositories
                 queryToExecute = queryToExecute.OrderBy(orderBy);
             }
 
-            if (select != null)
-            {
-                queryToExecute.Select(select);
-            }
-
             queryToExecute = queryToExecute
                 .Where(x => !x.IsDeleted)
                 .Skip(page * pageSize)
                 .Take(pageSize);
 
-            var runningTask = Task.Run(() =>
+            return queryToExecute;
+        }
+        
+        private Task<IEnumerable<TEntity>> CreateTask(IQueryable<TEntity> queryToExecute)
+        {
+            return Task.Run(() =>
             {
-                var result = queryToExecute.OfType<TResult>().ToList().AsEnumerable();
+                var result = queryToExecute.ToList().AsEnumerable();
 
                 return result;
             });
-
-            return runningTask;
-        }
-
-        private DbEntityEntry AttachIfDetached(TEntity entity)
-        {
-            var entry = this.dbContext.Entry(entity);
-
-            if (entry.State == EntityState.Deleted)
-            {
-                this.dbSet.Attach(entity);
-            }
-
-            return entry;
         }
     }
 }
