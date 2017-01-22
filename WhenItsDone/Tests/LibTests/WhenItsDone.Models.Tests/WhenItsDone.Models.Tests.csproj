@@ -151,6 +151,28 @@
     <Compile Include="VitalStatisticsTests\VitalStatisticsIsDeletedTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsTestingTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsWaistSizeInCmTests.cs" />
+    <Compile Include="WorkerTests\WorkerBMITests.cs" />
+    <Compile Include="WorkerTests\WorkerContactInformationIdTests.cs" />
+    <Compile Include="WorkerTests\WorkerContactInformationTests.cs" />
+    <Compile Include="WorkerTests\WorkerIsAvailableTests.cs" />
+    <Compile Include="WorkerTests\WorkerIsDeletedTests.cs" />
+    <Compile Include="WorkerTests\WorkerJobsTests.cs" />
+    <Compile Include="WorkerTests\WorkerPhotoItemsTests.cs" />
+    <Compile Include="WorkerTests\WorkerRatingTests.cs" />
+    <Compile Include="WorkerTests\WorkerReceivedPaymentsTests.cs" />
+    <Compile Include="WorkerTests\WorkerTestingTests.cs" />
+    <Compile Include="WorkerTests\WorkerVideoItemsTests.cs" />
+    <Compile Include="WorkerTests\WorkerVitalStatisticsIdTests.cs" />
+    <Compile Include="WorkerTests\WorkerVitalStatisticsTests.cs" />
+    <Compile Include="WorkerTests\WorkerWeightInKgTests.cs" />
+    <Compile Include="WorkerTests\WorkerAgeTests.cs" />
+    <Compile Include="WorkerTests\WorkerAsDbModelTests.cs" />
+    <Compile Include="WorkerTests\WorkerConstructorTests.cs" />
+    <Compile Include="WorkerTests\WorkerFirstNameTests.cs" />
+    <Compile Include="WorkerTests\WorkerGenderTests.cs" />
+    <Compile Include="WorkerTests\WorkerHeightInCmTests.cs" />
+    <Compile Include="WorkerTests\WorkerIdTests.cs" />
+    <Compile Include="WorkerTests\WorkerLastNameTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
