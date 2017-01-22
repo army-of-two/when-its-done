@@ -155,10 +155,12 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.ElementType).Returns(fakeData.ElementType);
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
+            var page = 0;
+            var pageSize = 5;
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
             Expression<Func<IDbModel, int>> orderBy = (IDbModel model) => model.Id;
 
-            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, orderBy);
+            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, orderBy, page, pageSize);
 
             Assert.That(actualReturnedCollection.Result.Count, Is.EqualTo(0));
         }
@@ -206,10 +208,12 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.ElementType).Returns(fakeData.ElementType);
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
+            var page = 0;
+            var pageSize = 5;
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
             Expression<Func<IDbModel, int>> orderBy = (IDbModel model) => model.Id;
 
-            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, orderBy);
+            var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter, orderBy, page, pageSize);
 
             var expectedCollection = new List<IDbModel>() { fakeMatchingModel.Object };
 
