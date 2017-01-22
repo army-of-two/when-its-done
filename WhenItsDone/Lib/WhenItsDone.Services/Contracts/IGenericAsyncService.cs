@@ -41,7 +41,7 @@ namespace WhenItsDone.Services.Contracts
             int page,
             int pageSize);
 
-        Task<IEnumerable<TResult>> GetAll<T1, TResult>(
+        IEnumerable<TResult> GetAll<T1, TResult>(
             Expression<Func<T, bool>> filter,
             Expression<Func<T, T1>> orderBy,
             Expression<Func<T, TResult>> select,

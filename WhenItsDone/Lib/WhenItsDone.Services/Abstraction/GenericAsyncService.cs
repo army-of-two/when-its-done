@@ -210,14 +210,14 @@ namespace WhenItsDone.Services.Abstraction
             return this.asyncRepository.GetAll(filter, orderBy, page, pageSize).Result;
         }
 
-        public virtual async Task<IEnumerable<TResult>> GetAll<T1, TResult>(
+        public virtual IEnumerable<TResult> GetAll<T1, TResult>(
             Expression<Func<T, bool>> filter,
             Expression<Func<T, T1>> orderBy,
             Expression<Func<T, TResult>> select,
             int page,
             int pageSize)
         {
-            return await this.asyncRepository.GetAll(filter, orderBy, select, page, pageSize);
+            return this.asyncRepository.GetAll(filter, orderBy, select, page, pageSize).Result;
         }
     }
 }
