@@ -21,8 +21,8 @@ namespace WhenItsDone.Models.Tests.WorkerReviewTests
             Assert.IsTrue(result);
         }
 
-        [TestCase(60)]
-        [TestCase(64324234)]
+        [TestCase(-5)]
+        [TestCase(12212)]
         public void Id_GetAndSetShould_WorkProperly(int randomNumber)
         {
             var obj = new WorkerReview();
