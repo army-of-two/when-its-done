@@ -78,5 +78,39 @@ namespace WhenItsDone.Services.Tests.AbstractionTests.GenericAsyncServiceTests
 
             mockUnitOfWorkFactory.Verify(repo => repo.CreateUnitOfWork(), Times.Once);
         }
+
+        [Test]
+        public void ShouldInvokeUnitOfWorkSaveChangesAsyncMethodOnce_WhenParametersAreCorrect()
+        {
+            var mockAsyncRepository = new Mock<IAsyncRepository<IDbModel>>();
+
+            var mockUnitOfWork = new Mock<IDisposableUnitOfWork>();
+            var mockUnitOfWorkFactory = new Mock<IDisposableUnitOfWorkFactory>();
+            mockUnitOfWorkFactory.Setup(factory => factory.CreateUnitOfWork()).Returns(mockUnitOfWork.Object);
+
+            var genericAsyncService = new GenericAsyncService<IDbModel>(mockAsyncRepository.Object, mockUnitOfWorkFactory.Object);
+
+            var validItemToAdd = new Mock<IDbModel>();
+            genericAsyncService.Add(validItemToAdd.Object);
+
+            mockUnitOfWork.Verify(repo => repo.SaveChangesAsync(), Times.Once);
+        }
+
+        [Test]
+        public void ShouldReturnTheCorrectItem_WhenParametersAreCorrect()
+        {
+            var mockAsyncRepository = new Mock<IAsyncRepository<IDbModel>>();
+
+            var mockUnitOfWork = new Mock<IDisposableUnitOfWork>();
+            var mockUnitOfWorkFactory = new Mock<IDisposableUnitOfWorkFactory>();
+            mockUnitOfWorkFactory.Setup(factory => factory.CreateUnitOfWork()).Returns(mockUnitOfWork.Object);
+
+            var genericAsyncService = new GenericAsyncService<IDbModel>(mockAsyncRepository.Object, mockUnitOfWorkFactory.Object);
+
+            var validItemToAdd = new Mock<IDbModel>();
+            var actualResult = genericAsyncService.Add(validItemToAdd.Object);
+
+            Assert.That(actualResult, Is.EqualTo(validItemToAdd.Object));
+        }
     }
 }
