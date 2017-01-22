@@ -67,7 +67,8 @@
     <Compile Include="RepositoriesTests\AsyncGenericRepositoryTests\Constructor_Should.cs" />
     <Compile Include="RepositoriesTests\AsyncGenericRepositoryTests\Delete_Should.cs" />
     <Compile Include="RepositoriesTests\AsyncGenericRepositoryTests\GetAllAsync_Should.cs" />
-    <Compile Include="RepositoriesTests\AsyncGenericRepositoryTests\GetAllFilterTests.cs" />
+    <Compile Include="RepositoriesTests\AsyncGenericRepositoryTests\GetAllFilterOrderBy_Should.cs" />
+    <Compile Include="RepositoriesTests\AsyncGenericRepositoryTests\GetAllFilter_Should.cs" />
     <Compile Include="RepositoriesTests\AsyncGenericRepositoryTests\GetByIdAsync_Should.cs" />
     <Compile Include="RepositoriesTests\AsyncGenericRepositoryTests\GetDeleted_Should.cs" />
     <Compile Include="RepositoriesTests\AsyncGenericRepositoryTests\Update_Should.cs" />

@@ -16,7 +16,7 @@ using System.Linq.Expressions;
 namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
 {
     [TestFixture]
-    public class GetAllFilterTests
+    public class GetAllFilterOrderBy_Should
     {
         [Test]
         public void ShouldReturnTaskWithResultCountZero_WhenItemIsNotFound()
@@ -159,7 +159,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
 
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
             var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter);
-            
+
             Assert.That(actualReturnedCollection.GetType(), Is.EqualTo(typeof(Task<IEnumerable<IDbModel>>)));
         }
 
