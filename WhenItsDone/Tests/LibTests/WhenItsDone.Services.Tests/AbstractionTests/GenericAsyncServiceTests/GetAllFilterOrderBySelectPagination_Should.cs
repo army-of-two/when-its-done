@@ -17,6 +17,44 @@ namespace WhenItsDone.Services.Tests.AbstractionTests.GenericAsyncServiceTests
     public class GetAllFilterOrderBySelectPagination_Should
     {
         [Test]
+        public void ShouldThrowArgumentExceptionWithCorrectMessage_WhenPageParameterIsNegative()
+        {
+            var mockAsyncRepository = new Mock<IAsyncRepository<IDbModel>>();
+            var mockUnitOfWorkFactory = new Mock<IDisposableUnitOfWorkFactory>();
+
+            var genericAsyncService = new GenericAsyncService<IDbModel>(mockAsyncRepository.Object, mockUnitOfWorkFactory.Object);
+
+            var page = -1000;
+            var pageSize = 5;
+            Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id > 0;
+            Expression<Func<IDbModel, int>> orderBy = (IDbModel model) => model.Id;
+            Expression<Func<IDbModel, Type>> select = (IDbModel model) => model.GetType();
+
+            Assert.That(
+                () => genericAsyncService.GetAll(filter, orderBy, select, page, pageSize),
+                Throws.InstanceOf<ArgumentException>().With.Message.Contains("Page value must be greater than or equal to 0."));
+        }
+
+        [Test]
+        public void ShouldThrowArgumentExceptionWithCorrectMessage_WhenPageSizeParameterIsNegative()
+        {
+            var mockAsyncRepository = new Mock<IAsyncRepository<IDbModel>>();
+            var mockUnitOfWorkFactory = new Mock<IDisposableUnitOfWorkFactory>();
+
+            var genericAsyncService = new GenericAsyncService<IDbModel>(mockAsyncRepository.Object, mockUnitOfWorkFactory.Object);
+
+            var page = 1000;
+            var pageSize = -5;
+            Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id > 0;
+            Expression<Func<IDbModel, int>> orderBy = (IDbModel model) => model.Id;
+            Expression<Func<IDbModel, Type>> select = (IDbModel model) => model.GetType();
+
+            Assert.That(
+                () => genericAsyncService.GetAll(filter, orderBy, select, page, pageSize),
+                Throws.InstanceOf<ArgumentException>().With.Message.Contains("Page Size value must be greater than or equal to 0."));
+        }
+
+        [Test]
         public void ShouldThrowArgumentNullExceptionWithCorrectMessage_WhenFilterParameterIsNull()
         {
             var mockAsyncRepository = new Mock<IAsyncRepository<IDbModel>>();
