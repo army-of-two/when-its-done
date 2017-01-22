@@ -143,6 +143,7 @@
     <Compile Include="VideoItemTests\VideoItemIdTests.cs" />
     <Compile Include="VideoItemTests\VideoItemConstructorTests.cs" />
     <Compile Include="VideoItemTests\VideoItemAsDbModelTests.cs" />
+    <Compile Include="VitalStatisticsTests\VitalStatisticsAsDbModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
