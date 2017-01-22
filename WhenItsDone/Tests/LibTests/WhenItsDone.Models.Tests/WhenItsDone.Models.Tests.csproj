@@ -153,6 +153,7 @@
     <Compile Include="VitalStatisticsTests\VitalStatisticsWaistSizeInCmTests.cs" />
     <Compile Include="WorkerTests\WorkerAsDbModelTests.cs" />
     <Compile Include="WorkerTests\WorkerConstructorTests.cs" />
+    <Compile Include="WorkerTests\WorkerFirstNameTests.cs" />
     <Compile Include="WorkerTests\WorkerIdTests.cs" />
   </ItemGroup>
   <ItemGroup>
