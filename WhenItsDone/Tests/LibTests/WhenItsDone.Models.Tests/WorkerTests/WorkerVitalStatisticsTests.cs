@@ -1,5 +1,6 @@
 ﻿using Moq;
 using NUnit.Framework;
+using System.Linq;
 
 namespace WhenItsDone.Models.Tests.WorkerTests
 {
@@ -16,6 +17,20 @@ namespace WhenItsDone.Models.Tests.WorkerTests
             obj.VitalStatistics = mockedVS.Object;
 
             Assert.AreSame(mockedVS.Object, obj.VitalStatistics);
+        }
+
+        [Test]
+        public void VitalStatistics_ShouldBe_Virtual()
+        {
+            var obj = new Worker();
+
+            var result = obj.GetType()
+                            .GetProperty("VitalStatistics")
+                            .GetAccessors()
+                            .Where(x => x.IsVirtual)
+                            .Any();
+
+            Assert.IsTrue(result);
         }
     }
 }
