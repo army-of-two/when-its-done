@@ -19,6 +19,8 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
         public void ThrowArgumentNullExceptionWithCorrectMessage_WhenEntityParameterIsNull()
         {
             // Arange
+            IDbModel entity = null;
+            
             var fakeDbSet = new Mock<DbSet<IDbModel>>();
             
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
@@ -27,7 +29,6 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
 
             // Act & Assert
-            IDbModel entity = null;
             Assert.That(
                 () => asyncGenericRepositoryInstace.Add(entity),
                 Throws.InstanceOf<ArgumentNullException>().With.Message.Contains(nameof(entity)));
