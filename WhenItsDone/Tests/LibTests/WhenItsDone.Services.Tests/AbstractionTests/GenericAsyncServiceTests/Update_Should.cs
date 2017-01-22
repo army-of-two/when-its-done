@@ -25,7 +25,7 @@ namespace WhenItsDone.Services.Tests.AbstractionTests.GenericAsyncServiceTests
 
             Assert.That(
                 () => genericAsyncService.Update(invalidItem),
-                Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("Invalid item to add!"));
+                Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("Invalid item to update!"));
         }
 
         [Test]
