@@ -88,11 +88,29 @@ namespace WhenItsDone.Data.Repositories
             entry.State = EntityState.Deleted;
         }
 
+        public void Update(TEntity entity)
+        {
+            if (entity == null)
+            {
+                throw new ArgumentNullException(nameof(entity));
+            }
+
+            var entry = this.dbContext.Entry(entity);
+            entry.State = EntityState.Modified;
+        }
+
         public Task<IEnumerable<TEntity>> GetAllAsync()
         {
             var getAllTask = Task.Run(() => this.getAllDelegate(this));
 
             return getAllTask;
+        }
+
+        public Task<IEnumerable<TEntity>> GetDeleted()
+        {
+            var getDeletedTask = Task.Run(() => this.getDeletedDelegate(this));
+
+            return getDeletedTask;
         }
 
         public Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter)
@@ -171,19 +189,6 @@ namespace WhenItsDone.Data.Repositories
             });
 
             return runningTask;
-        }
-
-        public Task<IEnumerable<TEntity>> GetDeleted()
-        {
-            var getDeletedTask = Task.Run(() => this.getDeletedDelegate(this));
-
-            return getDeletedTask;
-        }
-
-        public void Update(TEntity entity)
-        {
-            var entry = AttachIfDetached(entity);
-            entry.State = EntityState.Modified;
         }
 
         private DbEntityEntry AttachIfDetached(TEntity entity)
