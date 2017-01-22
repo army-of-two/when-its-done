@@ -41,7 +41,7 @@ namespace WhenItsDone.Services.Abstraction
         {
             if (item == null)
             {
-                throw new ArgumentException("Invalid item to add!");
+                throw new ArgumentNullException("Invalid item to add!");
             }
 
             this.asyncRepository.Add(item);
@@ -57,7 +57,7 @@ namespace WhenItsDone.Services.Abstraction
         {
             if (item == null)
             {
-                throw new ArgumentException("Invalid item to update!");
+                throw new ArgumentNullException("Invalid item to update!");
             }
 
             this.asyncRepository.Update(item);
@@ -73,7 +73,7 @@ namespace WhenItsDone.Services.Abstraction
         {
             if (item == null)
             {
-                throw new ArgumentException("Invalid item to hide!");
+                throw new ArgumentNullException("Invalid item to hide!");
             }
 
             item.IsDeleted = true;
@@ -88,7 +88,7 @@ namespace WhenItsDone.Services.Abstraction
         {
             if (item == null)
             {
-                throw new ArgumentException("Invalid item to delete!");
+                throw new ArgumentNullException("Invalid item to delete!");
             }
 
             this.asyncRepository.Delete(item);
@@ -98,61 +98,151 @@ namespace WhenItsDone.Services.Abstraction
             }
         }
 
-        public virtual async Task<IEnumerable<T>> GetAll()
+        public virtual IEnumerable<T> GetDeleted()
         {
-            return await this.asyncRepository.GetAllAsync();
+            return this.GetAll((x) => x.IsDeleted);
         }
 
-        public virtual async Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> filter)
+        public virtual IEnumerable<T> GetAll()
         {
-            return await this.asyncRepository.GetAll(filter);
+            return this.asyncRepository.GetAllAsync().Result;
         }
 
-        public virtual async Task<IEnumerable<T>> GetAll<T1>(
+        public virtual IEnumerable<T> GetAll(Expression<Func<T, bool>> filter)
+        {
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            return this.asyncRepository.GetAll(filter).Result;
+        }
+
+        public virtual IEnumerable<T> GetAll<T1>(
             Expression<Func<T, bool>> filter,
             Expression<Func<T, T1>> orderBy)
         {
-            return await this.asyncRepository.GetAll(filter, orderBy);
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            if (orderBy == null)
+            {
+                throw new ArgumentNullException(nameof(orderBy));
+            }
+
+            return this.asyncRepository.GetAll(filter, orderBy).Result;
         }
 
-        public virtual async Task<IEnumerable<TResult>> GetAll<T1, TResult>(
+        public virtual IEnumerable<TResult> GetAll<T1, TResult>(
             Expression<Func<T, bool>> filter,
             Expression<Func<T, T1>> orderBy,
             Expression<Func<T, TResult>> select)
         {
-            return await this.asyncRepository.GetAll(filter, orderBy, select);
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            if (orderBy == null)
+            {
+                throw new ArgumentNullException(nameof(orderBy));
+            }
+
+            if (select == null)
+            {
+                throw new ArgumentNullException(nameof(select));
+            }
+
+            return this.asyncRepository.GetAll(filter, orderBy, select).Result;
         }
 
-        public virtual async Task<IEnumerable<T>> GetAll(
+        public virtual IEnumerable<T> GetAll(
             Expression<Func<T, bool>> filter,
             int page,
             int pageSize)
         {
-            return await this.asyncRepository.GetAll(filter, page, pageSize);
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            if (page < 0)
+            {
+                throw new ArgumentException("Page value must be greater than or equal to 0.");
+            }
+
+            if (pageSize < 0)
+            {
+                throw new ArgumentException("Page Size value must be greater than or equal to 0.");
+            }
+
+            return this.asyncRepository.GetAll(filter, page, pageSize).Result;
         }
 
-        public virtual async Task<IEnumerable<T>> GetAll<T1>(
+        public virtual IEnumerable<T> GetAll<T1>(
             Expression<Func<T, bool>> filter,
             Expression<Func<T, T1>> orderBy,
             int page,
             int pageSize)
         {
-            return await this.asyncRepository.GetAll(filter, orderBy, page, pageSize);
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            if (orderBy == null)
+            {
+                throw new ArgumentNullException(nameof(orderBy));
+            }
+
+            if (page < 0)
+            {
+                throw new ArgumentException("Page value must be greater than or equal to 0.");
+            }
+
+            if (pageSize < 0)
+            {
+                throw new ArgumentException("Page Size value must be greater than or equal to 0.");
+            }
+
+            return this.asyncRepository.GetAll(filter, orderBy, page, pageSize).Result;
         }
 
-        public virtual async Task<IEnumerable<TResult>> GetAll<T1, TResult>(
+        public virtual IEnumerable<TResult> GetAll<T1, TResult>(
             Expression<Func<T, bool>> filter,
             Expression<Func<T, T1>> orderBy,
             Expression<Func<T, TResult>> select,
             int page,
             int pageSize)
         {
-            return await this.asyncRepository.GetAll(filter, orderBy, select, page, pageSize);
-        }
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
 
-        public virtual async Task<IEnumerable<T>> GetDeleted()
-        {
-            return await this.GetAll((x) => x.IsDeleted);
+            if (orderBy == null)
+            {
+                throw new ArgumentNullException(nameof(orderBy));
+            }
+
+            if (select == null)
+            {
+                throw new ArgumentNullException(nameof(select));
+            }
+
+            if (page < 0)
+            {
+                throw new ArgumentException("Page value must be greater than or equal to 0.");
+            }
+
+            if (pageSize < 0)
+            {
+                throw new ArgumentException("Page Size value must be greater than or equal to 0.");
+            }
+
+            return this.asyncRepository.GetAll(filter, orderBy, select, page, pageSize).Result;
         }
     }
 }
