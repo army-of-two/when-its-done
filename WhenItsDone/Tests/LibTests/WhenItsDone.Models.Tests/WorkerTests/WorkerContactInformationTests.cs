@@ -9,13 +9,13 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         [Test]
         public void ContactInformation_GetAndSetShould_WorkProperly()
         {
-            var mockedVS = new Mock<ContactInformation>();
+            var mockedCI = new Mock<ContactInformation>();
 
             var obj = new Worker();
 
-            obj.ContactInformation = mockedVS.Object;
+            obj.ContactInformation = mockedCI.Object;
 
-            Assert.AreSame(mockedVS.Object, obj.ContactInformation);
+            Assert.AreSame(mockedCI.Object, obj.ContactInformation);
         }
     }
 }
