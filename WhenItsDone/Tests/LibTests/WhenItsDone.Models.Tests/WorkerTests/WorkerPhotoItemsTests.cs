@@ -1,6 +1,7 @@
 ﻿using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace WhenItsDone.Models.Tests.WorkerTests
 {
@@ -17,6 +18,20 @@ namespace WhenItsDone.Models.Tests.WorkerTests
             obj.PhotoItems = mockedCollection.Object;
 
             Assert.AreSame(mockedCollection.Object, obj.PhotoItems);
+        }
+
+        [Test]
+        public void PhotoItems_ShouldBe_Virtual()
+        {
+            var obj = new Worker();
+
+            var result = obj.GetType()
+                            .GetProperty("PhotoItems")
+                            .GetAccessors()
+                            .Where(x => x.IsVirtual)
+                            .Any();
+
+            Assert.IsTrue(result);
         }
     }
 }
