@@ -131,6 +131,16 @@ namespace WhenItsDone.Data.Repositories
             Expression<Func<TEntity, bool>> filter,
             Expression<Func<TEntity, T>> orderBy)
         {
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            if (orderBy == null)
+            {
+                throw new ArgumentNullException(nameof(orderBy));
+            }
+
             var queryToExecute = this.BuildQuery<T>(filter, orderBy, 0, int.MaxValue);
 
             var task = this.CreateTask(queryToExecute);
