@@ -143,6 +143,14 @@
     <Compile Include="VideoItemTests\VideoItemIdTests.cs" />
     <Compile Include="VideoItemTests\VideoItemConstructorTests.cs" />
     <Compile Include="VideoItemTests\VideoItemAsDbModelTests.cs" />
+    <Compile Include="VitalStatisticsTests\VitalStatisticsAsDbModelTests.cs" />
+    <Compile Include="VitalStatisticsTests\VitalStatisticsBustSizeInCmTests.cs" />
+    <Compile Include="VitalStatisticsTests\VitalStatisticsConstructorTests.cs" />
+    <Compile Include="VitalStatisticsTests\VitalStatisticsHipSizeInCmTests.cs" />
+    <Compile Include="VitalStatisticsTests\VitalStatisticsIdTests.cs" />
+    <Compile Include="VitalStatisticsTests\VitalStatisticsIsDeletedTests.cs" />
+    <Compile Include="VitalStatisticsTests\VitalStatisticsTestingTests.cs" />
+    <Compile Include="VitalStatisticsTests\VitalStatisticsWaistSizeInCmTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
