@@ -115,6 +115,11 @@ namespace WhenItsDone.Data.Repositories
 
         public Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter)
         {
+            if (filter == null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
             var queryToExecute = this.BuildQuery<int>(filter, null, 0, int.MaxValue);
 
             var task = this.CreateTask(queryToExecute);
