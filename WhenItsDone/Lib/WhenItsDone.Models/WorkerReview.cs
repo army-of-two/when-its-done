@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using WhenItsDone.Models.Constants;
 using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Models
@@ -8,6 +9,9 @@ namespace WhenItsDone.Models
         [Key]
         public int Id { get; set; }
 
+        [Required]
+        [MinLength(ValidationConstants.ReviewContentMinLength)]
+        [MaxLength(ValidationConstants.ReviewContentMaxLength)]
         public string ReviewContent { get; set; }
 
         public int Score { get; set; }
