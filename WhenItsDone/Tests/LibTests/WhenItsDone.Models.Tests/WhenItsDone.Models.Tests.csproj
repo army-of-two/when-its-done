@@ -147,6 +147,7 @@
     <Compile Include="VitalStatisticsTests\VitalStatisticsBustSizeInCmTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsConstructorTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsIdTests.cs" />
+    <Compile Include="VitalStatisticsTests\VitalStatisticsWaistSizeInCmTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
