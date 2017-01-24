@@ -4,12 +4,12 @@ using WebFormsMvp;
 using WebFormsMvp.Web;
 
 using WhenItsDone.MVP.Models.Home;
-using WhenItsDone.MVP.Presenters.Home;
+using WhenItsDone.MVP.Presenters.Contracts;
 using WhenItsDone.MVP.Views.Home;
 
 namespace WhenItsDone.WebFormsClient.ViewControls.Home
 {
-    [PresenterBinding(typeof(HomePresenter))]
+    [PresenterBinding(typeof(IHomePresenter))]
     public partial class HomeViewUserControl : MvpUserControl<HomeViewModel>, IHomeView
     {
         public event EventHandler MoreInformation;
