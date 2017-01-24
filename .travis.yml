@@ -1,11 +1,3 @@
 language: csharp
 solution: ./WhenItsDone/WhenItsDone.sln
-install:
-  - nuget restore ./WhenItsDone/WhenItsDone.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
-script:
-  - xbuild /p:Configuration=Release ./WhenItsDone/WhenItsDone.sln
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./WhenItsDone/Tests/LibTests/WhenItsDone.Models.Tests/bin/Release/WhenItsDone.Models.Tests.dll
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./WhenItsDone/Tests/LibTests/WhenItsDone.Services.Tests/bin/Release/WhenItsDone.Services.Tests.dll
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./WhenItsDone/Tests/LibTests/WhenItsDone.Data.Tests/bin/Release/WhenItsDone.Data.Tests.dll 
   
