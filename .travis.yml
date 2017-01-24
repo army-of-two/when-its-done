@@ -1,7 +1,7 @@
 language: csharp
 solution: ./WhenItsDone/WhenItsDone.sln
 install:
-  - nuget restore solution-name.sln
+  - nuget restore ./WhenItsDone/WhenItsDone.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release solution-name.sln
