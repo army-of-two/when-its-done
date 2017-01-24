@@ -136,11 +136,13 @@ namespace WhenItsDone.Services.Tests.AbstractionTests.GenericAsyncServiceTests
         {
             var mockUnitOfWorkFactory = new Mock<IDisposableUnitOfWorkFactory>();
             var mockAsyncRepository = new Mock<IAsyncRepository<IDbModel>>();
-            mockAsyncRepository.Setup(repo => repo.GetAll(It.IsAny<Expression<Func<IDbModel, bool>>>())).Returns(() =>
-            {
-                IEnumerable<IDbModel> result = new List<IDbModel>();
-                return Task.Run(() => result);
-            });
+            IEnumerable<IDbModel> repositoryQueryResult = new List<IDbModel>();
+            mockAsyncRepository.Setup(
+                repo => repo.GetAll(
+                    It.IsAny<Expression<Func<IDbModel, bool>>>(),
+                    It.IsAny<int>(),
+                    It.IsAny<int>()))
+                .Returns(() => Task.Run(() => repositoryQueryResult));
 
             var genericAsyncService = new GenericAsyncService<IDbModel>(mockAsyncRepository.Object, mockUnitOfWorkFactory.Object);
 
@@ -158,7 +160,12 @@ namespace WhenItsDone.Services.Tests.AbstractionTests.GenericAsyncServiceTests
             var mockUnitOfWorkFactory = new Mock<IDisposableUnitOfWorkFactory>();
             var mockAsyncRepository = new Mock<IAsyncRepository<IDbModel>>();
             IEnumerable<IDbModel> repositoryQueryResult = new List<IDbModel>();
-            mockAsyncRepository.Setup(repo => repo.GetAll(It.IsAny<Expression<Func<IDbModel, bool>>>())).Returns(() => Task.Run(() => repositoryQueryResult));
+            mockAsyncRepository.Setup(
+                repo => repo.GetAll(
+                    It.IsAny<Expression<Func<IDbModel, bool>>>(),
+                    It.IsAny<int>(),
+                    It.IsAny<int>()))
+                .Returns(() => Task.Run(() => repositoryQueryResult));
 
             var genericAsyncService = new GenericAsyncService<IDbModel>(mockAsyncRepository.Object, mockUnitOfWorkFactory.Object);
 
@@ -167,7 +174,7 @@ namespace WhenItsDone.Services.Tests.AbstractionTests.GenericAsyncServiceTests
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id > 0;
             var actualResult = genericAsyncService.GetAll(filter, page, pageSize);
 
-            Assert.That(actualResult, Is.EqualTo(repositoryQueryResult));
+            Assert.That(actualResult, Is.SameAs(repositoryQueryResult));
         }
     }
 }

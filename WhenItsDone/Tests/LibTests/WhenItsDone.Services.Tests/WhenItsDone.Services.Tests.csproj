@@ -59,7 +59,7 @@
     <Compile Include="AbstractionTests\GenericAsyncServiceTests\GetAllFilterOrderBySelectPagination_Should.cs" />
     <Compile Include="AbstractionTests\GenericAsyncServiceTests\GetAllFilterOrderBySelect_Should.cs" />
     <Compile Include="AbstractionTests\GenericAsyncServiceTests\GetAllFilterOrderBy_Should.cs" />
-    <Compile Include="AbstractionTests\GenericAsyncServiceTests\GetAllFilterPagination.cs" />
+    <Compile Include="AbstractionTests\GenericAsyncServiceTests\GetAllFilterPagination_Should.cs" />
     <Compile Include="AbstractionTests\GenericAsyncServiceTests\GetAllFilter_Should.cs" />
     <Compile Include="AbstractionTests\GenericAsyncServiceTests\GetAll_Should.cs" />
     <Compile Include="AbstractionTests\GenericAsyncServiceTests\GetDeleted_Should.cs" />
