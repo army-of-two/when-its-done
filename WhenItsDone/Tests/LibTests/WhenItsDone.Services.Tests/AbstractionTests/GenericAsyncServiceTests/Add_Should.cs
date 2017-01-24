@@ -110,7 +110,7 @@ namespace WhenItsDone.Services.Tests.AbstractionTests.GenericAsyncServiceTests
             var validItemToAdd = new Mock<IDbModel>();
             var actualResult = genericAsyncService.Add(validItemToAdd.Object);
 
-            Assert.That(actualResult, Is.EqualTo(validItemToAdd.Object));
+            Assert.That(actualResult, Is.SameAs(validItemToAdd.Object));
         }
     }
 }

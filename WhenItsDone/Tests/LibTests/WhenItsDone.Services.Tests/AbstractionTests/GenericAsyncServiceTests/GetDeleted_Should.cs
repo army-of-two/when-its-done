@@ -72,7 +72,7 @@ namespace WhenItsDone.Services.Tests.AbstractionTests.GenericAsyncServiceTests
             
             var actualResult = genericAsyncService.GetDeleted();
 
-            Assert.That(actualResult, Is.EqualTo(repositoryQueryResult));
+            Assert.That(actualResult, Is.SameAs(repositoryQueryResult));
         }
     }
 }
