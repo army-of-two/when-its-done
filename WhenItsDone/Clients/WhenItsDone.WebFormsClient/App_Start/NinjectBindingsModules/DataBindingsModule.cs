@@ -1,14 +1,16 @@
 ﻿using Ninject.Modules;
+using Ninject.Extensions.Conventions;
 using Ninject.Extensions.Factory;
 using Ninject.Web.Common;
 
+using WhenItsDone.Data;
+using WhenItsDone.Data.AssemblyId;
 using WhenItsDone.Data.Contracts;
-using WhenItsDone.Models;
 using WhenItsDone.Data.Repositories;
-using WhenItsDone.Services;
 using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.Data.UnitsOfWork;
-using WhenItsDone.Data;
+using WhenItsDone.Models;
+using WhenItsDone.Services;
 
 namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 {
@@ -16,6 +18,12 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
     {
         public override void Load()
         {
+            this.Kernel.Bind(x =>
+                x.FromAssemblyContaining<IDataAssemblyId>()
+                .SelectAllClasses()
+                .BindDefaultInterface()
+            );
+
             this.Bind<IDisposableUnitOfWork>().To<UnitOfWork>();
 
             this.Bind<IDisposableUnitOfWorkFactory>()
