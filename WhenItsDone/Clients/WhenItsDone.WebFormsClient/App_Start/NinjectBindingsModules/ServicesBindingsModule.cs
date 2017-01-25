@@ -1,8 +1,10 @@
-﻿using Ninject.Modules;
+﻿using Ninject.Extensions.Conventions;
+using Ninject.Modules;
 using Ninject.Web.Common;
 
 using WhenItsDone.Models;
 using WhenItsDone.Services;
+using WhenItsDone.Services.AssemblyId;
 using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
@@ -11,6 +13,12 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
     {
         public override void Load()
         {
+            this.Kernel.Bind(x =>
+                x.FromAssemblyContaining<IServicesAssemblyId>()
+                .SelectAllClasses()
+                .BindDefaultInterface()
+            );
+
             this.Bind<IGenericAsyncService<Worker>>()
                 .To<WorkersDataService>()
                 .InRequestScope();

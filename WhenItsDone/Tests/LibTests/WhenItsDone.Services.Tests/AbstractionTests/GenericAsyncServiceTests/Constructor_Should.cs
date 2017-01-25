@@ -15,7 +15,6 @@ namespace WhenItsDone.Services.Tests.AbstractionTests.GenericAsyncServiceTests
     [TestFixture]
     public class Constructor_Should
     {
-        // should throw on null
         [Test]
         public void ThrowArgumentNullExceptionWithCorrectMessage_WhenIAsyncRepositoryParameterIsNull()
         {

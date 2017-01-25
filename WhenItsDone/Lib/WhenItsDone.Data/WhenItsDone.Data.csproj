@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\StatefulEntry.cs" />
+    <Compile Include="AssemblyId\IDataAssemblyId.cs" />
     <Compile Include="Contracts\IAsyncRepository.cs" />
     <Compile Include="Contracts\IDisposableUnitOfWork.cs" />
     <Compile Include="Contracts\IStateful.cs" />

@@ -60,7 +60,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
             var actualReturnedCollection = asyncGenericRepositoryInstace.GetDeleted();
-            var test = actualReturnedCollection.Result;
+            
             Assert.That(actualReturnedCollection.Result, Is.Not.Null.And.EqualTo(fakeData));
         }
 

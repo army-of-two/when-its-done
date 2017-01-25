@@ -56,6 +56,10 @@
       <HintPath>..\..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ninject.Extensions.Conventions, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ninject.Extensions.Conventions.3.2.0.0\lib\net45-full\Ninject.Extensions.Conventions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Ninject.Extensions.Factory, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Ninject.Extensions.Factory.3.2.1.0\lib\net45-full\Ninject.Extensions.Factory.dll</HintPath>
       <Private>True</Private>
@@ -241,6 +245,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="ViewControls\Home\HomeViewUserControl.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -414,6 +419,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewControls\Home\HomeViewUserControl.ascx.cs">
+      <DependentUpon>HomeViewUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\Home\HomeViewUserControl.ascx.designer.cs">
+      <DependentUpon>HomeViewUserControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -433,6 +445,10 @@
     <ProjectReference Include="..\..\Lib\WhenItsDone.Models\WhenItsDone.Models.csproj">
       <Project>{E10CC5A1-7DD9-4F43-8798-AA58882CAF6F}</Project>
       <Name>WhenItsDone.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\WhenItsDone.MVP\WhenItsDone.MVP.csproj">
+      <Project>{57206541-C1EC-442F-8C9F-FE4F76944BFF}</Project>
+      <Name>WhenItsDone.MVP</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Lib\WhenItsDone.Services\WhenItsDone.Services.csproj">
       <Project>{5C51DB50-52FB-4B9C-8B16-B3B104FFA090}</Project>

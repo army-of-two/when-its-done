@@ -44,6 +44,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
             Expression<Func<IDbModel, bool>> filter = null;
+
             Assert.That(
                 () => asyncGenericRepositoryInstace.GetAll(filter),
                 Throws.InstanceOf<ArgumentNullException>().With.Message.Contains(nameof(filter)));
@@ -76,6 +77,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
+
             var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter);
 
             Assert.That(actualReturnedCollection.Result.Count, Is.EqualTo(0));
@@ -112,6 +114,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
+
             var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter);
 
             var expectedCollection = new List<IDbModel>() { fakeMatchingModel.Object };
@@ -150,6 +153,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
+
             var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter);
 
             Assert.That(actualReturnedCollection.GetType(), Is.EqualTo(typeof(Task<IEnumerable<IDbModel>>)));
@@ -186,6 +190,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
             Expression<Func<IDbModel, bool>> filter = (IDbModel model) => model.Id == 1;
+
             var actualReturnedCollection = asyncGenericRepositoryInstace.GetAll(filter);
 
             Assert.That(actualReturnedCollection.Status, Is.EqualTo(TaskStatus.Running).Or.EqualTo(TaskStatus.WaitingToRun).Or.EqualTo(TaskStatus.RanToCompletion));

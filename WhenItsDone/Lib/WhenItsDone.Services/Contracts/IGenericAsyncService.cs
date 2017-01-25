@@ -17,38 +17,38 @@ namespace WhenItsDone.Services.Contracts
 
         void Delete(T item);
 
-        Task<IEnumerable<T>> GetAll();
+        IEnumerable<T> GetAll();
 
-        Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> filter);
+        IEnumerable<T> GetAll(Expression<Func<T, bool>> filter);
 
-        Task<IEnumerable<T>> GetAll<T1>(
+        IEnumerable<T> GetAll<T1>(
            Expression<Func<T, bool>> filter,
            Expression<Func<T, T1>> orderBy);
 
-        Task<IEnumerable<TResult>> GetAll<T1, TResult>(
+        IEnumerable<TResult> GetAll<T1, TResult>(
            Expression<Func<T, bool>> filter,
            Expression<Func<T, T1>> orderBy,
            Expression<Func<T, TResult>> select);
 
-        Task<IEnumerable<T>> GetAll(
+        IEnumerable<T> GetAll(
            Expression<Func<T, bool>> filter,
            int page,
            int pageSize);
 
-        Task<IEnumerable<T>> GetAll<T1>(
+        IEnumerable<T> GetAll<T1>(
             Expression<Func<T, bool>> filter,
             Expression<Func<T, T1>> orderBy,
             int page,
             int pageSize);
 
-        Task<IEnumerable<TResult>> GetAll<T1, TResult>(
+        IEnumerable<TResult> GetAll<T1, TResult>(
             Expression<Func<T, bool>> filter,
             Expression<Func<T, T1>> orderBy,
             Expression<Func<T, TResult>> select,
             int page,
             int pageSize);
 
-        Task<IEnumerable<T>> GetDeleted();
+        IEnumerable<T> GetDeleted();
     }
 }
 
