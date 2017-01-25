@@ -2,15 +2,19 @@
 using System.Data.Entity;
 using WhenItsDone.Data.Adapters;
 using WhenItsDone.Data.Contracts;
+using WhenItsDone.Data.Factories;
 using WhenItsDone.Models;
 
 namespace WhenItsDone.Data
 {
     public class WhenItsDoneDbContext : DbContext, IWhenItsDoneDbContext
     {
-        public WhenItsDoneDbContext()
+        private IStatefulFactory statefulFactory;
+
+        public WhenItsDoneDbContext(IStatefulFactory statefulFactory)
             : base("DefaultConnection")
         {
+            this.statefulFactory = statefulFactory;
         }
 
         public virtual IDbSet<Address> Addresses { get; set; }
@@ -39,7 +43,7 @@ namespace WhenItsDone.Data
 
         public IStateful<TEntity> GetStateful<TEntity>(TEntity entity) where TEntity : class
         {
-            return new Stateful<TEntity>(base.Entry<TEntity>(entity));
+            return this.statefulFactory.GetStateful(base.Entry<TEntity>(entity));
         }
     }
 }
