@@ -1,6 +1,4 @@
-﻿using System;
-using System.Data.Entity;
-using WhenItsDone.Data.Adapters;
+﻿using System.Data.Entity;
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.Factories;
 using WhenItsDone.Models;
