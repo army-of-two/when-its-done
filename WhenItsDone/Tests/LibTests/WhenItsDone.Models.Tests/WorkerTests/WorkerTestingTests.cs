@@ -1,5 +1,6 @@
-﻿using NUnit.Framework;
-using System.Linq;
+﻿using System.Linq;
+
+using NUnit.Framework;
 
 namespace WhenItsDone.Models.Tests.WorkerTests
 {
@@ -8,18 +9,17 @@ namespace WhenItsDone.Models.Tests.WorkerTests
     {
         /// <summary>
         /// At that moment Worker class have 19 tested properties .. if another property is added this test will fail
-        /// That mean new tests are REQUIRED!
+        /// That mean new tests are REQUIRED! 
+        /// ( Or "junkata" has figured out how to game the test :P )
         /// </summary>
         [Test]
         public void Worker_VerifyNumberOfProperties()
         {
-            var obj = new Worker();
-
-            var result = obj.GetType()
+            var result = typeof(Worker)
                             .GetProperties()
                             .Count();
 
-            Assert.AreEqual(19, result);
+            Assert.AreEqual(20, result);
         }
 
         /// <summary>
