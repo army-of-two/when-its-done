@@ -48,6 +48,7 @@
     <Compile Include="Constants\ValidationConstants.cs" />
     <Compile Include="ContactInformation.cs" />
     <Compile Include="Contracts\IDbModel.cs" />
+    <Compile Include="Dish.cs" />
     <Compile Include="Recipe.cs" />
     <Compile Include="Enums\IngredientType.cs" />
     <Compile Include="Enums\GenderType.cs" />

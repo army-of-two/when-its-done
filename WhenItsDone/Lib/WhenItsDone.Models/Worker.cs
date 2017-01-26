@@ -13,6 +13,7 @@ namespace WhenItsDone.Models
         private ICollection<PhotoItem> photoItems;
         private ICollection<VideoItem> videoItems;
         private ICollection<ReceivedPayment> receivedPayments;
+        private ICollection<Dish> dishes;
 
         public Worker()
         {
@@ -20,6 +21,7 @@ namespace WhenItsDone.Models
             this.photoItems = new HashSet<PhotoItem>();
             this.videoItems = new HashSet<VideoItem>();
             this.receivedPayments = new HashSet<ReceivedPayment>();
+            this.dishes = new HashSet<Dish>();
 
             this.IsAvailable = true;
         }
@@ -64,6 +66,19 @@ namespace WhenItsDone.Models
         public int ContactInformationId { get; set; }
 
         public virtual ContactInformation ContactInformation { get; set; }
+
+        public virtual ICollection<Dish> Dishes
+        {
+            get
+            {
+                return this.dishes;
+            }
+
+            set
+            {
+                this.dishes = value;
+            }
+        }
 
         public virtual ICollection<ReceivedPayment> ReceivedPayments
         {
