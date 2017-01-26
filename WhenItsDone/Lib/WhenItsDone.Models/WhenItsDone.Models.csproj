@@ -51,6 +51,10 @@
     <Compile Include="Enums\IngredientType.cs" />
     <Compile Include="Enums\GenderType.cs" />
     <Compile Include="Enums\MeasurementUnitType.cs" />
+    <Compile Include="Food.cs" />
+    <Compile Include="Ingredient.cs" />
+    <Compile Include="Mineral.cs" />
+    <Compile Include="NutritionFacts.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="PhotoItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,6 +62,7 @@
     <Compile Include="ReceivedPayment.cs" />
     <Compile Include="VideoItem.cs" />
     <Compile Include="VitalStatistics.cs" />
+    <Compile Include="Vitamin.cs" />
     <Compile Include="Worker.cs" />
     <Compile Include="WorkerReview.cs" />
   </ItemGroup>

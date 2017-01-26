@@ -18,5 +18,9 @@ namespace WhenItsDone.Models
         public MeasurementUnitType MeasurementUnitType { get; set; }
 
         public decimal PricePerUnit { get; set; }
+
+        public int NutritionFactsId { get; set; }
+
+        public virtual NutritionFacts NutritionFacts { get; set; }
     }
 }
