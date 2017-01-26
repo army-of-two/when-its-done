@@ -55,5 +55,8 @@
 
         public const int UrlLengthMinLength = 3;
         public const int UrlLengthMaxValue = 100;
+
+        public const int DishPriceMinValue = 0;
+        public const int DishPriceMaxValue = int.MaxValue;
     }
 }
