@@ -23,7 +23,17 @@ namespace WhenItsDone.Data
 
         public virtual IDbSet<ContactInformation> ContactInformations { get; set; }
 
+        public virtual IDbSet<Dish> Dishes { get; set; }
+
+        public virtual IDbSet<Food> Foods { get; set; }
+
+        public virtual IDbSet<Ingredient> Ingredients { get; set; }
+
         public virtual IDbSet<Job> Jobs { get; set; }
+
+        public virtual IDbSet<Mineral> Minerals { get; set; }
+
+        public virtual IDbSet<NutritionFacts> NutritionFacts { get; set; }
 
         public virtual IDbSet<Payment> Payments { get; set; }
 
@@ -31,7 +41,11 @@ namespace WhenItsDone.Data
 
         public virtual IDbSet<ReceivedPayment> ReceivedPayments { get; set; }
 
+        public virtual IDbSet<Recipe> Recipes { get; set; }
+
         public virtual IDbSet<VideoItem> VideoItems { get; set; }
+
+        public virtual IDbSet<Vitamin> Vitamins { get; set; }
 
         public virtual IDbSet<Worker> Workers { get; set; }
 
