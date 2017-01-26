@@ -14,7 +14,7 @@ notifications:
 
 environment:
   COVERALLS_REPO_TOKEN:
-    secure: wlLP7LxC1MhsjoUMPWHPQ/7ryjfGqgj0v75FIasBHwMvi1AYCDslJxR1hgyX9ilk
+    secure: d5rHVG2xCWfD6lGBNWNvuxETl0mEvEPu1AHeHcfuBHpChyEOa+DphPlIS/oECk/h
 
 after_test: 
     - WhenItsDone\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"WhenItsDone\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe" -targetargs:"/domain:single  WhenItsDone\Tests\LibTests\WhenItsDone.Models.Tests\bin\Debug\WhenItsDone.Models.Tests.dll WhenItsDone\Tests\LibTests\WhenItsDone.Services.Tests\bin\Debug\WhenItsDone.Services.Tests.dll WhenItsDone\Tests\LibTests\WhenItsDone.Data.Tests\bin\Debug\WhenItsDone.Data.Tests.dll" -output:coverage.xml
