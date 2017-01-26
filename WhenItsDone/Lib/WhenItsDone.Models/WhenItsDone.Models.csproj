@@ -48,7 +48,9 @@
     <Compile Include="Constants\ValidationConstants.cs" />
     <Compile Include="ContactInformation.cs" />
     <Compile Include="Contracts\IDbModel.cs" />
+    <Compile Include="Enums\IngredientType.cs" />
     <Compile Include="Enums\GenderType.cs" />
+    <Compile Include="Enums\MeasurementUnitType.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="PhotoItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

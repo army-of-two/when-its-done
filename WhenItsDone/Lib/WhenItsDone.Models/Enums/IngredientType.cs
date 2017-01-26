@@ -6,6 +6,6 @@
         Fruit = 1,
         Meat = 2,
         Fish = 3,
-        Cereal = 4
+        Grain = 4
     }
 }
