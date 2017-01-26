@@ -1,5 +1,6 @@
-﻿using NUnit.Framework;
-using System.Linq;
+﻿using System.Linq;
+
+using NUnit.Framework;
 
 namespace WhenItsDone.Models.Tests.WorkerTests
 {
@@ -14,9 +15,7 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         [Test]
         public void Worker_VerifyNumberOfProperties()
         {
-            var obj = new Worker();
-
-            var result = obj.GetType()
+            var result = typeof(Worker)
                             .GetProperties()
                             .Count();
 
