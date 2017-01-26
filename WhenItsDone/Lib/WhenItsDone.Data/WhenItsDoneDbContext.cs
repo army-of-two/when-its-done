@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.Factories;
 using WhenItsDone.Models;
@@ -8,6 +9,12 @@ namespace WhenItsDone.Data
     public class WhenItsDoneDbContext : DbContext, IWhenItsDoneDbContext
     {
         private IStatefulFactory statefulFactory;
+
+        // Migrations need an empty ctor
+        public WhenItsDoneDbContext()
+            : base("DefaultConnection")
+        {
+        }
 
         public WhenItsDoneDbContext(IStatefulFactory statefulFactory)
             : base("DefaultConnection")
