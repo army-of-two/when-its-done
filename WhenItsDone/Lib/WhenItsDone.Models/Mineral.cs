@@ -17,7 +17,7 @@ namespace WhenItsDone.Models
         [MinLength(ValidationConstants.NameMinLength)]
         [MaxLength(ValidationConstants.NameMaxLength)]
         [RegularExpression(RegexConstants.EnBgSpaceMinus)]
-        public decimal Name { get; set; }
+        public string Name { get; set; }
 
         public bool IsDeleted { get; set; }
     }

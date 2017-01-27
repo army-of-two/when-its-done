@@ -69,6 +69,10 @@
     <Compile Include="Migrations\201701262338044_updated with cooks.Designer.cs">
       <DependentUpon>201701262338044_updated with cooks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701271111243_updated models with validation.cs" />
+    <Compile Include="Migrations\201701271111243_updated models with validation.Designer.cs">
+      <DependentUpon>201701271111243_updated models with validation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\AsyncGenericRepository.cs" />
     <Compile Include="UnitsOfWork\UnitOfWork.cs" />
@@ -95,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701262338044_updated with cooks.resx">
       <DependentUpon>201701262338044_updated with cooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701271111243_updated models with validation.resx">
+      <DependentUpon>201701271111243_updated models with validation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
