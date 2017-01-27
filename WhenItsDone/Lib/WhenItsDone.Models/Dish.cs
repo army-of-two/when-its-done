@@ -2,10 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 
 using WhenItsDone.Models.Constants;
+using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Models
 {
-    public class Dish
+    public class Dish : IDbModel
     {
         private ICollection<PhotoItem> photoItems;
 
@@ -37,5 +38,7 @@ namespace WhenItsDone.Models
                 this.photoItems = value;
             }
         }
+
+        public bool IsDeleted { get; set; }
     }
 }

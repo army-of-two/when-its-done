@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 using WhenItsDone.Models.Constants;
+using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Models
 {
-    public class Mineral
+    public class Mineral : IDbModel
     {
         [Key]
         public int Id { get; set; }
@@ -17,5 +18,7 @@ namespace WhenItsDone.Models
         [MaxLength(ValidationConstants.NameMaxLength)]
         [RegularExpression(RegexConstants.EnBgSpaceMinus)]
         public decimal Name { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

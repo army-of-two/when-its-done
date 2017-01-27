@@ -2,10 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 
 using WhenItsDone.Models.Constants;
+using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Models
 {
-    public class NutritionFacts
+    public class NutritionFacts : IDbModel
     {
         private ICollection<Vitamin> vitamins;
         private ICollection<Mineral> minerals;
@@ -56,5 +57,7 @@ namespace WhenItsDone.Models
                 this.minerals = value;
             }
         }
+
+        public bool IsDeleted { get; set; }
     }
 }
