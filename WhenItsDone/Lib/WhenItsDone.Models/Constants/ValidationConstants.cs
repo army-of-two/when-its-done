@@ -59,7 +59,7 @@
         public const int DishPriceMinValue = 0;
         public const int DishPriceMaxValue = int.MaxValue;
 
-        public const int VitaminQuantityMinValue = 0;
-        public const int VitaminQuantityMaxValue = int.MaxValue;
+        public const int QuantityMinValue = 0;
+        public const int QuantityMaxValue = int.MaxValue;
     }
 }

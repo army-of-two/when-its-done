@@ -14,7 +14,7 @@ namespace WhenItsDone.Models
         [Required]
         public Food Food { get; set; }
 
-        [Range(ValidationConstants.VitaminQuantityMinValue, ValidationConstants.VitaminQuantityMaxValue)]
+        [Range(ValidationConstants.QuantityMinValue, ValidationConstants.QuantityMaxValue)]
         public decimal Quantity { get; set; }
     }
 }

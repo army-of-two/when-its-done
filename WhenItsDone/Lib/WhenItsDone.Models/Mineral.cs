@@ -9,7 +9,7 @@ namespace WhenItsDone.Models
         [Key]
         public int Id { get; set; }
 
-        [Range(ValidationConstants.VitaminQuantityMinValue, ValidationConstants.VitaminQuantityMaxValue)]
+        [Range(ValidationConstants.QuantityMinValue, ValidationConstants.QuantityMaxValue)]
         public decimal Quantity { get; set; }
 
         [Required]
