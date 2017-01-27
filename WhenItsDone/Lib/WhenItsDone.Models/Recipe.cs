@@ -3,10 +3,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 using WhenItsDone.Models.Constants;
+using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Models
 {
-    public class Recipe
+    public class Recipe : IDbModel
     {
         private ICollection<Ingredient> ingredients;
 
@@ -39,5 +40,7 @@ namespace WhenItsDone.Models
                 this.ingredients = value;
             }
         }
+
+        public bool IsDeleted { get; set; }
     }
 }

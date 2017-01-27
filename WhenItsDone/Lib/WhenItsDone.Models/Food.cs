@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 using WhenItsDone.Models.Constants;
+using WhenItsDone.Models.Contracts;
 using WhenItsDone.Models.Enums;
 
 namespace WhenItsDone.Models
 {
-    public class Food
+    public class Food : IDbModel
     {
         [Key]
         public int Id { get; set; }
@@ -27,5 +28,7 @@ namespace WhenItsDone.Models
 
         [Required]
         public virtual NutritionFacts NutritionFacts { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

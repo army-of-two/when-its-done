@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 using WhenItsDone.Models.Constants;
+using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Models
 {
-    public class Ingredient
+    public class Ingredient : IDbModel
     {
         [Key]
         public int Id { get; set; }
@@ -16,5 +17,7 @@ namespace WhenItsDone.Models
 
         [Range(ValidationConstants.QuantityMinValue, ValidationConstants.QuantityMaxValue)]
         public decimal Quantity { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }
