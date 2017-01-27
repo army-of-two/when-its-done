@@ -117,6 +117,7 @@
     <Compile Include="JobTests\JobTestingTests.cs" />
     <Compile Include="JobTests\JobWorkerIdTests.cs" />
     <Compile Include="JobTests\JobWorkerTests.cs" />
+    <Compile Include="MineralTests\Constructor_Should.cs" />
     <Compile Include="PaymentTests\PaymentAmountPaidTests.cs" />
     <Compile Include="PaymentTests\PaymentAsDbModelTests.cs" />
     <Compile Include="PaymentTests\PaymentConstructorTests.cs" />
