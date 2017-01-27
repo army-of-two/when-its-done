@@ -31,6 +31,16 @@ namespace WhenItsDone.Models.Tests.DishTests
         }
 
         [Test]
+        public void IdProperty_MustHaveKeyAttribute()
+        {
+            var recipe = typeof(Dish).GetProperty("Id");
+
+            var attribute = recipe.GetCustomAttribute(typeof(KeyAttribute));
+
+            Assert.That(attribute, Is.Not.Null);
+        }
+
+        [Test]
         public void RecipeProperty_MustHaveRequiredAttribute()
         {
             var recipe = typeof(Dish).GetProperty("Recipe");
