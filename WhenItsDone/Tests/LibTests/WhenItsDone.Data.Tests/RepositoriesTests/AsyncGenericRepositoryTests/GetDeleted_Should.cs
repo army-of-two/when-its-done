@@ -60,7 +60,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbSet.As<IQueryable<IDbModel>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
             var actualReturnedCollection = asyncGenericRepositoryInstace.GetDeleted();
-            
+
             Assert.That(actualReturnedCollection.Result, Is.Not.Null.And.EqualTo(fakeData));
         }
 
@@ -117,7 +117,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
 
             var actualReturnedCollection = asyncGenericRepositoryInstace.GetDeleted();
 
-            Assert.That(actualReturnedCollection.Status, Is.EqualTo(TaskStatus.Running).Or.EqualTo(TaskStatus.WaitingToRun));
+            Assert.That(actualReturnedCollection.Status, Is.EqualTo(TaskStatus.Running).Or.EqualTo(TaskStatus.WaitingToRun).Or.EqualTo(TaskStatus.RanToCompletion));
         }
     }
 }
