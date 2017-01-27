@@ -155,6 +155,7 @@
     <Compile Include="VitalStatisticsTests\VitalStatisticsIsDeletedTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsTestingTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsWaistSizeInCmTests.cs" />
+    <Compile Include="VitaminTests\Constructor_Should.cs" />
     <Compile Include="WorkerReviewTests\WorkerReviewTestingTests.cs" />
     <Compile Include="WorkerReviewTests\WorkerReviewClientTests.cs" />
     <Compile Include="WorkerReviewTests\WorkerReviewClientIdTests.cs" />
