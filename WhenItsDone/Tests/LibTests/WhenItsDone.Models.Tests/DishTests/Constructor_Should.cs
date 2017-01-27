@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
@@ -12,6 +13,18 @@ namespace WhenItsDone.Models.Tests.DishTests
     [TestFixture]
     public class Constructor_Should
     {
+        [Test]
+        public void ShouldHaveDefaultParameterlessCtor()
+        {
+            var type = typeof(Dish);
+
+            var ctorParameters = new Type[] { };
+            var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+            var constructor = type.GetConstructor(bindingFlags, null, ctorParameters, null);
+
+            Assert.That(constructor, Is.Not.Null);
+        }
+
         [Test]
         public void ShouldInitialize_ImplementingIDbModel()
         {

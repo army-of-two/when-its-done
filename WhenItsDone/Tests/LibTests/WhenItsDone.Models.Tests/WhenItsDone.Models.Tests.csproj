@@ -104,6 +104,7 @@
     <Compile Include="ContactInformationTests\ContactInformationEmailTests.cs" />
     <Compile Include="DishTests\Constructor_Should.cs" />
     <Compile Include="FoodTests\Constructor_Should.cs" />
+    <Compile Include="IngredientTests\Constructor_Should.cs" />
     <Compile Include="JobTests\JobAsDbModelTests.cs" />
     <Compile Include="JobTests\JobClientIdTests.cs" />
     <Compile Include="JobTests\JobClientTests.cs" />
@@ -116,6 +117,8 @@
     <Compile Include="JobTests\JobTestingTests.cs" />
     <Compile Include="JobTests\JobWorkerIdTests.cs" />
     <Compile Include="JobTests\JobWorkerTests.cs" />
+    <Compile Include="MineralTests\Constructor_Should.cs" />
+    <Compile Include="NutritionFactsTests\Constructor_Should.cs" />
     <Compile Include="PaymentTests\PaymentAmountPaidTests.cs" />
     <Compile Include="PaymentTests\PaymentAsDbModelTests.cs" />
     <Compile Include="PaymentTests\PaymentConstructorTests.cs" />
@@ -153,6 +156,7 @@
     <Compile Include="VitalStatisticsTests\VitalStatisticsIsDeletedTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsTestingTests.cs" />
     <Compile Include="VitalStatisticsTests\VitalStatisticsWaistSizeInCmTests.cs" />
+    <Compile Include="VitaminTests\Constructor_Should.cs" />
     <Compile Include="WorkerReviewTests\WorkerReviewTestingTests.cs" />
     <Compile Include="WorkerReviewTests\WorkerReviewClientTests.cs" />
     <Compile Include="WorkerReviewTests\WorkerReviewClientIdTests.cs" />
