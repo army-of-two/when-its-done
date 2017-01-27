@@ -104,6 +104,7 @@
     <Compile Include="ContactInformationTests\ContactInformationEmailTests.cs" />
     <Compile Include="DishTests\Constructor_Should.cs" />
     <Compile Include="FoodTests\Constructor_Should.cs" />
+    <Compile Include="IngredientTests\Constructor_Should.cs" />
     <Compile Include="JobTests\JobAsDbModelTests.cs" />
     <Compile Include="JobTests\JobClientIdTests.cs" />
     <Compile Include="JobTests\JobClientTests.cs" />
