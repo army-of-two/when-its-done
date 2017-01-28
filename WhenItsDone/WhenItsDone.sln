@@ -43,6 +43,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoverallsDependencies", "Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoverallsDependencies", "Tests\CoverallsDependencies\CoverallsDependencies\CoverallsDependencies.csproj", "{A319B8E4-ACCC-48B5-B7B7-0B1EB4B91496}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhenItsDone.Logic", "Lib\WhenItsDone.Logic\WhenItsDone.Logic.csproj", "{7EC8E3BE-ED85-4655-A50B-D6656D61AC47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{A319B8E4-ACCC-48B5-B7B7-0B1EB4B91496}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A319B8E4-ACCC-48B5-B7B7-0B1EB4B91496}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A319B8E4-ACCC-48B5-B7B7-0B1EB4B91496}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EC8E3BE-ED85-4655-A50B-D6656D61AC47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC8E3BE-ED85-4655-A50B-D6656D61AC47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EC8E3BE-ED85-4655-A50B-D6656D61AC47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EC8E3BE-ED85-4655-A50B-D6656D61AC47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -127,5 +133,6 @@ Global
 		{3E36D44F-6D8D-4A23-9C27-947A497E8DF6} = {C7D816B5-7CBB-4454-98E6-39A82A481DD3}
 		{BAAEC146-8EF6-415B-945E-E4ECD6C848FD} = {AF07D4F3-5F8C-4620-AEF6-41D2615512B7}
 		{A319B8E4-ACCC-48B5-B7B7-0B1EB4B91496} = {BAAEC146-8EF6-415B-945E-E4ECD6C848FD}
+		{7EC8E3BE-ED85-4655-A50B-D6656D61AC47} = {CE90A517-8C10-46D6-83BB-2A794AB98E22}
 	EndGlobalSection
 EndGlobal
