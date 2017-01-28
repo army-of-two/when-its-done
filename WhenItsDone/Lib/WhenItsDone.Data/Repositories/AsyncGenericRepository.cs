@@ -16,27 +16,6 @@ namespace WhenItsDone.Data.Repositories
         private readonly IWhenItsDoneDbContext dbContext;
         private readonly IDbSet<TEntity> dbSet;
 
-        private readonly Func<AsyncGenericRepository<TEntity>, int, TEntity> getByIdDelegate = (AsyncGenericRepository<TEntity> context, int id) =>
-        {
-            var result = context.dbSet.Find(id);
-
-            return result;
-        };
-
-        private readonly Func<AsyncGenericRepository<TEntity>, IEnumerable<TEntity>> getAllDelegate = (AsyncGenericRepository<TEntity> context) =>
-        {
-            var result = context.dbSet.ToList().AsEnumerable();
-
-            return result;
-        };
-
-        private readonly Func<AsyncGenericRepository<TEntity>, IEnumerable<TEntity>> getDeletedDelegate = (AsyncGenericRepository<TEntity> context) =>
-        {
-            var result = context.dbSet.Where(x => x.IsDeleted).ToList().AsEnumerable();
-
-            return result;
-        };
-
         public AsyncGenericRepository(IWhenItsDoneDbContext dbContext)
         {
             if (dbContext == null)
@@ -60,7 +39,7 @@ namespace WhenItsDone.Data.Repositories
                 throw new ArgumentException("Id must be a positive integer.");
             }
 
-            var getByIdTask = Task.Run(() => this.getByIdDelegate(this, id));
+            var getByIdTask = Task.Run<TEntity>(() => this.dbSet.Find(id));
 
             return getByIdTask;
         }
@@ -100,14 +79,14 @@ namespace WhenItsDone.Data.Repositories
 
         public Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            var getAllTask = Task.Run(() => this.getAllDelegate(this));
+            var getAllTask = Task.Run<IEnumerable<TEntity>>(() => this.dbSet.ToList());
 
             return getAllTask;
         }
 
         public Task<IEnumerable<TEntity>> GetDeleted()
         {
-            var getDeletedTask = Task.Run(() => this.getDeletedDelegate(this));
+            var getDeletedTask = Task.Run<IEnumerable<TEntity>>(() => this.dbSet.Where(x => x.IsDeleted).ToList());
 
             return getDeletedTask;
         }
@@ -171,9 +150,9 @@ namespace WhenItsDone.Data.Repositories
 
             var queryWithSelect = queryToExecute.Select(select);
 
-            var runningTask = Task.Run(() =>
+            var runningTask = Task.Run<IEnumerable<TResult>>(() =>
             {
-                var result = queryWithSelect.ToList().AsEnumerable();
+                var result = queryWithSelect.ToList();
 
                 return result;
             });
@@ -277,12 +256,12 @@ namespace WhenItsDone.Data.Repositories
 
             var queryWithSelect = queryToExecute.Select(select);
 
-            var runningTask = Task.Run(() =>
-            {
-                var result = queryWithSelect.ToList().AsEnumerable();
+            var runningTask = Task.Run<IEnumerable<TResult>>(() =>
+          {
+              var result = queryWithSelect.ToList();
 
-                return result;
-            });
+              return result;
+          });
 
             return runningTask;
         }
@@ -317,9 +296,9 @@ namespace WhenItsDone.Data.Repositories
 
         private Task<IEnumerable<TEntity>> CreateTask(IQueryable<TEntity> queryToExecute)
         {
-            return Task.Run(() =>
+            return Task.Run<IEnumerable<TEntity>>(() =>
             {
-                var result = queryToExecute.ToList().AsEnumerable();
+                var result = queryToExecute.ToList();
 
                 return result;
             });
