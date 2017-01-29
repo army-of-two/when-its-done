@@ -3,15 +3,21 @@
 <%@ Register Src="~/ViewControls/Home/HomeViewUserControl.ascx" TagPrefix="uc" TagName="test" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    
+
     <div class="well content-container-even">
-        <h1>Food.Me</h1>
+        <section class="content-container-heading">
+            <h1>Food.Me</h1>
+        </section>
+        <section class="content-container-content">
+        </section>
     </div>
     <hr />
     <div class="well content-container-even">
-        <div class="row">
+        <section class="content-container-heading">
             <uc:test runat="server" />
-        </div>
+        </section>
+        <section class="content-container-content">
+        </section>
     </div>
 
 </asp:Content>

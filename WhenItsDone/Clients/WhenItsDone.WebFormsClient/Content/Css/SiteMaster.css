@@ -8,13 +8,21 @@ body form .content-container-odd,
 body form .content-container-even {
   margin-top: 50px;
   margin-bottom: 50px;
-  padding: 40px;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
   height: 480px;
   background-color: rgba(255,255,255,0);
   border: none;
   box-shadow: none;
+}
+body form .content-container-odd .content-container-heading,
+body form .content-container-even .content-container-heading {
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  padding: 25px;
+  padding-left: 80px;
+  padding-right: 80px;
 }
 body form .content-container-even {
   background-color: #fff;
@@ -25,8 +33,12 @@ body form .jumbotron {
 body form .navbar {
   background-color: #fff;
 }
+body form .navbar .navbar-toggle > .icon-bar {
+  background-color: #428bca;
+}
 body form .body-content {
-  padding: 25px;
+  padding: 0px;
+  margin-top: 25px;
 }
 body form .body-content .footer {
   background-color: #fff;
