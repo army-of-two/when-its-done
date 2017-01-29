@@ -3,10 +3,13 @@ using System.Web;
 
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
+using AutoMapper;
+
 using Ninject;
 using Ninject.Web.Common;
 
 using WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules;
+using WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles;
 
 using WebFormsMvp.Binder;
 
@@ -123,7 +126,10 @@ namespace WhenItsDone.WebFormsClient.App_Start
 
         private static void InitializeAutomapperConfig(IKernel kernel)
         {
-
+            Mapper.Initialize(config =>
+            {
+                config.AddProfile(new ModelsProfile());
+            });
         }
     }
 }
