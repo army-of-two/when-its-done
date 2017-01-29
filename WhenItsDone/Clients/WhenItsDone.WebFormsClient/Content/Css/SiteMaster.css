@@ -1,6 +1,27 @@
 body {
   background-image: url("/Content/Images/food.png") !important;
 }
+body form .well {
+  background-color: #fff;
+}
+body form .content-container-odd,
+body form .content-container-even {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 40px;
+  padding-left: 80px;
+  padding-right: 80px;
+  height: 480px;
+  background-color: rgba(255,255,255,0);
+  border: none;
+  box-shadow: none;
+}
+body form .content-container-even {
+  background-color: #fff;
+}
+body form .jumbotron {
+  background-color: #fff;
+}
 body form .navbar {
   background-color: #fff;
 }
@@ -8,7 +29,5 @@ body form .body-content {
   padding: 25px;
 }
 body form .body-content .footer {
-  padding: 25px;
-  width: 100%;
   background-color: #fff;
 }
