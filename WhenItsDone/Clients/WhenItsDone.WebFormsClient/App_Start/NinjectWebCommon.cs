@@ -8,14 +8,49 @@ using Ninject.Web.Common;
 
 using WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WhenItsDone.WebFormsClient.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(WhenItsDone.WebFormsClient.App_Start.NinjectWebCommon), "Stop")]
+using WebFormsMvp.Binder;
+
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WhenItsDone.WebFormsClient.App_Start.AppCompositionRoot), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(WhenItsDone.WebFormsClient.App_Start.AppCompositionRoot), "Stop")]
 
 namespace WhenItsDone.WebFormsClient.App_Start
 {
-    public static class NinjectWebCommon
+    public static class AppCompositionRoot
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
+
+        private static volatile IKernel ninjectKernelInstance;
+        private static object syncRoot = new Object();
+
+        /// <summary>
+        /// Singleton implementation
+        /// https://msdn.microsoft.com/en-us/library/ff650316.aspx
+        /// 
+        /// Singleton should not be required,
+        /// Ninject kernel is guaranteed to be only 
+        /// registered once by Ninject itself. (?)
+        /// </summary>
+        public static IKernel NinjectKernelInstance
+        {
+            get
+            {
+                return AppCompositionRoot.ninjectKernelInstance;
+            }
+
+            set
+            {
+                if (ninjectKernelInstance == null)
+                {
+                    lock (syncRoot)
+                    {
+                        if (ninjectKernelInstance == null)
+                        {
+                            AppCompositionRoot.ninjectKernelInstance = value;
+                        }
+                    }
+                }
+            }
+        }
 
         /// <summary>
         /// Starts the application
@@ -48,9 +83,12 @@ namespace WhenItsDone.WebFormsClient.App_Start
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
                 RegisterServices(kernel);
+                RegisterPresenterFactory(kernel);
+                RegisterControllerFactory(kernel);
+                InitializeAutomapperConfig(kernel);
 
                 // Make IKernel instance available.
-                NinjectKernelInstanceProvider.Instance = kernel;
+                AppCompositionRoot.NinjectKernelInstance = kernel;
 
                 return kernel;
             }
@@ -70,6 +108,22 @@ namespace WhenItsDone.WebFormsClient.App_Start
             kernel.Load(new MVPBindingsModule());
             kernel.Load(new DataBindingsModule());
             kernel.Load(new ServicesBindingsModule());
+        }
+
+        private static void RegisterPresenterFactory(IKernel kernel)
+        {
+            var customPresenterFactory = kernel.Get<IPresenterFactory>();
+            PresenterBinder.Factory = customPresenterFactory;
+        }
+
+        private static void RegisterControllerFactory(IKernel kernel)
+        {
+
+        }
+
+        private static void InitializeAutomapperConfig(IKernel kernel)
+        {
+
         }
     }
 }
