@@ -1,5 +1,6 @@
 body {
   background-image: url("/Content/Images/food.png") !important;
+  color: #428bca;
 }
 body form .well {
   background-color: #fff;
@@ -18,6 +19,7 @@ body form .content-container-even {
 }
 body form .content-container-odd .content-container-heading,
 body form .content-container-even .content-container-heading {
+  color: #428bca;
   border-bottom: 1px solid rgba(0,0,0,0.15);
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
   padding: 25px;
