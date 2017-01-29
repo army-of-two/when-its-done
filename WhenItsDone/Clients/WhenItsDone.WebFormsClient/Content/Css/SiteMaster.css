@@ -1,0 +1,14 @@
+body {
+  background-image: url("/Content/Images/restaurant.png") !important;
+}
+body form .navbar {
+  background-color: #fff;
+}
+body form .body-content {
+  padding: 25px;
+}
+body form .body-content .footer {
+  padding: 25px;
+  width: 100%;
+  background-color: #fff;
+}
