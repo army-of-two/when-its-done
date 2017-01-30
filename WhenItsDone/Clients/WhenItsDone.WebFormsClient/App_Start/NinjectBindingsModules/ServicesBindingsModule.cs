@@ -20,7 +20,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
             );
 
             this.Bind<IGenericAsyncService<Worker>>()
-                .To<WorkersDataService>()
+                .To<WorkersAsyncService>()
                 .InRequestScope();
         }
     }

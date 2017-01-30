@@ -35,7 +35,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 
             this.Bind(typeof(IAsyncRepository<>))
                 .To<GenericAsyncRepository<Worker>>()
-                .WhenInjectedInto<WorkersDataService>()
+                .WhenInjectedInto<WorkersAsyncService>()
                 .InSingletonScope();
 
             this.Bind<IWhenItsDoneDbContext>()

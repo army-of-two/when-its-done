@@ -46,9 +46,9 @@
     <Compile Include="Contracts\IDishesDataService.cs" />
     <Compile Include="Contracts\IGenericAsyncService.cs" />
     <Compile Include="Contracts\IWorkersDataService.cs" />
-    <Compile Include="DIshesDataService.cs" />
+    <Compile Include="DishesAsyncService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WorkersDataService.cs" />
+    <Compile Include="WorkersAsyncService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WhenItsDone.Data\WhenItsDone.Data.csproj">
