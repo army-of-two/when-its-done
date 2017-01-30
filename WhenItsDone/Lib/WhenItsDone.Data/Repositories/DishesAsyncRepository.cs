@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity.Core;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,7 +22,15 @@ namespace WhenItsDone.Data.Repositories
         {
             var task = Task.Run<IEnumerable<NamePhotoDishView>>(() =>
             {
-                return this.DbSet.OrderByDescending(dish => dish.Rating).Take(dishesCount).ProjectToList<NamePhotoDishView>();
+                try
+                {
+                    return this.DbSet.OrderByDescending(dish => dish.Rating).Take(dishesCount).ProjectToList<NamePhotoDishView>();
+                }
+                catch (EntityException)
+                {
+                    return new NamePhotoDishView[] { };
+                }
+
             });
 
             return task;
