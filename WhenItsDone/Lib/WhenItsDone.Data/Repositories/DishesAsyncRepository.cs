@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity.Core;
 using System.Linq;
@@ -23,6 +24,11 @@ namespace WhenItsDone.Data.Repositories
 
         public Task<IEnumerable<NamePhotoDishView>> GetTopCountDishesByRating(int dishesCount)
         {
+            if (dishesCount < 0)
+            {
+                throw new ArgumentException("dishesCount parameter must be greater than or equal to 0.");
+            }
+
             var task = Task.Run<IEnumerable<NamePhotoDishView>>(() =>
             {
                 try

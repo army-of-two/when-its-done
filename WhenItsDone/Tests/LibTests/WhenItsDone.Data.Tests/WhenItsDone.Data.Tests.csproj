@@ -91,6 +91,10 @@
       <Project>{D3085631-83D5-4525-B69C-DFDC47BC7F9B}</Project>
       <Name>WhenItsDone.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Lib\WhenItsDone.DTOs\WhenItsDone.DTOs.csproj">
+      <Project>{da36a62d-37d6-47f1-b292-a73cff233ca8}</Project>
+      <Name>WhenItsDone.DTOs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Lib\WhenItsDone.Models\WhenItsDone.Models.csproj">
       <Project>{E10CC5A1-7DD9-4F43-8798-AA58882CAF6F}</Project>
       <Name>WhenItsDone.Models</Name>
