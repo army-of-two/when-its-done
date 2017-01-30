@@ -4,6 +4,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
+using AutoMapper;
+
 using Moq;
 using NUnit.Framework;
 
@@ -11,7 +13,6 @@ using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.Repositories;
 using WhenItsDone.DTOs.DishViews;
 using WhenItsDone.Models;
-using AutoMapper;
 
 namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
 {

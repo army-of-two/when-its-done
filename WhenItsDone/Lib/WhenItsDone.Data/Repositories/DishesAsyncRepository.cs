@@ -45,7 +45,10 @@ namespace WhenItsDone.Data.Repositories
                 {
                     return this.GetSampleDataOnFailedDBConnection();
                 }
-
+                catch (Exception)
+                {
+                    return this.GetSampleDataOnFailedDBConnection();
+                }
             });
 
             return task;
