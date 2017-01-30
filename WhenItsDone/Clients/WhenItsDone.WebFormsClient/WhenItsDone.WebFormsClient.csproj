@@ -398,7 +398,6 @@
     </Compile>
     <Compile Include="App_Start\Factories\CustomPresenterFactory.cs" />
     <Compile Include="App_Start\Factories\ICustomPresenterFactory.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\NinjectBindingsModules\DataBindingsModule.cs" />
     <Compile Include="App_Start\NinjectBindingsModules\MVPBindingsModule.cs" />
     <Compile Include="App_Start\NinjectBindingsModules\ServicesBindingsModule.cs" />
