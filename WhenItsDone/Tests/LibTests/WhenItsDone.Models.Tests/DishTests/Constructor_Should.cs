@@ -94,5 +94,37 @@ namespace WhenItsDone.Models.Tests.DishTests
 
             Assert.That(maximumConstraint, Is.EqualTo(ValidationConstants.DishPriceMaxValue));
         }
+
+        [Test]
+        public void RatingProperty_MustHaveRangeAttribute()
+        {
+            var rating = typeof(Dish).GetProperty("Rating");
+
+            var attribute = rating.GetCustomAttribute(typeof(System.ComponentModel.DataAnnotations.RangeAttribute));
+
+            Assert.That(attribute, Is.Not.Null);
+        }
+
+        [Test]
+        public void RatingProperty_MustHaveRangeAttributeWithCorrectMinimumConstraints()
+        {
+            var rating = typeof(Dish).GetProperty("Rating");
+
+            var attribute = rating.GetCustomAttribute(typeof(System.ComponentModel.DataAnnotations.RangeAttribute)) as System.ComponentModel.DataAnnotations.RangeAttribute;
+            var minimumConstraint = attribute.Minimum;
+
+            Assert.That(minimumConstraint, Is.EqualTo(ValidationConstants.RatingMinValue));
+        }
+
+        [Test]
+        public void RatingProperty_MustHaveRangeAttributeWithCorrectMaximumConstraints()
+        {
+            var rating = typeof(Dish).GetProperty("Rating");
+
+            var attribute = rating.GetCustomAttribute(typeof(System.ComponentModel.DataAnnotations.RangeAttribute)) as System.ComponentModel.DataAnnotations.RangeAttribute;
+            var maximumConstraint = attribute.Maximum;
+
+            Assert.That(maximumConstraint, Is.EqualTo(ValidationConstants.RatingMaxValue));
+        }
     }
 }
