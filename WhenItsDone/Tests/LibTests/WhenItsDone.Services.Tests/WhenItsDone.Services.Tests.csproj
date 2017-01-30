@@ -66,6 +66,7 @@
     <Compile Include="AbstractionTests\GenericAsyncServiceTests\Hide_Should.cs" />
     <Compile Include="AbstractionTests\GenericAsyncServiceTests\Update_Should.cs" />
     <Compile Include="DishesAsyncServiceTests\DishesAsyncServiceTests\Constructor_Should.cs" />
+    <Compile Include="DishesAsyncServiceTests\DishesAsyncServiceTests\GetTopCountDishesByRating_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +77,10 @@
     <ProjectReference Include="..\..\..\Lib\WhenItsDone.Data\WhenItsDone.Data.csproj">
       <Project>{D3085631-83D5-4525-B69C-DFDC47BC7F9B}</Project>
       <Name>WhenItsDone.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Lib\WhenItsDone.DTOs\WhenItsDone.DTOs.csproj">
+      <Project>{da36a62d-37d6-47f1-b292-a73cff233ca8}</Project>
+      <Name>WhenItsDone.DTOs</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Lib\WhenItsDone.Models\WhenItsDone.Models.csproj">
       <Project>{E10CC5A1-7DD9-4F43-8798-AA58882CAF6F}</Project>

@@ -27,6 +27,11 @@ namespace WhenItsDone.Services
 
         public IEnumerable<NamePhotoDishView> GetTopCountDishesByRating(int dishesCount)
         {
+            if (dishesCount < 0)
+            {
+                throw new ArgumentException("dishesCount parameter must be greater than or equal to 0.");
+            }
+
             return this.dishesAsyncRepository.GetTopCountDishesByRating(dishesCount).Result;
         }
     }
