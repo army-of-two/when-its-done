@@ -52,6 +52,7 @@
     <Compile Include="Adapters\StatefulEntry.cs" />
     <Compile Include="AssemblyId\IDataAssemblyId.cs" />
     <Compile Include="Contracts\IAsyncRepository.cs" />
+    <Compile Include="Contracts\IDishesAsyncRepository.cs" />
     <Compile Include="Contracts\IDisposableUnitOfWork.cs" />
     <Compile Include="Contracts\IStateful.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
@@ -86,6 +87,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WhenItsDone.DTOs\WhenItsDone.DTOs.csproj">
+      <Project>{DA36A62D-37D6-47F1-B292-A73CFF233CA8}</Project>
+      <Name>WhenItsDone.DTOs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WhenItsDone.Models\WhenItsDone.Models.csproj">
       <Project>{E10CC5A1-7DD9-4F43-8798-AA58882CAF6F}</Project>
       <Name>WhenItsDone.Models</Name>
