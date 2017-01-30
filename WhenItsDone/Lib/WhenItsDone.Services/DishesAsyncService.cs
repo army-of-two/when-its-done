@@ -13,7 +13,6 @@ namespace WhenItsDone.Services
     public class DishesAsyncService : GenericAsyncService<Dish>, IDishesAsyncService, IGenericAsyncService<Dish>
     {
         private readonly IDishesAsyncRepository dishesAsyncRepository;
-        private readonly IDisposableUnitOfWorkFactory unitOfWorkFactory;
 
         public DishesAsyncService(IDishesAsyncRepository asyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory)
             : base(asyncRepository, unitOfWorkFactory)
@@ -23,13 +22,7 @@ namespace WhenItsDone.Services
                 throw new ArgumentNullException(nameof(asyncRepository));
             }
 
-            if (unitOfWorkFactory == null)
-            {
-                throw new ArgumentNullException(nameof(unitOfWorkFactory));
-            }
-
             this.dishesAsyncRepository = asyncRepository;
-            this.unitOfWorkFactory = unitOfWorkFactory;
         }
 
         public IEnumerable<NamePhotoDishView> GetTopCountDishesByRating(int dishesCount)
