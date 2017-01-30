@@ -9,8 +9,7 @@ using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.Google;
 
 using Owin;
-
-using WhenItsDone.WebFormsClient.Models;
+using WhenItsDone.DefaultAuth;
 
 namespace WhenItsDone.WebFormsClient
 {

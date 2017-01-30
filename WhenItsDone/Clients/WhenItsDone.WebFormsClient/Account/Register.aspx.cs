@@ -5,7 +5,7 @@ using System.Web.UI;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
-using WhenItsDone.WebFormsClient.Models;
+using WhenItsDone.DefaultAuth;
 
 namespace WhenItsDone.WebFormsClient.Account
 {
