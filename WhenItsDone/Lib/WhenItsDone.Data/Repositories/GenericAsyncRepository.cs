@@ -32,6 +32,22 @@ namespace WhenItsDone.Data.Repositories
             }
         }
 
+        protected IWhenItsDoneDbContext DbContext
+        {
+            get
+            {
+                return this.dbContext;
+            }
+        }
+
+        protected IDbSet<TEntity> DbSet
+        {
+            get
+            {
+                return this.dbSet;
+            }
+        }
+
         public Task<TEntity> GetByIdAsync(int id)
         {
             if (id < 0)
