@@ -12,10 +12,10 @@ namespace WhenItsDone.Services
 {
     public class DishesDataService : GenericAsyncService<Dish>, IDishesDataService, IGenericAsyncService<Dish>
     {
-        private readonly IAsyncRepository<Dish> asyncRepository;
+        private readonly IDishesAsyncRepository dishesAsyncRepository;
         private readonly IDisposableUnitOfWorkFactory unitOfWorkFactory;
 
-        public DishesDataService(IAsyncRepository<Dish> asyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory)
+        public DishesDataService(IDishesAsyncRepository asyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory)
             : base(asyncRepository, unitOfWorkFactory)
         {
             if (asyncRepository == null)
@@ -28,15 +28,13 @@ namespace WhenItsDone.Services
                 throw new ArgumentNullException(nameof(unitOfWorkFactory));
             }
 
-            this.asyncRepository = asyncRepository;
+            this.dishesAsyncRepository = asyncRepository;
             this.unitOfWorkFactory = unitOfWorkFactory;
         }
 
         public IEnumerable<NamePhotoDishView> GetTopThreeDishesByRating()
         {
-           
-
-            throw new NotImplementedException();
+            return this.dishesAsyncRepository.GetTopThreeDishesByRating().Result;
         }
     }
 }

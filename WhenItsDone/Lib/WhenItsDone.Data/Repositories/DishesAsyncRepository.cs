@@ -1,6 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+
+using AutoMapper;
 
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.DTOs.DishViews;
@@ -15,10 +17,14 @@ namespace WhenItsDone.Data.Repositories
         {
         }
 
-        public IEnumerable<NamePhotoDishView> GetTopThreeDishesByRating()
+        public Task<IEnumerable<NamePhotoDishView>> GetTopThreeDishesByRating()
         {
+            var task = Task.Run<IEnumerable<NamePhotoDishView>>(() =>
+            {
+                return this.DbSet.OrderByDescending(dish => dish.Rating).Take(3).ProjectToList<NamePhotoDishView>();
+            });
 
-            throw new NotImplementedException();
+            return task;
         }
     }
 }
