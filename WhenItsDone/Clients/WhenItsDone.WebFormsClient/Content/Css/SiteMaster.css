@@ -23,8 +23,8 @@ body form .content-container-even .content-container-heading {
   border-bottom: 1px solid rgba(0,0,0,0.15);
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
   padding: 25px;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 body form .content-container-odd .content-container-content,
 body form .content-container-even .content-container-content {
