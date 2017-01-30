@@ -267,7 +267,6 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="ViewControls\ContentContainers\TopDishesUserControl.ascx" />
-    <Content Include="ViewControls\Home\HomeViewUserControl.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -447,13 +446,6 @@
     </Compile>
     <Compile Include="ViewControls\ContentContainers\TopDishesUserControl.ascx.designer.cs">
       <DependentUpon>TopDishesUserControl.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControls\Home\HomeViewUserControl.ascx.cs">
-      <DependentUpon>HomeViewUserControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewControls\Home\HomeViewUserControl.ascx.designer.cs">
-      <DependentUpon>HomeViewUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

@@ -10,7 +10,7 @@ using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.Services
 {
-    public class DishesAsyncService : GenericAsyncService<Dish>, IDishesAsyncService, Contracts.IGenericAsyncService<Dish>
+    public class DishesAsyncService : GenericAsyncService<Dish>, IDishesAsyncService, IGenericAsyncService<Dish>
     {
         private readonly IDishesAsyncRepository dishesAsyncRepository;
         private readonly IDisposableUnitOfWorkFactory unitOfWorkFactory;
