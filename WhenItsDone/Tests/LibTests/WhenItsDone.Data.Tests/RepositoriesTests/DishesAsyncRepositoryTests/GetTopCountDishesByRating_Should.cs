@@ -177,5 +177,51 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
 
             Assert.That(dishesAreSorted, Is.True);
         }
+
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(4)]
+        [TestCase(int.MaxValue)]
+        public void ShouldReturnCollection_WhichContainsLessThanOrEqualToDishesCountItems(int dishesCount)
+        {
+            Mapper.Initialize(config =>
+            {
+                config.CreateMap<Dish, NamePhotoDishView>()
+                    .ForMember(dest => dest.Name, opts => opts.MapFrom(src => src.Recipe.Name));
+            });
+
+            var mockDbSet = new Mock<DbSet<Dish>>();
+            var mockDbContext = new Mock<IWhenItsDoneDbContext>();
+            mockDbContext.Setup(mock => mock.Set<Dish>()).Returns(mockDbSet.Object);
+
+            var asyncDishesRepositoryInstace = new DishesAsyncRepository(mockDbContext.Object);
+
+            var ratingValues = new[] { 42, 32, 33, 100, 50, -33, -42 };
+            var fakeData = new List<Dish>();
+            for (int i = 0; i < ratingValues.Length; i++)
+            {
+                var nextDish = new Mock<Dish>();
+                var nextDto = new Mock<NamePhotoDishView>();
+                nextDish.Object.Rating = ratingValues[i];
+                nextDish.SetupGet(dish => dish.Recipe).Returns(new Mock<Recipe>().Object);
+                nextDish.SetupGet(dish => dish.PhotoItems).Returns(new List<PhotoItem>() { new Mock<PhotoItem>().Object });
+                nextDish.Object.Recipe.Name = i.ToString();
+                nextDto.Object.Name = i.ToString();
+
+                fakeData.Add(nextDish.Object);
+            }
+
+            var fakeDataQueryable = fakeData.AsQueryable();
+
+            mockDbSet.As<IQueryable<Dish>>().Setup(m => m.Provider).Returns(fakeDataQueryable.Provider);
+            mockDbSet.As<IQueryable<Dish>>().Setup(m => m.Expression).Returns(fakeDataQueryable.Expression);
+            mockDbSet.As<IQueryable<Dish>>().Setup(m => m.ElementType).Returns(fakeDataQueryable.ElementType);
+            mockDbSet.As<IQueryable<Dish>>().Setup(m => m.GetEnumerator()).Returns(fakeDataQueryable.GetEnumerator());
+
+            var actualReturnedCollection = asyncDishesRepositoryInstace.GetTopCountDishesByRating(dishesCount);
+            var actualResult = actualReturnedCollection.Result;
+
+            Assert.That(actualResult.Count(), Is.GreaterThanOrEqualTo(0).And.LessThanOrEqualTo(dishesCount));
+        }
     }
 }
