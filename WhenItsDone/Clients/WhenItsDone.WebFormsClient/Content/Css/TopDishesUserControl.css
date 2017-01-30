@@ -12,3 +12,9 @@
   object-fit: contain;
   padding: 25px;
 }
+.content-container-even .panel:hover {
+  background-color: rgba(66,139,202,0.1);
+}
+.content-container-even .panel:hover .panel-heading {
+  background-color: #2a6496;
+}
