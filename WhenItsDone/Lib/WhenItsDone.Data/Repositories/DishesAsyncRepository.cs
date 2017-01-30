@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity.Core;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,12 +29,21 @@ namespace WhenItsDone.Data.Repositories
                 }
                 catch (EntityException)
                 {
-                    return new NamePhotoDishView[] { };
+                    return this.GetSampleDataOnFailedDBConnection();
+                }
+                catch (DataException)
+                {
+                    return this.GetSampleDataOnFailedDBConnection();
                 }
 
             });
 
             return task;
+        }
+
+        private IEnumerable<NamePhotoDishView> GetSampleDataOnFailedDBConnection()
+        {
+            return new NamePhotoDishView[] { };
         }
     }
 }

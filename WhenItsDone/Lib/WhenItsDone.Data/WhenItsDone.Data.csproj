@@ -94,6 +94,10 @@
     <Compile Include="Migrations\201701271111243_updated models with validation.Designer.cs">
       <DependentUpon>201701271111243_updated models with validation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701301026298_updated Dish model.cs" />
+    <Compile Include="Migrations\201701301026298_updated Dish model.Designer.cs">
+      <DependentUpon>201701301026298_updated Dish model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\DishesAsyncRepository.cs" />
     <Compile Include="Repositories\GenericAsyncRepository.cs" />
@@ -128,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701271111243_updated models with validation.resx">
       <DependentUpon>201701271111243_updated models with validation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701301026298_updated Dish model.resx">
+      <DependentUpon>201701301026298_updated Dish model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
