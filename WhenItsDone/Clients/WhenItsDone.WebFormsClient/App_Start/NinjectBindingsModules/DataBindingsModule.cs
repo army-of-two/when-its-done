@@ -38,7 +38,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 .WhenInjectedInto<WorkersAsyncService>()
                 .InSingletonScope();
 
-            this.Bind<IWhenItsDoneDbContext>()
+            this.Rebind<IWhenItsDoneDbContext>()
                 .To<WhenItsDoneDbContext>()
                 .InRequestScope();
 
