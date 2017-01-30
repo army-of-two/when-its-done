@@ -21,7 +21,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(mockDbSet.Object);
 
-            var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+            var asyncGenericRepositoryInstace = new GenericAsyncRepository<IDbModel>(mockDbContext.Object);
 
             mockDbSet.Setup(mock => mock.Find(It.IsAny<int>())).Returns<IDbModel>(null);
 
@@ -38,7 +38,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(mockDbSet.Object);
 
-            var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+            var asyncGenericRepositoryInstace = new GenericAsyncRepository<IDbModel>(mockDbContext.Object);
 
             mockDbSet.Setup(mock => mock.Find(It.IsAny<int>())).Returns<IDbModel>(null);
 
@@ -55,7 +55,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(mockDbSet.Object);
 
-            var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+            var asyncGenericRepositoryInstace = new GenericAsyncRepository<IDbModel>(mockDbContext.Object);
 
             mockDbSet.Setup(mock => mock.Find(It.IsAny<int>())).Returns<IDbModel>(null);
 
@@ -72,7 +72,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(mockDbSet.Object);
 
-            var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+            var asyncGenericRepositoryInstace = new GenericAsyncRepository<IDbModel>(mockDbContext.Object);
 
             mockDbSet.Setup(mock => mock.Find(It.IsAny<int>())).Returns<IDbModel>(null);
 
@@ -89,7 +89,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(mockDbSet.Object);
 
-            var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+            var asyncGenericRepositoryInstace = new GenericAsyncRepository<IDbModel>(mockDbContext.Object);
 
             var fakeDbModel = new Mock<IDbModel>();
             mockDbSet.Setup(mock => mock.Find(It.IsAny<int>())).Returns(fakeDbModel.Object);
@@ -107,7 +107,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(mockDbSet.Object);
 
-            var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+            var asyncGenericRepositoryInstace = new GenericAsyncRepository<IDbModel>(mockDbContext.Object);
 
             var fakeDbModel = new Mock<IDbModel>();
             mockDbSet.Setup(mock => mock.Find(It.IsAny<int>())).Returns(fakeDbModel.Object);
@@ -125,7 +125,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(mockDbSet.Object);
 
-            var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+            var asyncGenericRepositoryInstace = new GenericAsyncRepository<IDbModel>(mockDbContext.Object);
 
             var fakeDbModel = new Mock<IDbModel>();
             mockDbSet.Setup(mock => mock.Find(It.IsAny<int>())).Returns(fakeDbModel.Object);

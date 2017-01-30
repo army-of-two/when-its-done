@@ -22,7 +22,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(mockDbSet.Object);
 
-            var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+            var asyncGenericRepositoryInstace = new GenericAsyncRepository<IDbModel>(mockDbContext.Object);
 
             // Setting up Linq methods
             var fakeData = new List<IDbModel>().AsQueryable();
@@ -43,7 +43,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(mockDbSet.Object);
 
-            var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+            var asyncGenericRepositoryInstace = new GenericAsyncRepository<IDbModel>(mockDbContext.Object);
 
             var fakeDeletedModel = new Mock<IDbModel>();
             fakeDeletedModel.SetupGet(model => model.IsDeleted).Returns(true);
@@ -71,7 +71,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(mockDbSet.Object);
 
-            var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+            var asyncGenericRepositoryInstace = new GenericAsyncRepository<IDbModel>(mockDbContext.Object);
 
             var fakeDeletedModel = new Mock<IDbModel>();
             fakeDeletedModel.SetupGet(model => model.IsDeleted).Returns(true);
@@ -99,7 +99,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(mockDbSet.Object);
 
-            var asyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+            var asyncGenericRepositoryInstace = new GenericAsyncRepository<IDbModel>(mockDbContext.Object);
 
             var fakeDeletedModel = new Mock<IDbModel>();
             fakeDeletedModel.SetupGet(model => model.IsDeleted).Returns(true);

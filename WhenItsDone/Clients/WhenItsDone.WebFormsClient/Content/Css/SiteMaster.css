@@ -12,7 +12,7 @@ body form .content-container-even {
   padding: 0;
   padding-left: 0;
   padding-right: 0;
-  height: 480px;
+  min-height: 480px;
   background-color: rgba(255,255,255,0);
   border: none;
   box-shadow: none;
@@ -25,6 +25,10 @@ body form .content-container-even .content-container-heading {
   padding: 25px;
   padding-left: 80px;
   padding-right: 80px;
+}
+body form .content-container-odd .content-container-content,
+body form .content-container-even .content-container-content {
+  padding: 25px;
 }
 body form .content-container-even {
   background-color: #fff;

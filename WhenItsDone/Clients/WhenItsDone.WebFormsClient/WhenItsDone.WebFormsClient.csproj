@@ -226,6 +226,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Css\SiteMaster.css" />
+    <Content Include="Content\Css\TopDishesUserControl.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -266,7 +267,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
-    <Content Include="ViewControls\Home\HomeViewUserControl.ascx" />
+    <Content Include="ViewControls\ContentContainers\TopDishesUserControl.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -387,6 +388,7 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\AutomapperProfiles\DishViewsProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\ModelsProfile.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -439,12 +441,12 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewControls\Home\HomeViewUserControl.ascx.cs">
-      <DependentUpon>HomeViewUserControl.ascx</DependentUpon>
+    <Compile Include="ViewControls\ContentContainers\TopDishesUserControl.ascx.cs">
+      <DependentUpon>TopDishesUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewControls\Home\HomeViewUserControl.ascx.designer.cs">
-      <DependentUpon>HomeViewUserControl.ascx</DependentUpon>
+    <Compile Include="ViewControls\ContentContainers\TopDishesUserControl.ascx.designer.cs">
+      <DependentUpon>TopDishesUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -466,6 +468,10 @@
     <ProjectReference Include="..\..\Lib\WhenItsDone.DefaultAuth\WhenItsDone.DefaultAuth.csproj">
       <Project>{EBC86ED0-136E-46DA-8E84-1491DF78E8C7}</Project>
       <Name>WhenItsDone.DefaultAuth</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\WhenItsDone.DTOs\WhenItsDone.DTOs.csproj">
+      <Project>{DA36A62D-37D6-47F1-B292-A73CFF233CA8}</Project>
+      <Name>WhenItsDone.DTOs</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Lib\WhenItsDone.Models\WhenItsDone.Models.csproj">
       <Project>{E10CC5A1-7DD9-4F43-8798-AA58882CAF6F}</Project>

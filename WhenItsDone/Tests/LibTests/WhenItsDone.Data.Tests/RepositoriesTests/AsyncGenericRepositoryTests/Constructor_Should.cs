@@ -20,7 +20,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             IWhenItsDoneDbContext invalidDbContext = null;
 
             Assert.That(
-                () => new AsyncGenericRepository<IDbModel>(invalidDbContext),
+                () => new GenericAsyncRepository<IDbModel>(invalidDbContext),
                 Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("DbContext"));
         }
 
@@ -31,7 +31,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet.Object);
 
-            var asyncGenericRepository = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+            var asyncGenericRepository = new GenericAsyncRepository<IDbModel>(mockDbContext.Object);
 
             mockDbContext.Verify(mock => mock.Set<IDbModel>(), Times.Once);
         }
@@ -43,7 +43,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns<DbSet<IDbModel>>(null);
 
             Assert.That(
-                () => new AsyncGenericRepository<IDbModel>(mockDbContext.Object),
+                () => new GenericAsyncRepository<IDbModel>(mockDbContext.Object),
                 Throws.InstanceOf<ArgumentException>().With.Message.Contains("DbContext does not contain DbSet"));
         }
 
@@ -54,7 +54,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet.Object);
 
-            var asyncGenericRepository = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+            var asyncGenericRepository = new GenericAsyncRepository<IDbModel>(mockDbContext.Object);
 
             Assert.That(asyncGenericRepository, Is.Not.Null);
         }
@@ -66,7 +66,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet.Object);
 
-            var asyncGenericRepository = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+            var asyncGenericRepository = new GenericAsyncRepository<IDbModel>(mockDbContext.Object);
 
             Assert.That(asyncGenericRepository, Is.InstanceOf<IAsyncRepository<IDbModel>>());
         }
@@ -78,7 +78,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet.Object);
 
-            var actualAsyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+            var actualAsyncGenericRepositoryInstace = new GenericAsyncRepository<IDbModel>(mockDbContext.Object);
 
             var fieldName = "dbContext";
             var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
@@ -95,7 +95,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.AsyncGenericRepositoryTests
             var mockDbContext = new Mock<IWhenItsDoneDbContext>();
             mockDbContext.Setup(mock => mock.Set<IDbModel>()).Returns(fakeDbSet.Object);
 
-            var actualAsyncGenericRepositoryInstace = new AsyncGenericRepository<IDbModel>(mockDbContext.Object);
+            var actualAsyncGenericRepositoryInstace = new GenericAsyncRepository<IDbModel>(mockDbContext.Object);
 
             var fieldName = "dbSet";
             var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;

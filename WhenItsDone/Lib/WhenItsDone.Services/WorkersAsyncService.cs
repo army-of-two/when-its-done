@@ -6,9 +6,9 @@ using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.Services
 {
-    public class WorkersDataService : GenericAsyncService<Worker>, IGenericAsyncService<Worker>
+    public class WorkersAsyncService : GenericAsyncService<Worker>, IWorkersAsyncService, Contracts.IGenericAsyncService<Worker>
     {
-        public WorkersDataService(IAsyncRepository<Worker> repository, IDisposableUnitOfWorkFactory unitOfWorkFactory)
+        public WorkersAsyncService(IAsyncRepository<Worker> repository, IDisposableUnitOfWorkFactory unitOfWorkFactory)
             : base(repository, unitOfWorkFactory)
         {
         }

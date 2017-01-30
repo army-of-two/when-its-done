@@ -129,6 +129,7 @@ namespace WhenItsDone.WebFormsClient.App_Start
             Mapper.Initialize(config =>
             {
                 config.AddProfile(new ModelsProfile());
+                config.AddProfile(new DishViewsProfile());
             });
         }
     }

@@ -1,0 +1,14 @@
+.content-container-even {
+  min-height: 640px;
+}
+.content-container-even .panel-body {
+  max-height: 360px;
+  overflow: hidden;
+}
+.content-container-even .panel-body img {
+  width: 100%;
+  margin-top: -125px;
+  height: 600px;
+  object-fit: contain;
+  padding: 25px;
+}

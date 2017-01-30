@@ -18,6 +18,9 @@ namespace WhenItsDone.Models
         [Key]
         public int Id { get; set; }
 
+        [Range(ValidationConstants.RatingMinValue, ValidationConstants.RatingMaxValue)]
+        public int Rating { get; set; }
+
         public int RecipeId { get; set; }
 
         [Required]

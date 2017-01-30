@@ -56,7 +56,7 @@ namespace WhenItsDone.Services.Tests.AbstractionTests.GenericAsyncServiceTests
 
             var actualGenericAsyncServiceInstance = new GenericAsyncService<IDbModel>(mockAsyncRepository.Object, mockUnitOfWorkFactory.Object);
 
-            Assert.That(actualGenericAsyncServiceInstance, Is.Not.Null.And.InstanceOf<IGenericAsyncService<IDbModel>>());
+            Assert.That(actualGenericAsyncServiceInstance, Is.Not.Null.And.InstanceOf<Contracts.IGenericAsyncService<IDbModel>>());
         }
 
         [Test]

@@ -10,13 +10,13 @@ using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Data.Repositories
 {
-    public class AsyncGenericRepository<TEntity> : IAsyncRepository<TEntity>
+    public class GenericAsyncRepository<TEntity> : IAsyncRepository<TEntity>
         where TEntity : class, IDbModel
     {
         private readonly IWhenItsDoneDbContext dbContext;
         private readonly IDbSet<TEntity> dbSet;
 
-        public AsyncGenericRepository(IWhenItsDoneDbContext dbContext)
+        public GenericAsyncRepository(IWhenItsDoneDbContext dbContext)
         {
             if (dbContext == null)
             {
@@ -29,6 +29,22 @@ namespace WhenItsDone.Data.Repositories
             if (this.dbSet == null)
             {
                 throw new ArgumentException("DbContext does not contain DbSet<{0}>", typeof(TEntity).Name);
+            }
+        }
+
+        protected IWhenItsDoneDbContext DbContext
+        {
+            get
+            {
+                return this.dbContext;
+            }
+        }
+
+        protected IDbSet<TEntity> DbSet
+        {
+            get
+            {
+                return this.dbSet;
             }
         }
 
