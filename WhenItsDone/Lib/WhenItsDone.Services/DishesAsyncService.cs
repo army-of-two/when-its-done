@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
@@ -25,14 +26,20 @@ namespace WhenItsDone.Services
             this.dishesAsyncRepository = asyncRepository;
         }
 
-        public IEnumerable<NamePhotoDishView> GetTopCountDishesByRating(int dishesCount)
+        public IEnumerable<NamePhotoDishView> GetTopCountDishesByRating(int dishesCount, bool addSampleData)
         {
             if (dishesCount < 0)
             {
                 throw new ArgumentException("dishesCount parameter must be greater than or equal to 0.");
             }
 
-            return this.dishesAsyncRepository.GetTopCountDishesByRating(dishesCount).Result;
+            var topDishes = this.dishesAsyncRepository.GetTopCountDishesByRating(dishesCount).Result;
+            if (topDishes.Count() < 3 && addSampleData == true)
+            {
+                topDishes = this.dishesAsyncRepository.AddTopCountDishesSampleData(topDishes);
+            }
+
+            return topDishes;
         }
     }
 }

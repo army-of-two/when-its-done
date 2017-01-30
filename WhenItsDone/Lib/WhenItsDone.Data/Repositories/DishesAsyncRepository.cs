@@ -15,7 +15,7 @@ namespace WhenItsDone.Data.Repositories
 {
     public class DishesAsyncRepository : GenericAsyncRepository<Dish>, IAsyncRepository<Dish>, IDishesAsyncRepository
     {
-        private IEnumerable<NamePhotoDishView> sampleNamePhotoDishViewData;
+        private IList<NamePhotoDishView> sampleNamePhotoDishViewData;
 
         public DishesAsyncRepository(IWhenItsDoneDbContext dbContext)
             : base(dbContext)
@@ -33,8 +33,6 @@ namespace WhenItsDone.Data.Repositories
             {
                 try
                 {
-                    //return this.GetSampleDataOnFailedDBConnection();
-
                     return this.DbSet.OrderByDescending(dish => dish.Rating).Take(dishesCount).ProjectToList<NamePhotoDishView>();
                 }
                 catch (EntityException)
@@ -54,7 +52,21 @@ namespace WhenItsDone.Data.Repositories
             return task;
         }
 
-        private IEnumerable<NamePhotoDishView> GetSampleDataOnFailedDBConnection()
+        public IEnumerable<NamePhotoDishView> AddTopCountDishesSampleData(IEnumerable<NamePhotoDishView> existingData)
+        {
+            var existingDataList = existingData.ToList();
+            var sampleData = this.GetSampleDataOnFailedDBConnection();
+
+            var index = 0;
+            while (existingDataList.Count < 3)
+            {
+                existingDataList.Add(sampleData[index++]);
+            }
+
+            return existingDataList;
+        }
+
+        private IList<NamePhotoDishView> GetSampleDataOnFailedDBConnection()
         {
             if (this.sampleNamePhotoDishViewData == null)
             {
@@ -64,7 +76,7 @@ namespace WhenItsDone.Data.Repositories
             return this.sampleNamePhotoDishViewData;
         }
 
-        private IEnumerable<NamePhotoDishView> CreateSampleNamePhotoDishViewData()
+        private IList<NamePhotoDishView> CreateSampleNamePhotoDishViewData()
         {
             var modelA = new NamePhotoDishView();
             modelA.Name = "Pepperoni";
