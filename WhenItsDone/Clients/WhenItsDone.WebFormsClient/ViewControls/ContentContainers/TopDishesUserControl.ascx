@@ -9,7 +9,21 @@
         <h1>Food.Me Top 3 Dishes</h1>
     </section>
     <section class="content-container-content">
-        <asp:Repeater ID="TopDishesRepeater" runat="server">
-        </asp:Repeater>
+        <div class="row">
+            <asp:Repeater ID="TopDishesRepeater" runat="server" ItemType="WhenItsDone.DTOs.DishViews.NamePhotoDishView">
+                <ItemTemplate>
+                    <div class="col-md-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><%#: Item.Name %></h3>
+                            </div>
+                            <div class="panel-body">
+                                <img src="<%#: Item.PhotoItemUrl %>" alt="picture of <%#: Item.Name %>" />
+                            </div>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
     </section>
 </div>
