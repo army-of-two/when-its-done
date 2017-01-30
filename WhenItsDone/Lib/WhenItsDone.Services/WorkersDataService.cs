@@ -6,7 +6,7 @@ using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.Services
 {
-    public class WorkersDataService : GenericAsyncService<Worker>, IGenericAsyncService<Worker>
+    public class WorkersDataService : GenericAsyncService<Worker>, IWorkersDataService, IGenericAsyncService<Worker>
     {
         public WorkersDataService(IAsyncRepository<Worker> repository, IDisposableUnitOfWorkFactory unitOfWorkFactory)
             : base(repository, unitOfWorkFactory)
