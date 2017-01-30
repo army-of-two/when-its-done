@@ -2,6 +2,10 @@
 
 <%@ Register Src="~/ViewControls/ContentContainers/TopDishesUserControl.ascx" TagPrefix="uc" TagName="topdishes" %>
 
+<asp:Content ContentPlaceHolderID="Stylesheets" runat="server">
+    <link href="<%= ResolveUrl("~/Content/Css/TopDishesUserControl.css") %>" rel="stylesheet" type="text/css" />
+</asp:Content>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
 

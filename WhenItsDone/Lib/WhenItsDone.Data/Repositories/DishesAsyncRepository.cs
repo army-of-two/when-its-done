@@ -27,7 +27,9 @@ namespace WhenItsDone.Data.Repositories
             {
                 try
                 {
-                    return this.DbSet.OrderByDescending(dish => dish.Rating).Take(dishesCount).ProjectToList<NamePhotoDishView>();
+                    return this.GetSampleDataOnFailedDBConnection();
+
+                    //return this.DbSet.OrderByDescending(dish => dish.Rating).Take(dishesCount).ProjectToList<NamePhotoDishView>();
                 }
                 catch (EntityException)
                 {

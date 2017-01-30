@@ -26,6 +26,10 @@ body form .content-container-even .content-container-heading {
   padding-left: 80px;
   padding-right: 80px;
 }
+body form .content-container-odd .content-container-content,
+body form .content-container-even .content-container-content {
+  padding: 25px;
+}
 body form .content-container-even {
   background-color: #fff;
 }
