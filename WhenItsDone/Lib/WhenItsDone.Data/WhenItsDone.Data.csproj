@@ -74,6 +74,7 @@
       <DependentUpon>201701271111243_updated models with validation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\DishesAsyncRepository.cs" />
     <Compile Include="Repositories\GenericAsyncRepository.cs" />
     <Compile Include="UnitsOfWork\UnitOfWork.cs" />
     <Compile Include="UnitsOfWork\Factories\IUnitOfWorkFactory.cs" />
