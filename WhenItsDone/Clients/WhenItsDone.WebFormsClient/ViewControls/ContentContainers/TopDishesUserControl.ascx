@@ -9,5 +9,7 @@
         <h1>Food.Me Top 3 Dishes</h1>
     </section>
     <section class="content-container-content">
+        <asp:Repeater ID="TopDishesRepeater" runat="server">
+        </asp:Repeater>
     </section>
 </div>
