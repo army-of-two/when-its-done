@@ -10,13 +10,13 @@ using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Data.Repositories
 {
-    public class AsyncGenericRepository<TEntity> : IAsyncRepository<TEntity>
+    public class GenericAsyncRepository<TEntity> : IAsyncRepository<TEntity>
         where TEntity : class, IDbModel
     {
         private readonly IWhenItsDoneDbContext dbContext;
         private readonly IDbSet<TEntity> dbSet;
 
-        public AsyncGenericRepository(IWhenItsDoneDbContext dbContext)
+        public GenericAsyncRepository(IWhenItsDoneDbContext dbContext)
         {
             if (dbContext == null)
             {
