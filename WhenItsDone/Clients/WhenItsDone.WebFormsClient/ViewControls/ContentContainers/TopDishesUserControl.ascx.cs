@@ -16,7 +16,7 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ContentContainers
         {
             if (!this.IsPostBack)
             {
-                var topDishesEventArgs = new TopDishesEventArgs(3);
+                var topDishesEventArgs = new TopDishesEventArgs(3, true);
                 this.GetTopDishes?.Invoke(null, topDishesEventArgs);
 
                 this.TopDishesRepeater.DataSource = this.Model.TopDishes;

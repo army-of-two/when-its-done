@@ -32,7 +32,7 @@ namespace WhenItsDone.MVP.ContentContainers.TopDishesMVP
 
         public void OnGetTopDishes(object sender, TopDishesEventArgs args)
         {
-            this.view.Model.TopDishes = this.dishesService.GetTopCountDishesByRating(args.dishesCount);
+            this.view.Model.TopDishes = this.dishesService.GetTopCountDishesByRating(args.dishesCount, args.AddSampleData);
         }
     }
 }

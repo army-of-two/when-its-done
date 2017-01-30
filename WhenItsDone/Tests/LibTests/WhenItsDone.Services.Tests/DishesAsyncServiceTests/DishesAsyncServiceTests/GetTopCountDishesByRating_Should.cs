@@ -27,7 +27,7 @@ namespace WhenItsDone.Services.Tests.DishesAsyncServiceTests.DishesAsyncServiceT
             var dishesAsyncService = new DishesAsyncService(asyncRepository.Object, unitOfWorkFactory.Object);
 
             Assert.That(
-                () => dishesAsyncService.GetTopCountDishesByRating(dishesCount),
+                () => dishesAsyncService.GetTopCountDishesByRating(dishesCount, false),
                 Throws.InstanceOf<ArgumentException>().With.Message.Contains("dishesCount parameter must be greater than or equal to 0."));
         }
 
@@ -42,7 +42,7 @@ namespace WhenItsDone.Services.Tests.DishesAsyncServiceTests.DishesAsyncServiceT
             var dishesAsyncService = new DishesAsyncService(asyncRepository.Object, unitOfWorkFactory.Object);
 
             var dishesCount = 3;
-            dishesAsyncService.GetTopCountDishesByRating(dishesCount);
+            dishesAsyncService.GetTopCountDishesByRating(dishesCount, false);
 
             asyncRepository.Verify(repo => repo.GetTopCountDishesByRating(It.IsAny<int>()), Times.Once);
         }
@@ -60,7 +60,7 @@ namespace WhenItsDone.Services.Tests.DishesAsyncServiceTests.DishesAsyncServiceT
 
             var dishesAsyncService = new DishesAsyncService(asyncRepository.Object, unitOfWorkFactory.Object);
 
-            dishesAsyncService.GetTopCountDishesByRating(dishesCount);
+            dishesAsyncService.GetTopCountDishesByRating(dishesCount, false);
 
             asyncRepository.Verify(repo => repo.GetTopCountDishesByRating(dishesCount), Times.Once);
         }
@@ -76,7 +76,7 @@ namespace WhenItsDone.Services.Tests.DishesAsyncServiceTests.DishesAsyncServiceT
             var dishesAsyncService = new DishesAsyncService(asyncRepository.Object, unitOfWorkFactory.Object);
 
             var dishesCount = 3;
-            var actualResult = dishesAsyncService.GetTopCountDishesByRating(dishesCount);
+            var actualResult = dishesAsyncService.GetTopCountDishesByRating(dishesCount, false);
 
             Assert.That(actualResult, Is.InstanceOf<IEnumerable<NamePhotoDishView>>());
         }
@@ -94,7 +94,7 @@ namespace WhenItsDone.Services.Tests.DishesAsyncServiceTests.DishesAsyncServiceT
             var dishesAsyncService = new DishesAsyncService(asyncRepository.Object, unitOfWorkFactory.Object);
 
             var dishesCount = 3;
-            var actualResult = dishesAsyncService.GetTopCountDishesByRating(dishesCount);
+            var actualResult = dishesAsyncService.GetTopCountDishesByRating(dishesCount, false);
 
             Assert.That(actualResult, Is.SameAs(mockRepositoryResult));
         }
