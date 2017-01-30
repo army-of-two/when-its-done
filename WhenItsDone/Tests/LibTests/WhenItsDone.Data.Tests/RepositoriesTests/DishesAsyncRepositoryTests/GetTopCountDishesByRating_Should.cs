@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 using AutoMapper;
@@ -13,7 +14,6 @@ using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.Repositories;
 using WhenItsDone.DTOs.DishViews;
 using WhenItsDone.Models;
-using System.Reflection;
 
 namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
 {

@@ -32,6 +32,14 @@ namespace WhenItsDone.Services.Abstraction
             this.unitOfWorkFactory = unitOfWorkFactory;
         }
 
+        protected IDisposableUnitOfWorkFactory UnitOfWorkFactory
+        {
+            get
+            {
+                return this.unitOfWorkFactory;
+            }
+        }
+
         public virtual async Task<T> GetById(int id)
         {
             return await this.asyncRepository.GetByIdAsync(id);
