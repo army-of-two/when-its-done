@@ -8,6 +8,6 @@ namespace WhenItsDone.Data.Contracts
 {
     public interface IDishesAsyncRepository : IAsyncRepository<Dish>
     {
-        Task<IEnumerable<NamePhotoDishView>> GetTopThreeDishesByRating();
+        Task<IEnumerable<NamePhotoDishView>> GetTopCountDishesByRating(int dishesCount);
     }
 }

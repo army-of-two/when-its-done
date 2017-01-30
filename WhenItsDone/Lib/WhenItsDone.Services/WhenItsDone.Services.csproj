@@ -41,11 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstraction\GenericAsyncService.cs" />
-    <Compile Include="Abstraction\IAsyncDataService.cs" />
     <Compile Include="AssemblyId\IServicesAssemblyId.cs" />
-    <Compile Include="Contracts\IDishesDataService.cs" />
+    <Compile Include="Contracts\IDishesAsyncService.cs" />
     <Compile Include="Contracts\IGenericAsyncService.cs" />
-    <Compile Include="Contracts\IWorkersDataService.cs" />
+    <Compile Include="Contracts\IWorkersAsyncService.cs" />
     <Compile Include="DishesAsyncService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkersAsyncService.cs" />

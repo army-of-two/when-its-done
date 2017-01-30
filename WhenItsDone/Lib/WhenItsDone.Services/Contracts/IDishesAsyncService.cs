@@ -5,8 +5,8 @@ using WhenItsDone.Models;
 
 namespace WhenItsDone.Services.Contracts
 {
-    public interface IDishesDataService : IGenericAsyncService<Dish>
+    public interface IDishesAsyncService : IGenericAsyncService<Dish>
     {
-        IEnumerable<NamePhotoDishView> GetTopThreeDishesByRating();
+        IEnumerable<NamePhotoDishView> GetTopCountDishesByRating(int dishesCount);
     }
 }

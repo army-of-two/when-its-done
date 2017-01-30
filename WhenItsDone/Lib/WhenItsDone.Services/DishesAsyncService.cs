@@ -10,7 +10,7 @@ using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.Services
 {
-    public class DishesAsyncService : GenericAsyncService<Dish>, IDishesDataService, IGenericAsyncService<Dish>
+    public class DishesAsyncService : GenericAsyncService<Dish>, IDishesAsyncService, Contracts.IGenericAsyncService<Dish>
     {
         private readonly IDishesAsyncRepository dishesAsyncRepository;
         private readonly IDisposableUnitOfWorkFactory unitOfWorkFactory;
@@ -32,9 +32,9 @@ namespace WhenItsDone.Services
             this.unitOfWorkFactory = unitOfWorkFactory;
         }
 
-        public IEnumerable<NamePhotoDishView> GetTopThreeDishesByRating()
+        public IEnumerable<NamePhotoDishView> GetTopCountDishesByRating(int dishesCount)
         {
-            return this.dishesAsyncRepository.GetTopThreeDishesByRating().Result;
+            return this.dishesAsyncRepository.GetTopCountDishesByRating(dishesCount).Result;
         }
     }
 }

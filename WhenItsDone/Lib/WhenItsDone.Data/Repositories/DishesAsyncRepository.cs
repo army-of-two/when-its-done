@@ -17,11 +17,11 @@ namespace WhenItsDone.Data.Repositories
         {
         }
 
-        public Task<IEnumerable<NamePhotoDishView>> GetTopThreeDishesByRating()
+        public Task<IEnumerable<NamePhotoDishView>> GetTopCountDishesByRating(int dishesCount)
         {
             var task = Task.Run<IEnumerable<NamePhotoDishView>>(() =>
             {
-                return this.DbSet.OrderByDescending(dish => dish.Rating).Take(3).ProjectToList<NamePhotoDishView>();
+                return this.DbSet.OrderByDescending(dish => dish.Rating).Take(dishesCount).ProjectToList<NamePhotoDishView>();
             });
 
             return task;

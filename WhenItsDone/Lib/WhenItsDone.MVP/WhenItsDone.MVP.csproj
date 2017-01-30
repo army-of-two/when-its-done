@@ -52,6 +52,7 @@
     <Compile Include="Views\Home\IHomeView.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ContentContainers\TopDishesMVP\" />
     <Folder Include="EventArgs\Home\" />
   </ItemGroup>
   <ItemGroup>

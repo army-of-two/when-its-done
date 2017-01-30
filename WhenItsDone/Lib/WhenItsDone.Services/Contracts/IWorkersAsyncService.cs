@@ -2,7 +2,7 @@
 
 namespace WhenItsDone.Services.Contracts
 {
-    public interface IWorkersDataService : IGenericAsyncService<Worker>
+    public interface IWorkersAsyncService : IGenericAsyncService<Worker>
     {
     }
 }
