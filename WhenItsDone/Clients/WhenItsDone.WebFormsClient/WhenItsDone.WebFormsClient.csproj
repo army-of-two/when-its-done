@@ -388,6 +388,7 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\AutomapperProfiles\DishViewsProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\ModelsProfile.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -474,6 +475,10 @@
     <ProjectReference Include="..\..\Lib\WhenItsDone.DefaultAuth\WhenItsDone.DefaultAuth.csproj">
       <Project>{EBC86ED0-136E-46DA-8E84-1491DF78E8C7}</Project>
       <Name>WhenItsDone.DefaultAuth</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\WhenItsDone.DTOs\WhenItsDone.DTOs.csproj">
+      <Project>{DA36A62D-37D6-47F1-B292-A73CFF233CA8}</Project>
+      <Name>WhenItsDone.DTOs</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Lib\WhenItsDone.Models\WhenItsDone.Models.csproj">
       <Project>{E10CC5A1-7DD9-4F43-8798-AA58882CAF6F}</Project>
