@@ -16,12 +16,15 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
             this.Kernel.Bind(x =>
                 x.FromAssemblyContaining<IServicesAssemblyId>()
                 .SelectAllClasses()
+                .InheritedFrom<IService>()
                 .BindDefaultInterface()
+                .Configure(y => y.InRequestScope())
             );
 
-            this.Bind<IGenericAsyncService<Worker>>()
-                .To<WorkersAsyncService>()
-                .InRequestScope();
+            // not sure its still needed
+            //this.Bind<IGenericAsyncService<Worker>>()
+            //    .To<WorkersAsyncService>()
+            //    .InRequestScope();
         }
     }
 }
