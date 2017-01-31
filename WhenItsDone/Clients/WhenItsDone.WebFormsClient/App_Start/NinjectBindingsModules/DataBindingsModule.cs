@@ -6,14 +6,13 @@ using Ninject.Web.Common;
 using WhenItsDone.Data;
 using WhenItsDone.Data.AssemblyId;
 using WhenItsDone.Data.Contracts;
+using WhenItsDone.Data.Factories;
 using WhenItsDone.Data.Repositories;
 using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.Data.UnitsOfWork;
-using WhenItsDone.Data.Factories;
 
 using WhenItsDone.Models;
 using WhenItsDone.Services;
-
 
 namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 {
@@ -31,12 +30,12 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 
             this.Bind<IDisposableUnitOfWorkFactory>()
                 .ToFactory()
-                .InSingletonScope();
+                .InRequestScope();
 
             this.Bind(typeof(IAsyncRepository<>))
                 .To<GenericAsyncRepository<Worker>>()
                 .WhenInjectedInto<WorkersAsyncService>()
-                .InSingletonScope();
+                .InRequestScope();
 
             this.Rebind<IWhenItsDoneDbContext>()
                 .To<WhenItsDoneDbContext>()
