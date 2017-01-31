@@ -20,11 +20,10 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 .BindDefaultInterface()
                 .Configure(y => y.InRequestScope())
             );
-
-            // not sure its still needed
-            //this.Bind<IGenericAsyncService<Worker>>()
-            //    .To<WorkersAsyncService>()
-            //    .InRequestScope();
+            
+            this.Bind<IGenericAsyncService<Worker>>()
+                .To<WorkersAsyncService>()
+                .InRequestScope();
         }
     }
 }
