@@ -4,7 +4,7 @@ using System.Linq;
 
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
-using WhenItsDone.DTOs.DishViews;
+using WhenItsDone.DTOs.DishViewsDTOs;
 using WhenItsDone.Models;
 using WhenItsDone.Services.Abstraction;
 using WhenItsDone.Services.Contracts;
@@ -26,7 +26,7 @@ namespace WhenItsDone.Services
             this.dishesAsyncRepository = asyncRepository;
         }
 
-        public IEnumerable<NamePhotoDishView> GetTopCountDishesByRating(int dishesCount, bool addSampleData)
+        public IEnumerable<NamePhotoDishViewDTO> GetTopCountDishesByRating(int dishesCount, bool addSampleData)
         {
             if (dishesCount < 0)
             {
