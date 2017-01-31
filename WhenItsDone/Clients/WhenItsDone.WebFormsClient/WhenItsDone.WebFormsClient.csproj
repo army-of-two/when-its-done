@@ -403,7 +403,6 @@
     <Compile Include="App_Start\NinjectBindingsModules\DataBindingsModule.cs" />
     <Compile Include="App_Start\NinjectBindingsModules\MVPBindingsModule.cs" />
     <Compile Include="App_Start\NinjectBindingsModules\ServicesBindingsModule.cs" />
-    <Compile Include="App_Start\NinjectKernelInstanceProvider.cs" />
     <Compile Include="App_Start\NinjectWeb.cs" />
     <Compile Include="App_Start\AppCompositionRoot.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />

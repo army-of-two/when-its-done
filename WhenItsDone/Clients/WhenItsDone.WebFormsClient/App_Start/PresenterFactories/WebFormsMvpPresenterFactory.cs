@@ -23,19 +23,13 @@ namespace WhenItsDone.WebFormsClient.App_Start.PresenterFactories
         {
             return this.presenterFactory.GetPresenter(presenterType, viewInstance);
         }
-
-        /// <summary>
-        /// Ignore this, 
-        /// Lifetime managerment delegated to Ninject.
-        /// </summary>
-        /// <param name="presenter"></param>
+        
         public void Release(IPresenter presenter)
         {
-            //var disposablePresenter = presenter as IDisposable;
-            //if (disposablePresenter != null)
-            //{
-            //    disposablePresenter.Dispose();
-            //}
+            if (presenter is IDisposable)
+            {
+                (presenter as IDisposable).Dispose();
+            }
         }
     }
 }
