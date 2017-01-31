@@ -14,20 +14,14 @@ namespace WhenItsDone.MVP.ContentContainers.TopDishesMVP
         public TopDishesPresenter(ITopDishesView view, IDishesAsyncService dishesService)
             : base(view)
         {
-            if (view == null)
-            {
-                throw new ArgumentNullException(nameof(view));
-            }
-
-            this.view = view;
-            this.view.GetTopDishes += this.OnGetTopDishes;
-
             if (dishesService == null)
             {
                 throw new ArgumentNullException(nameof(dishesService));
             }
 
             this.dishesService = dishesService;
+
+            this.View.GetTopDishes += this.OnGetTopDishes;
         }
 
         public void OnGetTopDishes(object sender, TopDishesEventArgs args)
