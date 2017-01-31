@@ -8,7 +8,6 @@ namespace WhenItsDone.MVP.ContentContainers.TopDishesMVP
 {
     public class TopDishesPresenter : Presenter<ITopDishesView>, ITopDishesPresenter
     {
-        private readonly ITopDishesView view;
         private readonly IDishesAsyncService dishesService;
 
         public TopDishesPresenter(ITopDishesView view, IDishesAsyncService dishesService)
@@ -26,7 +25,7 @@ namespace WhenItsDone.MVP.ContentContainers.TopDishesMVP
 
         public void OnGetTopDishes(object sender, TopDishesEventArgs args)
         {
-            this.view.Model.TopDishes = this.dishesService.GetTopCountDishesByRating(args.dishesCount, args.AddSampleData);
+            this.View.Model.TopDishes = this.dishesService.GetTopCountDishesByRating(args.dishesCount, args.AddSampleData);
         }
     }
 }
