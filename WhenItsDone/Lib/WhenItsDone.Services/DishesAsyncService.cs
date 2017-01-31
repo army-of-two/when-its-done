@@ -11,7 +11,7 @@ using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.Services
 {
-    public class DishesAsyncService : GenericAsyncService<Dish>, IDishesAsyncService, IGenericAsyncService<Dish>
+    public class DishesAsyncService : GenericAsyncService<Dish>, IDishesAsyncService, IGenericAsyncService<Dish>, IService
     {
         private readonly IDishesAsyncRepository dishesAsyncRepository;
 
