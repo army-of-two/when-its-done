@@ -8,32 +8,32 @@ using System.Threading.Tasks;
 using AutoMapper;
 
 using WhenItsDone.Data.Contracts;
-using WhenItsDone.DTOs.DishViews;
+using WhenItsDone.DTOs.DishViewsDTOs;
 using WhenItsDone.Models;
 
 namespace WhenItsDone.Data.Repositories
 {
     public class DishesAsyncRepository : GenericAsyncRepository<Dish>, IAsyncRepository<Dish>, IDishesAsyncRepository
     {
-        private IList<NamePhotoDishView> sampleNamePhotoDishViewData;
+        private IList<NamePhotoDishViewDTO> sampleNamePhotoDishViewData;
 
         public DishesAsyncRepository(IWhenItsDoneDbContext dbContext)
             : base(dbContext)
         {
         }
 
-        public Task<IEnumerable<NamePhotoDishView>> GetTopCountDishesByRating(int dishesCount)
+        public Task<IEnumerable<NamePhotoDishViewDTO>> GetTopCountDishesByRating(int dishesCount)
         {
             if (dishesCount < 0)
             {
                 throw new ArgumentException("dishesCount parameter must be greater than or equal to 0.");
             }
 
-            var task = Task.Run<IEnumerable<NamePhotoDishView>>(() =>
+            var task = Task.Run<IEnumerable<NamePhotoDishViewDTO>>(() =>
             {
                 try
                 {
-                    return this.DbSet.OrderByDescending(dish => dish.Rating).Take(dishesCount).ProjectToList<NamePhotoDishView>();
+                    return this.DbSet.OrderByDescending(dish => dish.Rating).Take(dishesCount).ProjectToList<NamePhotoDishViewDTO>();
                 }
                 catch (EntityException)
                 {
@@ -52,7 +52,7 @@ namespace WhenItsDone.Data.Repositories
             return task;
         }
 
-        public IEnumerable<NamePhotoDishView> AddTopCountDishesSampleData(IEnumerable<NamePhotoDishView> existingData)
+        public IEnumerable<NamePhotoDishViewDTO> AddTopCountDishesSampleData(IEnumerable<NamePhotoDishViewDTO> existingData)
         {
             var existingDataList = existingData.ToList();
             var sampleData = this.GetSampleDataOnFailedDBConnection();
@@ -66,7 +66,7 @@ namespace WhenItsDone.Data.Repositories
             return existingDataList;
         }
 
-        private IList<NamePhotoDishView> GetSampleDataOnFailedDBConnection()
+        private IList<NamePhotoDishViewDTO> GetSampleDataOnFailedDBConnection()
         {
             if (this.sampleNamePhotoDishViewData == null)
             {
@@ -76,21 +76,21 @@ namespace WhenItsDone.Data.Repositories
             return this.sampleNamePhotoDishViewData;
         }
 
-        private IList<NamePhotoDishView> CreateSampleNamePhotoDishViewData()
+        private IList<NamePhotoDishViewDTO> CreateSampleNamePhotoDishViewData()
         {
-            var modelA = new NamePhotoDishView();
+            var modelA = new NamePhotoDishViewDTO();
             modelA.Name = "Pepperoni";
             modelA.PhotoItemUrl = "https://www.mmfoodmarket.com/images/default-source/products/prepared-meals/pepperoni-pizza.jpg?sfvrsn=2";
 
-            var modelB = new NamePhotoDishView();
+            var modelB = new NamePhotoDishViewDTO();
             modelB.Name = "Frittata";
             modelB.PhotoItemUrl = "http://assets.epicurious.com/photos/5719486194956b31172ec2d0/master/pass/241324_hires.jpg";
 
-            var modelC = new NamePhotoDishView();
+            var modelC = new NamePhotoDishViewDTO();
             modelC.Name = "Steak";
             modelC.PhotoItemUrl = "http://www.omahasteaks.com/gifs/990x594/z_fi001.jpg";
 
-            return new NamePhotoDishView[] { modelA, modelB, modelC };
+            return new NamePhotoDishViewDTO[] { modelA, modelB, modelC };
         }
     }
 }

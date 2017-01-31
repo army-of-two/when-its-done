@@ -2,7 +2,7 @@
 
 using AutoMapper;
 
-using WhenItsDone.DTOs.DishViews;
+using WhenItsDone.DTOs.DishViewsDTOs;
 using WhenItsDone.Models;
 
 namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
@@ -11,7 +11,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
     {
         public DishViewsProfile()
         {
-            this.CreateMap<Dish, NamePhotoDishView>()
+            this.CreateMap<Dish, NamePhotoDishViewDTO>()
                 .ForMember(dest => dest.Id, opts => opts.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Name, opts => opts.MapFrom(src => src.Recipe.Name))
                 .ForMember(dest => dest.PhotoItemUrl, opts => opts.MapFrom(src => src.PhotoItems.FirstOrDefault().Url));

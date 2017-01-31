@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 
-using WhenItsDone.DTOs.DishViews;
+using WhenItsDone.DTOs.DishViewsDTOs;
 
 namespace WhenItsDone.MVP.ContentContainers.TopDishesMVP
 {
     public class TopDishesViewModel
     {
-        public IEnumerable<NamePhotoDishView> TopDishes { get; set; }
+        public IEnumerable<NamePhotoDishViewDTO> TopDishes { get; set; }
     }
 }

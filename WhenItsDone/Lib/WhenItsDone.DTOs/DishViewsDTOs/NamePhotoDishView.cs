@@ -1,6 +1,6 @@
-﻿namespace WhenItsDone.DTOs.DishViews
+﻿namespace WhenItsDone.DTOs.DishViewsDTOs
 {
-    public class NamePhotoDishView
+    public class NamePhotoDishViewDTO
     {
         public int Id { get; set; }
 
