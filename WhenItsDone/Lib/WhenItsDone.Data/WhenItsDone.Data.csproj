@@ -127,6 +127,10 @@
     <Compile Include="Migrations\201702012307286_updated user model with more props.Designer.cs">
       <DependentUpon>201702012307286_updated user model with more props.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702012328375_updated worker model to allow null contact info.cs" />
+    <Compile Include="Migrations\201702012328375_updated worker model to allow null contact info.Designer.cs">
+      <DependentUpon>201702012328375_updated worker model to allow null contact info.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\DishesAsyncRepository.cs" />
     <Compile Include="Repositories\GenericAsyncRepository.cs" />
@@ -190,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702012307286_updated user model with more props.resx">
       <DependentUpon>201702012307286_updated user model with more props.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702012328375_updated worker model to allow null contact info.resx">
+      <DependentUpon>201702012328375_updated worker model to allow null contact info.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
