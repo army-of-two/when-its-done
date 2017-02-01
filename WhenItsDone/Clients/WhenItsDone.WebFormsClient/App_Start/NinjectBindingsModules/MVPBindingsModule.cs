@@ -38,21 +38,20 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 .ToMethod(this.PresenterFactoryMethod)
                 .NamedLikeFactoryMethod((ICustomPresenterFactory factory) => factory.GetPresenter(null, null));
         }
-
-
+        
         // Alternative binding.
         // http://webformsmvpcontrib.codeplex.com/SourceControl/latest#WebFormsMvp.Contrib/WebFormsMvp.Contrib.Ninject/MvpPresenterKernel.cs
         // Depends on correct constructor parameter name.
-        private IPresenter PresenterFactoryMethod(IContext ctx)
+        private IPresenter PresenterFactoryMethod(IContext context)
         {
-            var parameters = ctx.Parameters.ToList();
+            var parameters = context.Parameters.ToList();
 
-            var requestedType = (Type)parameters[0].GetValue(ctx, null);
-            var viewInstance = (IView)parameters[1].GetValue(ctx, null);
+            var requestedType = (Type)parameters[0].GetValue(context, null);
+            var viewInstance = (IView)parameters[1].GetValue(context, null);
 
             var viewInstanceParameter = new ConstructorArgument("view", viewInstance);
 
-            return (IPresenter)ctx.Kernel.Get(requestedType, viewInstanceParameter);
+            return (IPresenter)context.Kernel.Get(requestedType, viewInstanceParameter);
         }
     }
 }
