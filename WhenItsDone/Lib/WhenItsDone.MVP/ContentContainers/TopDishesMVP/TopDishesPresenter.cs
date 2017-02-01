@@ -8,31 +8,29 @@ namespace WhenItsDone.MVP.ContentContainers.TopDishesMVP
 {
     public class TopDishesPresenter : Presenter<ITopDishesView>, ITopDishesPresenter
     {
-        private readonly ITopDishesView view;
         private readonly IDishesAsyncService dishesService;
 
         public TopDishesPresenter(ITopDishesView view, IDishesAsyncService dishesService)
             : base(view)
         {
-            if (view == null)
-            {
-                throw new ArgumentNullException(nameof(view));
-            }
-
-            this.view = view;
-            this.view.GetTopDishes += this.OnGetTopDishes;
-
             if (dishesService == null)
             {
                 throw new ArgumentNullException(nameof(dishesService));
             }
 
             this.dishesService = dishesService;
+
+            this.View.GetTopDishes += this.OnGetTopDishes;
         }
 
         public void OnGetTopDishes(object sender, TopDishesEventArgs args)
         {
-            this.view.Model.TopDishes = this.dishesService.GetTopCountDishesByRating(args.dishesCount, args.AddSampleData);
+            if (args.dishesCount < 0)
+            {
+                throw new ArgumentException("dishesCount parameter must be greater than or equal to 0.");
+            }
+
+            this.View.Model.TopDishes = this.dishesService.GetTopCountDishesByRating(args.dishesCount, args.AddSampleData);
         }
     }
 }

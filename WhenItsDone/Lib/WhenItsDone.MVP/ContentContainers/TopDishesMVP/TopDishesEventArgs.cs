@@ -10,8 +10,8 @@ namespace WhenItsDone.MVP.ContentContainers.TopDishesMVP
             this.AddSampleData = addSampleData;
         }
 
-        public int dishesCount { get; set; }
+        public int dishesCount { get; }
 
-        public bool AddSampleData { get; set; }
+        public bool AddSampleData { get; }
     }
 }
