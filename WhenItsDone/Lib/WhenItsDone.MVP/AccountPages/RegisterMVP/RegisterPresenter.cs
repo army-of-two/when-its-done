@@ -15,10 +15,10 @@ namespace WhenItsDone.MVP.AccountPages.RegisterMVP
             this.userService = userService;
             
             this.View.DefaultRegistration += defaultRegisterService.OnDefaultRegister;
-            defaultRegisterService.OperationComplete += this.OnDefaultRegister;
+            defaultRegisterService.OperationComplete += this.OnDefaultRegisterOperationComplete;
         }
         
-        public void OnDefaultRegister(object sender, DefaultRegisterCompleteOperationEventArgs args)
+        public void OnDefaultRegisterOperationComplete(object sender, DefaultRegisterCompleteOperationEventArgs args)
         {
             this.View.Model.RegistrationIsSuccessful = this.userService.CreateUser(args.Username);
         }
