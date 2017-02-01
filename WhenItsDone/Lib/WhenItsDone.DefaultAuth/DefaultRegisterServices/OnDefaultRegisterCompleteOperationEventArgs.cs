@@ -2,9 +2,9 @@
 
 namespace WhenItsDone.DefaultAuth.DefaultRegisterServices
 {
-    public class DefaultRegisterCompleteOperationEventArgs : EventArgs
+    public class DefaultRegisterOperationCompleteEventArgs : EventArgs
     {
-        public DefaultRegisterCompleteOperationEventArgs(bool registerIsSuccessful, string username)
+        public DefaultRegisterOperationCompleteEventArgs(bool registerIsSuccessful, string username)
         {
             this.RegisterIsSuccessful = registerIsSuccessful;
             this.Username = username;

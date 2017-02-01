@@ -8,7 +8,7 @@ namespace WhenItsDone.DefaultAuth.DefaultRegisterServices
 {
     public class DefaultRegisterService : IDefaultRegisterService
     {
-        public event EventHandler<DefaultRegisterCompleteOperationEventArgs> OperationComplete;
+        public event EventHandler<DefaultRegisterOperationCompleteEventArgs> OperationComplete;
 
         public void OnDefaultRegister(object sender, DefaultRegisterEventArgs args)
         {
@@ -22,7 +22,7 @@ namespace WhenItsDone.DefaultAuth.DefaultRegisterServices
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
             }
 
-            var defaultRegisterCompleteOperationEventArgs = new DefaultRegisterCompleteOperationEventArgs(result.Succeeded, user.UserName);
+            var defaultRegisterCompleteOperationEventArgs = new DefaultRegisterOperationCompleteEventArgs(result.Succeeded, user.UserName);
             this.OperationComplete(null, defaultRegisterCompleteOperationEventArgs);
         }
     }

@@ -18,7 +18,7 @@ namespace WhenItsDone.MVP.AccountPages.RegisterMVP
             defaultRegisterService.OperationComplete += this.OnDefaultRegisterOperationComplete;
         }
         
-        public void OnDefaultRegisterOperationComplete(object sender, DefaultRegisterCompleteOperationEventArgs args)
+        public void OnDefaultRegisterOperationComplete(object sender, DefaultRegisterOperationCompleteEventArgs args)
         {
             this.View.Model.RegistrationIsSuccessful = this.userService.CreateUser(args.Username);
         }
