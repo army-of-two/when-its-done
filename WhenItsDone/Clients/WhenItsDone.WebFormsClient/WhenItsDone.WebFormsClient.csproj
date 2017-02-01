@@ -398,6 +398,7 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\NinjectBindingsModules\DefaultAuthNinjectModule.cs" />
     <Compile Include="App_Start\PresenterFactories\WebFormsMvpPresenterFactory.cs" />
     <Compile Include="App_Start\PresenterFactories\ICustomPresenterFactory.cs" />
     <Compile Include="App_Start\NinjectBindingsModules\DataNinjectModule.cs" />

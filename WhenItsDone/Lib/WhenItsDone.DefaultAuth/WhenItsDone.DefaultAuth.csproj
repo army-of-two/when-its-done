@@ -94,6 +94,7 @@
     <Compile Include="ApplicationSignInManager.cs" />
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="ApplicationUserManager.cs" />
+    <Compile Include="AssemblyId\IDefaultAuthAssemblyId.cs" />
     <Compile Include="DefaultRegisterServices\DefaultRegisterService.cs" />
     <Compile Include="DefaultRegisterServices\DefaultRegisterOperationCompleteEventArgs.cs" />
     <Compile Include="EmailService.cs" />
