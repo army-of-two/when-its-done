@@ -38,7 +38,7 @@ namespace WhenItsDone.WebFormsClient.Account
 
                 if (!this.Model.RegistrationIsSuccessful)
                 {
-                    ErrorMessage.Text = result.Errors.FirstOrDefault();
+                    ErrorMessage.Text = this.Model.ErrorMessage;
                     return;
                 }
 

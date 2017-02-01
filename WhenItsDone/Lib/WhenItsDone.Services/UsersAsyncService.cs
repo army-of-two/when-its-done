@@ -27,16 +27,28 @@ namespace WhenItsDone.Services
             this.asyncRepository = asyncRepository;
         }
 
-        public User CreateUser(string username)
+        public bool CreateUser(string username)
         {
+            var isSuccessful = false;
+
             if (string.IsNullOrEmpty(username))
             {
-                throw new ArgumentNullException(nameof(username));
+                return isSuccessful;
             }
 
             var nextUser = this.userFactory.CreateUser();
+            this.asyncRepository.Add(nextUser);
 
-            return nextUser;
+            using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
+            {
+                var result = unitOfWork.SaveChanges();
+                if (result != 0)
+                {
+                    isSuccessful = true;
+                }
+            }
+
+            return isSuccessful;
         }
     }
 }

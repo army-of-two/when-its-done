@@ -1,4 +1,5 @@
 ﻿using WebFormsMvp;
+
 using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.MVP.AccountPages.RegisterMVP
@@ -17,7 +18,7 @@ namespace WhenItsDone.MVP.AccountPages.RegisterMVP
 
         public void OnRegister(object sender, RegisterEventArgs args)
         {
-
+            this.View.Model.RegistrationIsSuccessful = this.userService.CreateUser(args.Username);
         }
     }
 }

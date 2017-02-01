@@ -4,6 +4,6 @@ namespace WhenItsDone.Services.Contracts
 {
     public interface IUsersAsyncService : IGenericAsyncService<User>
     {
-        User CreateUser(string username);
+        bool CreateUser(string username);
     }
 }
