@@ -22,14 +22,14 @@ namespace WhenItsDone.Data.Repositories
         {
         }
 
-        public Task<IEnumerable<NamePhotoDishViewDTO>> GetTopCountDishesByRating(int dishesCount)
+        public Task<ICollection<NamePhotoDishViewDTO>> GetTopCountDishesByRating(int dishesCount)
         {
             if (dishesCount < 0)
             {
                 throw new ArgumentException("dishesCount parameter must be greater than or equal to 0.");
             }
 
-            var task = Task.Run<IEnumerable<NamePhotoDishViewDTO>>(() =>
+            var task = Task.Run<ICollection<NamePhotoDishViewDTO>>(() =>
             {
                 try
                 {
@@ -52,15 +52,18 @@ namespace WhenItsDone.Data.Repositories
             return task;
         }
 
-        public IEnumerable<NamePhotoDishViewDTO> AddTopCountDishesSampleData(IEnumerable<NamePhotoDishViewDTO> existingData)
+        public ICollection<NamePhotoDishViewDTO> AddTopCountDishesSampleData(int dishesCount, ICollection<NamePhotoDishViewDTO> existingData)
         {
             var existingDataList = existingData.ToList();
             var sampleData = this.GetSampleDataOnFailedDBConnection();
 
             var index = 0;
-            while (existingDataList.Count < 3)
+            var sampleDataItemsCount = sampleData.Count;
+
+            while (existingDataList.Count < dishesCount)
             {
-                existingDataList.Add(sampleData[index++]);
+                var nextIndex = index++ % sampleDataItemsCount;
+                existingDataList.Add(sampleData[nextIndex]);
             }
 
             return existingDataList;

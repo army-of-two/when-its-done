@@ -73,7 +73,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
             var dishesCount = 3;
             var actualReturnedCollection = asyncDishesRepositoryInstace.GetTopCountDishesByRating(dishesCount);
 
-            Assert.That(actualReturnedCollection.GetType(), Is.EqualTo(typeof(Task<IEnumerable<NamePhotoDishViewDTO>>)));
+            Assert.That(actualReturnedCollection.GetType(), Is.EqualTo(typeof(Task<ICollection<NamePhotoDishViewDTO>>)));
         }
 
         [Test]

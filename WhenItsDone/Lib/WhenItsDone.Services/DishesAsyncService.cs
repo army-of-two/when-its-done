@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
@@ -34,9 +33,9 @@ namespace WhenItsDone.Services
             }
 
             var topDishes = this.dishesAsyncRepository.GetTopCountDishesByRating(dishesCount).Result;
-            if (topDishes.Count() < 3 && addSampleData == true)
+            if (topDishes.Count < dishesCount && addSampleData == true)
             {
-                topDishes = this.dishesAsyncRepository.AddTopCountDishesSampleData(topDishes);
+                topDishes = this.dishesAsyncRepository.AddTopCountDishesSampleData(dishesCount, topDishes);
             }
 
             return topDishes;
