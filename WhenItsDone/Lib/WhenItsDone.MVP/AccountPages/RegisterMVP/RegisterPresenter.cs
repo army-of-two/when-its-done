@@ -14,7 +14,7 @@ namespace WhenItsDone.MVP.AccountPages.RegisterMVP
         {
             this.userService = userService;
 
-            this.View.DefaultRegistration += defaultRegisterService.OnDefaultRegister;
+            this.View.DefaultRegister += defaultRegisterService.OnDefaultRegister;
             defaultRegisterService.OperationComplete += this.OnDefaultRegisterOperationComplete;
         }
 
