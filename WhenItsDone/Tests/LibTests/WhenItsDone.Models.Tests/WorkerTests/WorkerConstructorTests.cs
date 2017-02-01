@@ -149,7 +149,7 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         {
             var obj = new Worker();
 
-            Assert.AreEqual(0, obj.ContactInformationId);
+            Assert.AreEqual(null, obj.ContactInformationId);
         }
 
         [Test]
