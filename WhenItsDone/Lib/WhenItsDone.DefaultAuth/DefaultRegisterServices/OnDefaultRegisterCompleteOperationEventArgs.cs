@@ -4,13 +4,13 @@ namespace WhenItsDone.DefaultAuth.DefaultRegisterServices
 {
     public class DefaultRegisterCompleteOperationEventArgs : EventArgs
     {
-        public DefaultRegisterCompleteOperationEventArgs(bool regiterIsSuccessful, string username)
+        public DefaultRegisterCompleteOperationEventArgs(bool registerIsSuccessful, string username)
         {
-            this.RegiterIsSuccessful = regiterIsSuccessful;
+            this.RegisterIsSuccessful = registerIsSuccessful;
             this.Username = username;
         }
 
-        public bool RegiterIsSuccessful { get; private set; }
+        public bool RegisterIsSuccessful { get; private set; }
 
         public string Username { get; private set; }
     }
