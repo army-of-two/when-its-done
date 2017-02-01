@@ -19,11 +19,11 @@ namespace WhenItsDone.MVP.Tests.ContentContainersTests.TopDishesMVPTests.TopDish
             var topDishesView = new Mock<ITopDishesView>();
             var dishesService = new Mock<IDishesAsyncService>();
 
-            var actualInstance = new TopDishesPresenter(topDishesView.Object, dishesService.Object);
+            var topDishesPresenter = new TopDishesPresenter(topDishesView.Object, dishesService.Object);
 
             var topDishesEventArgs = new TopDishesEventArgs(invalidDishesCount, true);
             Assert.That(
-                () => actualInstance.OnGetTopDishes(null, topDishesEventArgs),
+                () => topDishesPresenter.OnGetTopDishes(null, topDishesEventArgs),
                 Throws.InstanceOf<ArgumentException>().With.Message.Contains("dishesCount parameter must be greater than or equal to 0."));
         }
 
@@ -35,10 +35,10 @@ namespace WhenItsDone.MVP.Tests.ContentContainersTests.TopDishesMVPTests.TopDish
 
             var dishesService = new Mock<IDishesAsyncService>();
 
-            var actualInstance = new TopDishesPresenter(topDishesView.Object, dishesService.Object);
+            var topDishesPresenter = new TopDishesPresenter(topDishesView.Object, dishesService.Object);
 
             var topDishesEventArgs = new TopDishesEventArgs(3, true);
-            actualInstance.OnGetTopDishes(null, topDishesEventArgs);
+            topDishesPresenter.OnGetTopDishes(null, topDishesEventArgs);
 
             dishesService.Verify(service => service.GetTopCountDishesByRating(It.IsAny<int>(), It.IsAny<bool>()), Times.Once);
         }
@@ -54,10 +54,10 @@ namespace WhenItsDone.MVP.Tests.ContentContainersTests.TopDishesMVPTests.TopDish
 
             var dishesService = new Mock<IDishesAsyncService>();
 
-            var actualInstance = new TopDishesPresenter(topDishesView.Object, dishesService.Object);
+            var topDishesPresenter = new TopDishesPresenter(topDishesView.Object, dishesService.Object);
 
             var topDishesEventArgs = new TopDishesEventArgs(dishesCount, true);
-            actualInstance.OnGetTopDishes(null, topDishesEventArgs);
+            topDishesPresenter.OnGetTopDishes(null, topDishesEventArgs);
 
             dishesService.Verify(service => service.GetTopCountDishesByRating(dishesCount, It.IsAny<bool>()), Times.Once);
         }
@@ -71,10 +71,10 @@ namespace WhenItsDone.MVP.Tests.ContentContainersTests.TopDishesMVPTests.TopDish
 
             var dishesService = new Mock<IDishesAsyncService>();
 
-            var actualInstance = new TopDishesPresenter(topDishesView.Object, dishesService.Object);
+            var topDishesPresenter = new TopDishesPresenter(topDishesView.Object, dishesService.Object);
 
             var topDishesEventArgs = new TopDishesEventArgs(3, addSampleData);
-            actualInstance.OnGetTopDishes(null, topDishesEventArgs);
+            topDishesPresenter.OnGetTopDishes(null, topDishesEventArgs);
 
             dishesService.Verify(service => service.GetTopCountDishesByRating(It.IsAny<int>(), addSampleData), Times.Once);
         }
