@@ -4,10 +4,11 @@ namespace WhenItsDone.Models
 {
     public class User : IDbModel
     {
-        // TODO: 
         public int Id { get; set; }
 
         public string Username { get; set; }
+
+        public int Rating { get; set; }
 
         public int ClientId { get; set; }
 
