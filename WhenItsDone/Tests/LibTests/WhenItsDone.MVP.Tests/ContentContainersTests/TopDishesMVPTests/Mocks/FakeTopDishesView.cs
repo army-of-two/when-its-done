@@ -8,6 +8,7 @@ namespace WhenItsDone.MVP.Tests.ContentContainersTests.TopDishesMVPTests.Mocks
     internal class FakeTopDishesView : ITopDishesView
     {
         private event EventHandler<TopDishesEventArgs> getTopDishes;
+        private IDictionary<string, object> subscribedMethodNames = new Dictionary<string, object>();
 
         public event EventHandler Load;
 
@@ -15,19 +16,18 @@ namespace WhenItsDone.MVP.Tests.ContentContainersTests.TopDishesMVPTests.Mocks
         {
             add
             {
-                this.SubscribedMethodNames.Add(value.Method.Name, value.Target);
+                this.subscribedMethodNames.Add(value.Method.Name, value.Target);
 
                 getTopDishes += value;
             }
 
             remove
             {
+                this.subscribedMethodNames.Remove(value.Method.Name);
+
                 getTopDishes -= value;
             }
-
         }
-
-        public IDictionary<string, object> SubscribedMethodNames { get; set; } = new Dictionary<string, object>();
 
         public TopDishesViewModel Model { get; set; }
 
@@ -35,7 +35,7 @@ namespace WhenItsDone.MVP.Tests.ContentContainersTests.TopDishesMVPTests.Mocks
 
         public bool ContainsSubscribedMethod(string methodName)
         {
-            return this.SubscribedMethodNames.ContainsKey(methodName);
+            return this.subscribedMethodNames.ContainsKey(methodName);
         }
 
         public void InvokeGetTopDishes()
