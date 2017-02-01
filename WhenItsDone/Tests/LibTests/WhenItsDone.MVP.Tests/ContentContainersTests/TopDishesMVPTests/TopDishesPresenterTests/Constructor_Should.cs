@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Reflection;
 
 using Moq;
 using NUnit.Framework;
 
 using WhenItsDone.MVP.ContentContainers.TopDishesMVP;
+using WhenItsDone.MVP.Tests.ContentContainersTests.TopDishesMVPTests.Mocks;
 using WhenItsDone.Services.Contracts;
 
 using WebFormsMvp;
-using WhenItsDone.MVP.Tests.ContentContainersTests.TopDishesMVPTests.Mocks;
 
 namespace WhenItsDone.MVP.Tests.ContentContainersTests.TopDishesMVPTests.TopDishesPresenterTests
 {
@@ -65,8 +66,37 @@ namespace WhenItsDone.MVP.Tests.ContentContainersTests.TopDishesMVPTests.TopDish
             var dishesService = new Mock<IDishesAsyncService>();
 
             var actualInstance = new TopDishesPresenter(topDishesView, dishesService.Object);
-            
+
             Assert.That(topDishesView.ContainsSubscribedMethod("OnGetTopDishes"), Is.True);
+        }
+
+        [Test]
+        public void ShouldSetCorrectValueToIDishesAsyncServiceField()
+        {
+            var topDishesView = new Mock<ITopDishesView>();
+            var dishesService = new Mock<IDishesAsyncService>();
+
+            var actualInstance = new TopDishesPresenter(topDishesView.Object, dishesService.Object);
+
+            var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
+            var dishesServiceField = typeof(TopDishesPresenter).GetField("dishesService", bindingFlags);
+            var dishesServiceFieldValue = dishesServiceField.GetValue(actualInstance);
+
+            Assert.That(dishesServiceFieldValue, Is.Not.Null);
+        }
+
+        [Test]
+        public void IDishesAsyncServiceField_ShouldBeDeclaredOfCorrectType()
+        {
+            var topDishesView = new Mock<ITopDishesView>();
+            var dishesService = new Mock<IDishesAsyncService>();
+
+            var actualInstance = new TopDishesPresenter(topDishesView.Object, dishesService.Object);
+
+            var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
+            var dishesServiceField = typeof(TopDishesPresenter).GetField("dishesService", bindingFlags);
+
+            Assert.That(dishesServiceField.FieldType, Is.EqualTo(typeof(IDishesAsyncService)));
         }
     }
 }
