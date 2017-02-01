@@ -114,6 +114,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\DishesAsyncRepository.cs" />
     <Compile Include="Repositories\GenericAsyncRepository.cs" />
+    <Compile Include="Repositories\UsersAsyncRepository.cs" />
     <Compile Include="UnitsOfWork\UnitOfWork.cs" />
     <Compile Include="UnitsOfWork\Factories\IUnitOfWorkFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
