@@ -12,7 +12,7 @@
         <div class="row">
             <asp:Repeater ID="TopDishesRepeater" runat="server" ItemType="WhenItsDone.DTOs.DishViewsDTOs.NamePhotoDishViewDTO">
                 <ItemTemplate>
-                    <a class="panel-anchor" href="<%#: Item.Id %>" title="Click for more details: <%#: Item.Name %>">
+                    <a class="panel-anchor" href="/Details?itemid=<%#: Item.Id %>" title="Click for more details: <%#: Item.Name %>">
                         <div class="col-md-4">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
