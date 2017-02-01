@@ -59,6 +59,7 @@
     <Compile Include="AssemblyIdTests\Assembly_Should.cs" />
     <Compile Include="ContentContainersTests\TopDishesMVPTests\Mocks\FakeTopDishesView.cs" />
     <Compile Include="ContentContainersTests\TopDishesMVPTests\TopDishesPresenterTests\Constructor_Should.cs" />
+    <Compile Include="ContentContainersTests\TopDishesMVPTests\TopDishesPresenterTests\OnGetTopDishes_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +68,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Lib\WhenItsDone.DTOs\WhenItsDone.DTOs.csproj">
+      <Project>{da36a62d-37d6-47f1-b292-a73cff233ca8}</Project>
+      <Name>WhenItsDone.DTOs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Lib\WhenItsDone.MVP\WhenItsDone.MVP.csproj">
       <Project>{57206541-C1EC-442F-8C9F-FE4F76944BFF}</Project>
       <Name>WhenItsDone.MVP</Name>
