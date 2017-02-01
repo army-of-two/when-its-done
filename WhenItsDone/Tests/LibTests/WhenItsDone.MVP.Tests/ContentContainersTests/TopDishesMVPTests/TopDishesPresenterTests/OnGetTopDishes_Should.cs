@@ -42,5 +42,41 @@ namespace WhenItsDone.MVP.Tests.ContentContainersTests.TopDishesMVPTests.TopDish
 
             dishesService.Verify(service => service.GetTopCountDishesByRating(It.IsAny<int>(), It.IsAny<bool>()), Times.Once);
         }
+
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(42)]
+        [TestCase(int.MaxValue)]
+        public void InvokeIDishesAsyncService_GetTopCountDishesByRatingMethodOnceWithCorrectDishesCountValue(int dishesCount)
+        {
+            var topDishesView = new Mock<ITopDishesView>();
+            topDishesView.SetupGet(view => view.Model).Returns(new TopDishesViewModel());
+
+            var dishesService = new Mock<IDishesAsyncService>();
+
+            var actualInstance = new TopDishesPresenter(topDishesView.Object, dishesService.Object);
+
+            var topDishesEventArgs = new TopDishesEventArgs(dishesCount, true);
+            actualInstance.OnGetTopDishes(null, topDishesEventArgs);
+
+            dishesService.Verify(service => service.GetTopCountDishesByRating(dishesCount, It.IsAny<bool>()), Times.Once);
+        }
+
+        [TestCase(true)]
+        [TestCase(false)]
+        public void InvokeIDishesAsyncService_GetTopCountDishesByRatingMethodOnceWithCorrectAddSampleDataValue(bool addSampleData)
+        {
+            var topDishesView = new Mock<ITopDishesView>();
+            topDishesView.SetupGet(view => view.Model).Returns(new TopDishesViewModel());
+
+            var dishesService = new Mock<IDishesAsyncService>();
+
+            var actualInstance = new TopDishesPresenter(topDishesView.Object, dishesService.Object);
+
+            var topDishesEventArgs = new TopDishesEventArgs(3, addSampleData);
+            actualInstance.OnGetTopDishes(null, topDishesEventArgs);
+
+            dishesService.Verify(service => service.GetTopCountDishesByRating(It.IsAny<int>(), addSampleData), Times.Once);
+        }
     }
 }
