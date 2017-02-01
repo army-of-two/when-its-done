@@ -40,8 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IClient.cs" />
+    <Compile Include="IContactInformation.cs" />
     <Compile Include="IDbModel.cs" />
+    <Compile Include="IJob.cs" />
+    <Compile Include="IPayment.cs" />
+    <Compile Include="IWorker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WhenItsDone.Common\WhenItsDone.Common.csproj">
+      <Project>{42E362E0-9E6C-4867-88AA-CF2CC00FE1F8}</Project>
+      <Name>WhenItsDone.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

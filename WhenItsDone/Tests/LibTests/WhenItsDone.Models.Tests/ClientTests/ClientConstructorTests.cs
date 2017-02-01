@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
-using WhenItsDone.Models.Enums;
+using WhenItsDone.Common.Enums;
 
 namespace WhenItsDone.Models.Tests.ClientTests
 {

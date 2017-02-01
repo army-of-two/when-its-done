@@ -194,6 +194,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Lib\WhenItsDone.Common\WhenItsDone.Common.csproj">
+      <Project>{42e362e0-9e6c-4867-88aa-cf2cc00fe1f8}</Project>
+      <Name>WhenItsDone.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Lib\WhenItsDone.Models.Contracts\WhenItsDone.Models.Contracts.csproj">
       <Project>{1c805dd4-7b5a-4935-a571-929c580b9816}</Project>
       <Name>WhenItsDone.Models.Contracts</Name>

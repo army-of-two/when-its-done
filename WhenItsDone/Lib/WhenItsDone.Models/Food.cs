@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using WhenItsDone.Common.Enums;
 using WhenItsDone.Models.Constants;
 using WhenItsDone.Models.Contracts;
-using WhenItsDone.Models.Enums;
 
 namespace WhenItsDone.Models
 {
