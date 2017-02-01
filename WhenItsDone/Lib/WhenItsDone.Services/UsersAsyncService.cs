@@ -3,9 +3,9 @@
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.Models;
+using WhenItsDone.Models.Factories;
 using WhenItsDone.Services.Abstraction;
 using WhenItsDone.Services.Contracts;
-using WhenItsDone.Services.Factories;
 
 namespace WhenItsDone.Services
 {
