@@ -31,6 +31,8 @@ namespace WhenItsDone.MVP.Tests.ContentContainersTests.TopDishesMVPTests.TopDish
         public void InvokeIDishesAsyncService_GetTopCountDishesByRatingMethodOnce()
         {
             var topDishesView = new Mock<ITopDishesView>();
+            topDishesView.SetupGet(view => view.Model).Returns(new TopDishesViewModel());
+
             var dishesService = new Mock<IDishesAsyncService>();
 
             var actualInstance = new TopDishesPresenter(topDishesView.Object, dishesService.Object);
