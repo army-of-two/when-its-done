@@ -40,13 +40,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAddress.cs" />
+    <Compile Include="IClientReview.cs" />
+    <Compile Include="IDish.cs" />
+    <Compile Include="IFood.cs" />
     <Compile Include="IClient.cs" />
     <Compile Include="IContactInformation.cs" />
     <Compile Include="IDbModel.cs" />
     <Compile Include="IJob.cs" />
+    <Compile Include="IIngredient.cs" />
     <Compile Include="IPayment.cs" />
     <Compile Include="IWorker.cs" />
+    <Compile Include="IMineral.cs" />
+    <Compile Include="INutritionFacts.cs" />
+    <Compile Include="IPhotoItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IReceivedPayment.cs" />
+    <Compile Include="IRecipe.cs" />
+    <Compile Include="IUser.cs" />
+    <Compile Include="IVideoItem.cs" />
+    <Compile Include="IVitalStatistics.cs" />
+    <Compile Include="IVitamin.cs" />
+    <Compile Include="IWorkerReview.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WhenItsDone.Common\WhenItsDone.Common.csproj">
