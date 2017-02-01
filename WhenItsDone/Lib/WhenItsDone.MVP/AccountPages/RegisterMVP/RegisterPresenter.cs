@@ -1,5 +1,6 @@
 ﻿using WebFormsMvp;
 
+using WhenItsDone.DefaultAuth.DefaultRegisterServices;
 using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.MVP.AccountPages.RegisterMVP
@@ -8,15 +9,16 @@ namespace WhenItsDone.MVP.AccountPages.RegisterMVP
     {
         private readonly IUsersAsyncService userService;
 
-        public RegisterPresenter(IRegisterView view, IUsersAsyncService userService)
+        public RegisterPresenter(IRegisterView view, IUsersAsyncService userService, IDefaultRegisterService defaultRegisterService)
             : base(view)
         {
             this.userService = userService;
-
-            this.View.Registration += this.OnRegister;
+            
+            this.View.DefaultRegistration += defaultRegisterService.OnDefaultRegister;
+            defaultRegisterService.OperationComplete += this.OnDefaultRegister;
         }
-
-        public void OnRegister(object sender, RegisterEventArgs args)
+        
+        public void OnDefaultRegister(object sender, DefaultRegisterCompleteOperationEventArgs args)
         {
             this.View.Model.RegistrationIsSuccessful = this.userService.CreateUser(args.Username);
         }

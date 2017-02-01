@@ -59,9 +59,14 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WhenItsDone.DefaultAuth\WhenItsDone.DefaultAuth.csproj">
+      <Project>{EBC86ED0-136E-46DA-8E84-1491DF78E8C7}</Project>
+      <Name>WhenItsDone.DefaultAuth</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WhenItsDone.DTOs\WhenItsDone.DTOs.csproj">
       <Project>{DA36A62D-37D6-47F1-B292-A73CFF233CA8}</Project>
       <Name>WhenItsDone.DTOs</Name>
