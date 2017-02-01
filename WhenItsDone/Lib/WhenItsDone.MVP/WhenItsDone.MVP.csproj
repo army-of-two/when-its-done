@@ -44,6 +44,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountPages\RegisterMVP\IRegisterPresenter.cs" />
+    <Compile Include="AccountPages\RegisterMVP\IRegisterView.cs" />
+    <Compile Include="AccountPages\RegisterMVP\RegisterEventArgs.cs" />
+    <Compile Include="AccountPages\RegisterMVP\RegisterPresenter.cs" />
+    <Compile Include="AccountPages\RegisterMVP\RegisterViewModel.cs" />
     <Compile Include="AssemblyId\IMvpAssemblyId.cs" />
     <Compile Include="ContentContainers\TopDishesMVP\ITopDishesPresenter.cs" />
     <Compile Include="ContentContainers\TopDishesMVP\ITopDishesView.cs" />

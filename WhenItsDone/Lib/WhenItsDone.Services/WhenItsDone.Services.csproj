@@ -45,6 +45,7 @@
     <Compile Include="Contracts\IDishesAsyncService.cs" />
     <Compile Include="Contracts\IGenericAsyncService.cs" />
     <Compile Include="Contracts\IService.cs" />
+    <Compile Include="Contracts\IUserAsyncService.cs" />
     <Compile Include="Contracts\IWorkersAsyncService.cs" />
     <Compile Include="DishesAsyncService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
