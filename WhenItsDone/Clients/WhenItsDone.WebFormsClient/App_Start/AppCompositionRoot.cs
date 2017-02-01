@@ -86,10 +86,10 @@ namespace WhenItsDone.WebFormsClient.App_Start
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
-                RegisterServices(kernel);
-                RegisterPresenterFactory(kernel);
-                RegisterControllerFactory(kernel);
-                InitializeAutomapperConfig(kernel);
+                AppCompositionRoot.RegisterServices(kernel);
+                AppCompositionRoot.RegisterPresenterFactory(kernel);
+                AppCompositionRoot.RegisterControllerFactory(kernel);
+                AppCompositionRoot.InitializeAutomapperConfig();
 
                 // Make IKernel instance available.
                 AppCompositionRoot.NinjectKernelInstance = kernel;
@@ -125,13 +125,15 @@ namespace WhenItsDone.WebFormsClient.App_Start
 
         }
 
-        private static void InitializeAutomapperConfig(IKernel kernel)
+        private static void InitializeAutomapperConfig()
         {
-            Mapper.Initialize(config =>
-            {
-                config.AddProfile(new ModelsProfile());
-                config.AddProfile(new DishViewsProfile());
-            });
+            Mapper.Initialize(AppCompositionRoot.AddProfilesToAutomapper);
+        }
+
+        private static void AddProfilesToAutomapper(IMapperConfigurationExpression config)
+        {
+            config.AddProfile(new ModelsProfile());
+            config.AddProfile(new DishViewsProfile());
         }
     }
 }
