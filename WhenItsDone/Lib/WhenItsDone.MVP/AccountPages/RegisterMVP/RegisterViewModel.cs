@@ -2,7 +2,7 @@
 {
     public class RegisterViewModel
     {
-        public bool RegistrationIsSuccessful { get; set; }
+        public bool RegisterIsSuccessful { get; set; }
 
         public string ErrorMessage { get; set; }
     }

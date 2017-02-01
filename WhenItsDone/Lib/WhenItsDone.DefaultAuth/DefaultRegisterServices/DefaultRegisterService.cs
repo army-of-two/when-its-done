@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Web;
 
 using Microsoft.AspNet.Identity;
@@ -22,7 +23,7 @@ namespace WhenItsDone.DefaultAuth.DefaultRegisterServices
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
             }
 
-            var defaultRegisterCompleteOperationEventArgs = new DefaultRegisterOperationCompleteEventArgs(result.Succeeded, user.UserName);
+            var defaultRegisterCompleteOperationEventArgs = new DefaultRegisterOperationCompleteEventArgs(user.UserName, result.Succeeded, result.Errors.FirstOrDefault());
             this.OperationComplete(null, defaultRegisterCompleteOperationEventArgs);
         }
     }

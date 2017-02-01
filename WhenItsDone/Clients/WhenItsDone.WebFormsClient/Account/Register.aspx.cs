@@ -16,16 +16,16 @@ namespace WhenItsDone.WebFormsClient.Account
 
         protected void CreateUser_Click(object sender, EventArgs e)
         {
-            var defaultRegisterEventArgs = new DefaultRegisterEventArgs(Context, Email.Text, Password.Text);
+            var defaultRegisterEventArgs = new DefaultRegisterEventArgs(Context, this.Email.Text, this.Password.Text);
             this.DefaultRegistration?.Invoke(null, defaultRegisterEventArgs);
 
-            if (this.Model.RegistrationIsSuccessful)
+            if (this.Model.RegisterIsSuccessful)
             {
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
             else
             {
-                ErrorMessage.Text = this.Model.ErrorMessage;
+                ErrorMessage.Text = this.Model.ErrorMessage ?? "Try Again!";
             }
         }
     }
