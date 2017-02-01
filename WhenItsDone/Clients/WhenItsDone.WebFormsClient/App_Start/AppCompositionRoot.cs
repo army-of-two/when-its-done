@@ -109,9 +109,9 @@ namespace WhenItsDone.WebFormsClient.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Load(new MVPBindingsModule());
-            kernel.Load(new DataBindingsModule());
-            kernel.Load(new ServicesBindingsModule());
+            kernel.Load(new MVPNinjectModule());
+            kernel.Load(new DataNinjectModule());
+            kernel.Load(new ServicesNinjectModule());
         }
 
         private static void RegisterPresenterFactory(IKernel kernel)

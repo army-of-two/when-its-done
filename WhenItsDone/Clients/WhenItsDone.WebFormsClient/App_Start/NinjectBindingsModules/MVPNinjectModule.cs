@@ -16,7 +16,7 @@ using WhenItsDone.WebFormsClient.App_Start.PresenterFactories;
 
 namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 {
-    public class MVPBindingsModule : NinjectModule
+    public class MVPNinjectModule : NinjectModule
     {
         public override void Load()
         {
