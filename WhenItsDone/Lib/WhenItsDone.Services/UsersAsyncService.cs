@@ -37,8 +37,9 @@ namespace WhenItsDone.Services
             }
 
             var nextUser = this.userFactory.CreateUser();
-            this.asyncRepository.Add(nextUser);
+            nextUser.Username = username;
 
+            this.asyncRepository.Add(nextUser);
             using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
             {
                 var result = unitOfWork.SaveChanges();

@@ -5,11 +5,11 @@ using WhenItsDone.Data.Contracts;
 
 namespace WhenItsDone.Data.Adapters
 {
-    public class Stateful<T> : IStateful<T>
+    public class Stateful<T> : IStateful<T> where T : class
     {
-        private readonly DbEntityEntry entry;
+        private readonly DbEntityEntry<T> entry;
 
-        public Stateful(DbEntityEntry entry)
+        public Stateful(DbEntityEntry<T> entry)
         {
             if (entry == null)
             {

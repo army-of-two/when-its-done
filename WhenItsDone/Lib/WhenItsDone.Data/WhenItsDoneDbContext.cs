@@ -64,7 +64,7 @@ namespace WhenItsDone.Data
 
         public IStateful<TEntity> GetStateful<TEntity>(TEntity entity) where TEntity : class
         {
-            return this.statefulFactory.GetStateful(base.Entry<TEntity>(entity));
+            return this.statefulFactory.CreateStateful(base.Entry<TEntity>(entity));
         }
     }
 }

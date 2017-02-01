@@ -13,6 +13,8 @@ using WhenItsDone.Data.UnitsOfWork;
 
 using WhenItsDone.Models;
 using WhenItsDone.Services;
+using System.Linq;
+using Ninject;
 
 namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 {
