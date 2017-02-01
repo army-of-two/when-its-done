@@ -45,7 +45,7 @@
     <Compile Include="AssemblyId\IModelsAssemblyId.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="ClientReview.cs" />
-    <Compile Include="Factories\IUserDbModelFactory.cs" />
+    <Compile Include="Factories\ICompleteUserFactory.cs" />
     <Compile Include="Factories\IWorkerFactory.cs" />
     <Compile Include="Constants\RegexConstants.cs" />
     <Compile Include="Constants\ValidationConstants.cs" />
