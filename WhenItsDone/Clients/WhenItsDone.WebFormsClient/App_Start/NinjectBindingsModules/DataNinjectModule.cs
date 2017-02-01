@@ -13,8 +13,6 @@ using WhenItsDone.Data.UnitsOfWork;
 
 using WhenItsDone.Models;
 using WhenItsDone.Services;
-using System.Linq;
-using Ninject;
 
 namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 {
@@ -44,20 +42,6 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 .InRequestScope();
 
             this.Bind<IStatefulFactory>().ToFactory().InSingletonScope();
-
-            // if binding above do not work change with code below maybe
-
-            //this.Bind(typeof(IStateful<>)).ToMethod(ctx =>
-            //{
-            //    var param = ctx.Parameters.Single();
-
-            //    var result = ctx.Kernel.Get(typeof(IStateful<>), param);
-
-            //    return result;
-            //})
-            //.InSingletonScope()
-            //// GetStateful<object> ?!?
-            //.NamedLikeFactoryMethod((IStatefulFactory fac) => fac.GetStateful<object>(null));
         }
     }
 }

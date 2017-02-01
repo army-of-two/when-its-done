@@ -128,10 +128,10 @@ namespace WhenItsDone.WebFormsClient.App_Start
 
         private static void InitializeAutomapperConfig()
         {
-            Mapper.Initialize(AppCompositionRoot.AddProfilesToAutomapper);
+            Mapper.Initialize(AppCompositionRoot.AddProfilesToAutomapperConfig);
         }
 
-        private static void AddProfilesToAutomapper(IMapperConfigurationExpression config)
+        private static void AddProfilesToAutomapperConfig(IMapperConfigurationExpression config)
         {
             config.AddProfile(new ModelsProfile());
             config.AddProfile(new DishViewsProfile());
