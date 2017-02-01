@@ -106,6 +106,10 @@
     <Compile Include="Migrations\201702011206385_added user model.Designer.cs">
       <DependentUpon>201702011206385_added user model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702011209537_added user model to context.cs" />
+    <Compile Include="Migrations\201702011209537_added user model to context.Designer.cs">
+      <DependentUpon>201702011209537_added user model to context.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\DishesAsyncRepository.cs" />
     <Compile Include="Repositories\GenericAsyncRepository.cs" />
@@ -149,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702011206385_added user model.resx">
       <DependentUpon>201702011206385_added user model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702011209537_added user model to context.resx">
+      <DependentUpon>201702011209537_added user model to context.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

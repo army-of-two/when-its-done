@@ -50,6 +50,8 @@ namespace WhenItsDone.Data
 
         public virtual IDbSet<Recipe> Recipes { get; set; }
 
+        public virtual IDbSet<User> Users { get; set; }
+
         public virtual IDbSet<VideoItem> VideoItems { get; set; }
 
         public virtual IDbSet<Vitamin> Vitamins { get; set; }
