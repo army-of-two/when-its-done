@@ -95,7 +95,7 @@
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="ApplicationUserManager.cs" />
     <Compile Include="DefaultRegisterServices\DefaultRegisterService.cs" />
-    <Compile Include="DefaultRegisterServices\OnDefaultRegisterCompleteOperationEventArgs.cs" />
+    <Compile Include="DefaultRegisterServices\DefaultRegisterOperationCompleteEventArgs.cs" />
     <Compile Include="EmailService.cs" />
     <Compile Include="IdentityHelper.cs" />
     <Compile Include="DefaultRegisterServices\IDefaultRegisterService.cs" />
