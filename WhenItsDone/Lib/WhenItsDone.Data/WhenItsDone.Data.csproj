@@ -79,7 +79,6 @@
     <Compile Include="Contracts\IUsersAsyncRepository.cs" />
     <Compile Include="Contracts\IWhenItsDoneDbContext.cs" />
     <Compile Include="Factories\IStatefulFactory.cs" />
-    <Compile Include="Factories\IUserFactory.cs" />
     <Compile Include="Migrations\201701192351053_init.cs" />
     <Compile Include="Migrations\201701192351053_init.Designer.cs">
       <DependentUpon>201701192351053_init.cs</DependentUpon>

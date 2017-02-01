@@ -1,6 +1,6 @@
 ﻿using WhenItsDone.Models;
 
-namespace WhenItsDone.Data.Factories
+namespace WhenItsDone.Services.Factories
 {
     public interface IUserFactory
     {
