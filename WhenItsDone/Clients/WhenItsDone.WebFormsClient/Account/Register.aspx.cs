@@ -5,12 +5,20 @@ using System.Web.UI;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
+
 using WhenItsDone.DefaultAuth;
+using WhenItsDone.MVP.AccountPages.RegisterMVP;
+
+using WebFormsMvp;
+using WebFormsMvp.Web;
 
 namespace WhenItsDone.WebFormsClient.Account
 {
-    public partial class Register : Page
+    [PresenterBinding(typeof(IRegisterPresenter))]
+    public partial class Register : MvpPage<RegisterViewModel>, IRegisterView
     {
+        public event EventHandler<RegisterEventArgs> Registration;
+
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -25,6 +33,14 @@ namespace WhenItsDone.WebFormsClient.Account
                 //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
 
                 // Plugin Custom Event Here
+                var registerEventArgs = new RegisterEventArgs(user.UserName);
+                this.Registration?.Invoke(null, registerEventArgs);
+
+                if (!this.Model.RegistrationIsSuccessful)
+                {
+                    ErrorMessage.Text = result.Errors.FirstOrDefault();
+                    return;
+                }
 
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);

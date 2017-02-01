@@ -12,7 +12,7 @@ namespace WhenItsDone.MVP.AccountPages.RegisterMVP
         {
             this.userService = userService;
 
-            this.View.Register += this.OnRegister;
+            this.View.Registration += this.OnRegister;
         }
 
         public void OnRegister(object sender, RegisterEventArgs args)
