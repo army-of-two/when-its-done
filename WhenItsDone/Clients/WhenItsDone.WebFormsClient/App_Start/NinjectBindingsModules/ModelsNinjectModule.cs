@@ -17,7 +17,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
         {
             bindingSyntax
                 .FromAssemblyContaining<IModelsAssemblyId>()
-                .SelectAllClasses()
+                .SelectAllInterfaces()
                 .EndingWith("Factory")
                 .BindToFactory()
                 .Configure(binding => binding.InSingletonScope());

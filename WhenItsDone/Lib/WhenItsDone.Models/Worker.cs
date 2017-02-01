@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+
 using WhenItsDone.Common.Enums;
 using WhenItsDone.Models.Constants;
 using WhenItsDone.Models.Contracts;
@@ -28,13 +29,14 @@ namespace WhenItsDone.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Range(ValidationConstants.RatingMinValue, ValidationConstants.RatingMaxValue)]
+        public int Rating { get; set; }
+
         [MinLength(ValidationConstants.NameMinLength)]
         [MaxLength(ValidationConstants.NameMaxLength)]
         [RegularExpression(RegexConstants.EnBgSpaceMinus)]
         public string FirstName { get; set; }
 
-        [Required]
         [MinLength(ValidationConstants.NameMinLength)]
         [MaxLength(ValidationConstants.NameMaxLength)]
         [RegularExpression(RegexConstants.EnBgSpaceMinus)]
@@ -55,12 +57,9 @@ namespace WhenItsDone.Models
 
         public bool IsAvailable { get; set; }
 
-        public int VitalStatisticsId { get; set; }
+        public int? VitalStatisticsId { get; set; }
 
         public virtual VitalStatistics VitalStatistics { get; set; }
-
-        [Range(ValidationConstants.RatingMinValue, ValidationConstants.RatingMaxValue)]
-        public int Rating { get; set; }
 
         public int ContactInformationId { get; set; }
 

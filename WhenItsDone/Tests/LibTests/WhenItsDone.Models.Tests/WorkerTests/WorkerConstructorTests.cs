@@ -129,14 +129,6 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         }
 
         [Test]
-        public void Consstructor_ShouldNotSet_VitalStatisticsIdProperty()
-        {
-            var obj = new Worker();
-
-            Assert.AreEqual(0, obj.VitalStatisticsId);
-        }
-
-        [Test]
         public void Consstructor_ShouldNotSet_VitalStatisticsProperty()
         {
             var obj = new Worker();
@@ -174,6 +166,14 @@ namespace WhenItsDone.Models.Tests.WorkerTests
             var obj = new Worker();
 
             Assert.AreEqual(false, obj.IsDeleted);
+        }
+
+        [Test]
+        public void Constructor_ShouldNotSet_VitalStatisticsIdProperty()
+        {
+            var obj = new Worker();
+
+            Assert.AreEqual(null, obj.VitalStatisticsId);
         }
     }
 }

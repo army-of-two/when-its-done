@@ -45,10 +45,13 @@
     <Compile Include="AssemblyId\IModelsAssemblyId.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="ClientReview.cs" />
+    <Compile Include="Factories\IUserDbModelFactory.cs" />
+    <Compile Include="Factories\IWorkerFactory.cs" />
     <Compile Include="Constants\RegexConstants.cs" />
     <Compile Include="Constants\ValidationConstants.cs" />
     <Compile Include="ContactInformation.cs" />
     <Compile Include="Dish.cs" />
+    <Compile Include="Factories\IClientFactory.cs" />
     <Compile Include="Factories\IUserFactory.cs" />
     <Compile Include="Recipe.cs" />
     <Compile Include="Food.cs" />
