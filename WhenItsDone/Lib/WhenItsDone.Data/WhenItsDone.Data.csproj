@@ -129,6 +129,10 @@
       <Project>{DA36A62D-37D6-47F1-B292-A73CFF233CA8}</Project>
       <Name>WhenItsDone.DTOs</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WhenItsDone.Models.Contracts\WhenItsDone.Models.Contracts.csproj">
+      <Project>{1c805dd4-7b5a-4935-a571-929c580b9816}</Project>
+      <Name>WhenItsDone.Models.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WhenItsDone.Models\WhenItsDone.Models.csproj">
       <Project>{E10CC5A1-7DD9-4F43-8798-AA58882CAF6F}</Project>
       <Name>WhenItsDone.Models</Name>

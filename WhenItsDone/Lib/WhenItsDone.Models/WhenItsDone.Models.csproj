@@ -47,7 +47,6 @@
     <Compile Include="Constants\RegexConstants.cs" />
     <Compile Include="Constants\ValidationConstants.cs" />
     <Compile Include="ContactInformation.cs" />
-    <Compile Include="Contracts\IDbModel.cs" />
     <Compile Include="Dish.cs" />
     <Compile Include="Recipe.cs" />
     <Compile Include="Enums\IngredientType.cs" />
@@ -68,6 +67,12 @@
     <Compile Include="Vitamin.cs" />
     <Compile Include="Worker.cs" />
     <Compile Include="WorkerReview.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WhenItsDone.Models.Contracts\WhenItsDone.Models.Contracts.csproj">
+      <Project>{1c805dd4-7b5a-4935-a571-929c580b9816}</Project>
+      <Name>WhenItsDone.Models.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

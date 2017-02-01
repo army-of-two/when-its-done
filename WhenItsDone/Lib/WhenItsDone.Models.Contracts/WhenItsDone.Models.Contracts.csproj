@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5C51DB50-52FB-4B9C-8B16-B3B104FFA090}</ProjectGuid>
+    <ProjectGuid>{1C805DD4-7B5A-4935-A571-929C580B9816}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WhenItsDone.Services</RootNamespace>
-    <AssemblyName>WhenItsDone.Services</AssemblyName>
+    <RootNamespace>WhenItsDone.Models.Contracts</RootNamespace>
+    <AssemblyName>WhenItsDone.Models.Contracts</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,37 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstraction\GenericAsyncService.cs" />
-    <Compile Include="AssemblyId\IServicesAssemblyId.cs" />
-    <Compile Include="Contracts\IDishesAsyncService.cs" />
-    <Compile Include="Contracts\IGenericAsyncService.cs" />
-    <Compile Include="Contracts\IService.cs" />
-    <Compile Include="Contracts\IUserAsyncService.cs" />
-    <Compile Include="Contracts\IWorkersAsyncService.cs" />
-    <Compile Include="DishesAsyncService.cs" />
+    <Compile Include="IDbModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WorkersAsyncService.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WhenItsDone.Data\WhenItsDone.Data.csproj">
-      <Project>{D3085631-83D5-4525-B69C-DFDC47BC7F9B}</Project>
-      <Name>WhenItsDone.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WhenItsDone.DTOs\WhenItsDone.DTOs.csproj">
-      <Project>{DA36A62D-37D6-47F1-B292-A73CFF233CA8}</Project>
-      <Name>WhenItsDone.DTOs</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WhenItsDone.Models.Contracts\WhenItsDone.Models.Contracts.csproj">
-      <Project>{1c805dd4-7b5a-4935-a571-929c580b9816}</Project>
-      <Name>WhenItsDone.Models.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WhenItsDone.Models\WhenItsDone.Models.csproj">
-      <Project>{E10CC5A1-7DD9-4F43-8798-AA58882CAF6F}</Project>
-      <Name>WhenItsDone.Models</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
