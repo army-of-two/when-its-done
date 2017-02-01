@@ -390,6 +390,7 @@
     </Compile>
     <Compile Include="App_Start\AutomapperProfiles\DishViewsProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\ModelsProfile.cs" />
+    <Compile Include="App_Start\AutomapperProfiles\WorkerWithDishesViewProfile.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
