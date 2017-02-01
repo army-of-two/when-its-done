@@ -45,9 +45,12 @@
     <Compile Include="Contracts\IDishesAsyncService.cs" />
     <Compile Include="Contracts\IGenericAsyncService.cs" />
     <Compile Include="Contracts\IService.cs" />
+    <Compile Include="Contracts\IUsersAsyncService.cs" />
     <Compile Include="Contracts\IWorkersAsyncService.cs" />
     <Compile Include="DishesAsyncService.cs" />
+    <Compile Include="Factories\IUserFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsersAsyncService.cs" />
     <Compile Include="WorkersAsyncService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +61,10 @@
     <ProjectReference Include="..\WhenItsDone.DTOs\WhenItsDone.DTOs.csproj">
       <Project>{DA36A62D-37D6-47F1-B292-A73CFF233CA8}</Project>
       <Name>WhenItsDone.DTOs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WhenItsDone.Models.Contracts\WhenItsDone.Models.Contracts.csproj">
+      <Project>{1c805dd4-7b5a-4935-a571-929c580b9816}</Project>
+      <Name>WhenItsDone.Models.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\WhenItsDone.Models\WhenItsDone.Models.csproj">
       <Project>{E10CC5A1-7DD9-4F43-8798-AA58882CAF6F}</Project>

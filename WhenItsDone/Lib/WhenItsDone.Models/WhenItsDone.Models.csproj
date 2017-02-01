@@ -47,12 +47,8 @@
     <Compile Include="Constants\RegexConstants.cs" />
     <Compile Include="Constants\ValidationConstants.cs" />
     <Compile Include="ContactInformation.cs" />
-    <Compile Include="Contracts\IDbModel.cs" />
     <Compile Include="Dish.cs" />
     <Compile Include="Recipe.cs" />
-    <Compile Include="Enums\IngredientType.cs" />
-    <Compile Include="Enums\GenderType.cs" />
-    <Compile Include="Enums\MeasurementUnitType.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="Mineral.cs" />
@@ -62,11 +58,22 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Job.cs" />
     <Compile Include="ReceivedPayment.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="VideoItem.cs" />
     <Compile Include="VitalStatistics.cs" />
     <Compile Include="Vitamin.cs" />
     <Compile Include="Worker.cs" />
     <Compile Include="WorkerReview.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WhenItsDone.Common\WhenItsDone.Common.csproj">
+      <Project>{42E362E0-9E6C-4867-88AA-CF2CC00FE1F8}</Project>
+      <Name>WhenItsDone.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WhenItsDone.Models.Contracts\WhenItsDone.Models.Contracts.csproj">
+      <Project>{1c805dd4-7b5a-4935-a571-929c580b9816}</Project>
+      <Name>WhenItsDone.Models.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

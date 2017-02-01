@@ -6,12 +6,12 @@ namespace WhenItsDone.MVP.ContentContainers.TopDishesMVP
     {
         public TopDishesEventArgs(int dishesCount, bool addSampleData)
         {
-            this.dishesCount = dishesCount;
+            this.DishesCount = dishesCount;
             this.AddSampleData = addSampleData;
         }
 
-        public int dishesCount { get; }
+        public int DishesCount { get; private set; }
 
-        public bool AddSampleData { get; }
+        public bool AddSampleData { get; private set; }
     }
 }

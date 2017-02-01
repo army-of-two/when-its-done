@@ -1,15 +1,15 @@
 ﻿using Ninject.Extensions.Conventions;
+using Ninject.Extensions.Factory;
 using Ninject.Modules;
 using Ninject.Web.Common;
 
-using WhenItsDone.Models;
-using WhenItsDone.Services;
 using WhenItsDone.Services.AssemblyId;
 using WhenItsDone.Services.Contracts;
+using WhenItsDone.Services.Factories;
 
 namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 {
-    public class ServicesBindingsModule : NinjectModule
+    public class ServicesNinjectModule : NinjectModule
     {
         public override void Load()
         {
@@ -20,6 +20,8 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 .BindDefaultInterface()
                 .Configure(y => y.InRequestScope())
             );
+
+            this.Bind<IUserFactory>().ToFactory().InSingletonScope();
         }
     }
 }

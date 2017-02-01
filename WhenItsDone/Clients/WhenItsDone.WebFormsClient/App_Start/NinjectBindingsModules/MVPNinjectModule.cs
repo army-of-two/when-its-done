@@ -16,7 +16,7 @@ using WhenItsDone.WebFormsClient.App_Start.PresenterFactories;
 
 namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 {
-    public class MVPBindingsModule : NinjectModule
+    public class MVPNinjectModule : NinjectModule
     {
         public override void Load()
         {
@@ -39,9 +39,6 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 .NamedLikeFactoryMethod((ICustomPresenterFactory factory) => factory.GetPresenter(null, null));
         }
         
-        // Alternative binding.
-        // http://webformsmvpcontrib.codeplex.com/SourceControl/latest#WebFormsMvp.Contrib/WebFormsMvp.Contrib.Ninject/MvpPresenterKernel.cs
-        // Depends on correct constructor parameter name.
         private IPresenter PresenterFactoryMethod(IContext context)
         {
             var parameters = context.Parameters.ToList();

@@ -398,11 +398,12 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\NinjectBindingsModules\DefaultAuthNinjectModule.cs" />
     <Compile Include="App_Start\PresenterFactories\WebFormsMvpPresenterFactory.cs" />
     <Compile Include="App_Start\PresenterFactories\ICustomPresenterFactory.cs" />
-    <Compile Include="App_Start\NinjectBindingsModules\DataBindingsModule.cs" />
-    <Compile Include="App_Start\NinjectBindingsModules\MVPBindingsModule.cs" />
-    <Compile Include="App_Start\NinjectBindingsModules\ServicesBindingsModule.cs" />
+    <Compile Include="App_Start\NinjectBindingsModules\DataNinjectModule.cs" />
+    <Compile Include="App_Start\NinjectBindingsModules\MVPNinjectModule.cs" />
+    <Compile Include="App_Start\NinjectBindingsModules\ServicesNinjectModule.cs" />
     <Compile Include="App_Start\NinjectWeb.cs" />
     <Compile Include="App_Start\AppCompositionRoot.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -471,6 +472,10 @@
     <ProjectReference Include="..\..\Lib\WhenItsDone.DTOs\WhenItsDone.DTOs.csproj">
       <Project>{DA36A62D-37D6-47F1-B292-A73CFF233CA8}</Project>
       <Name>WhenItsDone.DTOs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\WhenItsDone.Models.Contracts\WhenItsDone.Models.Contracts.csproj">
+      <Project>{1c805dd4-7b5a-4935-a571-929c580b9816}</Project>
+      <Name>WhenItsDone.Models.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Lib\WhenItsDone.Models\WhenItsDone.Models.csproj">
       <Project>{E10CC5A1-7DD9-4F43-8798-AA58882CAF6F}</Project>

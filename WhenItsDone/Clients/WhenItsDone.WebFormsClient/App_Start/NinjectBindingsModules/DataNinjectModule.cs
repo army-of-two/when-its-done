@@ -13,10 +13,12 @@ using WhenItsDone.Data.UnitsOfWork;
 
 using WhenItsDone.Models;
 using WhenItsDone.Services;
+using System.Linq;
+using Ninject;
 
 namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 {
-    public class DataBindingsModule : NinjectModule
+    public class DataNinjectModule : NinjectModule
     {
         public override void Load()
         {

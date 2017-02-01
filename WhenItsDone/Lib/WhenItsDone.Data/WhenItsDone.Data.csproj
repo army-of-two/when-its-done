@@ -76,6 +76,7 @@
     <Compile Include="Contracts\IDisposableUnitOfWork.cs" />
     <Compile Include="Contracts\IStateful.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
+    <Compile Include="Contracts\IUsersAsyncRepository.cs" />
     <Compile Include="Contracts\IWhenItsDoneDbContext.cs" />
     <Compile Include="Factories\IStatefulFactory.cs" />
     <Compile Include="Migrations\201701192351053_init.cs" />
@@ -102,9 +103,26 @@
     <Compile Include="Migrations\201701302031473_changed allowed url length.Designer.cs">
       <DependentUpon>201701302031473_changed allowed url length.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702011206385_added user model.cs" />
+    <Compile Include="Migrations\201702011206385_added user model.Designer.cs">
+      <DependentUpon>201702011206385_added user model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702011209537_added user model to context.cs" />
+    <Compile Include="Migrations\201702011209537_added user model to context.Designer.cs">
+      <DependentUpon>201702011209537_added user model to context.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702011815212_updated user model.cs" />
+    <Compile Include="Migrations\201702011815212_updated user model.Designer.cs">
+      <DependentUpon>201702011815212_updated user model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702011835151_updated user model to have nullable objects.cs" />
+    <Compile Include="Migrations\201702011835151_updated user model to have nullable objects.Designer.cs">
+      <DependentUpon>201702011835151_updated user model to have nullable objects.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\DishesAsyncRepository.cs" />
     <Compile Include="Repositories\GenericAsyncRepository.cs" />
+    <Compile Include="Repositories\UsersAsyncRepository.cs" />
     <Compile Include="UnitsOfWork\UnitOfWork.cs" />
     <Compile Include="UnitsOfWork\Factories\IUnitOfWorkFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,6 +136,10 @@
     <ProjectReference Include="..\WhenItsDone.DTOs\WhenItsDone.DTOs.csproj">
       <Project>{DA36A62D-37D6-47F1-B292-A73CFF233CA8}</Project>
       <Name>WhenItsDone.DTOs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WhenItsDone.Models.Contracts\WhenItsDone.Models.Contracts.csproj">
+      <Project>{1c805dd4-7b5a-4935-a571-929c580b9816}</Project>
+      <Name>WhenItsDone.Models.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\WhenItsDone.Models\WhenItsDone.Models.csproj">
       <Project>{E10CC5A1-7DD9-4F43-8798-AA58882CAF6F}</Project>
@@ -142,6 +164,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701302031473_changed allowed url length.resx">
       <DependentUpon>201701302031473_changed allowed url length.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702011206385_added user model.resx">
+      <DependentUpon>201702011206385_added user model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702011209537_added user model to context.resx">
+      <DependentUpon>201702011209537_added user model to context.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702011815212_updated user model.resx">
+      <DependentUpon>201702011815212_updated user model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702011835151_updated user model to have nullable objects.resx">
+      <DependentUpon>201702011835151_updated user model to have nullable objects.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
