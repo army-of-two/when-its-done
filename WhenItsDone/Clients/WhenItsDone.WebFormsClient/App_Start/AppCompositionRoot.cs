@@ -113,6 +113,7 @@ namespace WhenItsDone.WebFormsClient.App_Start
             kernel.Load(new DataNinjectModule());
             kernel.Load(new ServicesNinjectModule());
             kernel.Load(new DefaultAuthNinjectModule());
+            kernel.Load(new ModelsNinjectModule());
         }
 
         private static void RegisterPresenterFactory(IKernel kernel)
@@ -128,10 +129,10 @@ namespace WhenItsDone.WebFormsClient.App_Start
 
         private static void InitializeAutomapperConfig()
         {
-            Mapper.Initialize(AppCompositionRoot.AddProfilesToAutomapper);
+            Mapper.Initialize(AppCompositionRoot.AddProfilesToAutomapperConfig);
         }
 
-        private static void AddProfilesToAutomapper(IMapperConfigurationExpression config)
+        private static void AddProfilesToAutomapperConfig(IMapperConfigurationExpression config)
         {
             config.AddProfile(new ModelsProfile());
             config.AddProfile(new DishViewsProfile());

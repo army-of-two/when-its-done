@@ -14,7 +14,7 @@
         public const int NameMinLength = 2;
         public const int NameMaxLength = 50;
 
-        public const int AgeMinValue = 18;
+        public const int AgeMinValue = 0;
         public const int AgeMaxValue = 150;
 
         public const int ReviewContentMinLength = 2;
@@ -35,10 +35,10 @@
         public const int PriceMinValue = 0;
         public const int PriceMaxValue = int.MaxValue;
 
-        public const int HeightMinValue = 64;
+        public const int HeightMinValue = 0;
         public const int HeightMaxValue = 256;
 
-        public const int WeightMinValue = 32;
+        public const int WeightMinValue = 0;
         public const int WeightMaxValue = 256;
 
         public const int BustSizeMinValue = 64;

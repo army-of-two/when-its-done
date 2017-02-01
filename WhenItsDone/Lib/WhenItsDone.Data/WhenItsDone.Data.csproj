@@ -119,6 +119,18 @@
     <Compile Include="Migrations\201702011835151_updated user model to have nullable objects.Designer.cs">
       <DependentUpon>201702011835151_updated user model to have nullable objects.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702012250233_updated user model to allow null rating.cs" />
+    <Compile Include="Migrations\201702012250233_updated user model to allow null rating.Designer.cs">
+      <DependentUpon>201702012250233_updated user model to allow null rating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702012307286_updated user model with more props.cs" />
+    <Compile Include="Migrations\201702012307286_updated user model with more props.Designer.cs">
+      <DependentUpon>201702012307286_updated user model with more props.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702012328375_updated worker model to allow null contact info.cs" />
+    <Compile Include="Migrations\201702012328375_updated worker model to allow null contact info.Designer.cs">
+      <DependentUpon>201702012328375_updated worker model to allow null contact info.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\DishesAsyncRepository.cs" />
     <Compile Include="Repositories\GenericAsyncRepository.cs" />
@@ -176,6 +188,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702011835151_updated user model to have nullable objects.resx">
       <DependentUpon>201702011835151_updated user model to have nullable objects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702012250233_updated user model to allow null rating.resx">
+      <DependentUpon>201702012250233_updated user model to allow null rating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702012307286_updated user model with more props.resx">
+      <DependentUpon>201702012307286_updated user model with more props.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702012328375_updated worker model to allow null contact info.resx">
+      <DependentUpon>201702012328375_updated worker model to allow null contact info.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

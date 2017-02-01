@@ -3,26 +3,26 @@
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.Models;
+using WhenItsDone.Models.Factories;
 using WhenItsDone.Services.Abstraction;
 using WhenItsDone.Services.Contracts;
-using WhenItsDone.Services.Factories;
 
 namespace WhenItsDone.Services
 {
     public class UsersAsyncService : GenericAsyncService<User>, IUsersAsyncService, IGenericAsyncService<User>
     {
         private readonly IUsersAsyncRepository asyncRepository;
-        private readonly IUserFactory userFactory;
+        private readonly IUserDbModelFactory userDbModelFactory;
 
-        public UsersAsyncService(IUsersAsyncRepository asyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory, IUserFactory userFactory)
+        public UsersAsyncService(IUsersAsyncRepository asyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory, IUserDbModelFactory userDbModelFactory)
             : base(asyncRepository, unitOfWorkFactory)
         {
-            if (userFactory == null)
+            if (userDbModelFactory == null)
             {
-                throw new ArgumentNullException(nameof(userFactory));
+                throw new ArgumentNullException(nameof(userDbModelFactory));
             }
 
-            this.userFactory = userFactory;
+            this.userDbModelFactory = userDbModelFactory;
 
             this.asyncRepository = asyncRepository;
         }
@@ -36,7 +36,9 @@ namespace WhenItsDone.Services
                 return isSuccessful;
             }
 
-            var nextUser = this.userFactory.CreateUser();
+            var nextUser = this.userDbModelFactory.CreateUser();
+            nextUser.Client = this.userDbModelFactory.CreateClient();
+            nextUser.Worker = this.userDbModelFactory.CreateWorker();
             nextUser.Username = username;
 
             this.asyncRepository.Add(nextUser);

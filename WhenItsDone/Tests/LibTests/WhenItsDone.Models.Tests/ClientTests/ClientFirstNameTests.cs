@@ -8,19 +8,19 @@ namespace WhenItsDone.Models.Tests.ClientTests
     [TestFixture]
     public class ClientFirstNameTests
     {
-        [Test]
-        public void FirstName_ShouldHave_RequireAttribute()
-        {
-            var obj = new Client();
+        //    [Test]
+        //    public void FirstName_ShouldHave_RequireAttribute()
+        //    {
+        //        var obj = new Client();
 
-            var result = obj.GetType()
-                            .GetProperty("FirstName")
-                            .GetCustomAttributes(false)
-                            .Where(x => x.GetType() == typeof(RequiredAttribute))
-                            .Any();
+        //        var result = obj.GetType()
+        //                        .GetProperty("FirstName")
+        //                        .GetCustomAttributes(false)
+        //                        .Where(x => x.GetType() == typeof(RequiredAttribute))
+        //                        .Any();
 
-            Assert.IsTrue(result);
-        }
+        //        Assert.IsTrue(result);
+        //    }
 
         [Test]
         public void FirstName_ShouldHave_MinLengthAttribute()

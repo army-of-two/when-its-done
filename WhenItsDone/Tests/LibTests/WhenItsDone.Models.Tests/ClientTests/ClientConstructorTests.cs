@@ -88,7 +88,7 @@ namespace WhenItsDone.Models.Tests.ClientTests
         {
             var obj = new Client();
 
-            Assert.AreEqual(0, obj.ContactInformationId);
+            Assert.AreEqual(null, obj.ContactInformationId);
         }
 
         [Test]
