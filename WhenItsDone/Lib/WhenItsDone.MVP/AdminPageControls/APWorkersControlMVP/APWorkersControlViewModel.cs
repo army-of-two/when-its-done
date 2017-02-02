@@ -5,6 +5,6 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkersControlMVP
 {
     public class APWorkersControlViewModel
     {
-        IEnumerable<WorkerWithDishesDTO> WorkersWithDishes { get; set; }
+        public IEnumerable<WorkerWithDishesDTO> WorkersWithDishes { get; set; }
     }
 }
