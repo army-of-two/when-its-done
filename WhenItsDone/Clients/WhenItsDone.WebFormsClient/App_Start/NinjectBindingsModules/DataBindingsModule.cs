@@ -32,11 +32,6 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 .ToFactory()
                 .InRequestScope();
 
-            this.Bind(typeof(IAsyncRepository<>))
-                .To<GenericAsyncRepository<Worker>>()
-                .WhenInjectedInto<WorkersAsyncService>()
-                .InRequestScope();
-
             this.Rebind<IWhenItsDoneDbContext>()
                 .To<WhenItsDoneDbContext>()
                 .InRequestScope();

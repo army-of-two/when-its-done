@@ -8,9 +8,9 @@ using WhenItsDone.Models;
 
 namespace WhenItsDone.Data.Repositories
 {
-    public class WorkersAsyncRepository : GenericAsyncRepository<Worker>, IWorkerAsyncRepository, IAsyncRepository<Worker>
+    public class WorkerAsyncRepository : GenericAsyncRepository<Worker>, IWorkerAsyncRepository, IAsyncRepository<Worker>
     {
-        public WorkersAsyncRepository(IWhenItsDoneDbContext dbContext)
+        public WorkerAsyncRepository(IWhenItsDoneDbContext dbContext)
             : base(dbContext)
         {
         }

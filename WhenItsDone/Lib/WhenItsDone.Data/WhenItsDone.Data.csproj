@@ -104,7 +104,7 @@
       <DependentUpon>201701302031473_changed allowed url length.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Repositories\WorkersAsyncRepository.cs" />
+    <Compile Include="Repositories\WorkerAsyncRepository.cs" />
     <Compile Include="Repositories\DishesAsyncRepository.cs" />
     <Compile Include="Repositories\GenericAsyncRepository.cs" />
     <Compile Include="UnitsOfWork\UnitOfWork.cs" />
