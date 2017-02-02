@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminPageControls\APWorkersControlMVP\APWorkersControlViewModel.cs" />
+    <Compile Include="AdminPageControls\APWorkersControlMVP\IAPWorkersControlPresenter.cs" />
     <Compile Include="AdminPageControls\APWorkersControlMVP\IAPWorkersControlView.cs" />
     <Compile Include="AssemblyId\IMvpAssemblyId.cs" />
     <Compile Include="ContentContainers\TopDishesMVP\ITopDishesPresenter.cs" />
