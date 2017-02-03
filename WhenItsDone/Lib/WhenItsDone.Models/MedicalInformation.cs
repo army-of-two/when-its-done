@@ -21,6 +21,14 @@ namespace WhenItsDone.Models
         [Range(ValidationConstants.HipSizeMinValue, ValidationConstants.HipSizeMaxValue)]
         public int HipSizeInCm { get; set; }
 
+        [Range(ValidationConstants.HeightMinValue, ValidationConstants.HeightMaxValue)]
+        public int HeightInCm { get; set; }
+
+        [Range(ValidationConstants.WeightMinValue, ValidationConstants.WeightMaxValue)]
+        public int WeightInKg { get; set; }
+
+        public int BMI { get; set; }
+
         public bool IsDeleted { get; set; }
     }
 }

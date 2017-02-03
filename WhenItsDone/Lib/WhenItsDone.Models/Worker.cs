@@ -47,14 +47,6 @@ namespace WhenItsDone.Models
         [Range(ValidationConstants.AgeMinValue, ValidationConstants.AgeMaxValue)]
         public int Age { get; set; }
 
-        [Range(ValidationConstants.HeightMinValue, ValidationConstants.HeightMaxValue)]
-        public int HeightInCm { get; set; }
-
-        [Range(ValidationConstants.WeightMinValue, ValidationConstants.WeightMaxValue)]
-        public int WeightInKg { get; set; }
-
-        public int BMI { get; set; }
-
         public bool IsAvailable { get; set; }
 
         public int? MedicalInformationId { get; set; }
