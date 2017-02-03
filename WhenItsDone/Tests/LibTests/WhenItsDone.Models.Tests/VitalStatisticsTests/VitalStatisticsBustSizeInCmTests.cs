@@ -11,7 +11,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [TestCase(3)]
         public void BustSizeInCm_GetAndSetShould_WorkProperly(int randomNumber)
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             obj.BustSizeInCm = randomNumber;
 
@@ -21,7 +21,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [Test]
         public void BustSizeInCm_ShouldHave_RangeAttribute()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
                             .GetProperty("BustSizeInCm")
@@ -35,7 +35,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [Test]
         public void BustSizeInCm_ShouldHave_RightMinValueFor_RangeAttribute()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
                             .GetProperty("BustSizeInCm")
@@ -51,7 +51,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [Test]
         public void BustSizeInCm_ShouldHave_RightMaxValueFor_RangeAttribute()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
                             .GetProperty("BustSizeInCm")

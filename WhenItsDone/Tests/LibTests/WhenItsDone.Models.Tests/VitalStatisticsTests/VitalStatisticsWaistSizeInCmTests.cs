@@ -11,7 +11,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [TestCase(366664)]
         public void WaistSizeInCm_GetAndSetShould_WorkProperly(int randomNumber)
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             obj.WaistSizeInCm = randomNumber;
 
@@ -21,7 +21,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [Test]
         public void WaistSizeInCm_ShouldHave_RangeAttribute()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
                             .GetProperty("WaistSizeInCm")
@@ -35,7 +35,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [Test]
         public void WaistSizeInCm_ShouldHave_RightMinValueFor_RangeAttribute()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
                             .GetProperty("WaistSizeInCm")
@@ -51,7 +51,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [Test]
         public void WaistSizeInCm_ShouldHave_RightMaxValueFor_RangeAttribute()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
                             .GetProperty("WaistSizeInCm")

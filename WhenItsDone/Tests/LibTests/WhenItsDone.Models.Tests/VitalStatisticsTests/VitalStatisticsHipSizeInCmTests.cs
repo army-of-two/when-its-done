@@ -11,7 +11,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [TestCase(3)]
         public void HipSizeInCm_GetAndSetShould_WorkProperly(int randomNumber)
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             obj.HipSizeInCm = randomNumber;
 
@@ -21,7 +21,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [Test]
         public void HipSizeInCm_ShouldHave_RangeAttribute()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
                             .GetProperty("HipSizeInCm")
@@ -35,7 +35,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [Test]
         public void HipSizeInCm_ShouldHave_RightMinValueFor_RangeAttribute()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
                             .GetProperty("HipSizeInCm")
@@ -51,7 +51,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [Test]
         public void HipSizeInCm_ShouldHave_RightMaxValueFor_RangeAttribute()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
                             .GetProperty("HipSizeInCm")

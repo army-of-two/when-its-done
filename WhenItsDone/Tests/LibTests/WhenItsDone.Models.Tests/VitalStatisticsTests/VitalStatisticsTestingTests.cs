@@ -13,7 +13,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [Test]
         public void VitalStatistics_VerifyNumberOfProperties()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
                             .GetProperties()
@@ -28,7 +28,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [Test]
         public void VitalStatistics_VerifyNumberOfConstructors()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var methodsCount = obj.GetType()
                                     .GetMethods()
@@ -57,7 +57,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
             var expectedMethodsCount = 0;
             var totalMethodsCount = methodsFromFramework + expectedMethodsCount;
 
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var numberOfMethodsComeFromProperties = obj.GetType()
                                                         .GetProperties()

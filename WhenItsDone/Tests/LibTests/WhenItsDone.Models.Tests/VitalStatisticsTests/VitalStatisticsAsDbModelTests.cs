@@ -10,7 +10,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [Test]
         public void VitalStatistics_ShouldImplement_IDbModelInteface()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
                             .GetInterfaces()

@@ -59,7 +59,7 @@ namespace WhenItsDone.Models
 
         public int? VitalStatisticsId { get; set; }
 
-        public virtual VitalStatistics VitalStatistics { get; set; }
+        public virtual MedicalInformation VitalStatistics { get; set; }
 
         public int? ContactInformationId { get; set; }
 

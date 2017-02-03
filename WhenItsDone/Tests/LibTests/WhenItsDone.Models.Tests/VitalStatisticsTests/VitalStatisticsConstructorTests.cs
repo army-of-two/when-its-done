@@ -8,15 +8,15 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [Test]
         public void VitalStatistics_ShouldHave_ParameterlessConstructor()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
-            Assert.IsInstanceOf<VitalStatistics>(obj);
+            Assert.IsInstanceOf<MedicalInformation>(obj);
         }
 
         [Test]
         public void Constructor_ShouldNotSet_IdProperty()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             Assert.AreEqual(0, obj.Id);
         }
@@ -24,7 +24,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [Test]
         public void Constructor_ShouldNotSet_BustSizeInCmProperty()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             Assert.AreEqual(0, obj.BustSizeInCm);
         }
@@ -32,7 +32,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [Test]
         public void Constructor_ShouldNotSet_WaistSizeInCmProperty()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             Assert.AreEqual(0, obj.WaistSizeInCm);
         }
@@ -40,7 +40,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [Test]
         public void Constructor_ShouldNotSet_HipSizeInCmProperty()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             Assert.AreEqual(0, obj.HipSizeInCm);
         }
@@ -48,7 +48,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [Test]
         public void Constructor_ShouldNotSet_IsDeletedProperty()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             Assert.AreEqual(false, obj.IsDeleted);
         }

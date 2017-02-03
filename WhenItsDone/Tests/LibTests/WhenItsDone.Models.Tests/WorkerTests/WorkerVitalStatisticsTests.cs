@@ -10,7 +10,7 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         [Test]
         public void VitalStatistics_GetAndSetShould_WorkProperly()
         {
-            var mockedVS = new Mock<VitalStatistics>();
+            var mockedVS = new Mock<MedicalInformation>();
 
             var obj = new Worker();
 

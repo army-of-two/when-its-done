@@ -65,7 +65,7 @@
     <Compile Include="ReceivedPayment.cs" />
     <Compile Include="User.cs" />
     <Compile Include="VideoItem.cs" />
-    <Compile Include="VitalStatistics.cs" />
+    <Compile Include="MedicalInformation.cs" />
     <Compile Include="Vitamin.cs" />
     <Compile Include="Worker.cs" />
     <Compile Include="WorkerReview.cs" />

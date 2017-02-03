@@ -9,7 +9,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [TestCase(false)]
         public void IsDeleted_GetAndSetShould_WorkProperly(bool value)
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             obj.IsDeleted = value;
 
