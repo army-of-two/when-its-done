@@ -105,30 +105,6 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         }
 
         [Test]
-        public void Consstructor_ShouldNotSet_HeightInCmProperty()
-        {
-            var obj = new Worker();
-
-            Assert.AreEqual(0, obj.HeightInCm);
-        }
-
-        [Test]
-        public void Consstructor_ShouldNotSet_WeightInKgProperty()
-        {
-            var obj = new Worker();
-
-            Assert.AreEqual(0, obj.WeightInKg);
-        }
-
-        [Test]
-        public void Consstructor_ShouldNotSet_BMIProperty()
-        {
-            var obj = new Worker();
-
-            Assert.AreEqual(0, obj.BMI);
-        }
-
-        [Test]
         public void Consstructor_ShouldNotSet_MedicalInformationProperty()
         {
             var obj = new Worker();

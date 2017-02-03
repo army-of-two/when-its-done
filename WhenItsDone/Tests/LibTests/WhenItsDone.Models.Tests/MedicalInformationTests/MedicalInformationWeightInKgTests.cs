@@ -21,7 +21,7 @@ namespace WhenItsDone.Models.Tests.MedicalInformationTests
         [Test]
         public void WeightInKg_ShouldHave_RangeAttribute()
         {
-            var obj = new Worker();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
                             .GetProperty("WeightInKg")
@@ -35,7 +35,7 @@ namespace WhenItsDone.Models.Tests.MedicalInformationTests
         [Test]
         public void WeightInKg_ShouldHave_RightMinValueFor_RangeAttribute()
         {
-            var obj = new Worker();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
                             .GetProperty("WeightInKg")
@@ -51,7 +51,7 @@ namespace WhenItsDone.Models.Tests.MedicalInformationTests
         [Test]
         public void WeightInKg_ShouldHave_RightMaxValueFor_RangeAttribute()
         {
-            var obj = new Worker();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
                             .GetProperty("WeightInKg")

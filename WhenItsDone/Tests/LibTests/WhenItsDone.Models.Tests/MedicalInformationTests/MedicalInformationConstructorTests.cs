@@ -52,5 +52,29 @@ namespace WhenItsDone.Models.Tests.MedicalInformationTests
 
             Assert.AreEqual(false, obj.IsDeleted);
         }
+
+        [Test]
+        public void Consstructor_ShouldNotSet_HeightInCmProperty()
+        {
+            var obj = new MedicalInformation();
+
+            Assert.AreEqual(0, obj.HeightInCm);
+        }
+
+        [Test]
+        public void Consstructor_ShouldNotSet_WeightInKgProperty()
+        {
+            var obj = new MedicalInformation();
+
+            Assert.AreEqual(0, obj.WeightInKg);
+        }
+
+        [Test]
+        public void Consstructor_ShouldNotSet_BMIProperty()
+        {
+            var obj = new MedicalInformation();
+
+            Assert.AreEqual(0, obj.BMI);
+        }
     }
 }
