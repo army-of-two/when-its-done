@@ -743,13 +743,13 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         /// At that moment TestClas contain 1 Test method = fail mean someone changed it
         /// </summary>
         [Test]
-        public void WorkerVitalStatisticsIdTests_VerifyNumberOfTests()
+        public void WorkerMedicalInformationIdTests_VerifyNumberOfTests()
         {
             var methodsFromFramework = 4;
             var expectedMethods = 1;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
-            var obj = new WorkerVitalStatisticsIdTests();
+            var obj = new WorkerMedicalInformationIdTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -762,9 +762,9 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
         /// </summary>
         [Test]
-        public void WorkerVitalStatisticsIdTests_VeryfyTestCaseAttributes()
+        public void WorkerMedicalInformationIdTests_VeryfyTestCaseAttributes()
         {
-            var obj = new WorkerVitalStatisticsIdTests();
+            var obj = new WorkerMedicalInformationIdTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -780,13 +780,13 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         /// At that moment TestClas contain 2 Test methods = fail mean someone changed it
         /// </summary>
         [Test]
-        public void WorkerVitalStatisticsTests_VerifyNumberOfTests()
+        public void WorkerMedicalInformationTests_VerifyNumberOfTests()
         {
             var methodsFromFramework = 4;
             var expectedMethods = 2;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
-            var obj = new WorkerVitalStatisticsTests();
+            var obj = new WorkerMedicalInformationTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -799,9 +799,9 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         /// At that moment TestClass contains 0 TestCase attributes - fail mean someone changed it
         /// </summary>
         [Test]
-        public void WorkerVitalStatisticsTests_VeryfyTestCaseAttributes()
+        public void WorkerMedicalInformationTests_VeryfyTestCaseAttributes()
         {
-            var obj = new WorkerVitalStatisticsTests();
+            var obj = new WorkerMedicalInformationTests();
 
             var result = obj.GetType()
                             .GetMethods()

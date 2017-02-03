@@ -57,9 +57,9 @@ namespace WhenItsDone.Models
 
         public bool IsAvailable { get; set; }
 
-        public int? VitalStatisticsId { get; set; }
+        public int? MedicalInformationId { get; set; }
 
-        public virtual MedicalInformation VitalStatistics { get; set; }
+        public virtual MedicalInformation MedicalInformation { get; set; }
 
         public int? ContactInformationId { get; set; }
 

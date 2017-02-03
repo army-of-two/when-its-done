@@ -1,12 +1,12 @@
 ﻿using NUnit.Framework;
 
-namespace WhenItsDone.Models.Tests.VitalStatisticsTests
+namespace WhenItsDone.Models.Tests.MedicalInformationTests
 {
     [TestFixture]
-    public class VitalStatisticsConstructorTests
+    public class MedicalInformationConstructorTests
     {
         [Test]
-        public void VitalStatistics_ShouldHave_ParameterlessConstructor()
+        public void MedicalInformation_ShouldHave_ParameterlessConstructor()
         {
             var obj = new MedicalInformation();
 

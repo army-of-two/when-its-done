@@ -2,10 +2,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace WhenItsDone.Models.Tests.VitalStatisticsTests
+namespace WhenItsDone.Models.Tests.MedicalInformationTests
 {
     [TestFixture]
-    public class VitalStatisticsIdTests
+    public class MedicalInformationIdTests
     {
         [Test]
         public void Id_ShouldHave_KeyAttribute()

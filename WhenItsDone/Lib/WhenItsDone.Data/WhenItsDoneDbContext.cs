@@ -58,7 +58,7 @@ namespace WhenItsDone.Data
 
         public virtual IDbSet<Worker> Workers { get; set; }
 
-        public virtual IDbSet<MedicalInformation> VitalStatistics { get; set; }
+        public virtual IDbSet<MedicalInformation> MedicalInformation { get; set; }
 
         public virtual IDbSet<WorkerReview> WorkerReviews { get; set; }
 

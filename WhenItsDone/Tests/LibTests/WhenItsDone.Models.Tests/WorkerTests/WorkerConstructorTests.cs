@@ -129,11 +129,11 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         }
 
         [Test]
-        public void Consstructor_ShouldNotSet_VitalStatisticsProperty()
+        public void Consstructor_ShouldNotSet_MedicalInformationProperty()
         {
             var obj = new Worker();
 
-            Assert.AreEqual(null, obj.VitalStatistics);
+            Assert.AreEqual(null, obj.MedicalInformation);
         }
 
         [Test]
@@ -169,11 +169,11 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         }
 
         [Test]
-        public void Constructor_ShouldNotSet_VitalStatisticsIdProperty()
+        public void Constructor_ShouldNotSet_MedicalInformationIdProperty()
         {
             var obj = new Worker();
 
-            Assert.AreEqual(null, obj.VitalStatisticsId);
+            Assert.AreEqual(null, obj.MedicalInformationId);
         }
     }
 }

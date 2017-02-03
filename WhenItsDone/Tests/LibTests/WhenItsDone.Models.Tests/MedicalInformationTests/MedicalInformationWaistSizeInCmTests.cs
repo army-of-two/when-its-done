@@ -2,10 +2,10 @@
 using System.Linq;
 using WhenItsDone.Models.Constants;
 
-namespace WhenItsDone.Models.Tests.VitalStatisticsTests
+namespace WhenItsDone.Models.Tests.MedicalInformationTests
 {
     [TestFixture]
-    public class VitalStatisticsWaistSizeInCmTests
+    public class MedicalInformationWaistSizeInCmTests
     {
         [TestCase(53)]
         [TestCase(366664)]

@@ -5,27 +5,27 @@ using System.Linq;
 namespace WhenItsDone.Models.Tests.WorkerTests
 {
     [TestFixture]
-    public class WorkerVitalStatisticsTests
+    public class WorkerMedicalInformationTests
     {
         [Test]
-        public void VitalStatistics_GetAndSetShould_WorkProperly()
+        public void MedicalInformation_GetAndSetShould_WorkProperly()
         {
             var mockedVS = new Mock<MedicalInformation>();
 
             var obj = new Worker();
 
-            obj.VitalStatistics = mockedVS.Object;
+            obj.MedicalInformation = mockedVS.Object;
 
-            Assert.AreSame(mockedVS.Object, obj.VitalStatistics);
+            Assert.AreSame(mockedVS.Object, obj.MedicalInformation);
         }
 
         [Test]
-        public void VitalStatistics_ShouldBe_Virtual()
+        public void MedicalInformation_ShouldBe_Virtual()
         {
             var obj = new Worker();
 
             var result = obj.GetType()
-                            .GetProperty("VitalStatistics")
+                            .GetProperty("MedicalInformation")
                             .GetAccessors()
                             .Where(x => x.IsVirtual)
                             .Any();
