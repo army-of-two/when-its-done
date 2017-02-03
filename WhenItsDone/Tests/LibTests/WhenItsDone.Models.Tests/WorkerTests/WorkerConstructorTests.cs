@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
-using WhenItsDone.Models.Enums;
+using WhenItsDone.Common.Enums;
 
 namespace WhenItsDone.Models.Tests.WorkerTests
 {
@@ -129,14 +129,6 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         }
 
         [Test]
-        public void Consstructor_ShouldNotSet_VitalStatisticsIdProperty()
-        {
-            var obj = new Worker();
-
-            Assert.AreEqual(0, obj.VitalStatisticsId);
-        }
-
-        [Test]
         public void Consstructor_ShouldNotSet_VitalStatisticsProperty()
         {
             var obj = new Worker();
@@ -157,7 +149,7 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         {
             var obj = new Worker();
 
-            Assert.AreEqual(0, obj.ContactInformationId);
+            Assert.AreEqual(null, obj.ContactInformationId);
         }
 
         [Test]
@@ -174,6 +166,14 @@ namespace WhenItsDone.Models.Tests.WorkerTests
             var obj = new Worker();
 
             Assert.AreEqual(false, obj.IsDeleted);
+        }
+
+        [Test]
+        public void Constructor_ShouldNotSet_VitalStatisticsIdProperty()
+        {
+            var obj = new Worker();
+
+            Assert.AreEqual(null, obj.VitalStatisticsId);
         }
     }
 }

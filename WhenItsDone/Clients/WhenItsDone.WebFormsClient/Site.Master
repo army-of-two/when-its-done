@@ -87,5 +87,6 @@
             </footer>
         </div>
     </form>
+    <asp:ContentPlaceHolder ID="JavaScript" runat="server"></asp:ContentPlaceHolder>
 </body>
 </html>

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using WhenItsDone.Common.Enums;
 using WhenItsDone.Models;
-using WhenItsDone.Models.Enums;
 
 namespace WhenItsDone.DTOs.WorkerVIewsDTOs
 {

@@ -1,4 +1,4 @@
-﻿namespace WhenItsDone.Models.Enums
+﻿namespace WhenItsDone.Common.Enums
 {
     public enum MeasurementUnitType
     {

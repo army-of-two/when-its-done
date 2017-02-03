@@ -9,7 +9,7 @@ using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.Services
 {
-    public class WorkersAsyncService : GenericAsyncService<Worker>, IWorkersAsyncService, Contracts.IGenericAsyncService<Worker>, IService
+    public class WorkersAsyncService : GenericAsyncService<Worker>, IWorkersAsyncService, IGenericAsyncService<Worker>, IService
     {
         private readonly IWorkerAsyncRepository workerRepo;
 

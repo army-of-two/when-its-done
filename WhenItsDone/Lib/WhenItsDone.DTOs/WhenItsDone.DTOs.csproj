@@ -45,6 +45,10 @@
     <Compile Include="WorkerVIewsDTOs\WorkerWithDishesDTO.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WhenItsDone.Common\WhenItsDone.Common.csproj">
+      <Project>{42e362e0-9e6c-4867-88aa-cf2cc00fe1f8}</Project>
+      <Name>WhenItsDone.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WhenItsDone.Models\WhenItsDone.Models.csproj">
       <Project>{E10CC5A1-7DD9-4F43-8798-AA58882CAF6F}</Project>
       <Name>WhenItsDone.Models</Name>

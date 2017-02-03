@@ -1,15 +1,14 @@
 ﻿using Ninject.Extensions.Conventions;
+using Ninject.Extensions.Factory;
 using Ninject.Modules;
 using Ninject.Web.Common;
 
-using WhenItsDone.Models;
-using WhenItsDone.Services;
 using WhenItsDone.Services.AssemblyId;
 using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 {
-    public class ServicesBindingsModule : NinjectModule
+    public class ServicesNinjectModule : NinjectModule
     {
         public override void Load()
         {

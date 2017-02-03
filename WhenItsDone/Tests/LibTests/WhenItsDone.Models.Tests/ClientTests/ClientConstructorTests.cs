@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
-using WhenItsDone.Models.Enums;
+using WhenItsDone.Common.Enums;
 
 namespace WhenItsDone.Models.Tests.ClientTests
 {
@@ -88,7 +88,7 @@ namespace WhenItsDone.Models.Tests.ClientTests
         {
             var obj = new Client();
 
-            Assert.AreEqual(0, obj.ContactInformationId);
+            Assert.AreEqual(null, obj.ContactInformationId);
         }
 
         [Test]

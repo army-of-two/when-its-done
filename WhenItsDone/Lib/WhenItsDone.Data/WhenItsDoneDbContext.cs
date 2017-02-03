@@ -50,6 +50,8 @@ namespace WhenItsDone.Data
 
         public virtual IDbSet<Recipe> Recipes { get; set; }
 
+        public virtual IDbSet<User> Users { get; set; }
+
         public virtual IDbSet<VideoItem> VideoItems { get; set; }
 
         public virtual IDbSet<Vitamin> Vitamins { get; set; }
@@ -62,7 +64,7 @@ namespace WhenItsDone.Data
 
         public IStateful<TEntity> GetStateful<TEntity>(TEntity entity) where TEntity : class
         {
-            return this.statefulFactory.GetStateful(base.Entry<TEntity>(entity));
+            return this.statefulFactory.CreateStateful(base.Entry<TEntity>(entity));
         }
     }
 }

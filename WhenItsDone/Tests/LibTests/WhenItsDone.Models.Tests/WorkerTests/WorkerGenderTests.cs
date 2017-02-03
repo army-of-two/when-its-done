@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using WhenItsDone.Models.Enums;
+using WhenItsDone.Common.Enums;
 
 namespace WhenItsDone.Models.Tests.WorkerTests
 {

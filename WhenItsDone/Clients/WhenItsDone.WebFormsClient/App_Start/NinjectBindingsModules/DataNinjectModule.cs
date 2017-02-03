@@ -16,7 +16,7 @@ using WhenItsDone.Services;
 
 namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 {
-    public class DataBindingsModule : NinjectModule
+    public class DataNinjectModule : NinjectModule
     {
         public override void Load()
         {
@@ -37,20 +37,6 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 .InRequestScope();
 
             this.Bind<IStatefulFactory>().ToFactory().InSingletonScope();
-
-            // if binding above do not work change with code below maybe
-
-            //this.Bind(typeof(IStateful<>)).ToMethod(ctx =>
-            //{
-            //    var param = ctx.Parameters.Single();
-
-            //    var result = ctx.Kernel.Get(typeof(IStateful<>), param);
-
-            //    return result;
-            //})
-            //.InSingletonScope()
-            //// GetStateful<object> ?!?
-            //.NamedLikeFactoryMethod((IStatefulFactory fac) => fac.GetStateful<object>(null));
         }
     }
 }

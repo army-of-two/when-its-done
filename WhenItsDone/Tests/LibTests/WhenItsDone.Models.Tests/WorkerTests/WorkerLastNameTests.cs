@@ -8,19 +8,19 @@ namespace WhenItsDone.Models.Tests.WorkerTests
     [TestFixture]
     public class WorkerLastNameTests
     {
-        [Test]
-        public void LastName_ShouldHave_RequireAttribute()
-        {
-            var obj = new Worker();
+        //[Test]
+        //public void LastName_ShouldHave_RequireAttribute()
+        //{
+        //    var obj = new Worker();
 
-            var result = obj.GetType()
-                            .GetProperty("LastName")
-                            .GetCustomAttributes(false)
-                            .Where(x => x.GetType() == typeof(RequiredAttribute))
-                            .Any();
+        //    var result = obj.GetType()
+        //                    .GetProperty("LastName")
+        //                    .GetCustomAttributes(false)
+        //                    .Where(x => x.GetType() == typeof(RequiredAttribute))
+        //                    .Any();
 
-            Assert.IsTrue(result);
-        }
+        //    Assert.IsTrue(result);
+        //}
 
         [Test]
         public void LastName_ShouldHave_MinLengthAttribute()

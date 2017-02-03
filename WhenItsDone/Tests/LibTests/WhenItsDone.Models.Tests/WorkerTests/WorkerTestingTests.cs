@@ -376,7 +376,7 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         public void WorkerFirstNameTests_VerifyNumberOfTests()
         {
             var methodsFromFramework = 4;
-            var expectedMethods = 8;
+            var expectedMethods = 7;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
             var obj = new WorkerFirstNameTests();
@@ -413,7 +413,7 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         public void WorkerLastNameTests_VerifyNumberOfTests()
         {
             var methodsFromFramework = 4;
-            var expectedMethods = 8;
+            var expectedMethods = 7;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
             var obj = new WorkerLastNameTests();
