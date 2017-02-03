@@ -166,7 +166,7 @@
     <Compile Include="WorkerReviewTests\WorkerReviewIdTests.cs" />
     <Compile Include="WorkerReviewTests\WorkerReviewConstructorTests.cs" />
     <Compile Include="WorkerReviewTests\WorkerReviewAsDbModelTests.cs" />
-    <Compile Include="WorkerTests\WorkerBMITests.cs" />
+    <Compile Include="MedicalInformationTests\MedicalInformationBMITests.cs" />
     <Compile Include="WorkerTests\WorkerContactInformationIdTests.cs" />
     <Compile Include="WorkerTests\WorkerContactInformationTests.cs" />
     <Compile Include="WorkerTests\WorkerIsAvailableTests.cs" />
@@ -179,13 +179,13 @@
     <Compile Include="WorkerTests\WorkerVideoItemsTests.cs" />
     <Compile Include="WorkerTests\WorkerMedicalInformationIdTests.cs" />
     <Compile Include="WorkerTests\WorkerMedicalInformationTests.cs" />
-    <Compile Include="WorkerTests\WorkerWeightInKgTests.cs" />
+    <Compile Include="MedicalInformationTests\MedicalInformationWeightInKgTests.cs" />
     <Compile Include="WorkerTests\WorkerAgeTests.cs" />
     <Compile Include="WorkerTests\WorkerAsDbModelTests.cs" />
     <Compile Include="WorkerTests\WorkerConstructorTests.cs" />
     <Compile Include="WorkerTests\WorkerFirstNameTests.cs" />
     <Compile Include="WorkerTests\WorkerGenderTests.cs" />
-    <Compile Include="WorkerTests\WorkerHeightInCmTests.cs" />
+    <Compile Include="MedicalInformationTests\MedicalInformationHeightInCmTests.cs" />
     <Compile Include="WorkerTests\WorkerIdTests.cs" />
     <Compile Include="WorkerTests\WorkerLastNameTests.cs" />
   </ItemGroup>

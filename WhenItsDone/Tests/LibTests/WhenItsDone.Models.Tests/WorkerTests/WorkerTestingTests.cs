@@ -268,7 +268,7 @@ namespace WhenItsDone.Models.Tests.WorkerTests
             var expectedMethods = 1;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
-            var obj = new WorkerBMITests();
+            var obj = new MedicalInformationBMITests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -283,7 +283,7 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         [Test]
         public void WorkerBMITests_VeryfyTestCaseAttributes()
         {
-            var obj = new WorkerBMITests();
+            var obj = new MedicalInformationBMITests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -490,7 +490,7 @@ namespace WhenItsDone.Models.Tests.WorkerTests
             var expectedMethods = 4;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
-            var obj = new WorkerHeightInCmTests();
+            var obj = new MedicalInformationHeightInCmTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -505,7 +505,7 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         [Test]
         public void WorkerHeightInCmTests_VeryfyTestCaseAttributes()
         {
-            var obj = new WorkerHeightInCmTests();
+            var obj = new MedicalInformationHeightInCmTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -823,7 +823,7 @@ namespace WhenItsDone.Models.Tests.WorkerTests
             var expectedMethods = 4;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
-            var obj = new WorkerWeightInKgTests();
+            var obj = new MedicalInformationWeightInKgTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -838,7 +838,7 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         [Test]
         public void WorkerWeightInKgTests_VeryfyTestCaseAttributes()
         {
-            var obj = new WorkerWeightInKgTests();
+            var obj = new MedicalInformationWeightInKgTests();
 
             var result = obj.GetType()
                             .GetMethods()
