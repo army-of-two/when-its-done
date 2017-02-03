@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using WebFormsMvp;
+using WhenItsDone.DTOs.WorkerVIewsDTOs;
 using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.MVP.AdminPageControls.APWorkersControlMVP
@@ -21,9 +23,34 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkersControlMVP
             this.View.GetWorkersWithDishes += View_GetWorkersWithDishes;
         }
 
+        private IEnumerable<WorkerWithDishesDTO> GetWorkers()
+        {
+            return new List<WorkerWithDishesDTO>()
+            {
+                new WorkerWithDishesDTO()
+                {
+                    Id=1,
+                    FirstName ="first",
+                    LastName = "FirstLast"
+                },
+                new WorkerWithDishesDTO()
+                {
+                    Id=1,
+                    FirstName ="first",
+                    LastName = "FirstLast"
+                },
+                new WorkerWithDishesDTO()
+                {
+                    Id=1,
+                    FirstName ="first",
+                    LastName = "FirstLast"
+                }
+            };
+        }
+
         private void View_GetWorkersWithDishes(object sender, EventArgs e)
         {
-            this.View.Model.WorkersWithDishes = this.workersService.GetWorkersWithDIshes();
+            this.View.Model.WorkersWithDishes = this.GetWorkers(); //this.workersService.GetWorkersWithDIshes();
         }
     }
 }

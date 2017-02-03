@@ -18,7 +18,10 @@ namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.GetWorkersWithDishes?.Invoke(this, null);
 
+            this.workersList.DataSource = this.Model.WorkersWithDishes;
+            this.workersList.DataBind();
         }
     }
 }
