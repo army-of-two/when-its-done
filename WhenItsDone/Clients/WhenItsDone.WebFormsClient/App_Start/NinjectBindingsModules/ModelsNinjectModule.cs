@@ -10,10 +10,10 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
     {
         public override void Load()
         {
-            this.Bind(this.ConfigureConventionBinding);
+            this.Bind(this.ConfigureFactoriesConventionBinding);
         }
 
-        private void ConfigureConventionBinding(IFromSyntax bindingSyntax)
+        private void ConfigureFactoriesConventionBinding(IFromSyntax bindingSyntax)
         {
             bindingSyntax
                 .FromAssemblyContaining<IModelsAssemblyId>()

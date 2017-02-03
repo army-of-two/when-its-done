@@ -35,20 +35,20 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 .InSingletonScope();
 
             this.Bind<IPresenter>()
-                .ToMethod(this.PresenterFactoryMethod)
+                .ToMethod(this.GetPresenterFactoryMethod)
                 .NamedLikeFactoryMethod((ICustomPresenterFactory factory) => factory.GetPresenter(null, null));
         }
         
-        private IPresenter PresenterFactoryMethod(IContext context)
+        private IPresenter GetPresenterFactoryMethod(IContext context)
         {
             var parameters = context.Parameters.ToList();
 
             var requestedType = (Type)parameters[0].GetValue(context, null);
             var viewInstance = (IView)parameters[1].GetValue(context, null);
 
-            var viewInstanceParameter = new ConstructorArgument("view", viewInstance);
+            var viewInstanceCtorParameter = new ConstructorArgument("view", viewInstance);
 
-            return (IPresenter)context.Kernel.Get(requestedType, viewInstanceParameter);
+            return (IPresenter)context.Kernel.Get(requestedType, viewInstanceCtorParameter);
         }
     }
 }

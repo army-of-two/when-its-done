@@ -12,9 +12,9 @@ namespace WhenItsDone.Services
     public class UsersAsyncService : GenericAsyncService<User>, IUsersAsyncService, IGenericAsyncService<User>
     {
         private readonly IUsersAsyncRepository asyncRepository;
-        private readonly IUserDbModelFactory userDbModelFactory;
+        private readonly ICompleteUserFactory userDbModelFactory;
 
-        public UsersAsyncService(IUsersAsyncRepository asyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory, IUserDbModelFactory userDbModelFactory)
+        public UsersAsyncService(IUsersAsyncRepository asyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory, ICompleteUserFactory userDbModelFactory)
             : base(asyncRepository, unitOfWorkFactory)
         {
             if (userDbModelFactory == null)

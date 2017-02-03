@@ -1,8 +1,8 @@
 ﻿using System;
 
 using WhenItsDone.DefaultAuth;
-using WhenItsDone.MVP.AccountPages.RegisterMVP;
 using WhenItsDone.DefaultAuth.DefaultRegisterServices;
+using WhenItsDone.MVP.AccountPages.RegisterMVP;
 
 using WebFormsMvp;
 using WebFormsMvp.Web;
