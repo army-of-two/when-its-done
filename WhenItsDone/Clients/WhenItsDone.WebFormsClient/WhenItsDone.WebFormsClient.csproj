@@ -267,7 +267,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="ViewControls\AdminPageControls\APWorkerDishesControl.ascx" />
     <Content Include="ViewControls\AdminPageControls\APWorkersControl.ascx" />
+    <Content Include="ViewControls\AdminPageControls\APWorkersSourseControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopDishesUserControl.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -444,12 +446,26 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewControls\AdminPageControls\APWorkerDishesControl.ascx.cs">
+      <DependentUpon>APWorkerDishesControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\AdminPageControls\APWorkerDishesControl.ascx.designer.cs">
+      <DependentUpon>APWorkerDishesControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ViewControls\AdminPageControls\APWorkersControl.ascx.cs">
       <DependentUpon>APWorkersControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewControls\AdminPageControls\APWorkersControl.ascx.designer.cs">
       <DependentUpon>APWorkersControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControls\AdminPageControls\APWorkersSourseControl.ascx.cs">
+      <DependentUpon>APWorkersSourseControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\AdminPageControls\APWorkersSourseControl.ascx.designer.cs">
+      <DependentUpon>APWorkersSourseControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViewControls\ContentContainers\TopDishesUserControl.ascx.cs">
       <DependentUpon>TopDishesUserControl.ascx</DependentUpon>
