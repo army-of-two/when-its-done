@@ -9,10 +9,12 @@ namespace WhenItsDone.Models
     public class Dish : IDbModel
     {
         private ICollection<PhotoItem> photoItems;
+        private ICollection<WorkerReview> workerReviews;
 
         public Dish()
         {
             this.photoItems = new HashSet<PhotoItem>();
+            this.workerReviews = new HashSet<WorkerReview>();
         }
 
         [Key]
@@ -39,6 +41,19 @@ namespace WhenItsDone.Models
             set
             {
                 this.photoItems = value;
+            }
+        }
+
+        public virtual ICollection<WorkerReview> WorkerReviews
+        {
+            get
+            {
+                return this.workerReviews;
+            }
+
+            set
+            {
+                this.workerReviews = value;
             }
         }
 

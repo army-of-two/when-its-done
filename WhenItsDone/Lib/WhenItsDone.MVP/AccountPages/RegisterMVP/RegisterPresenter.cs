@@ -26,6 +26,7 @@ namespace WhenItsDone.MVP.AccountPages.RegisterMVP
         public void OnDefaultRegisterOperationComplete(object sender, DefaultRegisterOperationCompleteEventArgs args)
         {
             Guard.WhenArgument(args, nameof(DefaultRegisterOperationCompleteEventArgs)).IsNull();
+            Guard.WhenArgument(args.Username, "DefaultRegisterOperationCompleteEventArgs.Username is null or empty.").IsNullOrEmpty();
 
             this.View.Model.RegisterIsSuccessful = args.RegisterIsSuccessful;
             if (this.View.Model.RegisterIsSuccessful)
