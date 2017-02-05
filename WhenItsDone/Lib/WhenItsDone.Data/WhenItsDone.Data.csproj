@@ -78,6 +78,7 @@
     <Compile Include="Contracts\IAsyncRepository.cs" />
     <Compile Include="Contracts\IDishesAsyncRepository.cs" />
     <Compile Include="Contracts\IDisposableUnitOfWork.cs" />
+    <Compile Include="Contracts\IProfilePicturesAsyncRepository.cs" />
     <Compile Include="Contracts\IStateful.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Contracts\IUsersAsyncRepository.cs" />
@@ -173,6 +174,7 @@
       <DependentUpon>201702051450448_updated with constant.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\ProfilePicturesAsyncRepository.cs" />
     <Compile Include="Repositories\WorkerAsyncRepository.cs" />
     <Compile Include="Repositories\DishesAsyncRepository.cs" />
     <Compile Include="Repositories\GenericAsyncRepository.cs" />

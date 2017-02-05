@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 using WhenItsDone.Models.Constants;
+using WhenItsDone.Models.Contracts;
 
 namespace WhenItsDone.Models
 {
-    public class ProfilePicture
+    public class ProfilePicture : IDbModel
     {
         [Key]
         public int Id { get; set; }
@@ -18,5 +19,7 @@ namespace WhenItsDone.Models
         [Required]
         [MaxLength(5)]
         public string MimeType { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }
