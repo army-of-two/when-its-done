@@ -15,6 +15,8 @@ namespace WhenItsDone.Models
         private ICollection<ReceivedPayment> receivedPayments;
         private ICollection<ClientReview> clientReviews;
         private ICollection<Dish> dishes;
+        private ICollection<Payment> payments;
+        private ICollection<User> users;
 
         public Worker()
         {
@@ -24,6 +26,8 @@ namespace WhenItsDone.Models
             this.receivedPayments = new HashSet<ReceivedPayment>();
             this.clientReviews = new HashSet<ClientReview>();
             this.dishes = new HashSet<Dish>();
+            this.payments = new HashSet<Payment>();
+            this.users = new HashSet<User>();
 
             this.IsAvailable = true;
         }
@@ -134,6 +138,32 @@ namespace WhenItsDone.Models
             set
             {
                 this.clientReviews = value;
+            }
+        }
+
+        public virtual ICollection<Payment> Payments
+        {
+            get
+            {
+                return this.payments;
+            }
+
+            set
+            {
+                this.payments = value;
+            }
+        }
+
+        public virtual ICollection<User> Users
+        {
+            get
+            {
+                return this.users;
+            }
+
+            set
+            {
+                this.users = value;
             }
         }
 

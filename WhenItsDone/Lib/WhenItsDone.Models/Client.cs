@@ -12,12 +12,16 @@ namespace WhenItsDone.Models
         private ICollection<Job> jobs;
         private ICollection<Payment> payments;
         private ICollection<WorkerReview> workerReview;
+        private ICollection<ReceivedPayment> receivedPayments;
+        private ICollection<User> users;
 
         public Client()
         {
             this.jobs = new HashSet<Job>();
             this.payments = new HashSet<Payment>();
             this.workerReview = new HashSet<WorkerReview>();
+            this.receivedPayments = new HashSet<ReceivedPayment>();
+            this.users = new HashSet<User>();
 
             this.IsAvailable = true;
         }
@@ -62,6 +66,19 @@ namespace WhenItsDone.Models
             }
         }
 
+        public virtual ICollection<ReceivedPayment> ReceivedPayments
+        {
+            get
+            {
+                return this.receivedPayments;
+            }
+
+            set
+            {
+                this.receivedPayments = value;
+            }
+        }
+
         public virtual ICollection<Job> Jobs
         {
             get
@@ -85,6 +102,19 @@ namespace WhenItsDone.Models
             set
             {
                 this.workerReview = value;
+            }
+        }
+
+        public virtual ICollection<User> Users
+        {
+            get
+            {
+                return this.users;
+            }
+
+            set
+            {
+                this.users = value;
             }
         }
 

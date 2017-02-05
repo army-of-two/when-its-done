@@ -14,6 +14,10 @@ namespace WhenItsDone.Models
         [MaxLength(ValidationConstants.UrlLengthMaxValue)]
         public string Url { get; set; }
 
+        public int WorkerId { get; set; }
+
+        public virtual Worker Worker { get; set; }
+
         public bool IsDeleted { get; set; }
     }
 }

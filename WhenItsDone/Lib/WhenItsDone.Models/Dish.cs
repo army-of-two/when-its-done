@@ -31,6 +31,10 @@ namespace WhenItsDone.Models
         [Range(ValidationConstants.DishPriceMinValue, ValidationConstants.DishPriceMaxValue)]
         public decimal Price { get; set; }
 
+        public int WorkerId { get; set; }
+
+        public virtual Worker Worker { get; set; }
+
         public virtual ICollection<PhotoItem> PhotoItems
         {
             get
