@@ -19,6 +19,9 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
         public override void Load()
         {
             this.Bind(this.ConfigureFactoriesConventionBinding);
+
+            this.Bind<User>().ToSelf().NamedLikeFactoryMethod((ICompleteUserFactory factory) => factory.GetUser());
+            this.Bind<User>().ToMethod(this.GetInitializedUserFactoryMethod).NamedLikeFactoryMethod((IInitializedUserFactory factory) => factory.GetInitializedUser(null));
         }
 
         private void ConfigureFactoriesConventionBinding(IFromSyntax bindingSyntax)
@@ -29,9 +32,6 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 .EndingWith("Factory")
                 .BindToFactory()
                 .Configure(binding => binding.InSingletonScope());
-
-            this.Bind<User>().ToSelf().NamedLikeFactoryMethod((ICompleteUserFactory factory) => factory.GetUser());
-            this.Bind<User>().ToMethod(this.GetInitializedUserFactoryMethod).NamedLikeFactoryMethod((IInitializedUserFactory factory) => factory.GetInitializedUser(null));
         }
 
         private User GetInitializedUserFactoryMethod(IContext context)
