@@ -9,9 +9,9 @@ namespace WhenItsDone.MVP.AccountPages.RegisterMVP
 {
     public class RegisterPresenter : Presenter<IRegisterView>, IRegisterPresenter
     {
-        private readonly IUsersAsyncService userService;
+        private readonly IUsersRegistrationAsyncService userService;
 
-        public RegisterPresenter(IRegisterView view, IUsersAsyncService userService, IDefaultRegisterService defaultRegisterService)
+        public RegisterPresenter(IRegisterView view, IUsersRegistrationAsyncService userService, IDefaultRegisterService defaultRegisterService)
             : base(view)
         {
             Guard.WhenArgument(userService, nameof(IUsersAsyncService)).IsNull();

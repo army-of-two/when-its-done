@@ -49,6 +49,7 @@
     <Compile Include="Contracts\IDishesAsyncService.cs" />
     <Compile Include="Contracts\IGenericAsyncService.cs" />
     <Compile Include="Contracts\IService.cs" />
+    <Compile Include="Contracts\IUsersRegistrationAsyncService.cs" />
     <Compile Include="Contracts\IUsersAsyncService.cs" />
     <Compile Include="Contracts\IWorkersAsyncService.cs" />
     <Compile Include="DishesAsyncService.cs" />
