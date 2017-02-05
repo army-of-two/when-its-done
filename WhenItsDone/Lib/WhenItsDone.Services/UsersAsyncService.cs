@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Bytes2you.Validation;
 
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
@@ -12,18 +12,15 @@ namespace WhenItsDone.Services
     public class UsersAsyncService : GenericAsyncService<User>, IUsersAsyncService, IGenericAsyncService<User>
     {
         private readonly IUsersAsyncRepository asyncRepository;
-        private readonly ICompleteUserFactory userDbModelFactory;
+        private readonly IInitializedUserFactory userDbModelFactory;
 
-        public UsersAsyncService(IUsersAsyncRepository asyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory, ICompleteUserFactory userDbModelFactory)
+        public UsersAsyncService(IUsersAsyncRepository asyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory, IInitializedUserFactory userDbModelFactory)
             : base(asyncRepository, unitOfWorkFactory)
         {
-            if (userDbModelFactory == null)
-            {
-                throw new ArgumentNullException(nameof(userDbModelFactory));
-            }
+            Guard.WhenArgument(userDbModelFactory, nameof(IInitializedUserFactory)).IsNull();
+            Guard.WhenArgument(asyncRepository, nameof(IUsersAsyncRepository)).IsNull();
 
             this.userDbModelFactory = userDbModelFactory;
-
             this.asyncRepository = asyncRepository;
         }
 
@@ -36,10 +33,7 @@ namespace WhenItsDone.Services
                 return isSuccessful;
             }
 
-            var nextUser = this.userDbModelFactory.CreateUser();
-            nextUser.Client = this.userDbModelFactory.CreateClient();
-            nextUser.Worker = this.userDbModelFactory.CreateWorker();
-            nextUser.Username = username;
+            var nextUser = this.userDbModelFactory.GetInitializedUser(username);
 
             this.asyncRepository.Add(nextUser);
             using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())

@@ -12,7 +12,8 @@ namespace WhenItsDone.Models
 
         public string Username { get; set; }
 
-        public int? Rating { get; set; }
+        [Range(ValidationConstants.RatingMinValue, ValidationConstants.RatingMaxValue)]
+        public int Rating { get; set; }
 
         [MinLength(ValidationConstants.NameMinLength)]
         [MaxLength(ValidationConstants.NameMaxLength)]
@@ -36,6 +37,14 @@ namespace WhenItsDone.Models
         public int? WorkerId { get; set; }
 
         public virtual Worker Worker { get; set; }
+
+        public int? MedicalInformationId { get; set; }
+
+        public virtual MedicalInformation MedicalInformation { get; set; }
+
+        public int? ContactInformationId { get; set; }
+
+        public virtual ContactInformation ContactInformation { get; set; }
 
         public bool IsDeleted { get; set; }
     }

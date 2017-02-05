@@ -38,6 +38,10 @@
       <HintPath>..\..\packages\AutoMapper.EF6.0.5.0\lib\net45\AutoMapper.EF6.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Bytes2you.Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a7d501dd757e0442, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Bytes2you.Validation.2.0.0.0\lib\portable-win+net40+sl40+wp+Xbox40\Bytes2you.Validation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DelegateDecompiler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=93b26a10a04705bd, processorArchitecture=MSIL">
       <HintPath>..\..\packages\DelegateDecompiler.0.18.1\lib\net40-Client\DelegateDecompiler.dll</HintPath>
       <Private>True</Private>
@@ -136,6 +140,18 @@
     <Compile Include="Migrations\201702031354231_VitalStatistics to MedicalInformation.Designer.cs">
       <DependentUpon>201702031354231_VitalStatistics to MedicalInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702051103140_added ContactInformation and MedicalInformation to User model.cs" />
+    <Compile Include="Migrations\201702051103140_added ContactInformation and MedicalInformation to User model.Designer.cs">
+      <DependentUpon>201702051103140_added ContactInformation and MedicalInformation to User model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702051125231_updated medical information.cs" />
+    <Compile Include="Migrations\201702051125231_updated medical information.Designer.cs">
+      <DependentUpon>201702051125231_updated medical information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702051317179_updated ContactInformation.cs" />
+    <Compile Include="Migrations\201702051317179_updated ContactInformation.Designer.cs">
+      <DependentUpon>201702051317179_updated ContactInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\WorkerAsyncRepository.cs" />
     <Compile Include="Repositories\DishesAsyncRepository.cs" />
@@ -206,6 +222,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702031354231_VitalStatistics to MedicalInformation.resx">
       <DependentUpon>201702031354231_VitalStatistics to MedicalInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051103140_added ContactInformation and MedicalInformation to User model.resx">
+      <DependentUpon>201702051103140_added ContactInformation and MedicalInformation to User model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051125231_updated medical information.resx">
+      <DependentUpon>201702051125231_updated medical information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051317179_updated ContactInformation.resx">
+      <DependentUpon>201702051317179_updated ContactInformation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

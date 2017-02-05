@@ -265,7 +265,7 @@ namespace WhenItsDone.Models.Tests.ClientTests
         public void ClientFirstNameTests_VerifyNumberOfTests()
         {
             var methodsFromFramework = 4;
-            var expectedMethods = 7;
+            var expectedMethods = 8;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
             var obj = new ClientFirstNameTests();
@@ -487,7 +487,7 @@ namespace WhenItsDone.Models.Tests.ClientTests
         public void ClientLastNameTests_VerifyNumberOfTests()
         {
             var methodsFromFramework = 4;
-            var expectedMethods = 7;
+            var expectedMethods = 8;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
             var obj = new ClientLastNameTests();

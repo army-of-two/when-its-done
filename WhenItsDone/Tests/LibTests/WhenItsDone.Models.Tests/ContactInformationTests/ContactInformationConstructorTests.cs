@@ -26,7 +26,7 @@ namespace WhenItsDone.Models.Tests.ContactInformationTests
         {
             var obj = new ContactInformation();
 
-            Assert.AreEqual(0, obj.AddressId);
+            Assert.AreEqual(null, obj.AddressId);
         }
 
         [Test]
