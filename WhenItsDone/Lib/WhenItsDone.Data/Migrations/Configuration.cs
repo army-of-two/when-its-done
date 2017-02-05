@@ -30,21 +30,21 @@ namespace WhenItsDone.Data.Migrations
             //    );
             //
 
-            if (!context.ProfilePictures.Any())
-            {
-                var defaultProfilePicture = new ProfilePicture();
-                defaultProfilePicture.MimeType = "jpg";
-                defaultProfilePicture.PictureUrl = "http://cdn.litlepups.net/2016/05/22/cute-cat-profile-for-facebook.jpg";
+            //if (!context.ProfilePictures.Any())
+            //{
+            //    var defaultProfilePicture = new ProfilePicture();
+            //    defaultProfilePicture.MimeType = "jpg";
+            //    defaultProfilePicture.PictureUrl = "http://cdn.litlepups.net/2016/05/22/cute-cat-profile-for-facebook.jpg";
 
-                using (var client = new WebClient())
-                {
-                    var downloadedData = client.DownloadData(defaultProfilePicture.PictureUrl);
-                    defaultProfilePicture.PictureBase64 = Convert.ToBase64String(downloadedData);
-                }
+            //    using (var client = new WebClient())
+            //    {
+            //        var downloadedData = client.DownloadData(defaultProfilePicture.PictureUrl);
+            //        defaultProfilePicture.PictureBase64 = Convert.ToBase64String(downloadedData);
+            //    }
 
-                context.ProfilePictures.Add(defaultProfilePicture);
-                context.SaveChanges();
-            }
+            //    context.ProfilePictures.Add(defaultProfilePicture);
+            //    context.SaveChanges();
+            //}
         }
     }
 }

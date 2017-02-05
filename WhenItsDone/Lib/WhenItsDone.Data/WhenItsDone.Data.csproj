@@ -160,6 +160,14 @@
     <Compile Include="Migrations\201702051401559_updated ProfilePicture.Designer.cs">
       <DependentUpon>201702051401559_updated ProfilePicture.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702051443158_updated ProfilePicture model with PictureUrl prop.cs" />
+    <Compile Include="Migrations\201702051443158_updated ProfilePicture model with PictureUrl prop.Designer.cs">
+      <DependentUpon>201702051443158_updated ProfilePicture model with PictureUrl prop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702051444291_Added mime type contraint.cs" />
+    <Compile Include="Migrations\201702051444291_Added mime type contraint.Designer.cs">
+      <DependentUpon>201702051444291_Added mime type contraint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\WorkerAsyncRepository.cs" />
     <Compile Include="Repositories\DishesAsyncRepository.cs" />
@@ -245,6 +253,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702051401559_updated ProfilePicture.resx">
       <DependentUpon>201702051401559_updated ProfilePicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051443158_updated ProfilePicture model with PictureUrl prop.resx">
+      <DependentUpon>201702051443158_updated ProfilePicture model with PictureUrl prop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051444291_Added mime type contraint.resx">
+      <DependentUpon>201702051444291_Added mime type contraint.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
