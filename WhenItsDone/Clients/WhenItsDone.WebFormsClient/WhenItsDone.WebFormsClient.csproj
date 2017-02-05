@@ -269,6 +269,7 @@
     <Content Include="Site.Master" />
     <Content Include="ViewControls\AdminPageControls\APWorkersControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopDishesUserControl.ascx" />
+    <Content Include="ViewControls\ContentContainers\TopUsersUserControl.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -457,6 +458,13 @@
     </Compile>
     <Compile Include="ViewControls\ContentContainers\TopDishesUserControl.ascx.designer.cs">
       <DependentUpon>TopDishesUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControls\ContentContainers\TopUsersUserControl.ascx.cs">
+      <DependentUpon>TopUsersUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\ContentContainers\TopUsersUserControl.ascx.designer.cs">
+      <DependentUpon>TopUsersUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

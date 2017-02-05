@@ -56,6 +56,7 @@
     <Compile Include="Dish.cs" />
     <Compile Include="Factories\IClientFactory.cs" />
     <Compile Include="Factories\IUserFactory.cs" />
+    <Compile Include="ProfilePicture.cs" />
     <Compile Include="Recipe.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="Ingredient.cs" />
