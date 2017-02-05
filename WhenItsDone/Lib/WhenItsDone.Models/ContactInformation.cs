@@ -9,10 +9,12 @@ namespace WhenItsDone.Models
     public class ContactInformation : IDbModel
     {
         private ICollection<Client> clients;
+        private ICollection<User> users;
 
         public ContactInformation()
         {
             this.clients = new HashSet<Client>();
+            this.users = new HashSet<User>();
         }
 
         [Key]
@@ -42,6 +44,19 @@ namespace WhenItsDone.Models
             set
             {
                 this.clients = value;
+            }
+        }
+
+        public virtual ICollection<User> Users
+        {
+            get
+            {
+                return this.users;
+            }
+
+            set
+            {
+                this.users = value;
             }
         }
 

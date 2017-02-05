@@ -11,10 +11,12 @@ namespace WhenItsDone.Models
     public class MedicalInformation : IDbModel
     {
         private ICollection<User> users;
+        private ICollection<Worker> workers;
 
         public MedicalInformation()
         {
             this.users = new HashSet<User>();
+            this.workers = new HashSet<Worker>();
         }
 
         [Key]
@@ -47,6 +49,19 @@ namespace WhenItsDone.Models
             set
             {
                 this.users = value;
+            }
+        }
+
+        public virtual ICollection<Worker> Workers
+        {
+            get
+            {
+                return this.workers;
+            }
+
+            set
+            {
+                this.workers = value;
             }
         }
 
