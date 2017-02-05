@@ -173,6 +173,10 @@
     <Compile Include="Migrations\201702051450448_updated with constant.Designer.cs">
       <DependentUpon>201702051450448_updated with constant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702051603361_added IDbModel props to ProfilePicture.cs" />
+    <Compile Include="Migrations\201702051603361_added IDbModel props to ProfilePicture.Designer.cs">
+      <DependentUpon>201702051603361_added IDbModel props to ProfilePicture.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\ProfilePicturesAsyncRepository.cs" />
     <Compile Include="Repositories\WorkerAsyncRepository.cs" />
@@ -268,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702051450448_updated with constant.resx">
       <DependentUpon>201702051450448_updated with constant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051603361_added IDbModel props to ProfilePicture.resx">
+      <DependentUpon>201702051603361_added IDbModel props to ProfilePicture.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
