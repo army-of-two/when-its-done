@@ -8,11 +8,13 @@ namespace WhenItsDone.Models
 {
     public class ContactInformation : IDbModel
     {
+        private ICollection<Worker> workers;
         private ICollection<Client> clients;
         private ICollection<User> users;
 
         public ContactInformation()
         {
+            this.workers = new HashSet<Worker>();
             this.clients = new HashSet<Client>();
             this.users = new HashSet<User>();
         }
@@ -44,6 +46,19 @@ namespace WhenItsDone.Models
             set
             {
                 this.clients = value;
+            }
+        }
+
+        public virtual ICollection<Worker> Workers
+        {
+            get
+            {
+                return this.workers;
+            }
+
+            set
+            {
+                this.workers = value;
             }
         }
 

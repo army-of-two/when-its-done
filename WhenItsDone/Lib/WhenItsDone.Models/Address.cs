@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using WhenItsDone.Models.Constants;
 using WhenItsDone.Models.Contracts;
 
@@ -6,6 +7,13 @@ namespace WhenItsDone.Models
 {
     public class Address : IDbModel
     {
+        private ICollection<ContactInformation> contactInformations;
+
+        public Address()
+        {
+            this.contactInformations = new HashSet<ContactInformation>();
+        }
+
         [Key]
         public int Id { get; set; }
 
@@ -26,6 +34,19 @@ namespace WhenItsDone.Models
         [MaxLength(ValidationConstants.StreetMaxLength)]
         [RegularExpression(RegexConstants.EnBgSpaceMinus)]
         public string Street { get; set; }
+
+        public virtual ICollection<ContactInformation> ContactInfromations
+        {
+            get
+            {
+                return this.contactInformations;
+            }
+
+            set
+            {
+                this.contactInformations = value;
+            }
+        }
 
         public bool IsDeleted { get; set; }
     }
