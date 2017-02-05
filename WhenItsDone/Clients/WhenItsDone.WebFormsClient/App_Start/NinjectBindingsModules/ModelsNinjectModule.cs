@@ -10,6 +10,7 @@ using Ninject.Modules;
 using WhenItsDone.Models;
 using WhenItsDone.Models.AssemblyId;
 using WhenItsDone.Models.Factories;
+using Bytes2you.Validation;
 
 namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 {
@@ -37,6 +38,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
         {
             var methodParameter = context.Parameters.FirstOrDefault();
             var username = (string)methodParameter?.GetValue(context, null);
+            Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty();
 
             var completeUserFactory = context.Kernel.Get<ICompleteUserFactory>();
             var nextUser = completeUserFactory.GetUser();
