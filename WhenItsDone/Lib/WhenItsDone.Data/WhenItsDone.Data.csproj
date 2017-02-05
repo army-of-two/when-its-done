@@ -152,6 +152,14 @@
     <Compile Include="Migrations\201702051317179_updated ContactInformation.Designer.cs">
       <DependentUpon>201702051317179_updated ContactInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702051356096_added ProfilePicture.cs" />
+    <Compile Include="Migrations\201702051356096_added ProfilePicture.Designer.cs">
+      <DependentUpon>201702051356096_added ProfilePicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702051401559_updated ProfilePicture.cs" />
+    <Compile Include="Migrations\201702051401559_updated ProfilePicture.Designer.cs">
+      <DependentUpon>201702051401559_updated ProfilePicture.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\WorkerAsyncRepository.cs" />
     <Compile Include="Repositories\DishesAsyncRepository.cs" />
@@ -231,6 +239,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702051317179_updated ContactInformation.resx">
       <DependentUpon>201702051317179_updated ContactInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051356096_added ProfilePicture.resx">
+      <DependentUpon>201702051356096_added ProfilePicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051401559_updated ProfilePicture.resx">
+      <DependentUpon>201702051401559_updated ProfilePicture.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
