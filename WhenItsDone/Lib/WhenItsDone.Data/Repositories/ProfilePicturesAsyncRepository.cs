@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
+
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Models;
 
@@ -15,9 +13,10 @@ namespace WhenItsDone.Data.Repositories
         {
         }
 
-        public ProfilePicture GetDefaultProfilePicture()
+        public Task<ProfilePicture> GetDefaultProfilePicture()
         {
-            throw new NotImplementedException();
+            var task = Task.Run(() => base.DbSet.FirstOrDefault());
+            return task;
         }
     }
 }
