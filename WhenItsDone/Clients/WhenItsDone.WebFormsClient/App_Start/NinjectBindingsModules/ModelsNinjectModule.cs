@@ -35,8 +35,8 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 
         private User GetInitializedUserFactoryMethod(IContext context)
         {
-            var parameters = context.Parameters.ToList();
-            var username = (string)parameters[0].GetValue(context, null);
+            var methodParameter = context.Parameters.FirstOrDefault();
+            var username = (string)methodParameter?.GetValue(context, null);
 
             var completeUserFactory = context.Kernel.Get<ICompleteUserFactory>();
             var nextUser = completeUserFactory.GetUser();
