@@ -13,19 +13,19 @@ namespace WhenItsDone.Models
         public int Id { get; set; }
 
         [Range(ValidationConstants.BustSizeMinValue, ValidationConstants.BustSizeMaxValue)]
-        public int BustSizeInCm { get; set; }
+        public int? BustSizeInCm { get; set; }
 
         [Range(ValidationConstants.WaistSizeMinValue, ValidationConstants.WaistSizeMaxValue)]
-        public int WaistSizeInCm { get; set; }
+        public int? WaistSizeInCm { get; set; }
 
         [Range(ValidationConstants.HipSizeMinValue, ValidationConstants.HipSizeMaxValue)]
-        public int HipSizeInCm { get; set; }
+        public int? HipSizeInCm { get; set; }
 
         [Range(ValidationConstants.HeightMinValue, ValidationConstants.HeightMaxValue)]
-        public int HeightInCm { get; set; }
+        public int? HeightInCm { get; set; }
 
         [Range(ValidationConstants.WeightMinValue, ValidationConstants.WeightMaxValue)]
-        public int WeightInKg { get; set; }
+        public int? WeightInKg { get; set; }
 
         public int BMI { get; set; }
 
