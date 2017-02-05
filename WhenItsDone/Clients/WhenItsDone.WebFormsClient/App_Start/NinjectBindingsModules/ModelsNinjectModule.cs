@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 
+using Bytes2you.Validation;
+
 using Ninject;
 using Ninject.Activation;
 using Ninject.Extensions.Conventions;
@@ -10,7 +12,6 @@ using Ninject.Modules;
 using WhenItsDone.Models;
 using WhenItsDone.Models.AssemblyId;
 using WhenItsDone.Models.Factories;
-using Bytes2you.Validation;
 
 namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 {
