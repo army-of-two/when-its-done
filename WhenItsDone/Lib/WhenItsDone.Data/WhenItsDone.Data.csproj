@@ -78,6 +78,7 @@
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Contracts\IUsersAsyncRepository.cs" />
     <Compile Include="Contracts\IWhenItsDoneDbContext.cs" />
+    <Compile Include="Contracts\IWorkerAsyncRepository.cs" />
     <Compile Include="Factories\IStatefulFactory.cs" />
     <Compile Include="Migrations\201701192351053_init.cs" />
     <Compile Include="Migrations\201701192351053_init.Designer.cs">
@@ -131,7 +132,12 @@
     <Compile Include="Migrations\201702012328375_updated worker model to allow null contact info.Designer.cs">
       <DependentUpon>201702012328375_updated worker model to allow null contact info.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702031354231_VitalStatistics to MedicalInformation.cs" />
+    <Compile Include="Migrations\201702031354231_VitalStatistics to MedicalInformation.Designer.cs">
+      <DependentUpon>201702031354231_VitalStatistics to MedicalInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\WorkerAsyncRepository.cs" />
     <Compile Include="Repositories\DishesAsyncRepository.cs" />
     <Compile Include="Repositories\GenericAsyncRepository.cs" />
     <Compile Include="Repositories\UsersAsyncRepository.cs" />
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702012328375_updated worker model to allow null contact info.resx">
       <DependentUpon>201702012328375_updated worker model to allow null contact info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702031354231_VitalStatistics to MedicalInformation.resx">
+      <DependentUpon>201702031354231_VitalStatistics to MedicalInformation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

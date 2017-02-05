@@ -1,15 +1,15 @@
 ﻿using NUnit.Framework;
 
-namespace WhenItsDone.Models.Tests.VitalStatisticsTests
+namespace WhenItsDone.Models.Tests.MedicalInformationTests
 {
     [TestFixture]
-    public class VitalStatisticsIsDeletedTests
+    public class MedicalInformationIsDeletedTests
     {
         [TestCase(true)]
         [TestCase(false)]
         public void IsDeleted_GetAndSetShould_WorkProperly(bool value)
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             obj.IsDeleted = value;
 

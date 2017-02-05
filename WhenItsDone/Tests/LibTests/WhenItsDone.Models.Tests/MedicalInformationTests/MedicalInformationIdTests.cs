@@ -2,15 +2,15 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace WhenItsDone.Models.Tests.VitalStatisticsTests
+namespace WhenItsDone.Models.Tests.MedicalInformationTests
 {
     [TestFixture]
-    public class VitalStatisticsIdTests
+    public class MedicalInformationIdTests
     {
         [Test]
         public void Id_ShouldHave_KeyAttribute()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
                             .GetProperty("Id")
@@ -25,7 +25,7 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         [TestCase(7887)]
         public void Id_GetAndSetShould_WorkProperly(int randomNumber)
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             obj.Id = randomNumber;
 

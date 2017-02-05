@@ -105,35 +105,11 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         }
 
         [Test]
-        public void Consstructor_ShouldNotSet_HeightInCmProperty()
+        public void Consstructor_ShouldNotSet_MedicalInformationProperty()
         {
             var obj = new Worker();
 
-            Assert.AreEqual(0, obj.HeightInCm);
-        }
-
-        [Test]
-        public void Consstructor_ShouldNotSet_WeightInKgProperty()
-        {
-            var obj = new Worker();
-
-            Assert.AreEqual(0, obj.WeightInKg);
-        }
-
-        [Test]
-        public void Consstructor_ShouldNotSet_BMIProperty()
-        {
-            var obj = new Worker();
-
-            Assert.AreEqual(0, obj.BMI);
-        }
-
-        [Test]
-        public void Consstructor_ShouldNotSet_VitalStatisticsProperty()
-        {
-            var obj = new Worker();
-
-            Assert.AreEqual(null, obj.VitalStatistics);
+            Assert.AreEqual(null, obj.MedicalInformation);
         }
 
         [Test]
@@ -169,11 +145,11 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         }
 
         [Test]
-        public void Constructor_ShouldNotSet_VitalStatisticsIdProperty()
+        public void Constructor_ShouldNotSet_MedicalInformationIdProperty()
         {
             var obj = new Worker();
 
-            Assert.AreEqual(null, obj.VitalStatisticsId);
+            Assert.AreEqual(null, obj.MedicalInformationId);
         }
     }
 }

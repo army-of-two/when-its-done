@@ -2,7 +2,7 @@
 {
     // https://en.wikipedia.org/wiki/Bust/waist/hip_measurements
     // Bust/waist/hip measurements a.k.a. vital statistics ( according to wikipedia )
-    public interface IVitalStatistics : IDbModel
+    public interface IMedicalInformation : IDbModel
     {
         int BustSizeInCm { get; set; }
 

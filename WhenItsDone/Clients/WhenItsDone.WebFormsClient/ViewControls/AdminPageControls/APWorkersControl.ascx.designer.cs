@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WhenItsDone.WebFormsClient {
+namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls {
     
     
-    public partial class About {
+    public partial class APWorkersControl {
         
         /// <summary>
-        /// APWorkersControl control.
+        /// workersList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WhenItsDone.WebFormsClient.ViewControls.AdminPageControls.APWorkersControl APWorkersControl;
+        protected global::System.Web.UI.WebControls.ListView workersList;
     }
 }

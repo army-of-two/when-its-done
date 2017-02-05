@@ -56,6 +56,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPageControlsTests\APWorkersControlMVP\APWorkersControlPresenterTests\Constructor_Should.cs" />
     <Compile Include="AssemblyIdTests\Assembly_Should.cs" />
     <Compile Include="ContentContainersTests\TopDishesMVPTests\Mocks\FakeTopDishesView.cs" />
     <Compile Include="ContentContainersTests\TopDishesMVPTests\TopDishesPresenterTests\Constructor_Should.cs" />

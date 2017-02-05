@@ -2,29 +2,29 @@
 using System.Linq;
 using WhenItsDone.Models.Constants;
 
-namespace WhenItsDone.Models.Tests.WorkerTests
+namespace WhenItsDone.Models.Tests.MedicalInformationTests
 {
     [TestFixture]
-    public class WorkerHeightInCmTests
+    public class MedicalInformationWaistSizeInCmTests
     {
-        [TestCase(5)]
-        [TestCase(5242199)]
-        public void HeightInCm_GetAndSetShould_WorkProperly(int randomNumber)
+        [TestCase(53)]
+        [TestCase(366664)]
+        public void WaistSizeInCm_GetAndSetShould_WorkProperly(int randomNumber)
         {
-            var obj = new Worker();
+            var obj = new MedicalInformation();
 
-            obj.HeightInCm = randomNumber;
+            obj.WaistSizeInCm = randomNumber;
 
-            Assert.AreEqual(randomNumber, obj.HeightInCm);
+            Assert.AreEqual(randomNumber, obj.WaistSizeInCm);
         }
 
         [Test]
-        public void HeightInCm_ShouldHave_RangeAttribute()
+        public void WaistSizeInCm_ShouldHave_RangeAttribute()
         {
-            var obj = new Worker();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
-                            .GetProperty("HeightInCm")
+                            .GetProperty("WaistSizeInCm")
                             .GetCustomAttributes(false)
                             .Where(x => x.GetType() == typeof(System.ComponentModel.DataAnnotations.RangeAttribute))
                             .Any();
@@ -33,35 +33,35 @@ namespace WhenItsDone.Models.Tests.WorkerTests
         }
 
         [Test]
-        public void HeightInCm_ShouldHave_RightMinValueFor_RangeAttribute()
+        public void WaistSizeInCm_ShouldHave_RightMinValueFor_RangeAttribute()
         {
-            var obj = new Worker();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
-                            .GetProperty("HeightInCm")
+                            .GetProperty("WaistSizeInCm")
                             .GetCustomAttributes(false)
                             .Where(x => x.GetType() == typeof(System.ComponentModel.DataAnnotations.RangeAttribute))
                             .Select(x => (System.ComponentModel.DataAnnotations.RangeAttribute)x)
                             .SingleOrDefault();
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ValidationConstants.HeightMinValue, result.Minimum);
+            Assert.AreEqual(ValidationConstants.WaistSizeMinValue, result.Minimum);
         }
 
         [Test]
-        public void HeightInCm_ShouldHave_RightMaxValueFor_RangeAttribute()
+        public void WaistSizeInCm_ShouldHave_RightMaxValueFor_RangeAttribute()
         {
-            var obj = new Worker();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
-                            .GetProperty("HeightInCm")
+                            .GetProperty("WaistSizeInCm")
                             .GetCustomAttributes(false)
                             .Where(x => x.GetType() == typeof(System.ComponentModel.DataAnnotations.RangeAttribute))
                             .Select(x => (System.ComponentModel.DataAnnotations.RangeAttribute)x)
                             .SingleOrDefault();
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ValidationConstants.HeightMaxValue, result.Maximum);
+            Assert.AreEqual(ValidationConstants.WaistSizeMaxValue, result.Maximum);
         }
     }
 }

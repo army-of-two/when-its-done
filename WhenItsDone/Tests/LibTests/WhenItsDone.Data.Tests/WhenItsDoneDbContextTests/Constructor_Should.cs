@@ -812,13 +812,13 @@ namespace WhenItsDone.Data.Tests.WhenItsDoneDbContextTests
         }
 
         [Test]
-        public void ShouldCreateAValidInstance_WithVitalStatisticsProperty()
+        public void ShouldCreateAValidInstance_WithMedicalInformationProperty()
         {
             var mockedFactory = new Mock<IStatefulFactory>();
 
             var whenItsDoneDbContext = new WhenItsDoneDbContext(mockedFactory.Object);
 
-            var propertyName = "VitalStatistics";
+            var propertyName = "MedicalInformation";
             var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
 
             var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
@@ -827,13 +827,13 @@ namespace WhenItsDone.Data.Tests.WhenItsDoneDbContextTests
         }
 
         [Test]
-        public void ShouldCreateAValidInstance_WithVitalStatisticsVirtualProperty()
+        public void ShouldCreateAValidInstance_WithMedicalInformationVirtualProperty()
         {
             var mockedFactory = new Mock<IStatefulFactory>();
 
             var whenItsDoneDbContext = new WhenItsDoneDbContext(mockedFactory.Object);
 
-            var propertyName = "VitalStatistics";
+            var propertyName = "MedicalInformation";
             var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
 
             var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
@@ -842,18 +842,18 @@ namespace WhenItsDone.Data.Tests.WhenItsDoneDbContextTests
         }
 
         [Test]
-        public void ShouldCreateAValidInstance_WithVitalStatisticsVirtualProperty_OfTypeIDbSetVitalStatistics()
+        public void ShouldCreateAValidInstance_WithMedicalInformationVirtualProperty_OfTypeIDbSetMedicalInformation()
         {
             var mockedFactory = new Mock<IStatefulFactory>();
 
             var whenItsDoneDbContext = new WhenItsDoneDbContext(mockedFactory.Object);
 
-            var propertyName = "VitalStatistics";
+            var propertyName = "MedicalInformation";
             var bindingFlags = BindingFlags.Public | BindingFlags.Instance;
 
             var clientsProperty = whenItsDoneDbContext.GetType().GetProperty(propertyName, bindingFlags);
 
-            Assert.That(clientsProperty.PropertyType, Is.EqualTo(typeof(IDbSet<VitalStatistics>)));
+            Assert.That(clientsProperty.PropertyType, Is.EqualTo(typeof(IDbSet<MedicalInformation>)));
         }
 
         [Test]

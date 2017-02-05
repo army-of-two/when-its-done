@@ -2,29 +2,29 @@
 using System.Linq;
 using WhenItsDone.Models.Constants;
 
-namespace WhenItsDone.Models.Tests.VitalStatisticsTests
+namespace WhenItsDone.Models.Tests.MedicalInformationTests
 {
     [TestFixture]
-    public class VitalStatisticsWaistSizeInCmTests
+    public class MedicalInformationBustSizeInCmTests
     {
-        [TestCase(53)]
-        [TestCase(366664)]
-        public void WaistSizeInCm_GetAndSetShould_WorkProperly(int randomNumber)
+        [TestCase(54353)]
+        [TestCase(3)]
+        public void BustSizeInCm_GetAndSetShould_WorkProperly(int randomNumber)
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
-            obj.WaistSizeInCm = randomNumber;
+            obj.BustSizeInCm = randomNumber;
 
-            Assert.AreEqual(randomNumber, obj.WaistSizeInCm);
+            Assert.AreEqual(randomNumber, obj.BustSizeInCm);
         }
 
         [Test]
-        public void WaistSizeInCm_ShouldHave_RangeAttribute()
+        public void BustSizeInCm_ShouldHave_RangeAttribute()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
-                            .GetProperty("WaistSizeInCm")
+                            .GetProperty("BustSizeInCm")
                             .GetCustomAttributes(false)
                             .Where(x => x.GetType() == typeof(System.ComponentModel.DataAnnotations.RangeAttribute))
                             .Any();
@@ -33,35 +33,35 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         }
 
         [Test]
-        public void WaistSizeInCm_ShouldHave_RightMinValueFor_RangeAttribute()
+        public void BustSizeInCm_ShouldHave_RightMinValueFor_RangeAttribute()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
-                            .GetProperty("WaistSizeInCm")
+                            .GetProperty("BustSizeInCm")
                             .GetCustomAttributes(false)
                             .Where(x => x.GetType() == typeof(System.ComponentModel.DataAnnotations.RangeAttribute))
                             .Select(x => (System.ComponentModel.DataAnnotations.RangeAttribute)x)
                             .SingleOrDefault();
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ValidationConstants.WaistSizeMinValue, result.Minimum);
+            Assert.AreEqual(ValidationConstants.BustSizeMinValue, result.Minimum);
         }
 
         [Test]
-        public void WaistSizeInCm_ShouldHave_RightMaxValueFor_RangeAttribute()
+        public void BustSizeInCm_ShouldHave_RightMaxValueFor_RangeAttribute()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
-                            .GetProperty("WaistSizeInCm")
+                            .GetProperty("BustSizeInCm")
                             .GetCustomAttributes(false)
                             .Where(x => x.GetType() == typeof(System.ComponentModel.DataAnnotations.RangeAttribute))
                             .Select(x => (System.ComponentModel.DataAnnotations.RangeAttribute)x)
                             .SingleOrDefault();
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ValidationConstants.WaistSizeMaxValue, result.Maximum);
+            Assert.AreEqual(ValidationConstants.BustSizeMaxValue, result.Maximum);
         }
     }
 }

@@ -44,6 +44,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPageControls\APWorkersControlMVP\APWorkersControlPresenter.cs" />
+    <Compile Include="AdminPageControls\APWorkersControlMVP\APWorkersControlViewModel.cs" />
+    <Compile Include="AdminPageControls\APWorkersControlMVP\IAPWorkersControlPresenter.cs" />
+    <Compile Include="AdminPageControls\APWorkersControlMVP\IAPWorkersControlView.cs" />
     <Compile Include="AccountPages\RegisterMVP\IRegisterPresenter.cs" />
     <Compile Include="AccountPages\RegisterMVP\IRegisterView.cs" />
     <Compile Include="AccountPages\RegisterMVP\RegisterEventArgs.cs" />

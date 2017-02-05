@@ -6,8 +6,8 @@ using WhenItsDone.Models.Contracts;
 namespace WhenItsDone.Models
 {
     // https://en.wikipedia.org/wiki/Bust/waist/hip_measurements
-    // Bust/waist/hip measurements a.k.a. vital statistics ( according to wikipedia )
-    public class VitalStatistics : IDbModel
+    // Bust/waist/hip measurements a.k.a. vital statistics ( according to wikipedia ) rename to MedicalInformation
+    public class MedicalInformation : IDbModel
     {
         [Key]
         public int Id { get; set; }
@@ -20,6 +20,14 @@ namespace WhenItsDone.Models
 
         [Range(ValidationConstants.HipSizeMinValue, ValidationConstants.HipSizeMaxValue)]
         public int HipSizeInCm { get; set; }
+
+        [Range(ValidationConstants.HeightMinValue, ValidationConstants.HeightMaxValue)]
+        public int HeightInCm { get; set; }
+
+        [Range(ValidationConstants.WeightMinValue, ValidationConstants.WeightMaxValue)]
+        public int WeightInKg { get; set; }
+
+        public int BMI { get; set; }
 
         public bool IsDeleted { get; set; }
     }

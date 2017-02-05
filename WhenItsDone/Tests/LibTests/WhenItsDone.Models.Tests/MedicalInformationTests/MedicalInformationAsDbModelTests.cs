@@ -2,15 +2,15 @@
 using System.Linq;
 using WhenItsDone.Models.Contracts;
 
-namespace WhenItsDone.Models.Tests.VitalStatisticsTests
+namespace WhenItsDone.Models.Tests.MedicalInformationTests
 {
     [TestFixture]
-    public class VitalStatisticsAsDbModelTests
+    public class MedicalInformationAsDbModelTests
     {
         [Test]
-        public void VitalStatistics_ShouldImplement_IDbModelInteface()
+        public void MedicalInformation_ShouldImplement_IDbModelInteface()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
                             .GetInterfaces()

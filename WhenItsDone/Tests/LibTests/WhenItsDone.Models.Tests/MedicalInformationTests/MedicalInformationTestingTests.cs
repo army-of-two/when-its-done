@@ -1,34 +1,34 @@
 ﻿using NUnit.Framework;
 using System.Linq;
 
-namespace WhenItsDone.Models.Tests.VitalStatisticsTests
+namespace WhenItsDone.Models.Tests.MedicalInformationTests
 {
     [TestFixture]
-    public class VitalStatisticsTestingTests
+    public class MedicalInformationTestingTests
     {
         /// <summary>
-        /// At that moment VitalStatistics class have 5 tested properties .. if another property is added this test will fail
+        /// At that moment MedicalInformation class have 8 tested properties .. if another property is added this test will fail
         /// That mean new tests are REQUIRED!
         /// </summary>
         [Test]
-        public void VitalStatistics_VerifyNumberOfProperties()
+        public void MedicalInformation_VerifyNumberOfProperties()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var result = obj.GetType()
                             .GetProperties()
                             .Count();
 
-            Assert.AreEqual(5, result);
+            Assert.AreEqual(8, result);
         }
 
         /// <summary>
-        /// At that moment VitalStatistics class have 1 tested constructor
+        /// At that moment MedicalInformation class have 1 tested constructor
         /// </summary>
         [Test]
-        public void VitalStatistics_VerifyNumberOfConstructors()
+        public void MedicalInformation_VerifyNumberOfConstructors()
         {
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var methodsCount = obj.GetType()
                                     .GetMethods()
@@ -48,16 +48,16 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         }
 
         /// <summary>
-        /// At that moment VitalStatistics class have 0 tested methods
+        /// At that moment MedicalInformation class have 0 tested methods
         /// </summary>
         [Test]
-        public void VitalStatistics_VerifyNumberOfMethods()
+        public void MedicalInformation_VerifyNumberOfMethods()
         {
             var methodsFromFramework = 4;
             var expectedMethodsCount = 0;
             var totalMethodsCount = methodsFromFramework + expectedMethodsCount;
 
-            var obj = new VitalStatistics();
+            var obj = new MedicalInformation();
 
             var numberOfMethodsComeFromProperties = obj.GetType()
                                                         .GetProperties()
@@ -77,13 +77,13 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         /// At that moment TestClas contain 2 Test methods = fail mean someone changed it
         /// </summary>
         [Test]
-        public void VitalStatisticsIdTests_VerifyNumberOfTests()
+        public void MedicalInformationIdTests_VerifyNumberOfTests()
         {
             var methodsFromFramework = 4;
             var expectedMethods = 2;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
-            var obj = new VitalStatisticsIdTests();
+            var obj = new MedicalInformationIdTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -96,9 +96,9 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
         /// </summary>
         [Test]
-        public void VitalStatisticsIdTests_VeryfyTestCaseAttributes()
+        public void MedicalInformationIdTests_VeryfyTestCaseAttributes()
         {
-            var obj = new VitalStatisticsIdTests();
+            var obj = new MedicalInformationIdTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -114,13 +114,13 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         /// At that moment TestClas contain 1 Test method = fail mean someone changed it
         /// </summary>
         [Test]
-        public void VitalStatisticsIsDeletedTests_VerifyNumberOfTests()
+        public void MedicalInformationIsDeletedTests_VerifyNumberOfTests()
         {
             var methodsFromFramework = 4;
             var expectedMethods = 1;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
-            var obj = new VitalStatisticsIsDeletedTests();
+            var obj = new MedicalInformationIsDeletedTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -133,9 +133,9 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
         /// </summary>
         [Test]
-        public void VitalStatisticsIsDeletedTests_VeryfyTestCaseAttributes()
+        public void MedicalInformationIsDeletedTests_VeryfyTestCaseAttributes()
         {
-            var obj = new VitalStatisticsIsDeletedTests();
+            var obj = new MedicalInformationIsDeletedTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -151,13 +151,13 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         /// At that moment TestClas contain 1 Test method = fail mean someone changed it
         /// </summary>
         [Test]
-        public void VitalStatisticsAsDbModelTests_VerifyNumberOfTests()
+        public void MedicalInformationAsDbModelTests_VerifyNumberOfTests()
         {
             var methodsFromFramework = 4;
             var expectedMethods = 1;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
-            var obj = new VitalStatisticsAsDbModelTests();
+            var obj = new MedicalInformationAsDbModelTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -170,9 +170,9 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         /// At that moment TestClass contains 0 TestCase attributes - fail mean someone changed it
         /// </summary>
         [Test]
-        public void VitalStatisticsAsDbModelTests_VeryfyTestCaseAttributes()
+        public void MedicalInformationAsDbModelTests_VeryfyTestCaseAttributes()
         {
-            var obj = new VitalStatisticsAsDbModelTests();
+            var obj = new MedicalInformationAsDbModelTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -185,16 +185,16 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         }
 
         /// <summary>
-        /// At that moment TestClas contain 6 Test methods = fail mean someone changed it
+        /// At that moment TestClas contain 9 Test methods = fail mean someone changed it
         /// </summary>
         [Test]
-        public void VitalStatisticsConstructorTests_VerifyNumberOfTests()
+        public void MedicalInformationConstructorTests_VerifyNumberOfTests()
         {
             var methodsFromFramework = 4;
-            var expectedMethods = 6;
+            var expectedMethods = 9;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
-            var obj = new VitalStatisticsConstructorTests();
+            var obj = new MedicalInformationConstructorTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -207,9 +207,9 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         /// At that moment TestClass contains 0 TestCase attributes - fail mean someone changed it
         /// </summary>
         [Test]
-        public void VitalStatisticsConstructorTests_VeryfyTestCaseAttributes()
+        public void MedicalInformationConstructorTests_VeryfyTestCaseAttributes()
         {
-            var obj = new VitalStatisticsConstructorTests();
+            var obj = new MedicalInformationConstructorTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -225,13 +225,13 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         /// At that moment TestClas contain 4 Test methods = fail mean someone changed it
         /// </summary>
         [Test]
-        public void VitalStatisticsBustSizeInCmTests_VerifyNumberOfTests()
+        public void MedicalInformationBustSizeInCmTests_VerifyNumberOfTests()
         {
             var methodsFromFramework = 4;
             var expectedMethods = 4;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
-            var obj = new VitalStatisticsBustSizeInCmTests();
+            var obj = new MedicalInformationBustSizeInCmTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -244,9 +244,9 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
         /// </summary>
         [Test]
-        public void VitalStatisticsBustSizeInCmTests_VeryfyTestCaseAttributes()
+        public void MedicalInformationBustSizeInCmTests_VeryfyTestCaseAttributes()
         {
-            var obj = new VitalStatisticsBustSizeInCmTests();
+            var obj = new MedicalInformationBustSizeInCmTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -262,13 +262,13 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         /// At that moment TestClas contain 4 Test methods = fail mean someone changed it
         /// </summary>
         [Test]
-        public void VitalStatisticsHipSizeInCmTests_VerifyNumberOfTests()
+        public void MedicalInformationHipSizeInCmTests_VerifyNumberOfTests()
         {
             var methodsFromFramework = 4;
             var expectedMethods = 4;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
-            var obj = new VitalStatisticsHipSizeInCmTests();
+            var obj = new MedicalInformationHipSizeInCmTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -281,9 +281,9 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
         /// </summary>
         [Test]
-        public void VitalStatisticsHipSizeInCmTests_VeryfyTestCaseAttributes()
+        public void MedicalInformationHipSizeInCmTests_VeryfyTestCaseAttributes()
         {
-            var obj = new VitalStatisticsHipSizeInCmTests();
+            var obj = new MedicalInformationHipSizeInCmTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -299,13 +299,13 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         /// At that moment TestClas contain 4 Test methods = fail mean someone changed it
         /// </summary>
         [Test]
-        public void VitalStatisticsWaistSizeInCmTests_VerifyNumberOfTests()
+        public void MedicalInformationWaistSizeInCmTests_VerifyNumberOfTests()
         {
             var methodsFromFramework = 4;
             var expectedMethods = 4;
             var totalExpectedMethods = methodsFromFramework + expectedMethods;
 
-            var obj = new VitalStatisticsWaistSizeInCmTests();
+            var obj = new MedicalInformationWaistSizeInCmTests();
 
             var result = obj.GetType()
                             .GetMethods()
@@ -318,9 +318,120 @@ namespace WhenItsDone.Models.Tests.VitalStatisticsTests
         /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
         /// </summary>
         [Test]
-        public void VitalStatisticsWaistSizeInCmTests_VeryfyTestCaseAttributes()
+        public void MedicalInformationWaistSizeInCmTests_VeryfyTestCaseAttributes()
         {
-            var obj = new VitalStatisticsWaistSizeInCmTests();
+            var obj = new MedicalInformationWaistSizeInCmTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Select(x => x.GetCustomAttributes(false)
+                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
+                                        .Count())
+                            .Sum();
+
+            Assert.AreEqual(2, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClas contain 1 Test methods = fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void MedicalInformationBMITests_VerifyNumberOfTests()
+        {
+            var methodsFromFramework = 4;
+            var expectedMethods = 1;
+            var totalExpectedMethods = methodsFromFramework + expectedMethods;
+
+            var obj = new MedicalInformationBMITests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Count();
+
+            Assert.AreEqual(totalExpectedMethods, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void MedicalInformationBMITests_VeryfyTestCaseAttributes()
+        {
+            var obj = new MedicalInformationBMITests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Select(x => x.GetCustomAttributes(false)
+                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
+                                        .Count())
+                            .Sum();
+
+            Assert.AreEqual(2, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClas contain 4 Test methods = fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void MedicalInformationHeightInCmTests_VerifyNumberOfTests()
+        {
+            var methodsFromFramework = 4;
+            var expectedMethods = 4;
+            var totalExpectedMethods = methodsFromFramework + expectedMethods;
+
+            var obj = new MedicalInformationHeightInCmTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Count();
+
+            Assert.AreEqual(totalExpectedMethods, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void MedicalInformationHeightInCmTests_VeryfyTestCaseAttributes()
+        {
+            var obj = new MedicalInformationHeightInCmTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Select(x => x.GetCustomAttributes(false)
+                                        .Where(z => z.GetType() == typeof(TestCaseAttribute))
+                                        .Count())
+                            .Sum();
+
+            Assert.AreEqual(2, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClas contain 4 Test methods = fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void MedicalInformationWeightInKgTests_VerifyNumberOfTests()
+        {
+            var methodsFromFramework = 4;
+            var expectedMethods = 4;
+            var totalExpectedMethods = methodsFromFramework + expectedMethods;
+
+            var obj = new MedicalInformationWeightInKgTests();
+
+            var result = obj.GetType()
+                            .GetMethods()
+                            .Count();
+
+            Assert.AreEqual(totalExpectedMethods, result);
+        }
+
+        /// <summary>
+        /// At that moment TestClass contains 2 TestCase attributes - fail mean someone changed it
+        /// </summary>
+        [Test]
+        public void MedicalInformationWeightInKgTests_VeryfyTestCaseAttributes()
+        {
+            var obj = new MedicalInformationWeightInKgTests();
 
             var result = obj.GetType()
                             .GetMethods()
