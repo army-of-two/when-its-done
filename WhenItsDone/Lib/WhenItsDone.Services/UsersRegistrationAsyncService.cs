@@ -30,7 +30,6 @@ namespace WhenItsDone.Services
         public bool CreateUser(string username)
         {
             var isSuccessful = false;
-
             if (string.IsNullOrEmpty(username))
             {
                 return isSuccessful;
