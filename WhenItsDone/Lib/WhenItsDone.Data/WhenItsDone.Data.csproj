@@ -168,6 +168,10 @@
     <Compile Include="Migrations\201702051444291_Added mime type contraint.Designer.cs">
       <DependentUpon>201702051444291_Added mime type contraint.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702051450448_updated with constant.cs" />
+    <Compile Include="Migrations\201702051450448_updated with constant.Designer.cs">
+      <DependentUpon>201702051450448_updated with constant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\WorkerAsyncRepository.cs" />
     <Compile Include="Repositories\DishesAsyncRepository.cs" />
@@ -259,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702051444291_Added mime type contraint.resx">
       <DependentUpon>201702051444291_Added mime type contraint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051450448_updated with constant.resx">
+      <DependentUpon>201702051450448_updated with constant.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
