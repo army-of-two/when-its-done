@@ -26,7 +26,7 @@ namespace WhenItsDone.Models.Tests.MedicalInformationTests
         {
             var obj = new MedicalInformation();
 
-            Assert.AreEqual(0, obj.BustSizeInCm);
+            Assert.AreEqual(null, obj.BustSizeInCm);
         }
 
         [Test]
@@ -34,7 +34,7 @@ namespace WhenItsDone.Models.Tests.MedicalInformationTests
         {
             var obj = new MedicalInformation();
 
-            Assert.AreEqual(0, obj.WaistSizeInCm);
+            Assert.AreEqual(null, obj.WaistSizeInCm);
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace WhenItsDone.Models.Tests.MedicalInformationTests
         {
             var obj = new MedicalInformation();
 
-            Assert.AreEqual(0, obj.HipSizeInCm);
+            Assert.AreEqual(null, obj.HipSizeInCm);
         }
 
         [Test]
@@ -58,7 +58,7 @@ namespace WhenItsDone.Models.Tests.MedicalInformationTests
         {
             var obj = new MedicalInformation();
 
-            Assert.AreEqual(0, obj.HeightInCm);
+            Assert.AreEqual(null, obj.HeightInCm);
         }
 
         [Test]
@@ -66,7 +66,7 @@ namespace WhenItsDone.Models.Tests.MedicalInformationTests
         {
             var obj = new MedicalInformation();
 
-            Assert.AreEqual(0, obj.WeightInKg);
+            Assert.AreEqual(null, obj.WeightInKg);
         }
 
         [Test]
