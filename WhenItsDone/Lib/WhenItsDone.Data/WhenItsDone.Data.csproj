@@ -78,6 +78,7 @@
     <Compile Include="Contracts\IAsyncRepository.cs" />
     <Compile Include="Contracts\IDishesAsyncRepository.cs" />
     <Compile Include="Contracts\IDisposableUnitOfWork.cs" />
+    <Compile Include="Contracts\IProfilePicturesAsyncRepository.cs" />
     <Compile Include="Contracts\IStateful.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Contracts\IUsersAsyncRepository.cs" />
@@ -152,7 +153,32 @@
     <Compile Include="Migrations\201702051317179_updated ContactInformation.Designer.cs">
       <DependentUpon>201702051317179_updated ContactInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702051356096_added ProfilePicture.cs" />
+    <Compile Include="Migrations\201702051356096_added ProfilePicture.Designer.cs">
+      <DependentUpon>201702051356096_added ProfilePicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702051401559_updated ProfilePicture.cs" />
+    <Compile Include="Migrations\201702051401559_updated ProfilePicture.Designer.cs">
+      <DependentUpon>201702051401559_updated ProfilePicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702051443158_updated ProfilePicture model with PictureUrl prop.cs" />
+    <Compile Include="Migrations\201702051443158_updated ProfilePicture model with PictureUrl prop.Designer.cs">
+      <DependentUpon>201702051443158_updated ProfilePicture model with PictureUrl prop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702051444291_Added mime type contraint.cs" />
+    <Compile Include="Migrations\201702051444291_Added mime type contraint.Designer.cs">
+      <DependentUpon>201702051444291_Added mime type contraint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702051450448_updated with constant.cs" />
+    <Compile Include="Migrations\201702051450448_updated with constant.Designer.cs">
+      <DependentUpon>201702051450448_updated with constant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702051603361_added IDbModel props to ProfilePicture.cs" />
+    <Compile Include="Migrations\201702051603361_added IDbModel props to ProfilePicture.Designer.cs">
+      <DependentUpon>201702051603361_added IDbModel props to ProfilePicture.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\ProfilePicturesAsyncRepository.cs" />
     <Compile Include="Repositories\WorkerAsyncRepository.cs" />
     <Compile Include="Repositories\DishesAsyncRepository.cs" />
     <Compile Include="Repositories\GenericAsyncRepository.cs" />
@@ -231,6 +257,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702051317179_updated ContactInformation.resx">
       <DependentUpon>201702051317179_updated ContactInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051356096_added ProfilePicture.resx">
+      <DependentUpon>201702051356096_added ProfilePicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051401559_updated ProfilePicture.resx">
+      <DependentUpon>201702051401559_updated ProfilePicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051443158_updated ProfilePicture model with PictureUrl prop.resx">
+      <DependentUpon>201702051443158_updated ProfilePicture model with PictureUrl prop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051444291_Added mime type contraint.resx">
+      <DependentUpon>201702051444291_Added mime type contraint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051450448_updated with constant.resx">
+      <DependentUpon>201702051450448_updated with constant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702051603361_added IDbModel props to ProfilePicture.resx">
+      <DependentUpon>201702051603361_added IDbModel props to ProfilePicture.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

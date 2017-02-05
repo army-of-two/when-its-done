@@ -38,6 +38,10 @@ namespace WhenItsDone.Models
 
         public virtual Worker Worker { get; set; }
 
+        public int ProfilePictureId { get; set; }
+
+        public virtual ProfilePicture ProfilePicture { get; set; }
+
         public int? MedicalInformationId { get; set; }
 
         public virtual MedicalInformation MedicalInformation { get; set; }

@@ -7,6 +7,9 @@ using WhenItsDone.MVP.ContentContainers.TopDishesMVP;
 
 namespace WhenItsDone.WebFormsClient.ViewControls.ContentContainers
 {
+    /// <summary>
+    /// Implemented using MVP pattern through the WebFormsMVP package.
+    /// </summary>
     [PresenterBinding(typeof(ITopDishesPresenter))]
     public partial class TopDishesUserControl : MvpUserControl<TopDishesViewModel>, ITopDishesView
     {

@@ -8,8 +8,9 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-
-    <uc:topdishes runat="server" />
+    <div class="well content-container-even">
+        <uc:topdishes runat="server" />
+    </div>
     <hr />
     <div class="well content-container-even">
         <section class="content-container-heading">
