@@ -10,7 +10,6 @@ using Ninject.Modules;
 using WhenItsDone.Models;
 using WhenItsDone.Models.AssemblyId;
 using WhenItsDone.Models.Factories;
-using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 {
