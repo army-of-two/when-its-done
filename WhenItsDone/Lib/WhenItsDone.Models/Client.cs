@@ -11,11 +11,13 @@ namespace WhenItsDone.Models
     {
         private ICollection<Job> jobs;
         private ICollection<Payment> payments;
+        private ICollection<WorkerReview> workerReview;
 
         public Client()
         {
             this.jobs = new HashSet<Job>();
             this.payments = new HashSet<Payment>();
+            this.workerReview = new HashSet<WorkerReview>();
 
             this.IsAvailable = true;
         }
@@ -36,7 +38,7 @@ namespace WhenItsDone.Models
         [RegularExpression(RegexConstants.EnBgSpaceMinus)]
         public string LastName { get; set; }
 
-        public GenderType Gender { get; set; }
+        public int Gender { get; set; }
 
         [Range(ValidationConstants.AgeMinValue, ValidationConstants.AgeMaxValue)]
         public int Age { get; set; }
@@ -70,6 +72,19 @@ namespace WhenItsDone.Models
             set
             {
                 this.jobs = value;
+            }
+        }
+
+        public virtual ICollection<WorkerReview> WorkerReviews
+        {
+            get
+            {
+                return this.workerReview;
+            }
+
+            set
+            {
+                this.workerReview = value;
             }
         }
 

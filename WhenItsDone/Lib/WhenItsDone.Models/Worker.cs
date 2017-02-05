@@ -13,6 +13,7 @@ namespace WhenItsDone.Models
         private ICollection<PhotoItem> photoItems;
         private ICollection<VideoItem> videoItems;
         private ICollection<ReceivedPayment> receivedPayments;
+        private ICollection<ClientReview> clientReviews;
         private ICollection<Dish> dishes;
 
         public Worker()
@@ -21,6 +22,7 @@ namespace WhenItsDone.Models
             this.photoItems = new HashSet<PhotoItem>();
             this.videoItems = new HashSet<VideoItem>();
             this.receivedPayments = new HashSet<ReceivedPayment>();
+            this.clientReviews = new HashSet<ClientReview>();
             this.dishes = new HashSet<Dish>();
 
             this.IsAvailable = true;
@@ -42,7 +44,7 @@ namespace WhenItsDone.Models
         [RegularExpression(RegexConstants.EnBgSpaceMinus)]
         public string LastName { get; set; }
 
-        public GenderType Gender { get; set; }
+        public int Gender { get; set; }
 
         [Range(ValidationConstants.AgeMinValue, ValidationConstants.AgeMaxValue)]
         public int Age { get; set; }
@@ -119,6 +121,19 @@ namespace WhenItsDone.Models
             set
             {
                 this.jobs = value;
+            }
+        }
+
+        public virtual ICollection<ClientReview> ClientReviews
+        {
+            get
+            {
+                return this.clientReviews;
+            }
+
+            set
+            {
+                this.clientReviews = value;
             }
         }
 

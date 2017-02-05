@@ -9,7 +9,7 @@
     DefaultContainerName="FoodMeEntities"
     ConnectionString="name=FoodMeEntities"
     EntitySetName="Users"
-    Include=""
+    Include="ProfilePicture"
     EnableFlattening="false">
 </asp:EntityDataSource>
 
