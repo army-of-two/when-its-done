@@ -7,13 +7,13 @@ namespace WhenItsDone.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Addedmimetypecontraint : IMigrationMetadata
+    public sealed partial class replacedmigrationaddedProfilePicture : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Addedmimetypecontraint));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(replacedmigrationaddedProfilePicture));
         
         string IMigrationMetadata.Id
         {
-            get { return "201702051444291_Added mime type contraint"; }
+            get { return "201702051631065_replaced migration, added ProfilePicture"; }
         }
         
         string IMigrationMetadata.Source

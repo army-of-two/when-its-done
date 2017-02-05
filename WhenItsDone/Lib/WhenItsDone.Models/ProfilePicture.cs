@@ -13,6 +13,9 @@ namespace WhenItsDone.Models
         [Required]
         public string PictureBase64 { get; set; }
 
+        /// <summary>
+        /// Do NOT reaplce with a const value. Causes migration errors.
+        /// </summary>
         [MaxLength(ValidationConstants.UrlLengthMaxValue)]
         public string PictureUrl { get; set; }
 

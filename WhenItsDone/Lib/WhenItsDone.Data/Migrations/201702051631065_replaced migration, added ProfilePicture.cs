@@ -3,7 +3,7 @@ namespace WhenItsDone.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class addedProfilePicture : DbMigration
+    public partial class replacedmigrationaddedProfilePicture : DbMigration
     {
         public override void Up()
         {
@@ -13,6 +13,9 @@ namespace WhenItsDone.Data.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         PictureBase64 = c.String(nullable: false),
+                        PictureUrl = c.String(maxLength: 300),
+                        MimeType = c.String(nullable: false, maxLength: 5),
+                        IsDeleted = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
