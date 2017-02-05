@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="88be3bb8b49748a387d3104f439eb9ce" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Address" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ClientReview" Width="1.5" PointX="8.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ContactInformation" Width="1.5" PointX="1.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Dish" Width="1.5" PointX="8.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Food" Width="1.5" PointX="16" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Ingredient" Width="1.5" PointX="18.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Job" Width="1.5" PointX="11.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MedicalInformation" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Mineral" Width="1.5" PointX="16" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.NutritionFact" Width="1.5" PointX="13.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Payment" Width="1.5" PointX="11.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PhotoItem" Width="1.5" PointX="13.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ProfilePicture" Width="1.5" PointX="0.75" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ReceivedPayment" Width="1.5" PointX="11.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Recipe" Width="1.5" PointX="6" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VideoItem" Width="1.5" PointX="8.25" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Vitamin" Width="1.5" PointX="16" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.WorkerReview" Width="1.5" PointX="13.5" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Worker" Width="1.5" PointX="6" PointY="12.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_dbo_ContactInformations_dbo_Addresses_AddressId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_ClientReviews_dbo_Workers_WorkerId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Clients_dbo_ContactInformations_ContactInformationId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Jobs_dbo_Clients_ClientId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Payments_dbo_Clients_Client_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_ReceivedPayments_dbo_Clients_ClientId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Users_dbo_Clients_ClientId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_WorkerReviews_dbo_Clients_ClientId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Users_dbo_ContactInformations_ContactInformationId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Workers_dbo_ContactInformations_ContactInformationId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Dishes_dbo_Recipes_RecipeId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Dishes_dbo_Workers_Worker_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_PhotoItems_dbo_Dishes_Dish_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_WorkerReviews_dbo_Dishes_Dish_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Foods_dbo_NutritionFacts_NutritionFactsId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Ingredients_dbo_Foods_FoodId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Ingredients_dbo_Recipes_Recipe_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Jobs_dbo_Workers_WorkerId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Users_dbo_MedicalInformations_MedicalInformationId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Workers_dbo_MedicalInformations_MedicalInformationId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Minerals_dbo_NutritionFacts_NutritionFacts_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Vitamins_dbo_NutritionFacts_NutritionFacts_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Payments_dbo_Workers_WorkerId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_PhotoItems_dbo_Workers_Worker_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Users_dbo_ProfilePictures_ProfilePictureId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_ReceivedPayments_dbo_Workers_Worker_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Users_dbo_Workers_WorkerId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_VideoItems_dbo_Workers_Worker_Id" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

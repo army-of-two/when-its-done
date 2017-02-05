@@ -490,6 +490,10 @@
       <Project>{42e362e0-9e6c-4867-88aa-cf2cc00fe1f8}</Project>
       <Name>WhenItsDone.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Lib\WhenItsDone.Data.EntityDataSourceContainer\WhenItsDone.Data.EntityDataSourceContainer.csproj">
+      <Project>{8645ee12-b05f-43ad-911e-1fdd8ac1c3e6}</Project>
+      <Name>WhenItsDone.Data.EntityDataSourceContainer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Lib\WhenItsDone.Data\WhenItsDone.Data.csproj">
       <Project>{D3085631-83D5-4525-B69C-DFDC47BC7F9B}</Project>
       <Name>WhenItsDone.Data</Name>

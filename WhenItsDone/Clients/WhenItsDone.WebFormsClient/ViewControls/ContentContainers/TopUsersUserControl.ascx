@@ -6,8 +6,8 @@
 
 <asp:EntityDataSource
     ID="UsersDataSource" runat="server"
-    DefaultContainerName="WhenItsDoneDbContext"
-    ConnectionString="name=DefaultConnection"
+    DefaultContainerName="FoodMeEntities"
+    ConnectionString="name=FoodMeEntities"
     EntitySetName="Users"
     EnableFlattening="false">
 </asp:EntityDataSource>
@@ -17,7 +17,10 @@
 </section>
 <section class="content-container-content">
     <div class="row">
-        <asp:Repeater ID="TopDishesRepeater" runat="server" ItemType="WhenItsDone.Models.User">
+        <asp:Repeater
+            ID="TopDishesRepeater" runat="server"
+            DataSourceID="UsersDataSource"
+            ItemType="WhenItsDone.Models.User">
             <ItemTemplate>
                 <a class="panel-anchor" href="/Details?itemid=<%#: Item.Id %>" title="Click for more details: <%#: Item.Username %>">
                     <div class="col-md-4">
@@ -26,7 +29,7 @@
                                 <h3 class="panel-title"><%#: Item.Username %></h3>
                             </div>
                             <div class="panel-body">
-                                <%--<img src="<%#: Item.PhotoItemUrl %>" alt="picture of <%#: Item.Username %>" />--%>
+                                <img src="data:image/<%#: Item.ProfilePicture.MimeType %>;base64,<%#: Item.ProfilePicture.PictureBase64 %>" alt="picture of <%#: Item.Username %>" />
                             </div>
                         </div>
                     </div>
