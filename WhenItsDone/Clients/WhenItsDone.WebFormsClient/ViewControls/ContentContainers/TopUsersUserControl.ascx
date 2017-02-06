@@ -9,7 +9,8 @@
     DefaultContainerName="Entities"
     ConnectionString="name=Entities"
     EntitySetName="Users"
-    Include="ProfilePictures"
+    OrderBy="it.Rating DESC"
+    Select="TOP(3) it.Id, it.ProfilePictures, it.Username, it.Rating"
     EnableFlattening="false">
 </asp:EntityDataSource>
 
@@ -20,17 +21,16 @@
     <div class="row">
         <asp:Repeater
             ID="TopDishesRepeater" runat="server"
-            DataSourceID="UsersDataSource"
-            ItemType="WhenItsDone.Data.EntityDataSourceContainer.Users">
+            DataSourceID="UsersDataSource">
             <ItemTemplate>
-                <a class="panel-anchor" href="/Details?itemid=<%#: Item.Id %>" title="Click for more details: <%#: Item.Username %>">
+                <a class="panel-anchor" href="/Details?itemid=<%#: Eval("Id") %>" title="Click for more details: <%#: Eval("Username") %>">
                     <div class="col-md-4">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><%#: Item.Username %></h3>
+                                <h3 class="panel-title"><%#: Eval("Username") %></h3>
                             </div>
                             <div class="panel-body">
-                                <img src="data:image/<%#: Item.ProfilePictures.MimeType %>;base64,<%#: Item.ProfilePictures.PictureBase64 %>" alt="picture of <%#: Item.Username %>" />
+                                <img src="data:image/<%#: Eval("ProfilePictures.MimeType") %>;base64,<%#: Eval("ProfilePictures.PictureBase64") %>" alt="picture of <%#: Eval("Username") %>" />
                             </div>
                         </div>
                     </div>
