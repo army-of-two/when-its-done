@@ -200,10 +200,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Url" Type="nvarchar" MaxLength="300" Nullable="false" />
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
           <Property Name="Worker_Id" Type="int" />
           <Property Name="Rating" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="YouTubeUrl" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="YouTubeId" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Vitamins">
           <Key>
@@ -984,10 +986,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Url" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
           <Property Name="Worker_Id" Type="Int32" />
           <Property Name="Rating" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="YouTubeUrl" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="YouTubeId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_VideoItems_dbo_Workers_Worker_Id" FromRole="VideoItems" ToRole="Workers" />
         </EntityType>
         <EntityType Name="Vitamins">
@@ -1757,10 +1761,12 @@
             <EntityTypeMapping TypeName="Model.VideoItems">
               <MappingFragment StoreEntitySet="VideoItems">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Url" ColumnName="Url" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Worker_Id" ColumnName="Worker_Id" />
                 <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="YouTubeUrl" ColumnName="YouTubeUrl" />
+                <ScalarProperty Name="YouTubeId" ColumnName="YouTubeId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

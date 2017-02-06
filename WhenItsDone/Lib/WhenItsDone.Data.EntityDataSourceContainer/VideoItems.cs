@@ -15,10 +15,12 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
     public partial class VideoItems
     {
         public int Id { get; set; }
-        public string Url { get; set; }
         public bool IsDeleted { get; set; }
         public Nullable<int> Worker_Id { get; set; }
         public int Rating { get; set; }
+        public string Title { get; set; }
+        public string YouTubeUrl { get; set; }
+        public string YouTubeId { get; set; }
     
         public virtual Workers Workers { get; set; }
     }
