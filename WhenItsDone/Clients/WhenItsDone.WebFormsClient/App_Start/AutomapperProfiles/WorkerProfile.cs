@@ -9,6 +9,11 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
         public WorkerProfile()
             : base()
         {
+            this.CreateMap<Worker, WorkerNamesIdDTO>()
+                .ForMember(dest => dest.Id, opts => opts.MapFrom(x => x.Id))
+                .ForMember(dest => dest.FirstName, opts => opts.MapFrom(x => x.FirstName))
+                .ForMember(dest => dest.LastName, opts => opts.MapFrom(x => x.LastName));
+
             this.CreateMap<Worker, WorkerWithDishesDTO>()
                 .ForMember(dest => dest.Id, opts => opts.MapFrom(x => x.Id))
                 .ForMember(dest => dest.Age, opts => opts.MapFrom(x => x.Age))
