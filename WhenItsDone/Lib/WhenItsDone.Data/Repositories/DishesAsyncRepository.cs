@@ -80,12 +80,12 @@ namespace WhenItsDone.Data.Repositories
             var modelB = new NamePhotoRatingDishViewDTO();
             modelB.Name = "Frittata";
             modelB.PhotoItemUrl = "http://assets.epicurious.com/photos/5719486194956b31172ec2d0/master/pass/241324_hires.jpg";
-            modelB.Rating = 33;
+            modelB.Rating = 42;
 
             var modelC = new NamePhotoRatingDishViewDTO();
             modelC.Name = "Steak";
             modelC.PhotoItemUrl = "http://www.omahasteaks.com/gifs/990x594/z_fi001.jpg";
-            modelC.Rating = 96;
+            modelC.Rating = 42;
 
             var sampleDataModels = new NamePhotoRatingDishViewDTO[] { modelA, modelB, modelC };
             var sampleDataModelsLength = sampleDataModels.Length;

@@ -105,7 +105,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
         {
             Mapper.Initialize(config =>
             {
-                config.CreateMap<Dish, NamePhotoDishViewDTO>()
+                config.CreateMap<Dish, NamePhotoRatingDishViewDTO>()
                     .ForMember(dest => dest.Name, opts => opts.MapFrom(src => src.Recipe.Name));
             });
 
@@ -116,7 +116,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
             var asyncDishesRepositoryInstace = new DishesAsyncRepository(mockDbContext.Object);
 
             var firstDish = new Mock<Dish>();
-            var firstDto = new Mock<NamePhotoDishViewDTO>();
+            var firstDto = new Mock<NamePhotoRatingDishViewDTO>();
             firstDish.Object.Rating = 100;
             firstDish.SetupGet(dish => dish.Recipe).Returns(new Mock<Recipe>().Object);
             firstDish.SetupGet(dish => dish.PhotoItems).Returns(new List<PhotoItem>() { new Mock<PhotoItem>().Object });
@@ -124,7 +124,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
             firstDto.Object.Name = "first";
 
             var secondDish = new Mock<Dish>();
-            var secondDto = new Mock<NamePhotoDishViewDTO>();
+            var secondDto = new Mock<NamePhotoRatingDishViewDTO>();
             secondDish.Object.Rating = 50;
             secondDish.SetupGet(dish => dish.Recipe).Returns(new Mock<Recipe>().Object);
             secondDish.SetupGet(dish => dish.PhotoItems).Returns(new List<PhotoItem>() { new Mock<PhotoItem>().Object });
@@ -132,7 +132,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
             secondDto.Object.Name = "second";
 
             var thirdDish = new Mock<Dish>();
-            var thirdDto = new Mock<NamePhotoDishViewDTO>();
+            var thirdDto = new Mock<NamePhotoRatingDishViewDTO>();
             thirdDish.Object.Rating = -33;
             thirdDish.SetupGet(dish => dish.Recipe).Returns(new Mock<Recipe>().Object);
             thirdDish.SetupGet(dish => dish.PhotoItems).Returns(new List<PhotoItem>() { new Mock<PhotoItem>().Object });
@@ -140,7 +140,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
             thirdDto.Object.Name = "third";
 
             var forthDish = new Mock<Dish>();
-            var forthDto = new Mock<NamePhotoDishViewDTO>();
+            var forthDto = new Mock<NamePhotoRatingDishViewDTO>();
             forthDish.Object.Rating = -42;
             forthDish.SetupGet(dish => dish.Recipe).Returns(new Mock<Recipe>().Object);
             forthDish.SetupGet(dish => dish.PhotoItems).Returns(new List<PhotoItem>() { new Mock<PhotoItem>().Object });
@@ -164,7 +164,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
             var dishesCount = 3;
             var actualReturnedCollection = asyncDishesRepositoryInstace.GetTopCountDishesByRating(dishesCount);
 
-            var expectedResult = new List<NamePhotoDishViewDTO>() { firstDto.Object, secondDto.Object, thirdDto.Object };
+            var expectedResult = new List<NamePhotoRatingDishViewDTO>() { firstDto.Object, secondDto.Object, thirdDto.Object };
             var actualResult = actualReturnedCollection.Result;
 
             var dishesAreSorted = true;
