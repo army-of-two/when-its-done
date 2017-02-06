@@ -27,7 +27,14 @@
                     <div class="col-md-4">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><%#: Eval("Username") %></h3>
+                                <div class="row">
+                                    <div class="col-md-6 text-left">
+                                        <h3 class="panel-title"><%#: Eval("Username") %></h3>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <h3 class="panel-title"><%#: Eval("Rating") %></h3>
+                                    </div>
+                                </div>
                             </div>
                             <div class="panel-body">
                                 <img src="data:image/<%#: Eval("ProfilePictures.MimeType") %>;base64,<%#: Eval("ProfilePictures.PictureBase64") %>" alt="picture of <%#: Eval("Username") %>" />
