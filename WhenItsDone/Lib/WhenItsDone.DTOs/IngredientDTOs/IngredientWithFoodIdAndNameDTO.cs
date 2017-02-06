@@ -13,7 +13,5 @@ namespace WhenItsDone.DTOs.IngredientDTOs
         public MeasurementUnitType MeasurementUnitType { get; set; }
 
         public decimal Quantity { get; set; }
-
-        public bool IsDeleted { get; set; }
     }
 }

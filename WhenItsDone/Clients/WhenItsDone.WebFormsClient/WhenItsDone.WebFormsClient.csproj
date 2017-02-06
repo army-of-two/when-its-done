@@ -406,6 +406,7 @@
     <Compile Include="App_Start\AutomapperProfiles\IngredientProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\MedicalInformationProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\ModelsProfile.cs" />
+    <Compile Include="App_Start\AutomapperProfiles\PhotoItemProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\UserViewsProfile.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
