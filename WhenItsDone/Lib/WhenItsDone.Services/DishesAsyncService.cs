@@ -25,7 +25,7 @@ namespace WhenItsDone.Services
             this.dishesAsyncRepository = asyncRepository;
         }
 
-        public IEnumerable<NamePhotoDishViewDTO> GetTopCountDishesByRating(int dishesCount, bool addSampleData)
+        public IEnumerable<NamePhotoRatingDishViewDTO> GetTopCountDishesByRating(int dishesCount, bool addSampleData)
         {
             if (dishesCount < 0)
             {
