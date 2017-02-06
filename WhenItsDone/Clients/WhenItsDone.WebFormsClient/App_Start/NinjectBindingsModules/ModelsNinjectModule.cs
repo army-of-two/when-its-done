@@ -37,7 +37,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 
         private User GetInitializedUserFactoryMethod(IContext context)
         {
-            var methodParameter = context.Parameters.FirstOrDefault();
+            var methodParameter = context.Parameters.SingleOrDefault();
             var username = (string)methodParameter?.GetValue(context, null);
             Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty();
 
