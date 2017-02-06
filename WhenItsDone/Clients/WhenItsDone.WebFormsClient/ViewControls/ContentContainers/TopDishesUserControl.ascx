@@ -15,7 +15,14 @@
                     <div class="col-md-4">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><%#: Item.Name %></h3>
+                                <div class="row">
+                                    <div class="col-md-6 text-left">
+                                        <h3 class="panel-title"><%#: Item.Name %></h3>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <h3 class="panel-title">Rating</h3>
+                                    </div>
+                                </div>
                             </div>
                             <div class="panel-body">
                                 <img src="<%#: Item.PhotoItemUrl %>" alt="picture of <%#: Item.Name %>" />
