@@ -403,6 +403,7 @@
     <Compile Include="App_Start\AutomapperProfiles\AddressProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\ContactInformationProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\DishViewsProfile.cs" />
+    <Compile Include="App_Start\AutomapperProfiles\IngredientProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\ModelsProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\UserViewsProfile.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
