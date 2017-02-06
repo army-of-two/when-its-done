@@ -1,6 +1,8 @@
-﻿using NUnit.Framework;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Linq;
+
+using NUnit.Framework;
+
 using WhenItsDone.Models.Constants;
 
 namespace WhenItsDone.Models.Tests.VideoItemTests
