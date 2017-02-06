@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using WhenItsDone.Common.Enums;
-using WhenItsDone.Models;
+using WhenItsDone.DTOs.ContactInformationDTOs;
+using WhenItsDone.DTOs.DishViewsDTOs;
+using WhenItsDone.DTOs.MedicalInformationDTOs;
 
 namespace WhenItsDone.DTOs.WorkerVIewsDTOs
 {
@@ -18,16 +20,10 @@ namespace WhenItsDone.DTOs.WorkerVIewsDTOs
 
         public int Rating { get; set; }
 
-        public string Email { get; set; }
+        public MedicalInformationFullDTO MedicalInformation { get; set; }
 
-        public string PhoneNumber { get; set; }
+        public ContactInformationFullWithNestedDTO ContactInformation { get; set; }
 
-        public string Country { get; set; }
-
-        public string City { get; set; }
-
-        public string Street { get; set; }
-
-        public IEnumerable<Dish> Dishes { get; set; }
+        public IEnumerable<DishWithRecipeAndPhotosDTO> Dishes { get; set; }
     }
 }
