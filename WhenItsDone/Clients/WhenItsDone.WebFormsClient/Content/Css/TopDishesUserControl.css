@@ -12,11 +12,12 @@
   object-fit: contain;
   padding: 25px;
 }
-.content-container-even .panel-body iframe.embedded-video {
+.content-container-even .panel-body .embedded-video-container {
   height: 600px;
-  padding: 25px;
+  object-fit: contain;
+  margin-top: 25%;
 }
-.content-container-even .panel-body iframe.embedded-video:hover {
+.content-container-even .panel-body .embedded-video-container iframe.embedded-video:hover {
   cursor: pointer;
 }
 .content-container-even .panel:hover {

@@ -34,7 +34,9 @@
                                 </div>
                             </div>
                             <div class="panel-body">
-                                <iframe class="embedded-video" width="320" height="180" src="https://www.youtube.com/embed/<%#: Eval("YouTubeId") %>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                <div class="embedded-video-container">
+                                    <iframe class="embedded-video" width="320" height="180" src="https://www.youtube.com/embed/<%#: Eval("YouTubeId") %>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                </div>
                             </div>
                         </div>
                     </div>
