@@ -19,7 +19,7 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         public int Score { get; set; }
         public int ClientId { get; set; }
         public bool IsDeleted { get; set; }
-        public Nullable<int> Dish_Id { get; set; }
+        public int DishId { get; set; }
     
         public virtual Clients Clients { get; set; }
         public virtual Dishes Dishes { get; set; }

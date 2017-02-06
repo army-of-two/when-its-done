@@ -18,7 +18,7 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         public bool IsDeleted { get; set; }
         public int WorkerId { get; set; }
         public decimal AmountPaid { get; set; }
-        public Nullable<int> Client_Id { get; set; }
+        public int ClientId { get; set; }
     
         public virtual Clients Clients { get; set; }
         public virtual Workers Workers { get; set; }

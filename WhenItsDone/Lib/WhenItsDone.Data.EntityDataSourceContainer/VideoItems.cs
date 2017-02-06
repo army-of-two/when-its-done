@@ -18,6 +18,7 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         public string Url { get; set; }
         public bool IsDeleted { get; set; }
         public Nullable<int> Worker_Id { get; set; }
+        public int Rating { get; set; }
     
         public virtual Workers Workers { get; set; }
     }
