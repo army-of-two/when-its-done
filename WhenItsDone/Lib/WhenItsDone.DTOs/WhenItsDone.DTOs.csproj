@@ -51,6 +51,7 @@
     <Compile Include="RecipeDTOs\RecipeFullDTO.cs" />
     <Compile Include="UserViewsDTOs\UsernameProfilePictureUserViewDTO.cs" />
     <Compile Include="WorkerVIewsDTOs\WorkerDetailInformationDTO.cs" />
+    <Compile Include="WorkerVIewsDTOs\WorkerMedicalInformationDTO.cs" />
     <Compile Include="WorkerVIewsDTOs\WorkerNamesIdDTO.cs" />
     <Compile Include="WorkerVIewsDTOs\WorkerWithDishesDTO.cs" />
   </ItemGroup>
