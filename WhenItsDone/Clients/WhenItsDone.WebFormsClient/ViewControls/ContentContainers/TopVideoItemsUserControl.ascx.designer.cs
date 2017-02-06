@@ -13,13 +13,13 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ContentContainers {
     public partial class TopVideoItemsUserControl {
         
         /// <summary>
-        /// VideoItemsEntityDataSource control.
+        /// VideoItemsSqlDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource VideoItemsEntityDataSource;
+        protected global::System.Web.UI.WebControls.SqlDataSource VideoItemsSqlDataSource;
         
         /// <summary>
         /// TopDishesRepeater control.
