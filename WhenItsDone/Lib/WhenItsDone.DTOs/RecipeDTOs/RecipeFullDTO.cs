@@ -12,7 +12,5 @@ namespace WhenItsDone.DTOs.RecipeDTOs
         public string Description { get; set; }
 
         public virtual ICollection<IngredientWithFoodIdAndNameDTO> Ingredients { get; set; }
-
-        public bool IsDeleted { get; set; }
     }
 }
