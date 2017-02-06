@@ -416,7 +416,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
             var actualResult = actualReturnedCollection.Result;
 
             var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
-            var sampleNamePhotoDishViewDataField = typeof(DishesAsyncRepository).GetField("sampleNamePhotoDishViewData", bindingFlags);
+            var sampleNamePhotoDishViewDataField = typeof(DishesAsyncRepository).GetField("sampleNamePhotoRatingDishViewData", bindingFlags);
             var sampleNamePhotoDishViewDataValue = sampleNamePhotoDishViewDataField.GetValue(asyncDishesRepositoryInstace);
 
             Assert.That(actualResult, Is.SameAs(sampleNamePhotoDishViewDataValue));

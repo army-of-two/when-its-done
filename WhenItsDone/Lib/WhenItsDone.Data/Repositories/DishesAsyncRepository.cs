@@ -14,7 +14,7 @@ namespace WhenItsDone.Data.Repositories
 {
     public class DishesAsyncRepository : GenericAsyncRepository<Dish>, IAsyncRepository<Dish>, IDishesAsyncRepository
     {
-        private IList<NamePhotoRatingDishViewDTO> sampleNamePhotoDishViewData;
+        private IList<NamePhotoRatingDishViewDTO> sampleNamePhotoRatingDishViewData;
 
         public DishesAsyncRepository(IWhenItsDoneDbContext dbContext)
             : base(dbContext)
@@ -57,17 +57,18 @@ namespace WhenItsDone.Data.Repositories
                 existingDataList.Add(sampleData[nextIndex]);
             }
 
-            return existingDataList;
+            return existingDataList.OrderByDescending(dish => dish.Rating).ToList();
         }
 
         private IList<NamePhotoRatingDishViewDTO> GetSampleDataOnFailedDBConnection(int dishesCount)
         {
-            if (this.sampleNamePhotoDishViewData == null)
+            if (this.sampleNamePhotoRatingDishViewData == null || this.sampleNamePhotoRatingDishViewData.Count != dishesCount)
             {
-                this.sampleNamePhotoDishViewData = this.CreateSampleNamePhotoDishViewData(dishesCount);
+                var sampleData = this.CreateSampleNamePhotoDishViewData(dishesCount);
+                this.sampleNamePhotoRatingDishViewData = sampleData.OrderByDescending(dish => dish.Rating).ToList();
             }
 
-            return this.sampleNamePhotoDishViewData;
+            return this.sampleNamePhotoRatingDishViewData;
         }
 
         private IList<NamePhotoRatingDishViewDTO> CreateSampleNamePhotoDishViewData(int dishesCount)
