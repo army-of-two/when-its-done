@@ -43,6 +43,33 @@ namespace WhenItsDone.Data.Migrations
                 }
 
                 context.ProfilePictures.Add(defaultProfilePicture);
+
+                context.SaveChanges();
+            }
+
+            if (!context.VideoItems.Any())
+            {
+                var mozart = new VideoItem();
+                mozart.Title = "Mozart";
+                mozart.YouTubeUrl = "https://www.youtube.com/watch?v=Rb0UmrCXxVA";
+                mozart.YouTubeId = "Rb0UmrCXxVA";
+                mozart.Rating = 100;
+                context.VideoItems.Add(mozart);
+
+                var minimal = new VideoItem();
+                minimal.Title = "Minimal";
+                minimal.YouTubeUrl = "https://www.youtube.com/watch?v=_3P4j6iIVew";
+                minimal.YouTubeId = "_3P4j6iIVew";
+                minimal.Rating = 100;
+                context.VideoItems.Add(minimal);
+
+                var metallica = new VideoItem();
+                metallica.Title = "Metallica";
+                metallica.YouTubeUrl = "https://www.youtube.com/watch?v=md3B3I7Nmvw";
+                metallica.YouTubeId = "md3B3I7Nmvw";
+                metallica.Rating = 100;
+                context.VideoItems.Add(metallica);
+
                 context.SaveChanges();
             }
         }

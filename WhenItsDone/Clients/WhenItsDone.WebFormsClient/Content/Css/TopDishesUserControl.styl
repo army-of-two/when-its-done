@@ -4,13 +4,24 @@
   .panel-body
     max-height: 360px
     overflow: hidden
+    
     img
       width: 100%;
       margin-top: -125px;
       height: 600px;
       object-fit: contain;
       padding: 25px
-  
+
+    .embedded-video-container
+      height: 600px;
+      object-fit: contain;
+      margin-top: 25%
+
+      iframe.embedded-video
+      
+        &:hover
+          cursor: pointer
+        
   .panel:hover
     background-color: rgba(66, 139, 202, 0.10)
 

@@ -26,7 +26,7 @@ namespace WhenItsDone.Models.Tests.VideoItemTests
         {
             var obj = new VideoItem();
 
-            Assert.AreEqual(null, obj.Url);
+            Assert.AreEqual(null, obj.YouTubeUrl);
         }
 
         [Test]

@@ -161,6 +161,14 @@
     <Compile Include="Migrations\201702060058177_updated models again.Designer.cs">
       <DependentUpon>201702060058177_updated models again.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702061351480_added rating to VideoItem.cs" />
+    <Compile Include="Migrations\201702061351480_added rating to VideoItem.Designer.cs">
+      <DependentUpon>201702061351480_added rating to VideoItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702061504409_update VideoItem model with url title id.cs" />
+    <Compile Include="Migrations\201702061504409_update VideoItem model with url title id.Designer.cs">
+      <DependentUpon>201702061504409_update VideoItem model with url title id.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\ProfilePicturesAsyncRepository.cs" />
     <Compile Include="Repositories\WorkerAsyncRepository.cs" />
@@ -247,6 +255,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702060058177_updated models again.resx">
       <DependentUpon>201702060058177_updated models again.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702061351480_added rating to VideoItem.resx">
+      <DependentUpon>201702061351480_added rating to VideoItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702061504409_update VideoItem model with url title id.resx">
+      <DependentUpon>201702061504409_update VideoItem model with url title id.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
