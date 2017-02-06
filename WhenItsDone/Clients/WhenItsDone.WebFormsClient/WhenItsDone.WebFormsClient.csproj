@@ -275,7 +275,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="ViewControls\AdminPageControls\APWorkerDishesControl.ascx" />
     <Content Include="ViewControls\AdminPageControls\APWorkersControl.ascx" />
+    <Content Include="ViewControls\AdminPageControls\APWorkersSourseControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopDishesUserControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopUsersUserControl.ascx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -398,10 +400,16 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\AutomapperProfiles\AddressProfile.cs" />
+    <Compile Include="App_Start\AutomapperProfiles\ContactInformationProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\DishViewsProfile.cs" />
+    <Compile Include="App_Start\AutomapperProfiles\IngredientProfile.cs" />
+    <Compile Include="App_Start\AutomapperProfiles\MedicalInformationProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\ModelsProfile.cs" />
+    <Compile Include="App_Start\AutomapperProfiles\PhotoItemProfile.cs" />
+    <Compile Include="App_Start\AutomapperProfiles\RecipeProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\UserViewsProfile.cs" />
-    <Compile Include="App_Start\AutomapperProfiles\WorkerWithDishesViewProfile.cs" />
+    <Compile Include="App_Start\AutomapperProfiles\WorkerProfile.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -454,12 +462,26 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewControls\AdminPageControls\APWorkerDishesControl.ascx.cs">
+      <DependentUpon>APWorkerDishesControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\AdminPageControls\APWorkerDishesControl.ascx.designer.cs">
+      <DependentUpon>APWorkerDishesControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ViewControls\AdminPageControls\APWorkersControl.ascx.cs">
       <DependentUpon>APWorkersControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewControls\AdminPageControls\APWorkersControl.ascx.designer.cs">
       <DependentUpon>APWorkersControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControls\AdminPageControls\APWorkersSourseControl.ascx.cs">
+      <DependentUpon>APWorkersSourseControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\AdminPageControls\APWorkersSourseControl.ascx.designer.cs">
+      <DependentUpon>APWorkersSourseControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViewControls\ContentContainers\TopDishesUserControl.ascx.cs">
       <DependentUpon>TopDishesUserControl.ascx</DependentUpon>

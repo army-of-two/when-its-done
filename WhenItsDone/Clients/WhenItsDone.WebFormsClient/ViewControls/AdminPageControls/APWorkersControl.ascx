@@ -2,7 +2,7 @@
     CodeBehind="APWorkersControl.ascx.cs"
     Inherits="WhenItsDone.WebFormsClient.ViewControls.AdminPageControls.APWorkersControl" %>
 
-<div>
+<div id="workers-list">
     <asp:ListView runat="server" ID="workersList" DataKeyNames="Id"
         ItemType="WhenItsDone.DTOs.WorkerVIewsDTOs.WorkerWithDishesDTO">
         <ItemTemplate>
