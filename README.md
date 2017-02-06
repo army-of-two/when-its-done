@@ -3,3 +3,5 @@
 [![Coverage Status](https://coveralls.io/repos/github/army-of-two/when-its-done/badge.svg?branch=master)](https://coveralls.io/github/army-of-two/when-its-done?branch=master)
 
 ![Home page](./Screenshots/FoodMe.Init.DB.png)
+
+![Home page](./Screenshots/FoodMe.TopUsers.png)
