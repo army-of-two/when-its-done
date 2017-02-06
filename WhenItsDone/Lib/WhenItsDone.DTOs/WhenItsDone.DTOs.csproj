@@ -44,6 +44,7 @@
     <Compile Include="ContactInformationDTOs\ContactInformationFullWithNestedDTO.cs" />
     <Compile Include="DishViewsDTOs\DishWithRecipeAndPhotosDTO.cs" />
     <Compile Include="DishViewsDTOs\NamePhotoDishViewDTO.cs" />
+    <Compile Include="DishViewsDTOs\NamePhotoRatingDishViewDTO.cs" />
     <Compile Include="IngredientDTOs\IngredientWithFoodIdAndNameDTO.cs" />
     <Compile Include="MedicalInformationDTOs\MedicalInformationFullDTO.cs" />
     <Compile Include="PhotoItemDTOs\PhotoItemDTO.cs" />

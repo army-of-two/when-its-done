@@ -6,6 +6,6 @@ namespace WhenItsDone.MVP.ContentContainers.TopDishesMVP
 {
     public class TopDishesViewModel
     {
-        public IEnumerable<NamePhotoDishViewDTO> TopDishes { get; set; }
+        public IEnumerable<NamePhotoRatingDishViewDTO> TopDishes { get; set; }
     }
 }
