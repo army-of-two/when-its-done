@@ -11,6 +11,13 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
     {
         public DishViewsProfile()
         {
+            this.CreateMap<Dish, DishBasicsInfoDTO>()
+                .ForMember(dest => dest.Id, opts => opts.MapFrom(src => src.Id))
+                .ForMember(dest => dest.Name, opts => opts.MapFrom(src => src.Recipe.Name))
+                .ForMember(dest => dest.Price, opts => opts.MapFrom(src => src.Price))
+                .ForMember(dest => dest.Rating, opts => opts.MapFrom(src => src.Rating))
+                .ForMember(dest => dest.RecipeId, opts => opts.MapFrom(src => src.RecipeId));
+
             this.CreateMap<Dish, NamePhotoDishViewDTO>()
                 .ForMember(dest => dest.Id, opts => opts.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Name, opts => opts.MapFrom(src => src.Recipe.Name))
