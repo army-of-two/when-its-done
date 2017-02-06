@@ -319,7 +319,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
             var actualResult = actualReturnedCollection.Result;
 
             var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
-            var sampleNamePhotoDishViewDataField = typeof(DishesAsyncRepository).GetField("sampleNamePhotoDishViewData", bindingFlags);
+            var sampleNamePhotoDishViewDataField = typeof(DishesAsyncRepository).GetField("sampleNamePhotoRatingDishViewData", bindingFlags);
             var sampleNamePhotoDishViewDataValue = sampleNamePhotoDishViewDataField.GetValue(asyncDishesRepositoryInstace);
 
             Assert.That(sampleNamePhotoDishViewDataValue, Is.Not.Null.And.InstanceOf<IEnumerable<NamePhotoRatingDishViewDTO>>());
@@ -330,7 +330,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
         {
             Mapper.Initialize(config =>
             {
-                config.CreateMap<Dish, NamePhotoDishViewDTO>()
+                config.CreateMap<Dish, NamePhotoRatingDishViewDTO>()
                     .ForMember(dest => dest.Name, opts => opts.MapFrom(src => src.Recipe.Name));
             });
 
@@ -368,7 +368,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
             var actualResult = actualReturnedCollection.Result;
 
             var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
-            var sampleNamePhotoDishViewDataField = typeof(DishesAsyncRepository).GetField("sampleNamePhotoDishViewData", bindingFlags);
+            var sampleNamePhotoDishViewDataField = typeof(DishesAsyncRepository).GetField("sampleNamePhotoRatingDishViewData", bindingFlags);
             var sampleNamePhotoDishViewDataValue = (IEnumerable<NamePhotoRatingDishViewDTO>)sampleNamePhotoDishViewDataField.GetValue(asyncDishesRepositoryInstace);
 
             Assert.That(sampleNamePhotoDishViewDataValue.Count(), Is.EqualTo(3));
