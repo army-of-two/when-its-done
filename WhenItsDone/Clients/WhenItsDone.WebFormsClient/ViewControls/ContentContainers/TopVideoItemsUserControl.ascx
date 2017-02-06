@@ -4,15 +4,11 @@
     CodeBehind="TopVideoItemsUserControl.ascx.cs"
     Inherits="WhenItsDone.WebFormsClient.ViewControls.ContentContainers.TopVideoItemsUserControl" %>
 
-<asp:EntityDataSource
-    ID="VideoItemsEntityDataSource" runat="server"
-    DefaultContainerName="Entities"
-    ConnectionString="name=Entities"
-    EntitySetName="VideoItems"
-    Select="TOP(3) it.Id, it.YouTubeId, it.Rating, it.Title"
-    OrderBy="it.Rating DESC"
-    EnableFlattening="false">
-</asp:EntityDataSource>
+<asp:SqlDataSource
+    ID="VideoItemsSqlDataSource" runat="server"
+    ConnectionString="<%$ ConnectionStrings:DefaultConnection %>"
+    SelectCommand="SELECT TOP(3) v.Id, v.YouTubeId, v.Rating, v.Title FROM dbo.VideoItems v ORDER BY v.Rating DESC">
+</asp:SqlDataSource>
 
 <section class="content-container-heading">
     <h1>Food.Me Top 3 Videos</h1>
@@ -21,7 +17,7 @@
     <div class="row">
         <asp:Repeater
             ID="TopDishesRepeater" runat="server"
-            DataSourceID="VideoItemsEntityDataSource">
+            DataSourceID="VideoItemsSqlDataSource">
             <ItemTemplate>
                 <a class="panel-anchor" href="/Details?itemid=<%#: Eval("Id") %>" title="Click for more details: <%#: Eval("Title") %>">
                     <div class="col-md-4">
