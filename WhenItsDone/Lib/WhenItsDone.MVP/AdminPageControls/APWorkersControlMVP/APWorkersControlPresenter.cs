@@ -35,15 +35,15 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkersControlMVP
                 },
                 new WorkerWithDishesDTO()
                 {
-                    Id=1,
-                    FirstName ="first",
-                    LastName = "FirstLast"
+                    Id=2,
+                    FirstName ="second",
+                    LastName = "SecondLast"
                 },
                 new WorkerWithDishesDTO()
                 {
-                    Id=1,
-                    FirstName ="first",
-                    LastName = "FirstLast"
+                    Id=3,
+                    FirstName ="Last",
+                    LastName = "LastLast"
                 }
             };
         }
