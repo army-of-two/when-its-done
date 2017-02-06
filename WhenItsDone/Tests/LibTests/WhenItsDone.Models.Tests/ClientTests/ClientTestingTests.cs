@@ -19,7 +19,7 @@ namespace WhenItsDone.Models.Tests.ClientTests
                             .GetProperties()
                             .Count();
 
-            Assert.AreEqual(12, result);
+            Assert.AreEqual(15, result);
         }
 
         /// <summary>

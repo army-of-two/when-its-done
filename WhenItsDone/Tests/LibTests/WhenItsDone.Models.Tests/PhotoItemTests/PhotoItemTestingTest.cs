@@ -19,7 +19,7 @@ namespace WhenItsDone.Models.Tests.PhotoItemTests
                             .GetProperties()
                             .Count();
 
-            Assert.AreEqual(3, result);
+            Assert.AreEqual(5, result);
         }
 
         /// <summary>

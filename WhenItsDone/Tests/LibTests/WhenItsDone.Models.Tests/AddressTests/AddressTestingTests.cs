@@ -22,7 +22,7 @@ namespace WhenItsDone.Models.Tests.AddressTests
                             .GetProperties()
                             .Count();
 
-            Assert.AreEqual(5, result);
+            Assert.AreEqual(6, result);
         }
 
         /// <summary>
