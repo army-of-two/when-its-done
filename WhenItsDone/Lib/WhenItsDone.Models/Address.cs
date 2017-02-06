@@ -35,7 +35,7 @@ namespace WhenItsDone.Models
         [RegularExpression(RegexConstants.EnBgSpaceMinus)]
         public string Street { get; set; }
 
-        public virtual ICollection<ContactInformation> ContactInfromations
+        public virtual ICollection<ContactInformation> ContactInformations
         {
             get
             {

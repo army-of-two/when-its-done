@@ -12,27 +12,28 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
     using System;
     using System.Collections.Generic;
     
-    public partial class MedicalInformation
+    public partial class NutritionFacts
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MedicalInformation()
+        public NutritionFacts()
         {
-            this.Users = new HashSet<User>();
-            this.Workers = new HashSet<Worker>();
+            this.Foods = new HashSet<Foods>();
+            this.Minerals = new HashSet<Minerals>();
+            this.Vitamins = new HashSet<Vitamins>();
         }
     
         public int Id { get; set; }
-        public Nullable<int> BustSizeInCm { get; set; }
-        public Nullable<int> WaistSizeInCm { get; set; }
-        public Nullable<int> HipSizeInCm { get; set; }
-        public Nullable<int> HeightInCm { get; set; }
-        public Nullable<int> WeightInKg { get; set; }
-        public int BMI { get; set; }
+        public decimal Calories { get; set; }
+        public decimal Carbohydrates { get; set; }
+        public decimal Fats { get; set; }
+        public decimal Protein { get; set; }
         public bool IsDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Foods> Foods { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Worker> Workers { get; set; }
+        public virtual ICollection<Minerals> Minerals { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Vitamins> Vitamins { get; set; }
     }
 }

@@ -48,7 +48,7 @@ namespace WhenItsDone.Models
         [RegularExpression(RegexConstants.EnBgSpaceMinus)]
         public string LastName { get; set; }
 
-        public int Gender { get; set; }
+        public GenderType Gender { get; set; }
 
         [Range(ValidationConstants.AgeMinValue, ValidationConstants.AgeMaxValue)]
         public int Age { get; set; }

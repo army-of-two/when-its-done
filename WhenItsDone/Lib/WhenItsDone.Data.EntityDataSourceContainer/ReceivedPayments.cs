@@ -12,13 +12,15 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
     using System;
     using System.Collections.Generic;
     
-    public partial class VideoItem
+    public partial class ReceivedPayments
     {
         public int Id { get; set; }
-        public string Url { get; set; }
         public bool IsDeleted { get; set; }
+        public int ClientId { get; set; }
+        public decimal AmountPaid { get; set; }
         public Nullable<int> Worker_Id { get; set; }
     
-        public virtual Worker Worker { get; set; }
+        public virtual Clients Clients { get; set; }
+        public virtual Workers Workers { get; set; }
     }
 }

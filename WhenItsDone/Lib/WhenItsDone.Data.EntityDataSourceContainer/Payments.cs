@@ -12,7 +12,7 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
     using System;
     using System.Collections.Generic;
     
-    public partial class Payment
+    public partial class Payments
     {
         public int Id { get; set; }
         public bool IsDeleted { get; set; }
@@ -20,7 +20,7 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         public decimal AmountPaid { get; set; }
         public Nullable<int> Client_Id { get; set; }
     
-        public virtual Client Client { get; set; }
-        public virtual Worker Worker { get; set; }
+        public virtual Clients Clients { get; set; }
+        public virtual Workers Workers { get; set; }
     }
 }

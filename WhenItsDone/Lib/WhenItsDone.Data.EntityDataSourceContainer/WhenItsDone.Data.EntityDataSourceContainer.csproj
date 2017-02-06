@@ -51,113 +51,111 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+    <Compile Include="Addresses.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Client.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+    <Compile Include="ClientReviews.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="ClientReview.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+    <Compile Include="Clients.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="ContactInformation.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+    <Compile Include="ContactInformations.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Dish.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+    <Compile Include="Dishes.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Food.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+    <Compile Include="Foods.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="FoodMeModel.Context.cs">
+    <Compile Include="Ingredients.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Jobs.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalInformations.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Minerals.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FoodMeModel.Context.tt</DependentUpon>
+      <DependentUpon>Model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="FoodMeModel.cs">
+    <Compile Include="Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="FoodMeModel.Designer.cs">
+    <Compile Include="Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FoodMeModel.edmx</DependentUpon>
+      <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Ingredient.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+    <Compile Include="NutritionFacts.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Job.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+    <Compile Include="Payments.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="MedicalInformation.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+    <Compile Include="PhotoItems.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Mineral.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NutritionFact.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Payment.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PhotoItem.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProfilePicture.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+    <Compile Include="ProfilePictures.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReceivedPayment.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+    <Compile Include="ReceivedPayments.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Recipe.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+    <Compile Include="Recipes.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="User.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+    <Compile Include="Users.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="VideoItem.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+    <Compile Include="VideoItems.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Vitamin.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+    <Compile Include="Vitamins.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Worker.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+    <Compile Include="WorkerReviews.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="WorkerReview.cs">
-      <DependentUpon>FoodMeModel.tt</DependentUpon>
+    <Compile Include="Workers.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="FoodMeModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FoodMeModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="FoodMeModel.edmx.diagram">
-      <DependentUpon>FoodMeModel.edmx</DependentUpon>
+    <EntityDeploy Include="Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FoodMeModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>FoodMeModel.Context.cs</LastGenOutput>
-      <DependentUpon>FoodMeModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="FoodMeModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FoodMeModel.edmx</DependentUpon>
-      <LastGenOutput>FoodMeModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

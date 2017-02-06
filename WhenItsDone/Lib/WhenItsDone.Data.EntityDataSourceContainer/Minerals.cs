@@ -12,17 +12,14 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
     using System;
     using System.Collections.Generic;
     
-    public partial class Job
+    public partial class Minerals
     {
         public int Id { get; set; }
-        public System.DateTime ScheduledTime { get; set; }
-        public decimal Price { get; set; }
-        public int WorkerId { get; set; }
-        public int ClientId { get; set; }
-        public bool IsCompleted { get; set; }
+        public decimal Quantity { get; set; }
+        public string Name { get; set; }
+        public Nullable<int> NutritionFacts_Id { get; set; }
         public bool IsDeleted { get; set; }
     
-        public virtual Client Client { get; set; }
-        public virtual Worker Worker { get; set; }
+        public virtual NutritionFacts NutritionFacts { get; set; }
     }
 }

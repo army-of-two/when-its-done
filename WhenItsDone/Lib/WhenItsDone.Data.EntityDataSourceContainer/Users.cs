@@ -12,7 +12,7 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Users
     {
         public int Id { get; set; }
         public string Username { get; set; }
@@ -28,10 +28,10 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         public Nullable<int> ContactInformationId { get; set; }
         public int ProfilePictureId { get; set; }
     
-        public virtual Client Client { get; set; }
-        public virtual ContactInformation ContactInformation { get; set; }
-        public virtual MedicalInformation MedicalInformation { get; set; }
-        public virtual ProfilePicture ProfilePicture { get; set; }
-        public virtual Worker Worker { get; set; }
+        public virtual Clients Clients { get; set; }
+        public virtual ContactInformations ContactInformations { get; set; }
+        public virtual MedicalInformations MedicalInformations { get; set; }
+        public virtual ProfilePictures ProfilePictures { get; set; }
+        public virtual Workers Workers { get; set; }
     }
 }

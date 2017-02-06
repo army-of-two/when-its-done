@@ -12,23 +12,28 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
     using System;
     using System.Collections.Generic;
     
-    public partial class Recipe
+    public partial class ContactInformations
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Recipe()
+        public ContactInformations()
         {
-            this.Dishes = new HashSet<Dish>();
-            this.Ingredients = new HashSet<Ingredient>();
+            this.Clients = new HashSet<Clients>();
+            this.Users = new HashSet<Users>();
+            this.Workers = new HashSet<Workers>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public Nullable<int> AddressId { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
         public bool IsDeleted { get; set; }
     
+        public virtual Addresses Addresses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dish> Dishes { get; set; }
+        public virtual ICollection<Clients> Clients { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ingredient> Ingredients { get; set; }
+        public virtual ICollection<Users> Users { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Workers> Workers { get; set; }
     }
 }

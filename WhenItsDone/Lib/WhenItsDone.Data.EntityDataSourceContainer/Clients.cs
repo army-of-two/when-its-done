@@ -12,16 +12,16 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
     using System;
     using System.Collections.Generic;
     
-    public partial class Client
+    public partial class Clients
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Client()
+        public Clients()
         {
-            this.Jobs = new HashSet<Job>();
-            this.Payments = new HashSet<Payment>();
-            this.ReceivedPayments = new HashSet<ReceivedPayment>();
-            this.Users = new HashSet<User>();
-            this.WorkerReviews = new HashSet<WorkerReview>();
+            this.Jobs = new HashSet<Jobs>();
+            this.Payments = new HashSet<Payments>();
+            this.ReceivedPayments = new HashSet<ReceivedPayments>();
+            this.Users = new HashSet<Users>();
+            this.WorkerReviews = new HashSet<WorkerReviews>();
         }
     
         public int Id { get; set; }
@@ -34,16 +34,16 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         public int Gender { get; set; }
         public int Age { get; set; }
     
-        public virtual ContactInformation ContactInformation { get; set; }
+        public virtual ContactInformations ContactInformations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Job> Jobs { get; set; }
+        public virtual ICollection<Jobs> Jobs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Payment> Payments { get; set; }
+        public virtual ICollection<Payments> Payments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReceivedPayment> ReceivedPayments { get; set; }
+        public virtual ICollection<ReceivedPayments> ReceivedPayments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Users> Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WorkerReview> WorkerReviews { get; set; }
+        public virtual ICollection<WorkerReviews> WorkerReviews { get; set; }
     }
 }

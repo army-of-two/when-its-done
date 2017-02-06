@@ -12,12 +12,12 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
     using System;
     using System.Collections.Generic;
     
-    public partial class Food
+    public partial class Foods
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Food()
+        public Foods()
         {
-            this.Ingredients = new HashSet<Ingredient>();
+            this.Ingredients = new HashSet<Ingredients>();
         }
     
         public int Id { get; set; }
@@ -28,8 +28,8 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         public int NutritionFactsId { get; set; }
         public bool IsDeleted { get; set; }
     
-        public virtual NutritionFact NutritionFact { get; set; }
+        public virtual NutritionFacts NutritionFacts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ingredient> Ingredients { get; set; }
+        public virtual ICollection<Ingredients> Ingredients { get; set; }
     }
 }

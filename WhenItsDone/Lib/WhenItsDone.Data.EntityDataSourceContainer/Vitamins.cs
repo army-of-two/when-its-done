@@ -12,7 +12,7 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
     using System;
     using System.Collections.Generic;
     
-    public partial class Mineral
+    public partial class Vitamins
     {
         public int Id { get; set; }
         public decimal Quantity { get; set; }
@@ -20,6 +20,6 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         public Nullable<int> NutritionFacts_Id { get; set; }
         public bool IsDeleted { get; set; }
     
-        public virtual NutritionFact NutritionFact { get; set; }
+        public virtual NutritionFacts NutritionFacts { get; set; }
     }
 }

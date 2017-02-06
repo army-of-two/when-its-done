@@ -6,10 +6,10 @@
 
 <asp:EntityDataSource
     ID="UsersDataSource" runat="server"
-    DefaultContainerName="FoodMeEntities"
-    ConnectionString="name=FoodMeEntities"
+    DefaultContainerName="Entities"
+    ConnectionString="name=Entities"
     EntitySetName="Users"
-    Include="ProfilePicture"
+    Include="ProfilePictures"
     EnableFlattening="false">
 </asp:EntityDataSource>
 
@@ -21,7 +21,7 @@
         <asp:Repeater
             ID="TopDishesRepeater" runat="server"
             DataSourceID="UsersDataSource"
-            ItemType="WhenItsDone.Models.User">
+            ItemType="WhenItsDone.Data.EntityDataSourceContainer.Users">
             <ItemTemplate>
                 <a class="panel-anchor" href="/Details?itemid=<%#: Item.Id %>" title="Click for more details: <%#: Item.Username %>">
                     <div class="col-md-4">
@@ -30,7 +30,7 @@
                                 <h3 class="panel-title"><%#: Item.Username %></h3>
                             </div>
                             <div class="panel-body">
-                                <img src="data:image/<%#: Item.ProfilePicture.MimeType %>;base64,<%#: Item.ProfilePicture.PictureBase64 %>" alt="picture of <%#: Item.Username %>" />
+                                <img src="data:image/<%#: Item.ProfilePictures.MimeType %>;base64,<%#: Item.ProfilePictures.PictureBase64 %>" alt="picture of <%#: Item.Username %>" />
                             </div>
                         </div>
                     </div>

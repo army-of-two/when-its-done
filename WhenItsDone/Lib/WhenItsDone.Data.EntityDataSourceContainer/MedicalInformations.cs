@@ -12,21 +12,27 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
     using System;
     using System.Collections.Generic;
     
-    public partial class Address
+    public partial class MedicalInformations
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Address()
+        public MedicalInformations()
         {
-            this.ContactInformations = new HashSet<ContactInformation>();
+            this.Users = new HashSet<Users>();
+            this.Workers = new HashSet<Workers>();
         }
     
         public int Id { get; set; }
-        public string Country { get; set; }
-        public string City { get; set; }
-        public string Street { get; set; }
+        public Nullable<int> BustSizeInCm { get; set; }
+        public Nullable<int> WaistSizeInCm { get; set; }
+        public Nullable<int> HipSizeInCm { get; set; }
+        public Nullable<int> HeightInCm { get; set; }
+        public Nullable<int> WeightInKg { get; set; }
+        public int BMI { get; set; }
         public bool IsDeleted { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ContactInformation> ContactInformations { get; set; }
+        public virtual ICollection<Users> Users { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Workers> Workers { get; set; }
     }
 }

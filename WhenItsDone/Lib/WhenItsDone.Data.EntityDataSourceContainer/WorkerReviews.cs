@@ -12,7 +12,7 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
     using System;
     using System.Collections.Generic;
     
-    public partial class WorkerReview
+    public partial class WorkerReviews
     {
         public int Id { get; set; }
         public string ReviewContent { get; set; }
@@ -21,7 +21,7 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         public bool IsDeleted { get; set; }
         public Nullable<int> Dish_Id { get; set; }
     
-        public virtual Client Client { get; set; }
-        public virtual Dish Dish { get; set; }
+        public virtual Clients Clients { get; set; }
+        public virtual Dishes Dishes { get; set; }
     }
 }

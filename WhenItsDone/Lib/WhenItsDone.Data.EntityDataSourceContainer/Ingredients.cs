@@ -12,14 +12,15 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
     using System;
     using System.Collections.Generic;
     
-    public partial class ClientReview
+    public partial class Ingredients
     {
         public int Id { get; set; }
-        public string ReviewContent { get; set; }
-        public int Score { get; set; }
-        public int WorkerId { get; set; }
+        public int FoodId { get; set; }
+        public decimal Quantity { get; set; }
+        public Nullable<int> Recipe_Id { get; set; }
         public bool IsDeleted { get; set; }
     
-        public virtual Worker Worker { get; set; }
+        public virtual Foods Foods { get; set; }
+        public virtual Recipes Recipes { get; set; }
     }
 }

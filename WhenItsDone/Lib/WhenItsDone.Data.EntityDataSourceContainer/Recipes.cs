@@ -12,27 +12,23 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
     using System;
     using System.Collections.Generic;
     
-    public partial class Dish
+    public partial class Recipes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Dish()
+        public Recipes()
         {
-            this.PhotoItems = new HashSet<PhotoItem>();
-            this.WorkerReviews = new HashSet<WorkerReview>();
+            this.Dishes = new HashSet<Dishes>();
+            this.Ingredients = new HashSet<Ingredients>();
         }
     
         public int Id { get; set; }
-        public int RecipeId { get; set; }
-        public decimal Price { get; set; }
-        public Nullable<int> Worker_Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
         public bool IsDeleted { get; set; }
-        public int Rating { get; set; }
     
-        public virtual Recipe Recipe { get; set; }
-        public virtual Worker Worker { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhotoItem> PhotoItems { get; set; }
+        public virtual ICollection<Dishes> Dishes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WorkerReview> WorkerReviews { get; set; }
+        public virtual ICollection<Ingredients> Ingredients { get; set; }
     }
 }

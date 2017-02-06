@@ -12,15 +12,21 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
     using System;
     using System.Collections.Generic;
     
-    public partial class ReceivedPayment
+    public partial class ProfilePictures
     {
-        public int Id { get; set; }
-        public bool IsDeleted { get; set; }
-        public int ClientId { get; set; }
-        public decimal AmountPaid { get; set; }
-        public Nullable<int> Worker_Id { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ProfilePictures()
+        {
+            this.Users = new HashSet<Users>();
+        }
     
-        public virtual Client Client { get; set; }
-        public virtual Worker Worker { get; set; }
+        public int Id { get; set; }
+        public string PictureBase64 { get; set; }
+        public string PictureUrl { get; set; }
+        public string MimeType { get; set; }
+        public bool IsDeleted { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

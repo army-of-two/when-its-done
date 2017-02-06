@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Addresses">
           <Key>
             <PropertyRef Name="Id" />
@@ -731,11 +731,12 @@
             <End Role="Workers" EntitySet="Workers" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Address">
+        <EntityType Name="Addresses">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -746,7 +747,7 @@
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="ContactInformations" Relationship="Self.FK_dbo_ContactInformations_dbo_Addresses_AddressId" FromRole="Addresses" ToRole="ContactInformations" />
         </EntityType>
-        <EntityType Name="ClientReview">
+        <EntityType Name="ClientReviews">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -755,9 +756,9 @@
           <Property Name="Score" Type="Int32" Nullable="false" />
           <Property Name="WorkerId" Type="Int32" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK_dbo_ClientReviews_dbo_Workers_WorkerId" FromRole="ClientReviews" ToRole="Workers" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_ClientReviews_dbo_Workers_WorkerId" FromRole="ClientReviews" ToRole="Workers" />
         </EntityType>
-        <EntityType Name="Client">
+        <EntityType Name="Clients">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -770,14 +771,14 @@
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Gender" Type="Int32" Nullable="false" />
           <Property Name="Age" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ContactInformation" Relationship="Self.FK_dbo_Clients_dbo_ContactInformations_ContactInformationId" FromRole="Clients" ToRole="ContactInformations" />
+          <NavigationProperty Name="ContactInformations" Relationship="Self.FK_dbo_Clients_dbo_ContactInformations_ContactInformationId" FromRole="Clients" ToRole="ContactInformations" />
           <NavigationProperty Name="Jobs" Relationship="Self.FK_dbo_Jobs_dbo_Clients_ClientId" FromRole="Clients" ToRole="Jobs" />
           <NavigationProperty Name="Payments" Relationship="Self.FK_dbo_Payments_dbo_Clients_Client_Id" FromRole="Clients" ToRole="Payments" />
           <NavigationProperty Name="ReceivedPayments" Relationship="Self.FK_dbo_ReceivedPayments_dbo_Clients_ClientId" FromRole="Clients" ToRole="ReceivedPayments" />
           <NavigationProperty Name="Users" Relationship="Self.FK_dbo_Users_dbo_Clients_ClientId" FromRole="Clients" ToRole="Users" />
           <NavigationProperty Name="WorkerReviews" Relationship="Self.FK_dbo_WorkerReviews_dbo_Clients_ClientId" FromRole="Clients" ToRole="WorkerReviews" />
         </EntityType>
-        <EntityType Name="ContactInformation">
+        <EntityType Name="ContactInformations">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -786,12 +787,12 @@
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Address" Relationship="Self.FK_dbo_ContactInformations_dbo_Addresses_AddressId" FromRole="ContactInformations" ToRole="Addresses" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_dbo_ContactInformations_dbo_Addresses_AddressId" FromRole="ContactInformations" ToRole="Addresses" />
           <NavigationProperty Name="Clients" Relationship="Self.FK_dbo_Clients_dbo_ContactInformations_ContactInformationId" FromRole="ContactInformations" ToRole="Clients" />
           <NavigationProperty Name="Users" Relationship="Self.FK_dbo_Users_dbo_ContactInformations_ContactInformationId" FromRole="ContactInformations" ToRole="Users" />
           <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_Workers_dbo_ContactInformations_ContactInformationId" FromRole="ContactInformations" ToRole="Workers" />
         </EntityType>
-        <EntityType Name="Dish">
+        <EntityType Name="Dishes">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -801,12 +802,12 @@
           <Property Name="Worker_Id" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
           <Property Name="Rating" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Recipe" Relationship="Self.FK_dbo_Dishes_dbo_Recipes_RecipeId" FromRole="Dishes" ToRole="Recipes" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK_dbo_Dishes_dbo_Workers_Worker_Id" FromRole="Dishes" ToRole="Workers" />
+          <NavigationProperty Name="Recipes" Relationship="Self.FK_dbo_Dishes_dbo_Recipes_RecipeId" FromRole="Dishes" ToRole="Recipes" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_Dishes_dbo_Workers_Worker_Id" FromRole="Dishes" ToRole="Workers" />
           <NavigationProperty Name="PhotoItems" Relationship="Self.FK_dbo_PhotoItems_dbo_Dishes_Dish_Id" FromRole="Dishes" ToRole="PhotoItems" />
           <NavigationProperty Name="WorkerReviews" Relationship="Self.FK_dbo_WorkerReviews_dbo_Dishes_Dish_Id" FromRole="Dishes" ToRole="WorkerReviews" />
         </EntityType>
-        <EntityType Name="Food">
+        <EntityType Name="Foods">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -817,10 +818,10 @@
           <Property Name="PricePerUnit" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="NutritionFactsId" Type="Int32" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="NutritionFact" Relationship="Self.FK_dbo_Foods_dbo_NutritionFacts_NutritionFactsId" FromRole="Foods" ToRole="NutritionFacts" />
+          <NavigationProperty Name="NutritionFacts" Relationship="Self.FK_dbo_Foods_dbo_NutritionFacts_NutritionFactsId" FromRole="Foods" ToRole="NutritionFacts" />
           <NavigationProperty Name="Ingredients" Relationship="Self.FK_dbo_Ingredients_dbo_Foods_FoodId" FromRole="Foods" ToRole="Ingredients" />
         </EntityType>
-        <EntityType Name="Ingredient">
+        <EntityType Name="Ingredients">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -829,10 +830,10 @@
           <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Recipe_Id" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Food" Relationship="Self.FK_dbo_Ingredients_dbo_Foods_FoodId" FromRole="Ingredients" ToRole="Foods" />
-          <NavigationProperty Name="Recipe" Relationship="Self.FK_dbo_Ingredients_dbo_Recipes_Recipe_Id" FromRole="Ingredients" ToRole="Recipes" />
+          <NavigationProperty Name="Foods" Relationship="Self.FK_dbo_Ingredients_dbo_Foods_FoodId" FromRole="Ingredients" ToRole="Foods" />
+          <NavigationProperty Name="Recipes" Relationship="Self.FK_dbo_Ingredients_dbo_Recipes_Recipe_Id" FromRole="Ingredients" ToRole="Recipes" />
         </EntityType>
-        <EntityType Name="Job">
+        <EntityType Name="Jobs">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -843,10 +844,10 @@
           <Property Name="ClientId" Type="Int32" Nullable="false" />
           <Property Name="IsCompleted" Type="Boolean" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_dbo_Jobs_dbo_Clients_ClientId" FromRole="Jobs" ToRole="Clients" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK_dbo_Jobs_dbo_Workers_WorkerId" FromRole="Jobs" ToRole="Workers" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_dbo_Jobs_dbo_Clients_ClientId" FromRole="Jobs" ToRole="Clients" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_Jobs_dbo_Workers_WorkerId" FromRole="Jobs" ToRole="Workers" />
         </EntityType>
-        <EntityType Name="MedicalInformation">
+        <EntityType Name="MedicalInformations">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -861,7 +862,7 @@
           <NavigationProperty Name="Users" Relationship="Self.FK_dbo_Users_dbo_MedicalInformations_MedicalInformationId" FromRole="MedicalInformations" ToRole="Users" />
           <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_Workers_dbo_MedicalInformations_MedicalInformationId" FromRole="MedicalInformations" ToRole="Workers" />
         </EntityType>
-        <EntityType Name="Mineral">
+        <EntityType Name="Minerals">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -870,9 +871,9 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NutritionFacts_Id" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="NutritionFact" Relationship="Self.FK_dbo_Minerals_dbo_NutritionFacts_NutritionFacts_Id" FromRole="Minerals" ToRole="NutritionFacts" />
+          <NavigationProperty Name="NutritionFacts" Relationship="Self.FK_dbo_Minerals_dbo_NutritionFacts_NutritionFacts_Id" FromRole="Minerals" ToRole="NutritionFacts" />
         </EntityType>
-        <EntityType Name="NutritionFact">
+        <EntityType Name="NutritionFacts">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -886,7 +887,7 @@
           <NavigationProperty Name="Minerals" Relationship="Self.FK_dbo_Minerals_dbo_NutritionFacts_NutritionFacts_Id" FromRole="NutritionFacts" ToRole="Minerals" />
           <NavigationProperty Name="Vitamins" Relationship="Self.FK_dbo_Vitamins_dbo_NutritionFacts_NutritionFacts_Id" FromRole="NutritionFacts" ToRole="Vitamins" />
         </EntityType>
-        <EntityType Name="Payment">
+        <EntityType Name="Payments">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -895,10 +896,10 @@
           <Property Name="WorkerId" Type="Int32" Nullable="false" />
           <Property Name="AmountPaid" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Client_Id" Type="Int32" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_dbo_Payments_dbo_Clients_Client_Id" FromRole="Payments" ToRole="Clients" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK_dbo_Payments_dbo_Workers_WorkerId" FromRole="Payments" ToRole="Workers" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_dbo_Payments_dbo_Clients_Client_Id" FromRole="Payments" ToRole="Clients" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_Payments_dbo_Workers_WorkerId" FromRole="Payments" ToRole="Workers" />
         </EntityType>
-        <EntityType Name="PhotoItem">
+        <EntityType Name="PhotoItems">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -907,10 +908,10 @@
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
           <Property Name="Worker_Id" Type="Int32" />
           <Property Name="Dish_Id" Type="Int32" />
-          <NavigationProperty Name="Dish" Relationship="Self.FK_dbo_PhotoItems_dbo_Dishes_Dish_Id" FromRole="PhotoItems" ToRole="Dishes" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK_dbo_PhotoItems_dbo_Workers_Worker_Id" FromRole="PhotoItems" ToRole="Workers" />
+          <NavigationProperty Name="Dishes" Relationship="Self.FK_dbo_PhotoItems_dbo_Dishes_Dish_Id" FromRole="PhotoItems" ToRole="Dishes" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_PhotoItems_dbo_Workers_Worker_Id" FromRole="PhotoItems" ToRole="Workers" />
         </EntityType>
-        <EntityType Name="ProfilePicture">
+        <EntityType Name="ProfilePictures">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -921,7 +922,7 @@
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Users" Relationship="Self.FK_dbo_Users_dbo_ProfilePictures_ProfilePictureId" FromRole="ProfilePictures" ToRole="Users" />
         </EntityType>
-        <EntityType Name="ReceivedPayment">
+        <EntityType Name="ReceivedPayments">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -930,10 +931,10 @@
           <Property Name="ClientId" Type="Int32" Nullable="false" />
           <Property Name="AmountPaid" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Worker_Id" Type="Int32" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_dbo_ReceivedPayments_dbo_Clients_ClientId" FromRole="ReceivedPayments" ToRole="Clients" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK_dbo_ReceivedPayments_dbo_Workers_Worker_Id" FromRole="ReceivedPayments" ToRole="Workers" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_dbo_ReceivedPayments_dbo_Clients_ClientId" FromRole="ReceivedPayments" ToRole="Clients" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_ReceivedPayments_dbo_Workers_Worker_Id" FromRole="ReceivedPayments" ToRole="Workers" />
         </EntityType>
-        <EntityType Name="Recipe">
+        <EntityType Name="Recipes">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -944,7 +945,7 @@
           <NavigationProperty Name="Dishes" Relationship="Self.FK_dbo_Dishes_dbo_Recipes_RecipeId" FromRole="Recipes" ToRole="Dishes" />
           <NavigationProperty Name="Ingredients" Relationship="Self.FK_dbo_Ingredients_dbo_Recipes_Recipe_Id" FromRole="Recipes" ToRole="Ingredients" />
         </EntityType>
-        <EntityType Name="User">
+        <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -961,13 +962,13 @@
           <Property Name="MedicalInformationId" Type="Int32" />
           <Property Name="ContactInformationId" Type="Int32" />
           <Property Name="ProfilePictureId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_dbo_Users_dbo_Clients_ClientId" FromRole="Users" ToRole="Clients" />
-          <NavigationProperty Name="ContactInformation" Relationship="Self.FK_dbo_Users_dbo_ContactInformations_ContactInformationId" FromRole="Users" ToRole="ContactInformations" />
-          <NavigationProperty Name="MedicalInformation" Relationship="Self.FK_dbo_Users_dbo_MedicalInformations_MedicalInformationId" FromRole="Users" ToRole="MedicalInformations" />
-          <NavigationProperty Name="ProfilePicture" Relationship="Self.FK_dbo_Users_dbo_ProfilePictures_ProfilePictureId" FromRole="Users" ToRole="ProfilePictures" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK_dbo_Users_dbo_Workers_WorkerId" FromRole="Users" ToRole="Workers" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_dbo_Users_dbo_Clients_ClientId" FromRole="Users" ToRole="Clients" />
+          <NavigationProperty Name="ContactInformations" Relationship="Self.FK_dbo_Users_dbo_ContactInformations_ContactInformationId" FromRole="Users" ToRole="ContactInformations" />
+          <NavigationProperty Name="MedicalInformations" Relationship="Self.FK_dbo_Users_dbo_MedicalInformations_MedicalInformationId" FromRole="Users" ToRole="MedicalInformations" />
+          <NavigationProperty Name="ProfilePictures" Relationship="Self.FK_dbo_Users_dbo_ProfilePictures_ProfilePictureId" FromRole="Users" ToRole="ProfilePictures" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_Users_dbo_Workers_WorkerId" FromRole="Users" ToRole="Workers" />
         </EntityType>
-        <EntityType Name="VideoItem">
+        <EntityType Name="VideoItems">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -975,9 +976,9 @@
           <Property Name="Url" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
           <Property Name="Worker_Id" Type="Int32" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK_dbo_VideoItems_dbo_Workers_Worker_Id" FromRole="VideoItems" ToRole="Workers" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_VideoItems_dbo_Workers_Worker_Id" FromRole="VideoItems" ToRole="Workers" />
         </EntityType>
-        <EntityType Name="Vitamin">
+        <EntityType Name="Vitamins">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -986,9 +987,9 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NutritionFacts_Id" Type="Int32" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="NutritionFact" Relationship="Self.FK_dbo_Vitamins_dbo_NutritionFacts_NutritionFacts_Id" FromRole="Vitamins" ToRole="NutritionFacts" />
+          <NavigationProperty Name="NutritionFacts" Relationship="Self.FK_dbo_Vitamins_dbo_NutritionFacts_NutritionFacts_Id" FromRole="Vitamins" ToRole="NutritionFacts" />
         </EntityType>
-        <EntityType Name="WorkerReview">
+        <EntityType Name="WorkerReviews">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -998,10 +999,10 @@
           <Property Name="ClientId" Type="Int32" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
           <Property Name="Dish_Id" Type="Int32" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_dbo_WorkerReviews_dbo_Clients_ClientId" FromRole="WorkerReviews" ToRole="Clients" />
-          <NavigationProperty Name="Dish" Relationship="Self.FK_dbo_WorkerReviews_dbo_Dishes_Dish_Id" FromRole="WorkerReviews" ToRole="Dishes" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_dbo_WorkerReviews_dbo_Clients_ClientId" FromRole="WorkerReviews" ToRole="Clients" />
+          <NavigationProperty Name="Dishes" Relationship="Self.FK_dbo_WorkerReviews_dbo_Dishes_Dish_Id" FromRole="WorkerReviews" ToRole="Dishes" />
         </EntityType>
-        <EntityType Name="Worker">
+        <EntityType Name="Workers">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -1016,10 +1017,10 @@
           <Property Name="Age" Type="Int32" Nullable="false" />
           <Property Name="MedicalInformationId" Type="Int32" />
           <NavigationProperty Name="ClientReviews" Relationship="Self.FK_dbo_ClientReviews_dbo_Workers_WorkerId" FromRole="Workers" ToRole="ClientReviews" />
-          <NavigationProperty Name="ContactInformation" Relationship="Self.FK_dbo_Workers_dbo_ContactInformations_ContactInformationId" FromRole="Workers" ToRole="ContactInformations" />
+          <NavigationProperty Name="ContactInformations" Relationship="Self.FK_dbo_Workers_dbo_ContactInformations_ContactInformationId" FromRole="Workers" ToRole="ContactInformations" />
           <NavigationProperty Name="Dishes" Relationship="Self.FK_dbo_Dishes_dbo_Workers_Worker_Id" FromRole="Workers" ToRole="Dishes" />
           <NavigationProperty Name="Jobs" Relationship="Self.FK_dbo_Jobs_dbo_Workers_WorkerId" FromRole="Workers" ToRole="Jobs" />
-          <NavigationProperty Name="MedicalInformation" Relationship="Self.FK_dbo_Workers_dbo_MedicalInformations_MedicalInformationId" FromRole="Workers" ToRole="MedicalInformations" />
+          <NavigationProperty Name="MedicalInformations" Relationship="Self.FK_dbo_Workers_dbo_MedicalInformations_MedicalInformationId" FromRole="Workers" ToRole="MedicalInformations" />
           <NavigationProperty Name="Payments" Relationship="Self.FK_dbo_Payments_dbo_Workers_WorkerId" FromRole="Workers" ToRole="Payments" />
           <NavigationProperty Name="PhotoItems" Relationship="Self.FK_dbo_PhotoItems_dbo_Workers_Worker_Id" FromRole="Workers" ToRole="PhotoItems" />
           <NavigationProperty Name="ReceivedPayments" Relationship="Self.FK_dbo_ReceivedPayments_dbo_Workers_Worker_Id" FromRole="Workers" ToRole="ReceivedPayments" />
@@ -1027,8 +1028,8 @@
           <NavigationProperty Name="VideoItems" Relationship="Self.FK_dbo_VideoItems_dbo_Workers_Worker_Id" FromRole="Workers" ToRole="VideoItems" />
         </EntityType>
         <Association Name="FK_dbo_ContactInformations_dbo_Addresses_AddressId">
-          <End Role="Addresses" Type="Self.Address" Multiplicity="0..1" />
-          <End Role="ContactInformations" Type="Self.ContactInformation" Multiplicity="*" />
+          <End Role="Addresses" Type="Self.Addresses" Multiplicity="0..1" />
+          <End Role="ContactInformations" Type="Self.ContactInformations" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Addresses">
               <PropertyRef Name="Id" />
@@ -1039,10 +1040,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_ClientReviews_dbo_Workers_WorkerId">
-          <End Role="Workers" Type="Self.Worker" Multiplicity="1">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="ClientReviews" Type="Self.ClientReview" Multiplicity="*" />
+          <End Role="ClientReviews" Type="Self.ClientReviews" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Workers">
               <PropertyRef Name="Id" />
@@ -1053,8 +1054,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Clients_dbo_ContactInformations_ContactInformationId">
-          <End Role="ContactInformations" Type="Self.ContactInformation" Multiplicity="0..1" />
-          <End Role="Clients" Type="Self.Client" Multiplicity="*" />
+          <End Role="ContactInformations" Type="Self.ContactInformations" Multiplicity="0..1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ContactInformations">
               <PropertyRef Name="Id" />
@@ -1065,10 +1066,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Jobs_dbo_Clients_ClientId">
-          <End Role="Clients" Type="Self.Client" Multiplicity="1">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Jobs" Type="Self.Job" Multiplicity="*" />
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Clients">
               <PropertyRef Name="Id" />
@@ -1079,8 +1080,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Payments_dbo_Clients_Client_Id">
-          <End Role="Clients" Type="Self.Client" Multiplicity="0..1" />
-          <End Role="Payments" Type="Self.Payment" Multiplicity="*" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Clients">
               <PropertyRef Name="Id" />
@@ -1091,10 +1092,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_ReceivedPayments_dbo_Clients_ClientId">
-          <End Role="Clients" Type="Self.Client" Multiplicity="1">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="ReceivedPayments" Type="Self.ReceivedPayment" Multiplicity="*" />
+          <End Role="ReceivedPayments" Type="Self.ReceivedPayments" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Clients">
               <PropertyRef Name="Id" />
@@ -1105,8 +1106,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Users_dbo_Clients_ClientId">
-          <End Role="Clients" Type="Self.Client" Multiplicity="0..1" />
-          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Clients">
               <PropertyRef Name="Id" />
@@ -1117,10 +1118,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_WorkerReviews_dbo_Clients_ClientId">
-          <End Role="Clients" Type="Self.Client" Multiplicity="1">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="WorkerReviews" Type="Self.WorkerReview" Multiplicity="*" />
+          <End Role="WorkerReviews" Type="Self.WorkerReviews" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Clients">
               <PropertyRef Name="Id" />
@@ -1131,8 +1132,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Users_dbo_ContactInformations_ContactInformationId">
-          <End Role="ContactInformations" Type="Self.ContactInformation" Multiplicity="0..1" />
-          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <End Role="ContactInformations" Type="Self.ContactInformations" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ContactInformations">
               <PropertyRef Name="Id" />
@@ -1143,8 +1144,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Workers_dbo_ContactInformations_ContactInformationId">
-          <End Role="ContactInformations" Type="Self.ContactInformation" Multiplicity="0..1" />
-          <End Role="Workers" Type="Self.Worker" Multiplicity="*" />
+          <End Role="ContactInformations" Type="Self.ContactInformations" Multiplicity="0..1" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ContactInformations">
               <PropertyRef Name="Id" />
@@ -1155,10 +1156,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Dishes_dbo_Recipes_RecipeId">
-          <End Role="Recipes" Type="Self.Recipe" Multiplicity="1">
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Dishes" Type="Self.Dish" Multiplicity="*" />
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Recipes">
               <PropertyRef Name="Id" />
@@ -1169,8 +1170,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Dishes_dbo_Workers_Worker_Id">
-          <End Role="Workers" Type="Self.Worker" Multiplicity="0..1" />
-          <End Role="Dishes" Type="Self.Dish" Multiplicity="*" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Workers">
               <PropertyRef Name="Id" />
@@ -1181,8 +1182,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_PhotoItems_dbo_Dishes_Dish_Id">
-          <End Role="Dishes" Type="Self.Dish" Multiplicity="0..1" />
-          <End Role="PhotoItems" Type="Self.PhotoItem" Multiplicity="*" />
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="0..1" />
+          <End Role="PhotoItems" Type="Self.PhotoItems" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Dishes">
               <PropertyRef Name="Id" />
@@ -1193,8 +1194,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_WorkerReviews_dbo_Dishes_Dish_Id">
-          <End Role="Dishes" Type="Self.Dish" Multiplicity="0..1" />
-          <End Role="WorkerReviews" Type="Self.WorkerReview" Multiplicity="*" />
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="0..1" />
+          <End Role="WorkerReviews" Type="Self.WorkerReviews" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Dishes">
               <PropertyRef Name="Id" />
@@ -1205,10 +1206,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Foods_dbo_NutritionFacts_NutritionFactsId">
-          <End Role="NutritionFacts" Type="Self.NutritionFact" Multiplicity="1">
+          <End Role="NutritionFacts" Type="Self.NutritionFacts" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Foods" Type="Self.Food" Multiplicity="*" />
+          <End Role="Foods" Type="Self.Foods" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NutritionFacts">
               <PropertyRef Name="Id" />
@@ -1219,10 +1220,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Ingredients_dbo_Foods_FoodId">
-          <End Role="Foods" Type="Self.Food" Multiplicity="1">
+          <End Role="Foods" Type="Self.Foods" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Ingredients" Type="Self.Ingredient" Multiplicity="*" />
+          <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Foods">
               <PropertyRef Name="Id" />
@@ -1233,8 +1234,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Ingredients_dbo_Recipes_Recipe_Id">
-          <End Role="Recipes" Type="Self.Recipe" Multiplicity="0..1" />
-          <End Role="Ingredients" Type="Self.Ingredient" Multiplicity="*" />
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="0..1" />
+          <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Recipes">
               <PropertyRef Name="Id" />
@@ -1245,10 +1246,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Jobs_dbo_Workers_WorkerId">
-          <End Role="Workers" Type="Self.Worker" Multiplicity="1">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Jobs" Type="Self.Job" Multiplicity="*" />
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Workers">
               <PropertyRef Name="Id" />
@@ -1259,8 +1260,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Users_dbo_MedicalInformations_MedicalInformationId">
-          <End Role="MedicalInformations" Type="Self.MedicalInformation" Multiplicity="0..1" />
-          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <End Role="MedicalInformations" Type="Self.MedicalInformations" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MedicalInformations">
               <PropertyRef Name="Id" />
@@ -1271,8 +1272,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Workers_dbo_MedicalInformations_MedicalInformationId">
-          <End Role="MedicalInformations" Type="Self.MedicalInformation" Multiplicity="0..1" />
-          <End Role="Workers" Type="Self.Worker" Multiplicity="*" />
+          <End Role="MedicalInformations" Type="Self.MedicalInformations" Multiplicity="0..1" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MedicalInformations">
               <PropertyRef Name="Id" />
@@ -1283,8 +1284,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Minerals_dbo_NutritionFacts_NutritionFacts_Id">
-          <End Role="NutritionFacts" Type="Self.NutritionFact" Multiplicity="0..1" />
-          <End Role="Minerals" Type="Self.Mineral" Multiplicity="*" />
+          <End Role="NutritionFacts" Type="Self.NutritionFacts" Multiplicity="0..1" />
+          <End Role="Minerals" Type="Self.Minerals" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NutritionFacts">
               <PropertyRef Name="Id" />
@@ -1295,8 +1296,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Vitamins_dbo_NutritionFacts_NutritionFacts_Id">
-          <End Role="NutritionFacts" Type="Self.NutritionFact" Multiplicity="0..1" />
-          <End Role="Vitamins" Type="Self.Vitamin" Multiplicity="*" />
+          <End Role="NutritionFacts" Type="Self.NutritionFacts" Multiplicity="0..1" />
+          <End Role="Vitamins" Type="Self.Vitamins" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NutritionFacts">
               <PropertyRef Name="Id" />
@@ -1307,10 +1308,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Payments_dbo_Workers_WorkerId">
-          <End Role="Workers" Type="Self.Worker" Multiplicity="1">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Payments" Type="Self.Payment" Multiplicity="*" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Workers">
               <PropertyRef Name="Id" />
@@ -1321,8 +1322,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_PhotoItems_dbo_Workers_Worker_Id">
-          <End Role="Workers" Type="Self.Worker" Multiplicity="0..1" />
-          <End Role="PhotoItems" Type="Self.PhotoItem" Multiplicity="*" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="PhotoItems" Type="Self.PhotoItems" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Workers">
               <PropertyRef Name="Id" />
@@ -1333,10 +1334,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Users_dbo_ProfilePictures_ProfilePictureId">
-          <End Role="ProfilePictures" Type="Self.ProfilePicture" Multiplicity="1">
+          <End Role="ProfilePictures" Type="Self.ProfilePictures" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProfilePictures">
               <PropertyRef Name="Id" />
@@ -1347,8 +1348,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_ReceivedPayments_dbo_Workers_Worker_Id">
-          <End Role="Workers" Type="Self.Worker" Multiplicity="0..1" />
-          <End Role="ReceivedPayments" Type="Self.ReceivedPayment" Multiplicity="*" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="ReceivedPayments" Type="Self.ReceivedPayments" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Workers">
               <PropertyRef Name="Id" />
@@ -1359,8 +1360,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Users_dbo_Workers_WorkerId">
-          <End Role="Workers" Type="Self.Worker" Multiplicity="0..1" />
-          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Workers">
               <PropertyRef Name="Id" />
@@ -1371,8 +1372,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_VideoItems_dbo_Workers_Worker_Id">
-          <End Role="Workers" Type="Self.Worker" Multiplicity="0..1" />
-          <End Role="VideoItems" Type="Self.VideoItem" Multiplicity="*" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="VideoItems" Type="Self.VideoItems" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Workers">
               <PropertyRef Name="Id" />
@@ -1382,28 +1383,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="FoodMeEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Addresses" EntityType="Self.Address" />
-          <EntitySet Name="ClientReviews" EntityType="Self.ClientReview" />
-          <EntitySet Name="Clients" EntityType="Self.Client" />
-          <EntitySet Name="ContactInformations" EntityType="Self.ContactInformation" />
-          <EntitySet Name="Dishes" EntityType="Self.Dish" />
-          <EntitySet Name="Foods" EntityType="Self.Food" />
-          <EntitySet Name="Ingredients" EntityType="Self.Ingredient" />
-          <EntitySet Name="Jobs" EntityType="Self.Job" />
-          <EntitySet Name="MedicalInformations" EntityType="Self.MedicalInformation" />
-          <EntitySet Name="Minerals" EntityType="Self.Mineral" />
-          <EntitySet Name="NutritionFacts" EntityType="Self.NutritionFact" />
-          <EntitySet Name="Payments" EntityType="Self.Payment" />
-          <EntitySet Name="PhotoItems" EntityType="Self.PhotoItem" />
-          <EntitySet Name="ProfilePictures" EntityType="Self.ProfilePicture" />
-          <EntitySet Name="ReceivedPayments" EntityType="Self.ReceivedPayment" />
-          <EntitySet Name="Recipes" EntityType="Self.Recipe" />
-          <EntitySet Name="Users" EntityType="Self.User" />
-          <EntitySet Name="VideoItems" EntityType="Self.VideoItem" />
-          <EntitySet Name="Vitamins" EntityType="Self.Vitamin" />
-          <EntitySet Name="WorkerReviews" EntityType="Self.WorkerReview" />
-          <EntitySet Name="Workers" EntityType="Self.Worker" />
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Addresses" />
+          <EntitySet Name="ClientReviews" EntityType="Self.ClientReviews" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="ContactInformations" EntityType="Self.ContactInformations" />
+          <EntitySet Name="Dishes" EntityType="Self.Dishes" />
+          <EntitySet Name="Foods" EntityType="Self.Foods" />
+          <EntitySet Name="Ingredients" EntityType="Self.Ingredients" />
+          <EntitySet Name="Jobs" EntityType="Self.Jobs" />
+          <EntitySet Name="MedicalInformations" EntityType="Self.MedicalInformations" />
+          <EntitySet Name="Minerals" EntityType="Self.Minerals" />
+          <EntitySet Name="NutritionFacts" EntityType="Self.NutritionFacts" />
+          <EntitySet Name="Payments" EntityType="Self.Payments" />
+          <EntitySet Name="PhotoItems" EntityType="Self.PhotoItems" />
+          <EntitySet Name="ProfilePictures" EntityType="Self.ProfilePictures" />
+          <EntitySet Name="ReceivedPayments" EntityType="Self.ReceivedPayments" />
+          <EntitySet Name="Recipes" EntityType="Self.Recipes" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="VideoItems" EntityType="Self.VideoItems" />
+          <EntitySet Name="Vitamins" EntityType="Self.Vitamins" />
+          <EntitySet Name="WorkerReviews" EntityType="Self.WorkerReviews" />
+          <EntitySet Name="Workers" EntityType="Self.Workers" />
           <AssociationSet Name="FK_dbo_ContactInformations_dbo_Addresses_AddressId" Association="Self.FK_dbo_ContactInformations_dbo_Addresses_AddressId">
             <End Role="Addresses" EntitySet="Addresses" />
             <End Role="ContactInformations" EntitySet="ContactInformations" />
@@ -1522,9 +1523,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="FoodMeEntities">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Addresses">
-            <EntityTypeMapping TypeName="Model.Address">
+            <EntityTypeMapping TypeName="Model.Addresses">
               <MappingFragment StoreEntitySet="Addresses">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Country" ColumnName="Country" />
@@ -1535,7 +1536,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ClientReviews">
-            <EntityTypeMapping TypeName="Model.ClientReview">
+            <EntityTypeMapping TypeName="Model.ClientReviews">
               <MappingFragment StoreEntitySet="ClientReviews">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ReviewContent" ColumnName="ReviewContent" />
@@ -1546,7 +1547,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Clients">
-            <EntityTypeMapping TypeName="Model.Client">
+            <EntityTypeMapping TypeName="Model.Clients">
               <MappingFragment StoreEntitySet="Clients">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
@@ -1561,7 +1562,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ContactInformations">
-            <EntityTypeMapping TypeName="Model.ContactInformation">
+            <EntityTypeMapping TypeName="Model.ContactInformations">
               <MappingFragment StoreEntitySet="ContactInformations">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="AddressId" ColumnName="AddressId" />
@@ -1572,7 +1573,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dishes">
-            <EntityTypeMapping TypeName="Model.Dish">
+            <EntityTypeMapping TypeName="Model.Dishes">
               <MappingFragment StoreEntitySet="Dishes">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
@@ -1584,7 +1585,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Foods">
-            <EntityTypeMapping TypeName="Model.Food">
+            <EntityTypeMapping TypeName="Model.Foods">
               <MappingFragment StoreEntitySet="Foods">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1597,7 +1598,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ingredients">
-            <EntityTypeMapping TypeName="Model.Ingredient">
+            <EntityTypeMapping TypeName="Model.Ingredients">
               <MappingFragment StoreEntitySet="Ingredients">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FoodId" ColumnName="FoodId" />
@@ -1608,7 +1609,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Jobs">
-            <EntityTypeMapping TypeName="Model.Job">
+            <EntityTypeMapping TypeName="Model.Jobs">
               <MappingFragment StoreEntitySet="Jobs">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ScheduledTime" ColumnName="ScheduledTime" />
@@ -1621,7 +1622,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MedicalInformations">
-            <EntityTypeMapping TypeName="Model.MedicalInformation">
+            <EntityTypeMapping TypeName="Model.MedicalInformations">
               <MappingFragment StoreEntitySet="MedicalInformations">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="BustSizeInCm" ColumnName="BustSizeInCm" />
@@ -1635,7 +1636,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Minerals">
-            <EntityTypeMapping TypeName="Model.Mineral">
+            <EntityTypeMapping TypeName="Model.Minerals">
               <MappingFragment StoreEntitySet="Minerals">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
@@ -1646,7 +1647,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NutritionFacts">
-            <EntityTypeMapping TypeName="Model.NutritionFact">
+            <EntityTypeMapping TypeName="Model.NutritionFacts">
               <MappingFragment StoreEntitySet="NutritionFacts">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Calories" ColumnName="Calories" />
@@ -1658,7 +1659,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Payments">
-            <EntityTypeMapping TypeName="Model.Payment">
+            <EntityTypeMapping TypeName="Model.Payments">
               <MappingFragment StoreEntitySet="Payments">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
@@ -1669,7 +1670,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PhotoItems">
-            <EntityTypeMapping TypeName="Model.PhotoItem">
+            <EntityTypeMapping TypeName="Model.PhotoItems">
               <MappingFragment StoreEntitySet="PhotoItems">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Url" ColumnName="Url" />
@@ -1680,7 +1681,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProfilePictures">
-            <EntityTypeMapping TypeName="Model.ProfilePicture">
+            <EntityTypeMapping TypeName="Model.ProfilePictures">
               <MappingFragment StoreEntitySet="ProfilePictures">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="PictureBase64" ColumnName="PictureBase64" />
@@ -1691,7 +1692,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ReceivedPayments">
-            <EntityTypeMapping TypeName="Model.ReceivedPayment">
+            <EntityTypeMapping TypeName="Model.ReceivedPayments">
               <MappingFragment StoreEntitySet="ReceivedPayments">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
@@ -1702,7 +1703,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Recipes">
-            <EntityTypeMapping TypeName="Model.Recipe">
+            <EntityTypeMapping TypeName="Model.Recipes">
               <MappingFragment StoreEntitySet="Recipes">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1712,7 +1713,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="Model.User">
+            <EntityTypeMapping TypeName="Model.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
@@ -1731,7 +1732,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VideoItems">
-            <EntityTypeMapping TypeName="Model.VideoItem">
+            <EntityTypeMapping TypeName="Model.VideoItems">
               <MappingFragment StoreEntitySet="VideoItems">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Url" ColumnName="Url" />
@@ -1741,7 +1742,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vitamins">
-            <EntityTypeMapping TypeName="Model.Vitamin">
+            <EntityTypeMapping TypeName="Model.Vitamins">
               <MappingFragment StoreEntitySet="Vitamins">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
@@ -1752,7 +1753,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="WorkerReviews">
-            <EntityTypeMapping TypeName="Model.WorkerReview">
+            <EntityTypeMapping TypeName="Model.WorkerReviews">
               <MappingFragment StoreEntitySet="WorkerReviews">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ReviewContent" ColumnName="ReviewContent" />
@@ -1764,7 +1765,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Workers">
-            <EntityTypeMapping TypeName="Model.Worker">
+            <EntityTypeMapping TypeName="Model.Workers">
               <MappingFragment StoreEntitySet="Workers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
@@ -1793,7 +1794,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
