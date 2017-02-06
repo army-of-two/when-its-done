@@ -1,9 +1,9 @@
-﻿using WhenItsDone.Models;
-
-namespace WhenItsDone.Models.Factories
+﻿namespace WhenItsDone.Models.Factories
 {
     public interface IUserFactory
     {
-        User CreateUser();
+        User GetUser();
+
+        User GetUser(string name);
     }
 }

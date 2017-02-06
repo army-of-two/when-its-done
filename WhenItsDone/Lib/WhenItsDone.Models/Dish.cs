@@ -9,10 +9,12 @@ namespace WhenItsDone.Models
     public class Dish : IDbModel
     {
         private ICollection<PhotoItem> photoItems;
+        private ICollection<WorkerReview> workerReviews;
 
         public Dish()
         {
             this.photoItems = new HashSet<PhotoItem>();
+            this.workerReviews = new HashSet<WorkerReview>();
         }
 
         [Key]
@@ -29,6 +31,10 @@ namespace WhenItsDone.Models
         [Range(ValidationConstants.DishPriceMinValue, ValidationConstants.DishPriceMaxValue)]
         public decimal Price { get; set; }
 
+        public int WorkerId { get; set; }
+
+        public virtual Worker Worker { get; set; }
+
         public virtual ICollection<PhotoItem> PhotoItems
         {
             get
@@ -39,6 +45,19 @@ namespace WhenItsDone.Models
             set
             {
                 this.photoItems = value;
+            }
+        }
+
+        public virtual ICollection<WorkerReview> WorkerReviews
+        {
+            get
+            {
+                return this.workerReviews;
+            }
+
+            set
+            {
+                this.workerReviews = value;
             }
         }
 

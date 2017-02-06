@@ -1,9 +1,12 @@
 namespace WhenItsDone.Data.Migrations
 {
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.IO;
     using System.Linq;
+    using System.Net;
 
     internal sealed class Configuration : DbMigrationsConfiguration<WhenItsDone.Data.WhenItsDoneDbContext>
     {
@@ -26,6 +29,22 @@ namespace WhenItsDone.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            if (!context.ProfilePictures.Any())
+            {
+                var defaultProfilePicture = new ProfilePicture();
+                defaultProfilePicture.MimeType = "jpg";
+                defaultProfilePicture.PictureUrl = "http://cdn.litlepups.net/2016/05/22/cute-cat-profile-for-facebook.jpg";
+
+                using (var client = new WebClient())
+                {
+                    var downloadedData = client.DownloadData(defaultProfilePicture.PictureUrl);
+                    defaultProfilePicture.PictureBase64 = Convert.ToBase64String(downloadedData);
+                }
+
+                context.ProfilePictures.Add(defaultProfilePicture);
+                context.SaveChanges();
+            }
         }
     }
 }

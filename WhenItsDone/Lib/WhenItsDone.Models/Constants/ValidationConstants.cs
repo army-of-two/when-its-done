@@ -29,7 +29,7 @@
         public const int EmailMinLength = 5;
         public const int EmailMaxLength = 100;
 
-        public const int PhoneMinLength = 4;
+        public const int PhoneMinLength = 0;
         public const int PhoneMaxLength = 15;
 
         public const int PriceMinValue = 0;

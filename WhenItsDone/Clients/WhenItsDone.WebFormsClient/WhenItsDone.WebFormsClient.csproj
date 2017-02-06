@@ -51,6 +51,10 @@
       <HintPath>..\..\packages\AutoMapper.EF6.0.5.0\lib\net45\AutoMapper.EF6.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Bytes2you.Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a7d501dd757e0442, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Bytes2you.Validation.2.0.0.0\lib\portable-win+net40+sl40+wp+Xbox40\Bytes2you.Validation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Castle.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Castle.Core.3.2.0\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
@@ -97,6 +101,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -222,6 +227,9 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="App_Data\default.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -271,6 +279,7 @@
     <Content Include="ViewControls\AdminPageControls\APWorkersControl.ascx" />
     <Content Include="ViewControls\AdminPageControls\APWorkersSourseControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopDishesUserControl.ascx" />
+    <Content Include="ViewControls\ContentContainers\TopUsersUserControl.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -393,6 +402,7 @@
     </Compile>
     <Compile Include="App_Start\AutomapperProfiles\DishViewsProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\ModelsProfile.cs" />
+    <Compile Include="App_Start\AutomapperProfiles\UserViewsProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\WorkerWithDishesViewProfile.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -474,6 +484,13 @@
     <Compile Include="ViewControls\ContentContainers\TopDishesUserControl.ascx.designer.cs">
       <DependentUpon>TopDishesUserControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ViewControls\ContentContainers\TopUsersUserControl.ascx.cs">
+      <DependentUpon>TopUsersUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\ContentContainers\TopUsersUserControl.ascx.designer.cs">
+      <DependentUpon>TopUsersUserControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -483,13 +500,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Lib\WhenItsDone.Common\WhenItsDone.Common.csproj">
       <Project>{42e362e0-9e6c-4867-88aa-cf2cc00fe1f8}</Project>
       <Name>WhenItsDone.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\WhenItsDone.Data.EntityDataSourceContainer\WhenItsDone.Data.EntityDataSourceContainer.csproj">
+      <Project>{8645ee12-b05f-43ad-911e-1fdd8ac1c3e6}</Project>
+      <Name>WhenItsDone.Data.EntityDataSourceContainer</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Lib\WhenItsDone.Data\WhenItsDone.Data.csproj">
       <Project>{D3085631-83D5-4525-B69C-DFDC47BC7F9B}</Project>

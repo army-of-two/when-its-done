@@ -33,7 +33,7 @@ namespace WhenItsDone.Data.Repositories
             {
                 try
                 {
-                    return this.DbSet.OrderByDescending(dish => dish.Rating).Take(dishesCount).ProjectToList<NamePhotoDishViewDTO>();
+                    return this.DbSet.Where(dish => dish.IsDeleted == false).OrderByDescending(dish => dish.Rating).Take(dishesCount).ProjectToList<NamePhotoDishViewDTO>();
                 }
                 catch (EntityException)
                 {

@@ -46,6 +46,8 @@ namespace WhenItsDone.Data
 
         public virtual IDbSet<PhotoItem> PhotoItems { get; set; }
 
+        public virtual IDbSet<ProfilePicture> ProfilePictures { get; set; }
+
         public virtual IDbSet<ReceivedPayment> ReceivedPayments { get; set; }
 
         public virtual IDbSet<Recipe> Recipes { get; set; }

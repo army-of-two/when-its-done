@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace WhenItsDone.ConsoleClient
@@ -6,6 +7,21 @@ namespace WhenItsDone.ConsoleClient
     public class Startup
     {
         public static void Main()
+        {
+            Startup.DownloadTest();
+            Startup.AsyncTesting();
+        }
+
+        private static void DownloadTest()
+        {
+            using (var client = new WebClient())
+            {
+                var arr = client.DownloadData("http://cdn.litlepups.net/2016/05/22/cute-cat-profile-for-facebook.jpg");
+                var base64 = Convert.ToBase64String(arr);
+            }
+        }
+
+        private static void AsyncTesting()
         {
             var asyncResult = Startup.AsyncTest();
             asyncResult.ContinueWith((task) =>

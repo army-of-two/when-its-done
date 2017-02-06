@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="DishViewsDTOs\NamePhotoDishViewDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserViewsDTOs\UsernameProfilePictureUserViewDTO.cs" />
     <Compile Include="WorkerVIewsDTOs\WorkerWithDishesDTO.cs" />
   </ItemGroup>
   <ItemGroup>

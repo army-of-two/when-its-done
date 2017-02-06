@@ -19,7 +19,7 @@ namespace WhenItsDone.Models.Tests.ContactInformationTests
                             .GetProperties()
                             .Count();
 
-            Assert.AreEqual(6, result);
+            Assert.AreEqual(9, result);
         }
 
         /// <summary>
