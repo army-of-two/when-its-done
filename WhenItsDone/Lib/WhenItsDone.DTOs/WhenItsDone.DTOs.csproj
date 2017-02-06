@@ -41,13 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DishViewsDTOs\DishBasicsInfoDTO.cs" />
-    <Compile Include="DishViewsDTOs\DishWithRecipeAndPhotosDTO.cs" />
     <Compile Include="DishViewsDTOs\NamePhotoDishViewDTO.cs" />
     <Compile Include="DishViewsDTOs\NamePhotoRatingDishViewDTO.cs" />
     <Compile Include="IngredientDTOs\IngredientWithFoodIdAndNameDTO.cs" />
     <Compile Include="PhotoItemDTOs\PhotoItemDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecipeDTOs\RecipeFullDTO.cs" />
     <Compile Include="UserViewsDTOs\UsernameProfilePictureUserViewDTO.cs" />
     <Compile Include="WorkerVIewsDTOs\WorkerDetailInformationDTO.cs" />
     <Compile Include="WorkerVIewsDTOs\WorkerMedicalInformationDTO.cs" />

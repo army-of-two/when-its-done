@@ -138,7 +138,6 @@ namespace WhenItsDone.WebFormsClient.App_Start
             config.AddProfile(new DishViewsProfile());
             config.AddProfile(new IngredientProfile());
             config.AddProfile(new PhotoItemProfile());
-            config.AddProfile(new RecipeProfile());
             config.AddProfile(new WorkerProfile());
         }
     }
