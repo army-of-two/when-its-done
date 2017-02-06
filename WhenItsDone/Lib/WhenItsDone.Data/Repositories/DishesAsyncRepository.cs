@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity.Core;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -35,17 +34,9 @@ namespace WhenItsDone.Data.Repositories
                 {
                     return this.DbSet.Where(dish => dish.IsDeleted == false).OrderByDescending(dish => dish.Rating).Take(dishesCount).ProjectToList<NamePhotoRatingDishViewDTO>();
                 }
-                catch (EntityException)
-                {
-                    return this.GetSampleDataOnFailedDBConnection();
-                }
-                catch (DataException)
-                {
-                    return this.GetSampleDataOnFailedDBConnection();
-                }
                 catch (Exception)
                 {
-                    return this.GetSampleDataOnFailedDBConnection();
+                    return this.GetSampleDataOnFailedDBConnection(dishesCount);
                 }
             });
 
@@ -55,7 +46,7 @@ namespace WhenItsDone.Data.Repositories
         public ICollection<NamePhotoRatingDishViewDTO> AddTopCountDishesSampleData(int dishesCount, ICollection<NamePhotoRatingDishViewDTO> existingData)
         {
             var existingDataList = existingData.ToList();
-            var sampleData = this.GetSampleDataOnFailedDBConnection();
+            var sampleData = this.GetSampleDataOnFailedDBConnection(dishesCount);
 
             var index = 0;
             var sampleDataItemsCount = sampleData.Count;
@@ -69,17 +60,17 @@ namespace WhenItsDone.Data.Repositories
             return existingDataList;
         }
 
-        private IList<NamePhotoRatingDishViewDTO> GetSampleDataOnFailedDBConnection()
+        private IList<NamePhotoRatingDishViewDTO> GetSampleDataOnFailedDBConnection(int dishesCount)
         {
             if (this.sampleNamePhotoDishViewData == null)
             {
-                this.sampleNamePhotoDishViewData = this.CreateSampleNamePhotoDishViewData();
+                this.sampleNamePhotoDishViewData = this.CreateSampleNamePhotoDishViewData(dishesCount);
             }
 
             return this.sampleNamePhotoDishViewData;
         }
 
-        private IList<NamePhotoRatingDishViewDTO> CreateSampleNamePhotoDishViewData()
+        private IList<NamePhotoRatingDishViewDTO> CreateSampleNamePhotoDishViewData(int dishesCount)
         {
             var modelA = new NamePhotoRatingDishViewDTO();
             modelA.Name = "Pepperoni";
@@ -96,7 +87,17 @@ namespace WhenItsDone.Data.Repositories
             modelC.PhotoItemUrl = "http://www.omahasteaks.com/gifs/990x594/z_fi001.jpg";
             modelC.Rating = 96;
 
-            return new NamePhotoRatingDishViewDTO[] { modelA, modelB, modelC };
+            var sampleDataModels = new NamePhotoRatingDishViewDTO[] { modelA, modelB, modelC };
+            var sampleDataModelsLength = sampleDataModels.Length;
+
+            var nextModelIndex = 0;
+            var sampleData = new List<NamePhotoRatingDishViewDTO>();
+            while (sampleData.Count < dishesCount)
+            {
+                sampleData.Add(sampleDataModels[nextModelIndex++ % sampleDataModelsLength]);
+            }
+
+            return sampleData;
         }
     }
 }

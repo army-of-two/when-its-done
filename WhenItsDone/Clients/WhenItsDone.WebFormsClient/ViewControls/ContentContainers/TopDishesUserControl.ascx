@@ -9,7 +9,7 @@
 </section>
 <section class="content-container-content">
     <div class="row">
-        <asp:Repeater ID="TopDishesRepeater" runat="server" ItemType="WhenItsDone.DTOs.DishViewsDTOs.NamePhotoDishViewDTO">
+        <asp:Repeater ID="TopDishesRepeater" runat="server" ItemType="WhenItsDone.DTOs.DishViewsDTOs.NamePhotoRatingDishViewDTO">
             <ItemTemplate>
                 <a class="panel-anchor" href="/Details?itemid=<%#: Item.Id %>" title="Click for more details: <%#: Item.Name %>">
                     <div class="col-md-4">
@@ -20,7 +20,7 @@
                                         <h3 class="panel-title"><%#: Item.Name %></h3>
                                     </div>
                                     <div class="col-md-6 text-right">
-                                        <h3 class="panel-title">Rating</h3>
+                                        <h3 class="panel-title"><%#: Item.Rating %></h3>
                                     </div>
                                 </div>
                             </div>

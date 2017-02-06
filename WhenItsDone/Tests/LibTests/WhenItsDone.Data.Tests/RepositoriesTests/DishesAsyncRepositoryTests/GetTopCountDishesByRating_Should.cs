@@ -73,7 +73,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
             var dishesCount = 3;
             var actualReturnedCollection = asyncDishesRepositoryInstace.GetTopCountDishesByRating(dishesCount);
 
-            Assert.That(actualReturnedCollection.GetType(), Is.EqualTo(typeof(Task<ICollection<NamePhotoDishViewDTO>>)));
+            Assert.That(actualReturnedCollection.GetType(), Is.EqualTo(typeof(Task<ICollection<NamePhotoRatingDishViewDTO>>)));
         }
 
         [Test]
@@ -190,7 +190,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
         {
             Mapper.Initialize(config =>
             {
-                config.CreateMap<Dish, NamePhotoDishViewDTO>()
+                config.CreateMap<Dish, NamePhotoRatingDishViewDTO>()
                     .ForMember(dest => dest.Name, opts => opts.MapFrom(src => src.Recipe.Name));
             });
 
@@ -205,12 +205,13 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
             for (int i = 0; i < ratingValues.Length; i++)
             {
                 var nextDish = new Mock<Dish>();
-                var nextDto = new Mock<NamePhotoDishViewDTO>();
+                var nextDto = new Mock<NamePhotoRatingDishViewDTO>();
                 nextDish.Object.Rating = ratingValues[i];
                 nextDish.SetupGet(dish => dish.Recipe).Returns(new Mock<Recipe>().Object);
                 nextDish.SetupGet(dish => dish.PhotoItems).Returns(new List<PhotoItem>() { new Mock<PhotoItem>().Object });
                 nextDish.Object.Recipe.Name = i.ToString();
                 nextDto.Object.Name = i.ToString();
+                nextDto.Object.Rating = ratingValues[i];
 
                 fakeData.Add(nextDish.Object);
             }
@@ -237,7 +238,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
         {
             Mapper.Initialize(config =>
             {
-                config.CreateMap<Dish, NamePhotoDishViewDTO>()
+                config.CreateMap<Dish, NamePhotoRatingDishViewDTO>()
                     .ForMember(dest => dest.Name, opts => opts.MapFrom(src => src.Recipe.Name));
             });
 
@@ -280,7 +281,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
         {
             Mapper.Initialize(config =>
             {
-                config.CreateMap<Dish, NamePhotoDishViewDTO>()
+                config.CreateMap<Dish, NamePhotoRatingDishViewDTO>()
                     .ForMember(dest => dest.Name, opts => opts.MapFrom(src => src.Recipe.Name));
             });
 
@@ -295,12 +296,13 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
             for (int i = 0; i < ratingValues.Length; i++)
             {
                 var nextDish = new Mock<Dish>();
-                var nextDto = new Mock<NamePhotoDishViewDTO>();
+                var nextDto = new Mock<NamePhotoRatingDishViewDTO>();
                 nextDish.Object.Rating = ratingValues[i];
                 nextDish.SetupGet(dish => dish.Recipe).Returns(new Mock<Recipe>().Object);
                 nextDish.SetupGet(dish => dish.PhotoItems).Returns(new List<PhotoItem>() { new Mock<PhotoItem>().Object });
                 nextDish.Object.Recipe.Name = i.ToString();
                 nextDto.Object.Name = i.ToString();
+                nextDto.Object.Rating = ratingValues[i];
 
                 fakeData.Add(nextDish.Object);
             }
@@ -320,7 +322,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
             var sampleNamePhotoDishViewDataField = typeof(DishesAsyncRepository).GetField("sampleNamePhotoDishViewData", bindingFlags);
             var sampleNamePhotoDishViewDataValue = sampleNamePhotoDishViewDataField.GetValue(asyncDishesRepositoryInstace);
 
-            Assert.That(sampleNamePhotoDishViewDataValue, Is.Not.Null.And.InstanceOf<IEnumerable<NamePhotoDishViewDTO>>());
+            Assert.That(sampleNamePhotoDishViewDataValue, Is.Not.Null.And.InstanceOf<IEnumerable<NamePhotoRatingDishViewDTO>>());
         }
 
         [Test]
@@ -343,12 +345,13 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
             for (int i = 0; i < ratingValues.Length; i++)
             {
                 var nextDish = new Mock<Dish>();
-                var nextDto = new Mock<NamePhotoDishViewDTO>();
+                var nextDto = new Mock<NamePhotoRatingDishViewDTO>();
                 nextDish.Object.Rating = ratingValues[i];
                 nextDish.SetupGet(dish => dish.Recipe).Returns(new Mock<Recipe>().Object);
                 nextDish.SetupGet(dish => dish.PhotoItems).Returns(new List<PhotoItem>() { new Mock<PhotoItem>().Object });
                 nextDish.Object.Recipe.Name = i.ToString();
                 nextDto.Object.Name = i.ToString();
+                nextDto.Object.Rating = ratingValues[i];
 
                 fakeData.Add(nextDish.Object);
             }
@@ -366,7 +369,7 @@ namespace WhenItsDone.Data.Tests.RepositoriesTests.DishesAsyncRepositoryTests
 
             var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
             var sampleNamePhotoDishViewDataField = typeof(DishesAsyncRepository).GetField("sampleNamePhotoDishViewData", bindingFlags);
-            var sampleNamePhotoDishViewDataValue = (IEnumerable<NamePhotoDishViewDTO>)sampleNamePhotoDishViewDataField.GetValue(asyncDishesRepositoryInstace);
+            var sampleNamePhotoDishViewDataValue = (IEnumerable<NamePhotoRatingDishViewDTO>)sampleNamePhotoDishViewDataField.GetValue(asyncDishesRepositoryInstace);
 
             Assert.That(sampleNamePhotoDishViewDataValue.Count(), Is.EqualTo(3));
         }
