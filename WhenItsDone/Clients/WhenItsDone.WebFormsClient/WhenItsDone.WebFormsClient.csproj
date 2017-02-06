@@ -400,7 +400,6 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_Start\AutomapperProfiles\ContactInformationProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\DishViewsProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\IngredientProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\ModelsProfile.cs" />
