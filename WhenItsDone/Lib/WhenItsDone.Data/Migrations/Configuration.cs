@@ -49,17 +49,17 @@ namespace WhenItsDone.Data.Migrations
             if (!context.VideoItems.Any())
             {
                 var mozart = new VideoItem();
-                mozart.Url = "Rb0UmrCXxVA";
+                mozart.YouTubeUrl = "Rb0UmrCXxVA";
                 mozart.Rating = 100;
                 context.VideoItems.Add(mozart);
 
                 var minimal = new VideoItem();
-                minimal.Url = "_3P4j6iIVew";
+                minimal.YouTubeUrl = "_3P4j6iIVew";
                 minimal.Rating = 100;
                 context.VideoItems.Add(minimal);
 
                 var metallica = new VideoItem();
-                metallica.Url = "md3B3I7Nmvw";
+                metallica.YouTubeUrl = "md3B3I7Nmvw";
                 metallica.Rating = 100;
                 context.VideoItems.Add(metallica);
             }

@@ -88,9 +88,9 @@ namespace WhenItsDone.Models.Tests.VideoItemTests
         {
             var obj = new VideoItem();
 
-            obj.Url = randomString;
+            obj.YouTubeUrl = randomString;
 
-            Assert.AreEqual(randomString, obj.Url);
+            Assert.AreEqual(randomString, obj.YouTubeUrl);
         }
     }
 }
