@@ -19,7 +19,7 @@ namespace WhenItsDone.Models.Tests.PaymentTests
                             .GetProperties()
                             .Count();
 
-            Assert.AreEqual(5, result);
+            Assert.AreEqual(7, result);
         }
 
         /// <summary>

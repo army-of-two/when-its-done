@@ -1,0 +1,1806 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Addresses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Street" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClientReviews">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReviewContent" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="WorkerId" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsAvailable" Type="bit" Nullable="false" />
+          <Property Name="ContactInformationId" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Rating" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactInformations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AddressId" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dishes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecipeId" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Worker_Id" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Rating" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Foods">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IngredientType" Type="int" Nullable="false" />
+          <Property Name="MeasurementUnitType" Type="int" Nullable="false" />
+          <Property Name="PricePerUnit" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="NutritionFactsId" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ingredients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FoodId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Recipe_Id" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Jobs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScheduledTime" Type="datetime" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="WorkerId" Type="int" Nullable="false" />
+          <Property Name="ClientId" Type="int" Nullable="false" />
+          <Property Name="IsCompleted" Type="bit" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MedicalInformations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BustSizeInCm" Type="int" />
+          <Property Name="WaistSizeInCm" Type="int" />
+          <Property Name="HipSizeInCm" Type="int" />
+          <Property Name="HeightInCm" Type="int" />
+          <Property Name="WeightInKg" Type="int" />
+          <Property Name="BMI" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Minerals">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NutritionFacts_Id" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NutritionFacts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Calories" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Carbohydrates" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Fats" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Protein" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="WorkerId" Type="int" Nullable="false" />
+          <Property Name="AmountPaid" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Client_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="PhotoItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Url" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Worker_Id" Type="int" />
+          <Property Name="Dish_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="ProfilePictures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PictureBase64" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PictureUrl" Type="nvarchar" MaxLength="300" />
+          <Property Name="MimeType" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReceivedPayments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="ClientId" Type="int" Nullable="false" />
+          <Property Name="AmountPaid" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Worker_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Recipes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar(max)" />
+          <Property Name="ClientId" Type="int" />
+          <Property Name="WorkerId" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Rating" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="MedicalInformationId" Type="int" />
+          <Property Name="ContactInformationId" Type="int" />
+          <Property Name="ProfilePictureId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VideoItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Url" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Worker_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Vitamins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NutritionFacts_Id" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkerReviews">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReviewContent" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="ClientId" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Dish_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Workers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsAvailable" Type="bit" Nullable="false" />
+          <Property Name="ContactInformationId" Type="int" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Rating" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="MedicalInformationId" Type="int" />
+        </EntityType>
+        <Association Name="FK_dbo_ClientReviews_dbo_Workers_WorkerId">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ClientReviews" Type="Self.ClientReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientReviews">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Clients_dbo_ContactInformations_ContactInformationId">
+          <End Role="ContactInformations" Type="Self.ContactInformations" Multiplicity="0..1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="ContactInformationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ContactInformations_dbo_Addresses_AddressId">
+          <End Role="Addresses" Type="Self.Addresses" Multiplicity="0..1" />
+          <End Role="ContactInformations" Type="Self.ContactInformations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Addresses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContactInformations">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Dishes_dbo_Recipes_RecipeId">
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dishes">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Dishes_dbo_Workers_Worker_Id">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dishes">
+              <PropertyRef Name="Worker_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Foods_dbo_NutritionFacts_NutritionFactsId">
+          <End Role="NutritionFacts" Type="Self.NutritionFacts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Foods" Type="Self.Foods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NutritionFacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Foods">
+              <PropertyRef Name="NutritionFactsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Ingredients_dbo_Foods_FoodId">
+          <End Role="Foods" Type="Self.Foods" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Foods">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ingredients">
+              <PropertyRef Name="FoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Ingredients_dbo_Recipes_Recipe_Id">
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="0..1" />
+          <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ingredients">
+              <PropertyRef Name="Recipe_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Jobs_dbo_Clients_ClientId">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jobs">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Jobs_dbo_Workers_WorkerId">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jobs">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Minerals_dbo_NutritionFacts_NutritionFacts_Id">
+          <End Role="NutritionFacts" Type="Self.NutritionFacts" Multiplicity="0..1" />
+          <End Role="Minerals" Type="Self.Minerals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NutritionFacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Minerals">
+              <PropertyRef Name="NutritionFacts_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Payments_dbo_Clients_Client_Id">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="Client_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Payments_dbo_Workers_WorkerId">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PhotoItems_dbo_Dishes_Dish_Id">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="0..1" />
+          <End Role="PhotoItems" Type="Self.PhotoItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoItems">
+              <PropertyRef Name="Dish_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PhotoItems_dbo_Workers_Worker_Id">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="PhotoItems" Type="Self.PhotoItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoItems">
+              <PropertyRef Name="Worker_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ReceivedPayments_dbo_Clients_ClientId">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReceivedPayments" Type="Self.ReceivedPayments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceivedPayments">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ReceivedPayments_dbo_Workers_Worker_Id">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="ReceivedPayments" Type="Self.ReceivedPayments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceivedPayments">
+              <PropertyRef Name="Worker_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Users_dbo_Clients_ClientId">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Users_dbo_ContactInformations_ContactInformationId">
+          <End Role="ContactInformations" Type="Self.ContactInformations" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="ContactInformationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Users_dbo_MedicalInformations_MedicalInformationId">
+          <End Role="MedicalInformations" Type="Self.MedicalInformations" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalInformations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="MedicalInformationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Users_dbo_ProfilePictures_ProfilePictureId">
+          <End Role="ProfilePictures" Type="Self.ProfilePictures" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfilePictures">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="ProfilePictureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Users_dbo_Workers_WorkerId">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_VideoItems_dbo_Workers_Worker_Id">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="VideoItems" Type="Self.VideoItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VideoItems">
+              <PropertyRef Name="Worker_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Vitamins_dbo_NutritionFacts_NutritionFacts_Id">
+          <End Role="NutritionFacts" Type="Self.NutritionFacts" Multiplicity="0..1" />
+          <End Role="Vitamins" Type="Self.Vitamins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NutritionFacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vitamins">
+              <PropertyRef Name="NutritionFacts_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_WorkerReviews_dbo_Clients_ClientId">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkerReviews" Type="Self.WorkerReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkerReviews">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_WorkerReviews_dbo_Dishes_Dish_Id">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="0..1" />
+          <End Role="WorkerReviews" Type="Self.WorkerReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkerReviews">
+              <PropertyRef Name="Dish_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Workers_dbo_ContactInformations_ContactInformationId">
+          <End Role="ContactInformations" Type="Self.ContactInformations" Multiplicity="0..1" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="ContactInformationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Workers_dbo_MedicalInformations_MedicalInformationId">
+          <End Role="MedicalInformations" Type="Self.MedicalInformations" Multiplicity="0..1" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalInformations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="MedicalInformationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Addresses" EntityType="Self.Addresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientReviews" EntityType="Self.ClientReviews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactInformations" EntityType="Self.ContactInformations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dishes" EntityType="Self.Dishes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Foods" EntityType="Self.Foods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ingredients" EntityType="Self.Ingredients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jobs" EntityType="Self.Jobs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MedicalInformations" EntityType="Self.MedicalInformations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Minerals" EntityType="Self.Minerals" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NutritionFacts" EntityType="Self.NutritionFacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhotoItems" EntityType="Self.PhotoItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfilePictures" EntityType="Self.ProfilePictures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReceivedPayments" EntityType="Self.ReceivedPayments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recipes" EntityType="Self.Recipes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VideoItems" EntityType="Self.VideoItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vitamins" EntityType="Self.Vitamins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkerReviews" EntityType="Self.WorkerReviews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_ClientReviews_dbo_Workers_WorkerId" Association="Self.FK_dbo_ClientReviews_dbo_Workers_WorkerId">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="ClientReviews" EntitySet="ClientReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Clients_dbo_ContactInformations_ContactInformationId" Association="Self.FK_dbo_Clients_dbo_ContactInformations_ContactInformationId">
+            <End Role="ContactInformations" EntitySet="ContactInformations" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ContactInformations_dbo_Addresses_AddressId" Association="Self.FK_dbo_ContactInformations_dbo_Addresses_AddressId">
+            <End Role="Addresses" EntitySet="Addresses" />
+            <End Role="ContactInformations" EntitySet="ContactInformations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Dishes_dbo_Recipes_RecipeId" Association="Self.FK_dbo_Dishes_dbo_Recipes_RecipeId">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="Dishes" EntitySet="Dishes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Dishes_dbo_Workers_Worker_Id" Association="Self.FK_dbo_Dishes_dbo_Workers_Worker_Id">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Dishes" EntitySet="Dishes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Foods_dbo_NutritionFacts_NutritionFactsId" Association="Self.FK_dbo_Foods_dbo_NutritionFacts_NutritionFactsId">
+            <End Role="NutritionFacts" EntitySet="NutritionFacts" />
+            <End Role="Foods" EntitySet="Foods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Ingredients_dbo_Foods_FoodId" Association="Self.FK_dbo_Ingredients_dbo_Foods_FoodId">
+            <End Role="Foods" EntitySet="Foods" />
+            <End Role="Ingredients" EntitySet="Ingredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Ingredients_dbo_Recipes_Recipe_Id" Association="Self.FK_dbo_Ingredients_dbo_Recipes_Recipe_Id">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="Ingredients" EntitySet="Ingredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Jobs_dbo_Clients_ClientId" Association="Self.FK_dbo_Jobs_dbo_Clients_ClientId">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Jobs" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Jobs_dbo_Workers_WorkerId" Association="Self.FK_dbo_Jobs_dbo_Workers_WorkerId">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Jobs" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Minerals_dbo_NutritionFacts_NutritionFacts_Id" Association="Self.FK_dbo_Minerals_dbo_NutritionFacts_NutritionFacts_Id">
+            <End Role="NutritionFacts" EntitySet="NutritionFacts" />
+            <End Role="Minerals" EntitySet="Minerals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Payments_dbo_Clients_Client_Id" Association="Self.FK_dbo_Payments_dbo_Clients_Client_Id">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Payments_dbo_Workers_WorkerId" Association="Self.FK_dbo_Payments_dbo_Workers_WorkerId">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PhotoItems_dbo_Dishes_Dish_Id" Association="Self.FK_dbo_PhotoItems_dbo_Dishes_Dish_Id">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="PhotoItems" EntitySet="PhotoItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PhotoItems_dbo_Workers_Worker_Id" Association="Self.FK_dbo_PhotoItems_dbo_Workers_Worker_Id">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="PhotoItems" EntitySet="PhotoItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ReceivedPayments_dbo_Clients_ClientId" Association="Self.FK_dbo_ReceivedPayments_dbo_Clients_ClientId">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ReceivedPayments" EntitySet="ReceivedPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ReceivedPayments_dbo_Workers_Worker_Id" Association="Self.FK_dbo_ReceivedPayments_dbo_Workers_Worker_Id">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="ReceivedPayments" EntitySet="ReceivedPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Users_dbo_Clients_ClientId" Association="Self.FK_dbo_Users_dbo_Clients_ClientId">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Users_dbo_ContactInformations_ContactInformationId" Association="Self.FK_dbo_Users_dbo_ContactInformations_ContactInformationId">
+            <End Role="ContactInformations" EntitySet="ContactInformations" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Users_dbo_MedicalInformations_MedicalInformationId" Association="Self.FK_dbo_Users_dbo_MedicalInformations_MedicalInformationId">
+            <End Role="MedicalInformations" EntitySet="MedicalInformations" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Users_dbo_ProfilePictures_ProfilePictureId" Association="Self.FK_dbo_Users_dbo_ProfilePictures_ProfilePictureId">
+            <End Role="ProfilePictures" EntitySet="ProfilePictures" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Users_dbo_Workers_WorkerId" Association="Self.FK_dbo_Users_dbo_Workers_WorkerId">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_VideoItems_dbo_Workers_Worker_Id" Association="Self.FK_dbo_VideoItems_dbo_Workers_Worker_Id">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="VideoItems" EntitySet="VideoItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Vitamins_dbo_NutritionFacts_NutritionFacts_Id" Association="Self.FK_dbo_Vitamins_dbo_NutritionFacts_NutritionFacts_Id">
+            <End Role="NutritionFacts" EntitySet="NutritionFacts" />
+            <End Role="Vitamins" EntitySet="Vitamins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_WorkerReviews_dbo_Clients_ClientId" Association="Self.FK_dbo_WorkerReviews_dbo_Clients_ClientId">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="WorkerReviews" EntitySet="WorkerReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_WorkerReviews_dbo_Dishes_Dish_Id" Association="Self.FK_dbo_WorkerReviews_dbo_Dishes_Dish_Id">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="WorkerReviews" EntitySet="WorkerReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Workers_dbo_ContactInformations_ContactInformationId" Association="Self.FK_dbo_Workers_dbo_ContactInformations_ContactInformationId">
+            <End Role="ContactInformations" EntitySet="ContactInformations" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Workers_dbo_MedicalInformations_MedicalInformationId" Association="Self.FK_dbo_Workers_dbo_MedicalInformations_MedicalInformationId">
+            <End Role="MedicalInformations" EntitySet="MedicalInformations" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Addresses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Street" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ContactInformations" Relationship="Self.FK_dbo_ContactInformations_dbo_Addresses_AddressId" FromRole="Addresses" ToRole="ContactInformations" />
+        </EntityType>
+        <EntityType Name="ClientReviews">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReviewContent" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="WorkerId" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_ClientReviews_dbo_Workers_WorkerId" FromRole="ClientReviews" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsAvailable" Type="Boolean" Nullable="false" />
+          <Property Name="ContactInformationId" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Rating" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ContactInformations" Relationship="Self.FK_dbo_Clients_dbo_ContactInformations_ContactInformationId" FromRole="Clients" ToRole="ContactInformations" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK_dbo_Jobs_dbo_Clients_ClientId" FromRole="Clients" ToRole="Jobs" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK_dbo_Payments_dbo_Clients_Client_Id" FromRole="Clients" ToRole="Payments" />
+          <NavigationProperty Name="ReceivedPayments" Relationship="Self.FK_dbo_ReceivedPayments_dbo_Clients_ClientId" FromRole="Clients" ToRole="ReceivedPayments" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_dbo_Users_dbo_Clients_ClientId" FromRole="Clients" ToRole="Users" />
+          <NavigationProperty Name="WorkerReviews" Relationship="Self.FK_dbo_WorkerReviews_dbo_Clients_ClientId" FromRole="Clients" ToRole="WorkerReviews" />
+        </EntityType>
+        <EntityType Name="ContactInformations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AddressId" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_dbo_ContactInformations_dbo_Addresses_AddressId" FromRole="ContactInformations" ToRole="Addresses" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_dbo_Clients_dbo_ContactInformations_ContactInformationId" FromRole="ContactInformations" ToRole="Clients" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_dbo_Users_dbo_ContactInformations_ContactInformationId" FromRole="ContactInformations" ToRole="Users" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_Workers_dbo_ContactInformations_ContactInformationId" FromRole="ContactInformations" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="Dishes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecipeId" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Worker_Id" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Rating" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Recipes" Relationship="Self.FK_dbo_Dishes_dbo_Recipes_RecipeId" FromRole="Dishes" ToRole="Recipes" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_Dishes_dbo_Workers_Worker_Id" FromRole="Dishes" ToRole="Workers" />
+          <NavigationProperty Name="PhotoItems" Relationship="Self.FK_dbo_PhotoItems_dbo_Dishes_Dish_Id" FromRole="Dishes" ToRole="PhotoItems" />
+          <NavigationProperty Name="WorkerReviews" Relationship="Self.FK_dbo_WorkerReviews_dbo_Dishes_Dish_Id" FromRole="Dishes" ToRole="WorkerReviews" />
+        </EntityType>
+        <EntityType Name="Foods">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IngredientType" Type="Int32" Nullable="false" />
+          <Property Name="MeasurementUnitType" Type="Int32" Nullable="false" />
+          <Property Name="PricePerUnit" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="NutritionFactsId" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NutritionFacts" Relationship="Self.FK_dbo_Foods_dbo_NutritionFacts_NutritionFactsId" FromRole="Foods" ToRole="NutritionFacts" />
+          <NavigationProperty Name="Ingredients" Relationship="Self.FK_dbo_Ingredients_dbo_Foods_FoodId" FromRole="Foods" ToRole="Ingredients" />
+        </EntityType>
+        <EntityType Name="Ingredients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FoodId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Recipe_Id" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Foods" Relationship="Self.FK_dbo_Ingredients_dbo_Foods_FoodId" FromRole="Ingredients" ToRole="Foods" />
+          <NavigationProperty Name="Recipes" Relationship="Self.FK_dbo_Ingredients_dbo_Recipes_Recipe_Id" FromRole="Ingredients" ToRole="Recipes" />
+        </EntityType>
+        <EntityType Name="Jobs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScheduledTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="WorkerId" Type="Int32" Nullable="false" />
+          <Property Name="ClientId" Type="Int32" Nullable="false" />
+          <Property Name="IsCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_dbo_Jobs_dbo_Clients_ClientId" FromRole="Jobs" ToRole="Clients" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_Jobs_dbo_Workers_WorkerId" FromRole="Jobs" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="MedicalInformations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BustSizeInCm" Type="Int32" />
+          <Property Name="WaistSizeInCm" Type="Int32" />
+          <Property Name="HipSizeInCm" Type="Int32" />
+          <Property Name="HeightInCm" Type="Int32" />
+          <Property Name="WeightInKg" Type="Int32" />
+          <Property Name="BMI" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_dbo_Users_dbo_MedicalInformations_MedicalInformationId" FromRole="MedicalInformations" ToRole="Users" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_Workers_dbo_MedicalInformations_MedicalInformationId" FromRole="MedicalInformations" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="Minerals">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NutritionFacts_Id" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NutritionFacts" Relationship="Self.FK_dbo_Minerals_dbo_NutritionFacts_NutritionFacts_Id" FromRole="Minerals" ToRole="NutritionFacts" />
+        </EntityType>
+        <EntityType Name="NutritionFacts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Calories" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Carbohydrates" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Fats" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Protein" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Foods" Relationship="Self.FK_dbo_Foods_dbo_NutritionFacts_NutritionFactsId" FromRole="NutritionFacts" ToRole="Foods" />
+          <NavigationProperty Name="Minerals" Relationship="Self.FK_dbo_Minerals_dbo_NutritionFacts_NutritionFacts_Id" FromRole="NutritionFacts" ToRole="Minerals" />
+          <NavigationProperty Name="Vitamins" Relationship="Self.FK_dbo_Vitamins_dbo_NutritionFacts_NutritionFacts_Id" FromRole="NutritionFacts" ToRole="Vitamins" />
+        </EntityType>
+        <EntityType Name="Payments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="WorkerId" Type="Int32" Nullable="false" />
+          <Property Name="AmountPaid" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Client_Id" Type="Int32" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_dbo_Payments_dbo_Clients_Client_Id" FromRole="Payments" ToRole="Clients" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_Payments_dbo_Workers_WorkerId" FromRole="Payments" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="PhotoItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Worker_Id" Type="Int32" />
+          <Property Name="Dish_Id" Type="Int32" />
+          <NavigationProperty Name="Dishes" Relationship="Self.FK_dbo_PhotoItems_dbo_Dishes_Dish_Id" FromRole="PhotoItems" ToRole="Dishes" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_PhotoItems_dbo_Workers_Worker_Id" FromRole="PhotoItems" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="ProfilePictures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PictureBase64" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PictureUrl" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="MimeType" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_dbo_Users_dbo_ProfilePictures_ProfilePictureId" FromRole="ProfilePictures" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="ReceivedPayments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="ClientId" Type="Int32" Nullable="false" />
+          <Property Name="AmountPaid" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Worker_Id" Type="Int32" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_dbo_ReceivedPayments_dbo_Clients_ClientId" FromRole="ReceivedPayments" ToRole="Clients" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_ReceivedPayments_dbo_Workers_Worker_Id" FromRole="ReceivedPayments" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="Recipes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Dishes" Relationship="Self.FK_dbo_Dishes_dbo_Recipes_RecipeId" FromRole="Recipes" ToRole="Dishes" />
+          <NavigationProperty Name="Ingredients" Relationship="Self.FK_dbo_Ingredients_dbo_Recipes_Recipe_Id" FromRole="Recipes" ToRole="Ingredients" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClientId" Type="Int32" />
+          <Property Name="WorkerId" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Rating" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Int32" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="MedicalInformationId" Type="Int32" />
+          <Property Name="ContactInformationId" Type="Int32" />
+          <Property Name="ProfilePictureId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_dbo_Users_dbo_Clients_ClientId" FromRole="Users" ToRole="Clients" />
+          <NavigationProperty Name="ContactInformations" Relationship="Self.FK_dbo_Users_dbo_ContactInformations_ContactInformationId" FromRole="Users" ToRole="ContactInformations" />
+          <NavigationProperty Name="MedicalInformations" Relationship="Self.FK_dbo_Users_dbo_MedicalInformations_MedicalInformationId" FromRole="Users" ToRole="MedicalInformations" />
+          <NavigationProperty Name="ProfilePictures" Relationship="Self.FK_dbo_Users_dbo_ProfilePictures_ProfilePictureId" FromRole="Users" ToRole="ProfilePictures" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_Users_dbo_Workers_WorkerId" FromRole="Users" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="VideoItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Worker_Id" Type="Int32" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_VideoItems_dbo_Workers_Worker_Id" FromRole="VideoItems" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="Vitamins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NutritionFacts_Id" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NutritionFacts" Relationship="Self.FK_dbo_Vitamins_dbo_NutritionFacts_NutritionFacts_Id" FromRole="Vitamins" ToRole="NutritionFacts" />
+        </EntityType>
+        <EntityType Name="WorkerReviews">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReviewContent" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="ClientId" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Dish_Id" Type="Int32" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_dbo_WorkerReviews_dbo_Clients_ClientId" FromRole="WorkerReviews" ToRole="Clients" />
+          <NavigationProperty Name="Dishes" Relationship="Self.FK_dbo_WorkerReviews_dbo_Dishes_Dish_Id" FromRole="WorkerReviews" ToRole="Dishes" />
+        </EntityType>
+        <EntityType Name="Workers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsAvailable" Type="Boolean" Nullable="false" />
+          <Property Name="ContactInformationId" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Rating" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="MedicalInformationId" Type="Int32" />
+          <NavigationProperty Name="ClientReviews" Relationship="Self.FK_dbo_ClientReviews_dbo_Workers_WorkerId" FromRole="Workers" ToRole="ClientReviews" />
+          <NavigationProperty Name="ContactInformations" Relationship="Self.FK_dbo_Workers_dbo_ContactInformations_ContactInformationId" FromRole="Workers" ToRole="ContactInformations" />
+          <NavigationProperty Name="Dishes" Relationship="Self.FK_dbo_Dishes_dbo_Workers_Worker_Id" FromRole="Workers" ToRole="Dishes" />
+          <NavigationProperty Name="Jobs" Relationship="Self.FK_dbo_Jobs_dbo_Workers_WorkerId" FromRole="Workers" ToRole="Jobs" />
+          <NavigationProperty Name="MedicalInformations" Relationship="Self.FK_dbo_Workers_dbo_MedicalInformations_MedicalInformationId" FromRole="Workers" ToRole="MedicalInformations" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK_dbo_Payments_dbo_Workers_WorkerId" FromRole="Workers" ToRole="Payments" />
+          <NavigationProperty Name="PhotoItems" Relationship="Self.FK_dbo_PhotoItems_dbo_Workers_Worker_Id" FromRole="Workers" ToRole="PhotoItems" />
+          <NavigationProperty Name="ReceivedPayments" Relationship="Self.FK_dbo_ReceivedPayments_dbo_Workers_Worker_Id" FromRole="Workers" ToRole="ReceivedPayments" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_dbo_Users_dbo_Workers_WorkerId" FromRole="Workers" ToRole="Users" />
+          <NavigationProperty Name="VideoItems" Relationship="Self.FK_dbo_VideoItems_dbo_Workers_Worker_Id" FromRole="Workers" ToRole="VideoItems" />
+        </EntityType>
+        <Association Name="FK_dbo_ContactInformations_dbo_Addresses_AddressId">
+          <End Role="Addresses" Type="Self.Addresses" Multiplicity="0..1" />
+          <End Role="ContactInformations" Type="Self.ContactInformations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Addresses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContactInformations">
+              <PropertyRef Name="AddressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ClientReviews_dbo_Workers_WorkerId">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ClientReviews" Type="Self.ClientReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientReviews">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Clients_dbo_ContactInformations_ContactInformationId">
+          <End Role="ContactInformations" Type="Self.ContactInformations" Multiplicity="0..1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="ContactInformationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Jobs_dbo_Clients_ClientId">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jobs">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Payments_dbo_Clients_Client_Id">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="Client_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ReceivedPayments_dbo_Clients_ClientId">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReceivedPayments" Type="Self.ReceivedPayments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceivedPayments">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Users_dbo_Clients_ClientId">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_WorkerReviews_dbo_Clients_ClientId">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkerReviews" Type="Self.WorkerReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkerReviews">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Users_dbo_ContactInformations_ContactInformationId">
+          <End Role="ContactInformations" Type="Self.ContactInformations" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="ContactInformationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Workers_dbo_ContactInformations_ContactInformationId">
+          <End Role="ContactInformations" Type="Self.ContactInformations" Multiplicity="0..1" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactInformations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="ContactInformationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Dishes_dbo_Recipes_RecipeId">
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dishes">
+              <PropertyRef Name="RecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Dishes_dbo_Workers_Worker_Id">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dishes">
+              <PropertyRef Name="Worker_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PhotoItems_dbo_Dishes_Dish_Id">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="0..1" />
+          <End Role="PhotoItems" Type="Self.PhotoItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoItems">
+              <PropertyRef Name="Dish_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_WorkerReviews_dbo_Dishes_Dish_Id">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="0..1" />
+          <End Role="WorkerReviews" Type="Self.WorkerReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkerReviews">
+              <PropertyRef Name="Dish_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Foods_dbo_NutritionFacts_NutritionFactsId">
+          <End Role="NutritionFacts" Type="Self.NutritionFacts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Foods" Type="Self.Foods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NutritionFacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Foods">
+              <PropertyRef Name="NutritionFactsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Ingredients_dbo_Foods_FoodId">
+          <End Role="Foods" Type="Self.Foods" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Foods">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ingredients">
+              <PropertyRef Name="FoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Ingredients_dbo_Recipes_Recipe_Id">
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="0..1" />
+          <End Role="Ingredients" Type="Self.Ingredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ingredients">
+              <PropertyRef Name="Recipe_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Jobs_dbo_Workers_WorkerId">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jobs">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Users_dbo_MedicalInformations_MedicalInformationId">
+          <End Role="MedicalInformations" Type="Self.MedicalInformations" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalInformations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="MedicalInformationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Workers_dbo_MedicalInformations_MedicalInformationId">
+          <End Role="MedicalInformations" Type="Self.MedicalInformations" Multiplicity="0..1" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedicalInformations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="MedicalInformationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Minerals_dbo_NutritionFacts_NutritionFacts_Id">
+          <End Role="NutritionFacts" Type="Self.NutritionFacts" Multiplicity="0..1" />
+          <End Role="Minerals" Type="Self.Minerals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NutritionFacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Minerals">
+              <PropertyRef Name="NutritionFacts_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Vitamins_dbo_NutritionFacts_NutritionFacts_Id">
+          <End Role="NutritionFacts" Type="Self.NutritionFacts" Multiplicity="0..1" />
+          <End Role="Vitamins" Type="Self.Vitamins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NutritionFacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vitamins">
+              <PropertyRef Name="NutritionFacts_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Payments_dbo_Workers_WorkerId">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PhotoItems_dbo_Workers_Worker_Id">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="PhotoItems" Type="Self.PhotoItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoItems">
+              <PropertyRef Name="Worker_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Users_dbo_ProfilePictures_ProfilePictureId">
+          <End Role="ProfilePictures" Type="Self.ProfilePictures" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfilePictures">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="ProfilePictureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ReceivedPayments_dbo_Workers_Worker_Id">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="ReceivedPayments" Type="Self.ReceivedPayments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReceivedPayments">
+              <PropertyRef Name="Worker_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Users_dbo_Workers_WorkerId">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_VideoItems_dbo_Workers_Worker_Id">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="VideoItems" Type="Self.VideoItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VideoItems">
+              <PropertyRef Name="Worker_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Addresses" />
+          <EntitySet Name="ClientReviews" EntityType="Self.ClientReviews" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="ContactInformations" EntityType="Self.ContactInformations" />
+          <EntitySet Name="Dishes" EntityType="Self.Dishes" />
+          <EntitySet Name="Foods" EntityType="Self.Foods" />
+          <EntitySet Name="Ingredients" EntityType="Self.Ingredients" />
+          <EntitySet Name="Jobs" EntityType="Self.Jobs" />
+          <EntitySet Name="MedicalInformations" EntityType="Self.MedicalInformations" />
+          <EntitySet Name="Minerals" EntityType="Self.Minerals" />
+          <EntitySet Name="NutritionFacts" EntityType="Self.NutritionFacts" />
+          <EntitySet Name="Payments" EntityType="Self.Payments" />
+          <EntitySet Name="PhotoItems" EntityType="Self.PhotoItems" />
+          <EntitySet Name="ProfilePictures" EntityType="Self.ProfilePictures" />
+          <EntitySet Name="ReceivedPayments" EntityType="Self.ReceivedPayments" />
+          <EntitySet Name="Recipes" EntityType="Self.Recipes" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="VideoItems" EntityType="Self.VideoItems" />
+          <EntitySet Name="Vitamins" EntityType="Self.Vitamins" />
+          <EntitySet Name="WorkerReviews" EntityType="Self.WorkerReviews" />
+          <EntitySet Name="Workers" EntityType="Self.Workers" />
+          <AssociationSet Name="FK_dbo_ContactInformations_dbo_Addresses_AddressId" Association="Self.FK_dbo_ContactInformations_dbo_Addresses_AddressId">
+            <End Role="Addresses" EntitySet="Addresses" />
+            <End Role="ContactInformations" EntitySet="ContactInformations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ClientReviews_dbo_Workers_WorkerId" Association="Self.FK_dbo_ClientReviews_dbo_Workers_WorkerId">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="ClientReviews" EntitySet="ClientReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Clients_dbo_ContactInformations_ContactInformationId" Association="Self.FK_dbo_Clients_dbo_ContactInformations_ContactInformationId">
+            <End Role="ContactInformations" EntitySet="ContactInformations" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Jobs_dbo_Clients_ClientId" Association="Self.FK_dbo_Jobs_dbo_Clients_ClientId">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Jobs" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Payments_dbo_Clients_Client_Id" Association="Self.FK_dbo_Payments_dbo_Clients_Client_Id">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ReceivedPayments_dbo_Clients_ClientId" Association="Self.FK_dbo_ReceivedPayments_dbo_Clients_ClientId">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ReceivedPayments" EntitySet="ReceivedPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Users_dbo_Clients_ClientId" Association="Self.FK_dbo_Users_dbo_Clients_ClientId">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_WorkerReviews_dbo_Clients_ClientId" Association="Self.FK_dbo_WorkerReviews_dbo_Clients_ClientId">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="WorkerReviews" EntitySet="WorkerReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Users_dbo_ContactInformations_ContactInformationId" Association="Self.FK_dbo_Users_dbo_ContactInformations_ContactInformationId">
+            <End Role="ContactInformations" EntitySet="ContactInformations" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Workers_dbo_ContactInformations_ContactInformationId" Association="Self.FK_dbo_Workers_dbo_ContactInformations_ContactInformationId">
+            <End Role="ContactInformations" EntitySet="ContactInformations" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Dishes_dbo_Recipes_RecipeId" Association="Self.FK_dbo_Dishes_dbo_Recipes_RecipeId">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="Dishes" EntitySet="Dishes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Dishes_dbo_Workers_Worker_Id" Association="Self.FK_dbo_Dishes_dbo_Workers_Worker_Id">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Dishes" EntitySet="Dishes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PhotoItems_dbo_Dishes_Dish_Id" Association="Self.FK_dbo_PhotoItems_dbo_Dishes_Dish_Id">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="PhotoItems" EntitySet="PhotoItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_WorkerReviews_dbo_Dishes_Dish_Id" Association="Self.FK_dbo_WorkerReviews_dbo_Dishes_Dish_Id">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="WorkerReviews" EntitySet="WorkerReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Foods_dbo_NutritionFacts_NutritionFactsId" Association="Self.FK_dbo_Foods_dbo_NutritionFacts_NutritionFactsId">
+            <End Role="NutritionFacts" EntitySet="NutritionFacts" />
+            <End Role="Foods" EntitySet="Foods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Ingredients_dbo_Foods_FoodId" Association="Self.FK_dbo_Ingredients_dbo_Foods_FoodId">
+            <End Role="Foods" EntitySet="Foods" />
+            <End Role="Ingredients" EntitySet="Ingredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Ingredients_dbo_Recipes_Recipe_Id" Association="Self.FK_dbo_Ingredients_dbo_Recipes_Recipe_Id">
+            <End Role="Recipes" EntitySet="Recipes" />
+            <End Role="Ingredients" EntitySet="Ingredients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Jobs_dbo_Workers_WorkerId" Association="Self.FK_dbo_Jobs_dbo_Workers_WorkerId">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Jobs" EntitySet="Jobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Users_dbo_MedicalInformations_MedicalInformationId" Association="Self.FK_dbo_Users_dbo_MedicalInformations_MedicalInformationId">
+            <End Role="MedicalInformations" EntitySet="MedicalInformations" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Workers_dbo_MedicalInformations_MedicalInformationId" Association="Self.FK_dbo_Workers_dbo_MedicalInformations_MedicalInformationId">
+            <End Role="MedicalInformations" EntitySet="MedicalInformations" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Minerals_dbo_NutritionFacts_NutritionFacts_Id" Association="Self.FK_dbo_Minerals_dbo_NutritionFacts_NutritionFacts_Id">
+            <End Role="NutritionFacts" EntitySet="NutritionFacts" />
+            <End Role="Minerals" EntitySet="Minerals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Vitamins_dbo_NutritionFacts_NutritionFacts_Id" Association="Self.FK_dbo_Vitamins_dbo_NutritionFacts_NutritionFacts_Id">
+            <End Role="NutritionFacts" EntitySet="NutritionFacts" />
+            <End Role="Vitamins" EntitySet="Vitamins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Payments_dbo_Workers_WorkerId" Association="Self.FK_dbo_Payments_dbo_Workers_WorkerId">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PhotoItems_dbo_Workers_Worker_Id" Association="Self.FK_dbo_PhotoItems_dbo_Workers_Worker_Id">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="PhotoItems" EntitySet="PhotoItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Users_dbo_ProfilePictures_ProfilePictureId" Association="Self.FK_dbo_Users_dbo_ProfilePictures_ProfilePictureId">
+            <End Role="ProfilePictures" EntitySet="ProfilePictures" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ReceivedPayments_dbo_Workers_Worker_Id" Association="Self.FK_dbo_ReceivedPayments_dbo_Workers_Worker_Id">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="ReceivedPayments" EntitySet="ReceivedPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Users_dbo_Workers_WorkerId" Association="Self.FK_dbo_Users_dbo_Workers_WorkerId">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_VideoItems_dbo_Workers_Worker_Id" Association="Self.FK_dbo_VideoItems_dbo_Workers_Worker_Id">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="VideoItems" EntitySet="VideoItems" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="Model.Addresses">
+              <MappingFragment StoreEntitySet="Addresses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientReviews">
+            <EntityTypeMapping TypeName="Model.ClientReviews">
+              <MappingFragment StoreEntitySet="ClientReviews">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ReviewContent" ColumnName="ReviewContent" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="Model.Clients">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+                <ScalarProperty Name="ContactInformationId" ColumnName="ContactInformationId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactInformations">
+            <EntityTypeMapping TypeName="Model.ContactInformations">
+              <MappingFragment StoreEntitySet="ContactInformations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dishes">
+            <EntityTypeMapping TypeName="Model.Dishes">
+              <MappingFragment StoreEntitySet="Dishes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RecipeId" ColumnName="RecipeId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Worker_Id" ColumnName="Worker_Id" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Foods">
+            <EntityTypeMapping TypeName="Model.Foods">
+              <MappingFragment StoreEntitySet="Foods">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IngredientType" ColumnName="IngredientType" />
+                <ScalarProperty Name="MeasurementUnitType" ColumnName="MeasurementUnitType" />
+                <ScalarProperty Name="PricePerUnit" ColumnName="PricePerUnit" />
+                <ScalarProperty Name="NutritionFactsId" ColumnName="NutritionFactsId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ingredients">
+            <EntityTypeMapping TypeName="Model.Ingredients">
+              <MappingFragment StoreEntitySet="Ingredients">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FoodId" ColumnName="FoodId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Recipe_Id" ColumnName="Recipe_Id" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="Model.Jobs">
+              <MappingFragment StoreEntitySet="Jobs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ScheduledTime" ColumnName="ScheduledTime" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MedicalInformations">
+            <EntityTypeMapping TypeName="Model.MedicalInformations">
+              <MappingFragment StoreEntitySet="MedicalInformations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BustSizeInCm" ColumnName="BustSizeInCm" />
+                <ScalarProperty Name="WaistSizeInCm" ColumnName="WaistSizeInCm" />
+                <ScalarProperty Name="HipSizeInCm" ColumnName="HipSizeInCm" />
+                <ScalarProperty Name="HeightInCm" ColumnName="HeightInCm" />
+                <ScalarProperty Name="WeightInKg" ColumnName="WeightInKg" />
+                <ScalarProperty Name="BMI" ColumnName="BMI" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Minerals">
+            <EntityTypeMapping TypeName="Model.Minerals">
+              <MappingFragment StoreEntitySet="Minerals">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NutritionFacts_Id" ColumnName="NutritionFacts_Id" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NutritionFacts">
+            <EntityTypeMapping TypeName="Model.NutritionFacts">
+              <MappingFragment StoreEntitySet="NutritionFacts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Calories" ColumnName="Calories" />
+                <ScalarProperty Name="Carbohydrates" ColumnName="Carbohydrates" />
+                <ScalarProperty Name="Fats" ColumnName="Fats" />
+                <ScalarProperty Name="Protein" ColumnName="Protein" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="Model.Payments">
+              <MappingFragment StoreEntitySet="Payments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+                <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+                <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhotoItems">
+            <EntityTypeMapping TypeName="Model.PhotoItems">
+              <MappingFragment StoreEntitySet="PhotoItems">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Worker_Id" ColumnName="Worker_Id" />
+                <ScalarProperty Name="Dish_Id" ColumnName="Dish_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfilePictures">
+            <EntityTypeMapping TypeName="Model.ProfilePictures">
+              <MappingFragment StoreEntitySet="ProfilePictures">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PictureBase64" ColumnName="PictureBase64" />
+                <ScalarProperty Name="PictureUrl" ColumnName="PictureUrl" />
+                <ScalarProperty Name="MimeType" ColumnName="MimeType" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReceivedPayments">
+            <EntityTypeMapping TypeName="Model.ReceivedPayments">
+              <MappingFragment StoreEntitySet="ReceivedPayments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+                <ScalarProperty Name="Worker_Id" ColumnName="Worker_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recipes">
+            <EntityTypeMapping TypeName="Model.Recipes">
+              <MappingFragment StoreEntitySet="Recipes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Model.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="MedicalInformationId" ColumnName="MedicalInformationId" />
+                <ScalarProperty Name="ContactInformationId" ColumnName="ContactInformationId" />
+                <ScalarProperty Name="ProfilePictureId" ColumnName="ProfilePictureId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VideoItems">
+            <EntityTypeMapping TypeName="Model.VideoItems">
+              <MappingFragment StoreEntitySet="VideoItems">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Worker_Id" ColumnName="Worker_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vitamins">
+            <EntityTypeMapping TypeName="Model.Vitamins">
+              <MappingFragment StoreEntitySet="Vitamins">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NutritionFacts_Id" ColumnName="NutritionFacts_Id" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkerReviews">
+            <EntityTypeMapping TypeName="Model.WorkerReviews">
+              <MappingFragment StoreEntitySet="WorkerReviews">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ReviewContent" ColumnName="ReviewContent" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Dish_Id" ColumnName="Dish_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workers">
+            <EntityTypeMapping TypeName="Model.Workers">
+              <MappingFragment StoreEntitySet="Workers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+                <ScalarProperty Name="ContactInformationId" ColumnName="ContactInformationId" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="MedicalInformationId" ColumnName="MedicalInformationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

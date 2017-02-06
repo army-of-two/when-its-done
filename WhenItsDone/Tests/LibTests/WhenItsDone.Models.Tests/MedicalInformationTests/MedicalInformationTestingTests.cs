@@ -19,7 +19,7 @@ namespace WhenItsDone.Models.Tests.MedicalInformationTests
                             .GetProperties()
                             .Count();
 
-            Assert.AreEqual(8, result);
+            Assert.AreEqual(10, result);
         }
 
         /// <summary>

@@ -157,6 +157,10 @@
     <Compile Include="Migrations\201702051631065_replaced migration, added ProfilePicture.Designer.cs">
       <DependentUpon>201702051631065_replaced migration, added ProfilePicture.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702060058177_updated models again.cs" />
+    <Compile Include="Migrations\201702060058177_updated models again.Designer.cs">
+      <DependentUpon>201702060058177_updated models again.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\ProfilePicturesAsyncRepository.cs" />
     <Compile Include="Repositories\WorkerAsyncRepository.cs" />
@@ -240,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702051631065_replaced migration, added ProfilePicture.resx">
       <DependentUpon>201702051631065_replaced migration, added ProfilePicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702060058177_updated models again.resx">
+      <DependentUpon>201702060058177_updated models again.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -19,7 +19,7 @@ namespace WhenItsDone.Models.Tests.WorkerTests
                             .GetProperties()
                             .Count();
 
-            Assert.AreEqual(17, result);
+            Assert.AreEqual(20, result);
         }
 
         /// <summary>

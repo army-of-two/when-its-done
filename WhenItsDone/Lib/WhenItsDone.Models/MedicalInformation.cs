@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 using WhenItsDone.Models.Constants;
 using WhenItsDone.Models.Contracts;
@@ -9,6 +10,15 @@ namespace WhenItsDone.Models
     // Bust/waist/hip measurements a.k.a. vital statistics ( according to wikipedia ) rename to MedicalInformation
     public class MedicalInformation : IDbModel
     {
+        private ICollection<User> users;
+        private ICollection<Worker> workers;
+
+        public MedicalInformation()
+        {
+            this.users = new HashSet<User>();
+            this.workers = new HashSet<Worker>();
+        }
+
         [Key]
         public int Id { get; set; }
 
@@ -28,6 +38,32 @@ namespace WhenItsDone.Models
         public int? WeightInKg { get; set; }
 
         public int BMI { get; set; }
+
+        public virtual ICollection<User> Users
+        {
+            get
+            {
+                return this.users;
+            }
+
+            set
+            {
+                this.users = value;
+            }
+        }
+
+        public virtual ICollection<Worker> Workers
+        {
+            get
+            {
+                return this.workers;
+            }
+
+            set
+            {
+                this.workers = value;
+            }
+        }
 
         public bool IsDeleted { get; set; }
     }

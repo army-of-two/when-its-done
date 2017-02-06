@@ -16,6 +16,10 @@ namespace WhenItsDone.Models
 
         public virtual Client Client { get; set; }
 
+        public int WorkerId { get; set; }
+
+        public virtual Worker Worker { get; set; }
+
         [Range(ValidationConstants.AmountPaidMinValue, ValidationConstants.AmountPaidMaxValue)]
         public decimal AmountPaid { get; set; }
     }

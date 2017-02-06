@@ -19,7 +19,7 @@ namespace WhenItsDone.Models.Tests.WorkerReviewTests
                             .GetProperties()
                             .Count();
 
-            Assert.AreEqual(6, result);
+            Assert.AreEqual(8, result);
         }
 
         /// <summary>

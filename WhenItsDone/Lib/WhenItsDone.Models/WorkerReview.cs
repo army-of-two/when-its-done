@@ -21,6 +21,10 @@ namespace WhenItsDone.Models
 
         public virtual Client Client { get; set; }
 
+        public int DishId { get; set; }
+
+        public virtual Dish Dish { get; set; }
+
         public bool IsDeleted { get; set; }
     }
 }
