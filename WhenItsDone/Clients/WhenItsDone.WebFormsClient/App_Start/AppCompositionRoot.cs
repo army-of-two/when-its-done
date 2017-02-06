@@ -136,7 +136,6 @@ namespace WhenItsDone.WebFormsClient.App_Start
         {
             config.AddProfile(new ModelsProfile());
             config.AddProfile(new DishViewsProfile());
-            config.AddProfile(new IngredientProfile());
             config.AddProfile(new PhotoItemProfile());
             config.AddProfile(new WorkerProfile());
         }

@@ -44,7 +44,6 @@
     <Compile Include="DishViewsDTOs\DishWithPhotos.cs" />
     <Compile Include="DishViewsDTOs\NamePhotoDishViewDTO.cs" />
     <Compile Include="DishViewsDTOs\NamePhotoRatingDishViewDTO.cs" />
-    <Compile Include="IngredientDTOs\IngredientWithFoodIdAndNameDTO.cs" />
     <Compile Include="PhotoItemDTOs\PhotoItemDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserViewsDTOs\UsernameProfilePictureUserViewDTO.cs" />
