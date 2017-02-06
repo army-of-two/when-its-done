@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddressDTOs\AddressFullDTO.cs" />
     <Compile Include="ContactInformationDTOs\ContactInformationFullWithNestedDTO.cs" />
     <Compile Include="DishViewsDTOs\DishBasicsInfoDTO.cs" />
     <Compile Include="DishViewsDTOs\DishWithRecipeAndPhotosDTO.cs" />
