@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressDTOs\AddressFullDTO.cs" />
+    <Compile Include="ContactInformationDTOs\ContactInformationFullWithNestedDTO.cs" />
     <Compile Include="DishViewsDTOs\NamePhotoDishViewDTO.cs" />
     <Compile Include="MedicalInformationDTOs\MedicalInformationFullDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
