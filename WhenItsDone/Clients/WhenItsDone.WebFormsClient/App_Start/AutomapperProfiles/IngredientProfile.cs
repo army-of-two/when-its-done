@@ -6,8 +6,8 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
 {
     public class IngredientProfile : Profile
     {
-        protected IngredientProfile(string profileName)
-            : base(profileName)
+        public IngredientProfile()
+            : base()
         {
             this.CreateMap<Ingredient, IngredientWithFoodIdAndNameDTO>()
                 .ForMember(dest => dest.Id, opts => opts.MapFrom(x => x.Id))

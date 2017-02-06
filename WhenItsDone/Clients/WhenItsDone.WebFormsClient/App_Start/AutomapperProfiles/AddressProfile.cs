@@ -6,8 +6,8 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
 {
     public class AddressProfile : Profile
     {
-        protected AddressProfile(string profileName)
-            : base(profileName)
+        public AddressProfile()
+            : base()
         {
             this.CreateMap<Address, AddressFullDTO>()
                 .ForMember(dest => dest.Id, opts => opts.MapFrom(x => x.Id))

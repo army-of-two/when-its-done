@@ -6,8 +6,8 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
 {
     public class ContactInformationProfile : Profile
     {
-        protected ContactInformationProfile(string profileName)
-            : base(profileName)
+        public ContactInformationProfile()
+            : base()
         {
             this.CreateMap<ContactInformation, ContactInformationFullWithNestedDTO>()
                 .ForMember(dest => dest.Id, opts => opts.MapFrom(x => x.Id))

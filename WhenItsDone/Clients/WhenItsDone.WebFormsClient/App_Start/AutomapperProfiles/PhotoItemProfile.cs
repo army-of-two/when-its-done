@@ -6,8 +6,8 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
 {
     public class PhotoItemProfile : Profile
     {
-        protected PhotoItemProfile(string profileName)
-            : base(profileName)
+        public PhotoItemProfile()
+            : base()
         {
             this.CreateMap<PhotoItem, PhotoItemDTO>()
                 .ForMember(dest => dest.Id, opts => opts.MapFrom(x => x.Id))

@@ -6,8 +6,8 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
 {
     public class WorkerProfile : Profile
     {
-        protected WorkerProfile(string profileName)
-            : base(profileName)
+        public WorkerProfile()
+            : base()
         {
             this.CreateMap<Worker, WorkerWithDishesDTO>()
                 .ForMember(dest => dest.Id, opts => opts.MapFrom(x => x.Id))

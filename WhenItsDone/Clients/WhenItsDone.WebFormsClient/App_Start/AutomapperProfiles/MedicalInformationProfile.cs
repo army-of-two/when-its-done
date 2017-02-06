@@ -6,8 +6,8 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
 {
     public class MedicalInformationProfile : Profile
     {
-        protected MedicalInformationProfile(string profileName)
-            : base(profileName)
+        public MedicalInformationProfile()
+            : base()
         {
             this.CreateMap<MedicalInformation, MedicalInformationFullDTO>()
                 .ForMember(dest => dest.Id, opts => opts.MapFrom(x => x.Id))
