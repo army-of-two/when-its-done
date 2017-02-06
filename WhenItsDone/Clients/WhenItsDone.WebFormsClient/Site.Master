@@ -82,8 +82,25 @@
             </asp:ContentPlaceHolder>
             <hr />
 
-            <footer class="footer well">
-                <p>&copy; <%: DateTime.Now.Year %> Food.Me</p>
+            <footer class="footer navbar">
+                <div class="">
+                    <ul class="nav navbar-nav text-center">
+                        <li>
+                            <a href="https://github.com/army-of-two/when-its-done" target="_blank">Food.Me @ GitHub</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/shakuu" target="_blank">Hristo Todorov</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/StoikoNeykov" target="_blank">Stoiko Neykov</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a>Food.Me &copy; <%: DateTime.Now.Year %></a>
+                        </li>
+                    </ul>
+                </div>
             </footer>
         </div>
     </form>
