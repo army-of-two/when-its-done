@@ -7,13 +7,13 @@ namespace WhenItsDone.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class updatedmodels : IMigrationMetadata
+    public sealed partial class updatenext : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updatedmodels));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updatenext));
         
         string IMigrationMetadata.Id
         {
-            get { return "201702071840399_updated models"; }
+            get { return "201702071850181_update next"; }
         }
         
         string IMigrationMetadata.Source

@@ -3,7 +3,7 @@ namespace WhenItsDone.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class updatedmodels : DbMigration
+    public partial class updatenext : DbMigration
     {
         public override void Up()
         {

@@ -169,6 +169,10 @@
     <Compile Include="Migrations\201702061504409_update VideoItem model with url title id.Designer.cs">
       <DependentUpon>201702061504409_update VideoItem model with url title id.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702071850181_update next.cs" />
+    <Compile Include="Migrations\201702071850181_update next.Designer.cs">
+      <DependentUpon>201702071850181_update next.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\ProfilePicturesAsyncRepository.cs" />
     <Compile Include="Repositories\WorkerAsyncRepository.cs" />
@@ -261,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702061504409_update VideoItem model with url title id.resx">
       <DependentUpon>201702061504409_update VideoItem model with url title id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702071850181_update next.resx">
+      <DependentUpon>201702071850181_update next.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
