@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
-using WhenItsDone.Common.Enums;
 using WhenItsDone.Models.Constants;
 using WhenItsDone.Models.Contracts;
 
@@ -11,6 +11,8 @@ namespace WhenItsDone.Models
         public int Id { get; set; }
 
         public string Username { get; set; }
+
+        public Guid AspNetUserId { get; set; }
 
         [Range(ValidationConstants.RatingMinValue, ValidationConstants.RatingMaxValue)]
         public int Rating { get; set; }
