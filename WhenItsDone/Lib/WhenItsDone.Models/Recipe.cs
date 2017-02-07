@@ -25,6 +25,10 @@ namespace WhenItsDone.Models
         [RegularExpression(RegexConstants.EnBgSpaceMinus)]
         public string Name { get; set; }
 
+        public int NutritionFactsId { get; set; }
+
+        public virtual NutritionFacts NutritionFacts { get; set; }
+
         [Column(TypeName = "ntext")]
         public string Description { get; set; }
 

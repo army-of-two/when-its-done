@@ -4,28 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4067a5f9b54245e88369e4751d47e6aa" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.Addresses" Width="1.5" PointX="1.5" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.ClientReviews" Width="1.5" PointX="8.25" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Clients" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.ContactInformations" Width="1.5" PointX="1.5" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Dishes" Width="1.5" PointX="8.25" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Foods" Width="1.5" PointX="16" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Ingredients" Width="1.5" PointX="18.25" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Jobs" Width="1.5" PointX="11.25" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.MedicalInformations" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Minerals" Width="1.5" PointX="16" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.NutritionFacts" Width="1.5" PointX="13.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Payments" Width="1.5" PointX="11.25" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.PhotoItems" Width="1.5" PointX="13.5" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.ProfilePictures" Width="1.5" PointX="0.75" PointY="17.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.ReceivedPayments" Width="1.5" PointX="11.25" PointY="18.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Recipes" Width="1.5" PointX="6" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Users" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.VideoItems" Width="1.5" PointX="8.25" PointY="29.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Vitamins" Width="1.5" PointX="16" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.WorkerReviews" Width="1.5" PointX="13.5" PointY="18.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Workers" Width="1.5" PointX="6" PointY="13.125" IsExpanded="true" />
+      <Diagram DiagramId="13f235ceb4b9417b92b97bba49d52d3d" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Addresses" Width="1.5" PointX="1.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ClientReviews" Width="1.5" PointX="8.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Clients" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ContactInformations" Width="1.5" PointX="1.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Dishes" Width="1.5" PointX="11.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Foods" Width="1.5" PointX="9" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Ingredients" Width="1.5" PointX="11.25" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Jobs" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MedicalInformations" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Minerals" Width="1.5" PointX="9" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.NutritionFacts" Width="1.5" PointX="6.75" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Payments" Width="1.5" PointX="8.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PhotoItems" Width="1.5" PointX="13.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ProfilePictures" Width="1.5" PointX="0.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ReceivedPayments" Width="1.5" PointX="11.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Recipes" Width="1.5" PointX="9" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Users" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VideoItems" Width="1.5" PointX="16.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Vitamins" Width="1.5" PointX="9" PointY="32" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.WorkerReviews" Width="1.5" PointX="13.5" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Workers" Width="1.5" PointX="6" PointY="13.5" IsExpanded="true" />
         <AssociationConnector Association="Model.FK_dbo_ContactInformations_dbo_Addresses_AddressId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_ClientReviews_dbo_Workers_WorkerId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_Clients_dbo_ContactInformations_ContactInformationId" ManuallyRouted="false" />
@@ -39,6 +39,7 @@
         <AssociationConnector Association="Model.FK_dbo_Dishes_dbo_Recipes_RecipeId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_Dishes_dbo_Workers_WorkerId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_PhotoItems_dbo_Dishes_Dish_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_VideoItems_dbo_Dishes_Dish_Id" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_WorkerReviews_dbo_Dishes_DishId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_Foods_dbo_NutritionFacts_NutritionFactsId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_Ingredients_dbo_Foods_FoodId" ManuallyRouted="false" />
@@ -47,6 +48,7 @@
         <AssociationConnector Association="Model.FK_dbo_Users_dbo_MedicalInformations_MedicalInformationId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_Workers_dbo_MedicalInformations_MedicalInformationId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_Minerals_dbo_NutritionFacts_NutritionFacts_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_Recipes_dbo_NutritionFacts_NutritionFactsId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_Vitamins_dbo_NutritionFacts_NutritionFacts_Id" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_Payments_dbo_Workers_WorkerId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_PhotoItems_dbo_Workers_WorkerId" ManuallyRouted="false" />

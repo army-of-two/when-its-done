@@ -1,7 +1,9 @@
-﻿namespace WhenItsDone.Models.Factories
+﻿using System;
+
+namespace WhenItsDone.Models.Factories
 {
     public interface IInitializedUserFactory
     {
-        User GetInitializedUser(string username);
+        User GetInitializedUser(Guid aspUserId, string username);
     }
 }

@@ -23,7 +23,7 @@ namespace WhenItsDone.DefaultAuth.DefaultRegisterServices
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
             }
 
-            var defaultRegisterCompleteOperationEventArgs = new DefaultRegisterOperationCompleteEventArgs(user.UserName, result.Succeeded, result.Errors.FirstOrDefault());
+            var defaultRegisterCompleteOperationEventArgs = new DefaultRegisterOperationCompleteEventArgs(Guid.Parse(user.Id), user.UserName, result.Succeeded, result.Errors.FirstOrDefault());
             this.OperationComplete(null, defaultRegisterCompleteOperationEventArgs);
         }
     }

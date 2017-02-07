@@ -176,6 +176,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="ntext" />
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="NutritionFactsId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -194,6 +195,7 @@
           <Property Name="MedicalInformationId" Type="int" />
           <Property Name="ContactInformationId" Type="int" />
           <Property Name="ProfilePictureId" Type="int" Nullable="false" />
+          <Property Name="AspNetUserId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <EntityType Name="VideoItems">
           <Key>
@@ -206,6 +208,7 @@
           <Property Name="Title" Type="nvarchar(max)" />
           <Property Name="YouTubeUrl" Type="nvarchar" MaxLength="300" Nullable="false" />
           <Property Name="YouTubeId" Type="nvarchar(max)" />
+          <Property Name="Dish_Id" Type="int" />
         </EntityType>
         <EntityType Name="Vitamins">
           <Key>
@@ -471,6 +474,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_dbo_Recipes_dbo_NutritionFacts_NutritionFactsId">
+          <End Role="NutritionFacts" Type="Self.NutritionFacts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NutritionFacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="NutritionFactsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_dbo_Users_dbo_Clients_ClientId">
           <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
@@ -530,6 +547,18 @@
             </Principal>
             <Dependent Role="Users">
               <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_VideoItems_dbo_Dishes_Dish_Id">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="0..1" />
+          <End Role="VideoItems" Type="Self.VideoItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VideoItems">
+              <PropertyRef Name="Dish_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -699,6 +728,10 @@
             <End Role="Workers" EntitySet="Workers" />
             <End Role="ReceivedPayments" EntitySet="ReceivedPayments" />
           </AssociationSet>
+          <AssociationSet Name="FK_dbo_Recipes_dbo_NutritionFacts_NutritionFactsId" Association="Self.FK_dbo_Recipes_dbo_NutritionFacts_NutritionFactsId">
+            <End Role="NutritionFacts" EntitySet="NutritionFacts" />
+            <End Role="Recipes" EntitySet="Recipes" />
+          </AssociationSet>
           <AssociationSet Name="FK_dbo_Users_dbo_Clients_ClientId" Association="Self.FK_dbo_Users_dbo_Clients_ClientId">
             <End Role="Clients" EntitySet="Clients" />
             <End Role="Users" EntitySet="Users" />
@@ -718,6 +751,10 @@
           <AssociationSet Name="FK_dbo_Users_dbo_Workers_WorkerId" Association="Self.FK_dbo_Users_dbo_Workers_WorkerId">
             <End Role="Workers" EntitySet="Workers" />
             <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_VideoItems_dbo_Dishes_Dish_Id" Association="Self.FK_dbo_VideoItems_dbo_Dishes_Dish_Id">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="VideoItems" EntitySet="VideoItems" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_VideoItems_dbo_Workers_Worker_Id" Association="Self.FK_dbo_VideoItems_dbo_Workers_Worker_Id">
             <End Role="Workers" EntitySet="Workers" />
@@ -818,6 +855,7 @@
           <NavigationProperty Name="Recipes" Relationship="Self.FK_dbo_Dishes_dbo_Recipes_RecipeId" FromRole="Dishes" ToRole="Recipes" />
           <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_Dishes_dbo_Workers_WorkerId" FromRole="Dishes" ToRole="Workers" />
           <NavigationProperty Name="PhotoItems" Relationship="Self.FK_dbo_PhotoItems_dbo_Dishes_Dish_Id" FromRole="Dishes" ToRole="PhotoItems" />
+          <NavigationProperty Name="VideoItems" Relationship="Self.FK_dbo_VideoItems_dbo_Dishes_Dish_Id" FromRole="Dishes" ToRole="VideoItems" />
           <NavigationProperty Name="WorkerReviews" Relationship="Self.FK_dbo_WorkerReviews_dbo_Dishes_DishId" FromRole="Dishes" ToRole="WorkerReviews" />
         </EntityType>
         <EntityType Name="Foods">
@@ -898,6 +936,7 @@
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Foods" Relationship="Self.FK_dbo_Foods_dbo_NutritionFacts_NutritionFactsId" FromRole="NutritionFacts" ToRole="Foods" />
           <NavigationProperty Name="Minerals" Relationship="Self.FK_dbo_Minerals_dbo_NutritionFacts_NutritionFacts_Id" FromRole="NutritionFacts" ToRole="Minerals" />
+          <NavigationProperty Name="Recipes" Relationship="Self.FK_dbo_Recipes_dbo_NutritionFacts_NutritionFactsId" FromRole="NutritionFacts" ToRole="Recipes" />
           <NavigationProperty Name="Vitamins" Relationship="Self.FK_dbo_Vitamins_dbo_NutritionFacts_NutritionFacts_Id" FromRole="NutritionFacts" ToRole="Vitamins" />
         </EntityType>
         <EntityType Name="Payments">
@@ -955,8 +994,10 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="NutritionFactsId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Dishes" Relationship="Self.FK_dbo_Dishes_dbo_Recipes_RecipeId" FromRole="Recipes" ToRole="Dishes" />
           <NavigationProperty Name="Ingredients" Relationship="Self.FK_dbo_Ingredients_dbo_Recipes_Recipe_Id" FromRole="Recipes" ToRole="Ingredients" />
+          <NavigationProperty Name="NutritionFacts" Relationship="Self.FK_dbo_Recipes_dbo_NutritionFacts_NutritionFactsId" FromRole="Recipes" ToRole="NutritionFacts" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -975,6 +1016,7 @@
           <Property Name="MedicalInformationId" Type="Int32" />
           <Property Name="ContactInformationId" Type="Int32" />
           <Property Name="ProfilePictureId" Type="Int32" Nullable="false" />
+          <Property Name="AspNetUserId" Type="Guid" Nullable="false" />
           <NavigationProperty Name="Clients" Relationship="Self.FK_dbo_Users_dbo_Clients_ClientId" FromRole="Users" ToRole="Clients" />
           <NavigationProperty Name="ContactInformations" Relationship="Self.FK_dbo_Users_dbo_ContactInformations_ContactInformationId" FromRole="Users" ToRole="ContactInformations" />
           <NavigationProperty Name="MedicalInformations" Relationship="Self.FK_dbo_Users_dbo_MedicalInformations_MedicalInformationId" FromRole="Users" ToRole="MedicalInformations" />
@@ -992,6 +1034,8 @@
           <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="YouTubeUrl" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="YouTubeId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Dish_Id" Type="Int32" />
+          <NavigationProperty Name="Dishes" Relationship="Self.FK_dbo_VideoItems_dbo_Dishes_Dish_Id" FromRole="VideoItems" ToRole="Dishes" />
           <NavigationProperty Name="Workers" Relationship="Self.FK_dbo_VideoItems_dbo_Workers_Worker_Id" FromRole="VideoItems" ToRole="Workers" />
         </EntityType>
         <EntityType Name="Vitamins">
@@ -1213,6 +1257,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_dbo_VideoItems_dbo_Dishes_Dish_Id">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="0..1" />
+          <End Role="VideoItems" Type="Self.VideoItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VideoItems">
+              <PropertyRef Name="Dish_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_dbo_WorkerReviews_dbo_Dishes_DishId">
           <End Role="Dishes" Type="Self.Dishes" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -1314,6 +1370,20 @@
             </Principal>
             <Dependent Role="Minerals">
               <PropertyRef Name="NutritionFacts_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Recipes_dbo_NutritionFacts_NutritionFactsId">
+          <End Role="NutritionFacts" Type="Self.NutritionFacts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Recipes" Type="Self.Recipes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NutritionFacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recipes">
+              <PropertyRef Name="NutritionFactsId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1483,6 +1553,10 @@
             <End Role="Dishes" EntitySet="Dishes" />
             <End Role="PhotoItems" EntitySet="PhotoItems" />
           </AssociationSet>
+          <AssociationSet Name="FK_dbo_VideoItems_dbo_Dishes_Dish_Id" Association="Self.FK_dbo_VideoItems_dbo_Dishes_Dish_Id">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="VideoItems" EntitySet="VideoItems" />
+          </AssociationSet>
           <AssociationSet Name="FK_dbo_WorkerReviews_dbo_Dishes_DishId" Association="Self.FK_dbo_WorkerReviews_dbo_Dishes_DishId">
             <End Role="Dishes" EntitySet="Dishes" />
             <End Role="WorkerReviews" EntitySet="WorkerReviews" />
@@ -1514,6 +1588,10 @@
           <AssociationSet Name="FK_dbo_Minerals_dbo_NutritionFacts_NutritionFacts_Id" Association="Self.FK_dbo_Minerals_dbo_NutritionFacts_NutritionFacts_Id">
             <End Role="NutritionFacts" EntitySet="NutritionFacts" />
             <End Role="Minerals" EntitySet="Minerals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Recipes_dbo_NutritionFacts_NutritionFactsId" Association="Self.FK_dbo_Recipes_dbo_NutritionFacts_NutritionFactsId">
+            <End Role="NutritionFacts" EntitySet="NutritionFacts" />
+            <End Role="Recipes" EntitySet="Recipes" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_Vitamins_dbo_NutritionFacts_NutritionFacts_Id" Association="Self.FK_dbo_Vitamins_dbo_NutritionFacts_NutritionFacts_Id">
             <End Role="NutritionFacts" EntitySet="NutritionFacts" />
@@ -1735,6 +1813,7 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="NutritionFactsId" ColumnName="NutritionFactsId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1754,6 +1833,7 @@
                 <ScalarProperty Name="MedicalInformationId" ColumnName="MedicalInformationId" />
                 <ScalarProperty Name="ContactInformationId" ColumnName="ContactInformationId" />
                 <ScalarProperty Name="ProfilePictureId" ColumnName="ProfilePictureId" />
+                <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1767,6 +1847,7 @@
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="YouTubeUrl" ColumnName="YouTubeUrl" />
                 <ScalarProperty Name="YouTubeId" ColumnName="YouTubeId" />
+                <ScalarProperty Name="Dish_Id" ColumnName="Dish_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,4 +1,4 @@
-﻿using Bytes2you.Validation;
+﻿using System;
 
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
@@ -18,16 +18,27 @@ namespace WhenItsDone.Services
         public UsersRegistrationAsyncService(IUsersAsyncRepository usersAsyncRepository, IProfilePicturesAsyncRepository profilePicturesAsyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory, IInitializedUserFactory userDbModelFactory)
             : base(usersAsyncRepository, unitOfWorkFactory)
         {
-            Guard.WhenArgument(userDbModelFactory, nameof(IInitializedUserFactory)).IsNull();
-            Guard.WhenArgument(usersAsyncRepository, nameof(IUsersAsyncRepository)).IsNull();
-            Guard.WhenArgument(profilePicturesAsyncRepository, nameof(IProfilePicturesAsyncRepository)).IsNull();
+            if (userDbModelFactory == null)
+            {
+                throw new ArgumentNullException(nameof(IInitializedUserFactory));
+            }
+
+            if (usersAsyncRepository == null)
+            {
+                throw new ArgumentNullException(nameof(IUsersAsyncRepository));
+            }
+
+            if (profilePicturesAsyncRepository == null)
+            {
+                throw new ArgumentNullException(nameof(IProfilePicturesAsyncRepository));
+            }
 
             this.userDbModelFactory = userDbModelFactory;
             this.usersAsyncRepository = usersAsyncRepository;
             this.profilePicturesAsyncRepository = profilePicturesAsyncRepository;
         }
 
-        public bool CreateUser(string username)
+        public bool CreateUser(Guid aspUserId, string username)
         {
             var isSuccessful = false;
             if (string.IsNullOrEmpty(username))
@@ -35,7 +46,7 @@ namespace WhenItsDone.Services
                 return isSuccessful;
             }
 
-            var nextUser = this.userDbModelFactory.GetInitializedUser(username);
+            var nextUser = this.userDbModelFactory.GetInitializedUser(aspUserId, username);
             nextUser.ProfilePicture = this.profilePicturesAsyncRepository.GetDefaultProfilePicture().Result;
 
             this.usersAsyncRepository.Add(nextUser);

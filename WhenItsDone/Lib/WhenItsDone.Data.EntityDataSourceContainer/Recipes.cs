@@ -25,10 +25,12 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         public string Name { get; set; }
         public string Description { get; set; }
         public bool IsDeleted { get; set; }
+        public int NutritionFactsId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dishes> Dishes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ingredients> Ingredients { get; set; }
+        public virtual NutritionFacts NutritionFacts { get; set; }
     }
 }

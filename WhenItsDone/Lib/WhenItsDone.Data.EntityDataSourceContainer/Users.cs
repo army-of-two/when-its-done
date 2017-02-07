@@ -27,6 +27,7 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         public Nullable<int> MedicalInformationId { get; set; }
         public Nullable<int> ContactInformationId { get; set; }
         public int ProfilePictureId { get; set; }
+        public System.Guid AspNetUserId { get; set; }
     
         public virtual Clients Clients { get; set; }
         public virtual ContactInformations ContactInformations { get; set; }

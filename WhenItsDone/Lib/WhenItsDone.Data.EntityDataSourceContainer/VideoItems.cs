@@ -21,7 +21,9 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         public string Title { get; set; }
         public string YouTubeUrl { get; set; }
         public string YouTubeId { get; set; }
+        public Nullable<int> Dish_Id { get; set; }
     
+        public virtual Dishes Dishes { get; set; }
         public virtual Workers Workers { get; set; }
     }
 }
