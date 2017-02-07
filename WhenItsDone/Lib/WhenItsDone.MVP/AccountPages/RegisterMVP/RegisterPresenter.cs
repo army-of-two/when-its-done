@@ -31,7 +31,7 @@ namespace WhenItsDone.MVP.AccountPages.RegisterMVP
             this.View.Model.RegisterIsSuccessful = args.RegisterIsSuccessful;
             if (this.View.Model.RegisterIsSuccessful)
             {
-                this.View.Model.RegisterIsSuccessful = this.userService.CreateUser(args.Username);
+                this.View.Model.RegisterIsSuccessful = this.userService.CreateUser(args.AspNetUserId, args.Username);
             }
             else
             {

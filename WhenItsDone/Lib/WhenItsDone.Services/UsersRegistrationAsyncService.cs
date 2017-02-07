@@ -1,5 +1,5 @@
 ﻿using Bytes2you.Validation;
-
+using System;
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.Models;
@@ -27,7 +27,7 @@ namespace WhenItsDone.Services
             this.profilePicturesAsyncRepository = profilePicturesAsyncRepository;
         }
 
-        public bool CreateUser(string username)
+        public bool CreateUser(Guid aspUserId, string username)
         {
             var isSuccessful = false;
             if (string.IsNullOrEmpty(username))
@@ -35,7 +35,7 @@ namespace WhenItsDone.Services
                 return isSuccessful;
             }
 
-            var nextUser = this.userDbModelFactory.GetInitializedUser(username);
+            var nextUser = this.userDbModelFactory.GetInitializedUser(aspUserId, username);
             nextUser.ProfilePicture = this.profilePicturesAsyncRepository.GetDefaultProfilePicture().Result;
 
             this.usersAsyncRepository.Add(nextUser);
