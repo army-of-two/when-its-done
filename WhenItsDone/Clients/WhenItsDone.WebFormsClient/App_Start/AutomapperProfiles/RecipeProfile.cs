@@ -6,14 +6,12 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
 {
     public class RecipeProfile : Profile
     {
-        public RecipeProfile()
-            : base()
+        protected RecipeProfile(string profileName)
+            : base(profileName)
         {
-            this.CreateMap<Recipe, RecipeFullDTO>()
+            this.CreateMap<Recipe, RecipeWithIngredientsDTO>()
                 .ForMember(dest => dest.Id, opts => opts.MapFrom(x => x.Id))
-                .ForMember(dest => dest.Name, opts => opts.MapFrom(x => x.Name))
-                .ForMember(dest => dest.Description, opts => opts.MapFrom(x => x.Description))
-                .ForMember(dest => dest.Ingredients, opts => opts.MapFrom(x => x.Ingredients));
+                .ForMember(dest => dest.Ingradients, opts => opts.MapFrom(x => x.Ingredients));
         }
     }
 }
