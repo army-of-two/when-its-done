@@ -402,6 +402,7 @@
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\AutomapperProfiles\DishViewsProfile.cs" />
+    <Compile Include="App_Start\AutomapperProfiles\IngredientProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\ModelsProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\PhotoItemProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\UserViewsProfile.cs" />
