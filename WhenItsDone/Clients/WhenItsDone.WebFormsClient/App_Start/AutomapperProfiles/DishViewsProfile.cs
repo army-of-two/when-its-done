@@ -32,11 +32,6 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
                 .ForMember(dest => dest.Name, opts => opts.MapFrom(src => src.Recipe.Name))
                 .ForMember(dest => dest.PhotoItemUrl, opts => opts.MapFrom(src => src.PhotoItems.FirstOrDefault().Url))
                 .ForMember(dest => dest.Rating, opts => opts.MapFrom(src => src.Rating));
-
-            this.CreateMap<Dish, DishWithIngradientsDTO>()
-                .ForMember(dest => dest.Id, opts => opts.MapFrom(x => x.Id))
-                .ForMember(dest => dest.RecipeId, opts => opts.MapFrom(x => x.RecipeId))
-                .ForMember(dest => dest.Ingradients, opts => opts.MapFrom(x => x.Recipe.Ingredients));
         }
     }
 }

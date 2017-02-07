@@ -405,6 +405,7 @@
     <Compile Include="App_Start\AutomapperProfiles\IngredientProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\ModelsProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\PhotoItemProfile.cs" />
+    <Compile Include="App_Start\AutomapperProfiles\RecipeProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\UserViewsProfile.cs" />
     <Compile Include="App_Start\AutomapperProfiles\WorkerProfile.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
