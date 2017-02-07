@@ -7,6 +7,8 @@ namespace WhenItsDone.DTOs.DishViewsDTOs
     {
         public int Id { get; set; }
 
+        public int RecipeId { get; set; }
+
         public IEnumerable<IngradientWithNamesDTO> Ingradients { get; set; }
     }
 }
