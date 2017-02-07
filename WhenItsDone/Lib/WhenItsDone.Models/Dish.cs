@@ -9,11 +9,13 @@ namespace WhenItsDone.Models
     public class Dish : IDbModel
     {
         private ICollection<PhotoItem> photoItems;
+        private ICollection<VideoItem> videoItems;
         private ICollection<WorkerReview> workerReviews;
 
         public Dish()
         {
             this.photoItems = new HashSet<PhotoItem>();
+            this.videoItems = new HashSet<VideoItem>();
             this.workerReviews = new HashSet<WorkerReview>();
         }
 
@@ -45,6 +47,19 @@ namespace WhenItsDone.Models
             set
             {
                 this.photoItems = value;
+            }
+        }
+
+        public virtual ICollection<VideoItem> VideoItems
+        {
+            get
+            {
+                return this.videoItems;
+            }
+
+            set
+            {
+                this.videoItems = value;
             }
         }
 
