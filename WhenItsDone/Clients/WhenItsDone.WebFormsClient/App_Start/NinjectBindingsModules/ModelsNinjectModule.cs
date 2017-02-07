@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 using Bytes2you.Validation;
 
@@ -37,9 +38,9 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 
         private User GetInitializedUserFactoryMethod(IContext context)
         {
-            var methodParameter = context.Parameters.SingleOrDefault();
-            var username = (string)methodParameter?.GetValue(context, null);
-            Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty();
+            var methodParameters = context.Parameters.ToList();
+            var aspUserId = (Guid)methodParameters[0].GetValue(context, null);
+            var username = (string)methodParameters[1].GetValue(context, null);
 
             var completeUserFactory = context.Kernel.Get<ICompleteUserFactory>();
             var nextUser = completeUserFactory.GetUser();
@@ -49,6 +50,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
             nextUser.ContactInformation = completeUserFactory.CreateContactInformation();
 
             nextUser.ContactInformation.Email = username;
+            nextUser.AspNetUserId = aspUserId;
             nextUser.Username = username;
 
             return nextUser;
