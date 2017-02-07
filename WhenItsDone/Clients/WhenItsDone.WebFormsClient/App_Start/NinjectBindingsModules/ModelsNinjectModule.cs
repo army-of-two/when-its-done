@@ -23,7 +23,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
             this.Bind(this.ConfigureFactoriesConventionBinding);
 
             this.Bind<User>().ToSelf().NamedLikeFactoryMethod((ICompleteUserFactory factory) => factory.GetUser());
-            this.Bind<User>().ToMethod(this.GetInitializedUserFactoryMethod).NamedLikeFactoryMethod((IInitializedUserFactory factory) => factory.GetInitializedUser(null));
+            this.Bind<User>().ToMethod(this.GetInitializedUserFactoryMethod).NamedLikeFactoryMethod((IInitializedUserFactory factory) => factory.GetInitializedUser(default(Guid), null));
         }
 
         private void ConfigureFactoriesConventionBinding(IFromSyntax bindingSyntax)
@@ -41,6 +41,9 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
             var methodParameters = context.Parameters.ToList();
             var aspUserId = (Guid)methodParameters[0].GetValue(context, null);
             var username = (string)methodParameters[1].GetValue(context, null);
+
+            Guard.WhenArgument(aspUserId, "aspUserId").IsEqual(default(Guid)).Throw();
+            Guard.WhenArgument(username, "username").IsNullOrEmpty().Throw();
 
             var completeUserFactory = context.Kernel.Get<ICompleteUserFactory>();
             var nextUser = completeUserFactory.GetUser();
