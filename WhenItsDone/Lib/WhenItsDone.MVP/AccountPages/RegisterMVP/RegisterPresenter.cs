@@ -1,5 +1,4 @@
-﻿using Bytes2you.Validation;
-using System;
+﻿using System;
 using WebFormsMvp;
 
 using WhenItsDone.DefaultAuth.DefaultRegisterServices;
@@ -14,8 +13,15 @@ namespace WhenItsDone.MVP.AccountPages.RegisterMVP
         public RegisterPresenter(IRegisterView view, IUsersRegistrationAsyncService userService, IDefaultRegisterService defaultRegisterService)
             : base(view)
         {
-            Guard.WhenArgument(userService, nameof(IUsersRegistrationAsyncService)).IsNull().Throw();
-            Guard.WhenArgument(defaultRegisterService, nameof(IDefaultRegisterService)).IsNull().Throw();
+            if (userService == null)
+            {
+                throw new ArgumentNullException(nameof(IUsersRegistrationAsyncService));
+            }
+
+            if (defaultRegisterService == null)
+            {
+                throw new ArgumentNullException(nameof(IDefaultRegisterService));
+            }
 
             this.userService = userService;
 
@@ -25,8 +31,20 @@ namespace WhenItsDone.MVP.AccountPages.RegisterMVP
 
         public void OnDefaultRegisterOperationComplete(object sender, DefaultRegisterOperationCompleteEventArgs args)
         {
-            Guard.WhenArgument(args, nameof(DefaultRegisterOperationCompleteEventArgs)).IsNull().Throw();
-            Guard.WhenArgument(args.Username, "DefaultRegisterOperationCompleteEventArgs.Username is null or empty.").IsNullOrEmpty().Throw();
+            if (args == null)
+            {
+                throw new ArgumentNullException(nameof(DefaultRegisterOperationCompleteEventArgs));
+            }
+
+            if (string.IsNullOrEmpty(args.Username))
+            {
+                throw new ArgumentException("Username must not be null or empty.");
+            }
+
+            if (args.AspNetUserId == default(Guid))
+            {
+                throw new ArgumentException("AspNetUserId must be different than Guid default value.");
+            }
 
             this.View.Model.RegisterIsSuccessful = args.RegisterIsSuccessful;
             if (this.View.Model.RegisterIsSuccessful)

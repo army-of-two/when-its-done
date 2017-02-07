@@ -1,4 +1,4 @@
-﻿using Bytes2you.Validation;
+﻿using System;
 
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
@@ -15,7 +15,10 @@ namespace WhenItsDone.Services
         public UsersAsyncService(IUsersAsyncRepository asyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory)
             : base(asyncRepository, unitOfWorkFactory)
         {
-            Guard.WhenArgument(asyncRepository, nameof(IUsersAsyncRepository)).IsNull();
+            if (asyncRepository == null)
+            {
+                throw new ArgumentNullException(nameof(IUsersAsyncRepository));
+            }
 
             this.asyncRepository = asyncRepository;
         }

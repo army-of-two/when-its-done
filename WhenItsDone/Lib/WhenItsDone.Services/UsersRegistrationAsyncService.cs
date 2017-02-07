@@ -1,5 +1,5 @@
-﻿using Bytes2you.Validation;
-using System;
+﻿using System;
+
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.Models;
@@ -18,9 +18,20 @@ namespace WhenItsDone.Services
         public UsersRegistrationAsyncService(IUsersAsyncRepository usersAsyncRepository, IProfilePicturesAsyncRepository profilePicturesAsyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory, IInitializedUserFactory userDbModelFactory)
             : base(usersAsyncRepository, unitOfWorkFactory)
         {
-            Guard.WhenArgument(userDbModelFactory, nameof(IInitializedUserFactory)).IsNull();
-            Guard.WhenArgument(usersAsyncRepository, nameof(IUsersAsyncRepository)).IsNull();
-            Guard.WhenArgument(profilePicturesAsyncRepository, nameof(IProfilePicturesAsyncRepository)).IsNull();
+            if (userDbModelFactory == null)
+            {
+                throw new ArgumentNullException(nameof(IInitializedUserFactory));
+            }
+
+            if (usersAsyncRepository == null)
+            {
+                throw new ArgumentNullException(nameof(IUsersAsyncRepository));
+            }
+
+            if (profilePicturesAsyncRepository == null)
+            {
+                throw new ArgumentNullException(nameof(IProfilePicturesAsyncRepository));
+            }
 
             this.userDbModelFactory = userDbModelFactory;
             this.usersAsyncRepository = usersAsyncRepository;

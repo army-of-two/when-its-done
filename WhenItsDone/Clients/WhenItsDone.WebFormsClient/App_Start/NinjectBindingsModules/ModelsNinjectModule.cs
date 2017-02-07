@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Linq;
 
-using Bytes2you.Validation;
-
 using Ninject;
 using Ninject.Activation;
 using Ninject.Extensions.Conventions;
@@ -40,10 +38,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
         {
             var methodParameters = context.Parameters.ToList();
             var aspUserId = (Guid)methodParameters[0].GetValue(context, null);
-            var username = (string)methodParameters[1].GetValue(context, null);
-
-            Guard.WhenArgument(aspUserId, "aspUserId").IsEqual(default(Guid)).Throw();
-            Guard.WhenArgument(username, "username").IsNullOrEmpty().Throw();
+            var username = (string)methodParameters[1].GetValue(context, null);           
 
             var completeUserFactory = context.Kernel.Get<ICompleteUserFactory>();
             var nextUser = completeUserFactory.GetUser();

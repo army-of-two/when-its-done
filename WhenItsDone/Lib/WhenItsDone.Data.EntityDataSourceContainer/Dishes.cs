@@ -18,6 +18,7 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         public Dishes()
         {
             this.PhotoItems = new HashSet<PhotoItems>();
+            this.VideoItems = new HashSet<VideoItems>();
             this.WorkerReviews = new HashSet<WorkerReviews>();
         }
     
@@ -32,6 +33,8 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         public virtual Workers Workers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhotoItems> PhotoItems { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VideoItems> VideoItems { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WorkerReviews> WorkerReviews { get; set; }
     }

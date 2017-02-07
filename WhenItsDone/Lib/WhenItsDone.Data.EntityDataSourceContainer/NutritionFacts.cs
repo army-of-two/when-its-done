@@ -19,6 +19,7 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         {
             this.Foods = new HashSet<Foods>();
             this.Minerals = new HashSet<Minerals>();
+            this.Recipes = new HashSet<Recipes>();
             this.Vitamins = new HashSet<Vitamins>();
         }
     
@@ -33,6 +34,8 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         public virtual ICollection<Foods> Foods { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Minerals> Minerals { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Recipes> Recipes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Vitamins> Vitamins { get; set; }
     }
