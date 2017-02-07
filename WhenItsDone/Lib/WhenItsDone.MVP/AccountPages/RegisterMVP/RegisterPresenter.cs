@@ -1,5 +1,5 @@
 ﻿using Bytes2you.Validation;
-
+using System;
 using WebFormsMvp;
 
 using WhenItsDone.DefaultAuth.DefaultRegisterServices;
@@ -14,8 +14,8 @@ namespace WhenItsDone.MVP.AccountPages.RegisterMVP
         public RegisterPresenter(IRegisterView view, IUsersRegistrationAsyncService userService, IDefaultRegisterService defaultRegisterService)
             : base(view)
         {
-            Guard.WhenArgument(userService, nameof(IUsersAsyncService)).IsNull();
-            Guard.WhenArgument(defaultRegisterService, nameof(IDefaultRegisterService)).IsNull();
+            Guard.WhenArgument(userService, nameof(IUsersRegistrationAsyncService)).IsNull().Throw();
+            Guard.WhenArgument(defaultRegisterService, nameof(IDefaultRegisterService)).IsNull().Throw();
 
             this.userService = userService;
 
@@ -25,8 +25,8 @@ namespace WhenItsDone.MVP.AccountPages.RegisterMVP
 
         public void OnDefaultRegisterOperationComplete(object sender, DefaultRegisterOperationCompleteEventArgs args)
         {
-            Guard.WhenArgument(args, nameof(DefaultRegisterOperationCompleteEventArgs)).IsNull();
-            Guard.WhenArgument(args.Username, "DefaultRegisterOperationCompleteEventArgs.Username is null or empty.").IsNullOrEmpty();
+            Guard.WhenArgument(args, nameof(DefaultRegisterOperationCompleteEventArgs)).IsNull().Throw();
+            Guard.WhenArgument(args.Username, "DefaultRegisterOperationCompleteEventArgs.Username is null or empty.").IsNullOrEmpty().Throw();
 
             this.View.Model.RegisterIsSuccessful = args.RegisterIsSuccessful;
             if (this.View.Model.RegisterIsSuccessful)
