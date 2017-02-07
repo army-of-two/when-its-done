@@ -280,6 +280,7 @@
     <Content Include="ViewControls\AdminPageControls\APWorkersSourseControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopDishesUserControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopUsersUserControl.ascx" />
+    <Content Include="ViewControls\ContentContainers\TopVideoItemsUserControl.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -491,6 +492,13 @@
     </Compile>
     <Compile Include="ViewControls\ContentContainers\TopUsersUserControl.ascx.designer.cs">
       <DependentUpon>TopUsersUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControls\ContentContainers\TopVideoItemsUserControl.ascx.cs">
+      <DependentUpon>TopVideoItemsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\ContentContainers\TopVideoItemsUserControl.ascx.designer.cs">
+      <DependentUpon>TopVideoItemsUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

@@ -1,6 +1,8 @@
-﻿using NUnit.Framework;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Linq;
+
+using NUnit.Framework;
+
 using WhenItsDone.Models.Constants;
 
 namespace WhenItsDone.Models.Tests.VideoItemTests
@@ -9,12 +11,12 @@ namespace WhenItsDone.Models.Tests.VideoItemTests
     public class VideoItemUrlTests
     {
         [Test]
-        public void Url_ShouldHave_RequiredAttribute()
+        public void YouTubeUrl_ShouldHave_RequiredAttribute()
         {
             var obj = new VideoItem();
 
             var result = obj.GetType()
-                            .GetProperty("Url")
+                            .GetProperty("YouTubeUrl")
                             .GetCustomAttributes(false)
                             .Where(x => x.GetType() == typeof(RequiredAttribute))
                             .Any();
@@ -23,12 +25,12 @@ namespace WhenItsDone.Models.Tests.VideoItemTests
         }
 
         [Test]
-        public void Url_ShouldHave_MinLengthAttribute()
+        public void YouTubeUrl_ShouldHave_MinLengthAttribute()
         {
             var obj = new VideoItem();
 
             var result = obj.GetType()
-                            .GetProperty("Url")
+                            .GetProperty("YouTubeUrl")
                             .GetCustomAttributes(false)
                             .Where(x => x.GetType() == typeof(MinLengthAttribute))
                             .Any();
@@ -37,12 +39,12 @@ namespace WhenItsDone.Models.Tests.VideoItemTests
         }
 
         [Test]
-        public void Url_ShouldHave_RightMinValueFor_RequiredAttribute()
+        public void YouTubeUrl_ShouldHave_RightMinValueFor_RequiredAttribute()
         {
             var obj = new VideoItem();
 
             var result = obj.GetType()
-                            .GetProperty("Url")
+                            .GetProperty("YouTubeUrl")
                             .GetCustomAttributes(false)
                             .Where(x => x.GetType() == typeof(MinLengthAttribute))
                             .Select(x => (MinLengthAttribute)x)
@@ -53,12 +55,12 @@ namespace WhenItsDone.Models.Tests.VideoItemTests
         }
 
         [Test]
-        public void Url_ShouldHave_MaxLengthAttribute()
+        public void YouTubeUrl_ShouldHave_MaxLengthAttribute()
         {
             var obj = new VideoItem();
 
             var result = obj.GetType()
-                            .GetProperty("Url")
+                            .GetProperty("YouTubeUrl")
                             .GetCustomAttributes(false)
                             .Where(x => x.GetType() == typeof(MaxLengthAttribute))
                             .Any();
@@ -67,12 +69,12 @@ namespace WhenItsDone.Models.Tests.VideoItemTests
         }
 
         [Test]
-        public void Url_ShouldHave_RightMaxValueFor_RequiredAttribute()
+        public void YouTubeUrl_ShouldHave_RightMaxValueFor_RequiredAttribute()
         {
             var obj = new VideoItem();
 
             var result = obj.GetType()
-                            .GetProperty("Url")
+                            .GetProperty("YouTubeUrl")
                             .GetCustomAttributes(false)
                             .Where(x => x.GetType() == typeof(MaxLengthAttribute))
                             .Select(x => (MaxLengthAttribute)x)
@@ -84,13 +86,13 @@ namespace WhenItsDone.Models.Tests.VideoItemTests
 
         [TestCase("mihciuh,fwec")]
         [TestCase("c32c321 23c123c213c")]
-        public void Url_GetAndSetShould_WorkProperly(string randomString)
+        public void YouTubeUrl_GetAndSetShould_WorkProperly(string randomString)
         {
             var obj = new VideoItem();
 
-            obj.Url = randomString;
+            obj.YouTubeUrl = randomString;
 
-            Assert.AreEqual(randomString, obj.Url);
+            Assert.AreEqual(randomString, obj.YouTubeUrl);
         }
     }
 }

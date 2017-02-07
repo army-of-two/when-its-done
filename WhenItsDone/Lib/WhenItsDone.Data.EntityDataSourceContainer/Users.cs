@@ -22,7 +22,7 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         public int Rating { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public Nullable<int> Gender { get; set; }
+        public int Gender { get; set; }
         public int Age { get; set; }
         public Nullable<int> MedicalInformationId { get; set; }
         public Nullable<int> ContactInformationId { get; set; }

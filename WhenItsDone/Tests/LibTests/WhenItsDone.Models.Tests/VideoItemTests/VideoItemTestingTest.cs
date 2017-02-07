@@ -19,7 +19,7 @@ namespace WhenItsDone.Models.Tests.VideoItemTests
                             .GetProperties()
                             .Count();
 
-            Assert.AreEqual(3, result);
+            Assert.AreEqual(6, result);
         }
 
         /// <summary>

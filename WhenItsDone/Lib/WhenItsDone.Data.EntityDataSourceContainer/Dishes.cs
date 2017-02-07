@@ -24,7 +24,7 @@ namespace WhenItsDone.Data.EntityDataSourceContainer
         public int Id { get; set; }
         public int RecipeId { get; set; }
         public decimal Price { get; set; }
-        public Nullable<int> Worker_Id { get; set; }
+        public int WorkerId { get; set; }
         public bool IsDeleted { get; set; }
         public int Rating { get; set; }
     
