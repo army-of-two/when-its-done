@@ -3,7 +3,7 @@ using WhenItsDone.DTOs.PhotoItemDTOs;
 
 namespace WhenItsDone.DTOs.DishViewsDTOs
 {
-    public class DishWithPhotos
+    public class DishWithPhotosDTO
     {
         public int Id { get; set; }
 
