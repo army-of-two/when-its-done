@@ -15,11 +15,11 @@ namespace WhenItsDone.Data.Repositories
         {
         }
 
-        public Task<IEnumerable<WorkerWithDishesDTO>> GetWorkersWithDishes()
+        public Task<IEnumerable<WorkerNamesIdDTO>> GetWorkersWithDishes()
         {
-            return Task.Run<IEnumerable<WorkerWithDishesDTO>>(() =>
+            return Task.Run<IEnumerable<WorkerNamesIdDTO>>(() =>
             {
-                return base.DbSet.ProjectToList<WorkerWithDishesDTO>();
+                return base.DbSet.ProjectToList<WorkerNamesIdDTO>();
             });
         }
     }

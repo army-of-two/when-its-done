@@ -24,7 +24,7 @@ namespace WhenItsDone.Services
             this.workerRepo = repository;
         }
 
-        public IEnumerable<WorkerWithDishesDTO> GetWorkersWithDIshes()
+        public IEnumerable<WorkerNamesIdDTO> GetWorkersWithDIshes()
         {
             return this.workerRepo.GetWorkersWithDishes().Result;
         }

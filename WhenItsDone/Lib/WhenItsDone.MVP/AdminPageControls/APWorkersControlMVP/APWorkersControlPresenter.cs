@@ -20,10 +20,10 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkersControlMVP
 
             this.workersService = workersService;
 
-            this.View.GetWorkersWithDishes += View_GetWorkersWithDishes;
+            this.View.GetWorkersNamesAndId += View_GetWorkersNamesAndId;
         }
 
-        private void View_GetWorkersWithDishes(object sender, EventArgs e)
+        private void View_GetWorkersNamesAndId(object sender, EventArgs e)
         {
             this.View.Model.WorkersWithDishes = this.workersService.GetWorkersWithDIshes();
         }

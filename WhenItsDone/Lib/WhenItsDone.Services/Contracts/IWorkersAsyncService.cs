@@ -6,6 +6,6 @@ namespace WhenItsDone.Services.Contracts
 {
     public interface IWorkersAsyncService : IGenericAsyncService<Worker>
     {
-        IEnumerable<WorkerWithDishesDTO> GetWorkersWithDIshes();
+        IEnumerable<WorkerNamesIdDTO> GetWorkersWithDIshes();
     }
 }

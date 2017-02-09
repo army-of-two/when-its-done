@@ -4,7 +4,7 @@
 
 <div id="workers-list">
     <asp:ListView runat="server" ID="workersList" DataKeyNames="Id"
-        ItemType="WhenItsDone.DTOs.WorkerVIewsDTOs.WorkerWithDishesDTO">
+        ItemType="WhenItsDone.DTOs.WorkerVIewsDTOs.WorkerNamesIdDTO">
         <ItemTemplate>
             <%#: Item.Id %>
             <%#: Item.FirstName %>

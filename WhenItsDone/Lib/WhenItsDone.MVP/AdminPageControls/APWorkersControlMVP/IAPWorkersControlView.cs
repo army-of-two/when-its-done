@@ -5,6 +5,6 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkersControlMVP
 {
     public interface IAPWorkersControlView : IView<APWorkersControlViewModel>
     {
-        event EventHandler GetWorkersWithDishes;
+        event EventHandler GetWorkersNamesAndId;
     }
 }
