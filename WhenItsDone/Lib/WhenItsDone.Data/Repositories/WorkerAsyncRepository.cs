@@ -15,7 +15,7 @@ namespace WhenItsDone.Data.Repositories
         {
         }
 
-        public Task<IEnumerable<WorkerNamesIdDTO>> GetWorkersWithDishes()
+        public Task<IEnumerable<WorkerNamesIdDTO>> GetWorkersNamesAndId()
         {
             return Task.Run<IEnumerable<WorkerNamesIdDTO>>(() =>
             {

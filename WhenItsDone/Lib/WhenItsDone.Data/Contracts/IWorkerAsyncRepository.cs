@@ -7,6 +7,6 @@ namespace WhenItsDone.Data.Contracts
 {
     public interface IWorkerAsyncRepository : IAsyncRepository<Worker>
     {
-        Task<IEnumerable<WorkerNamesIdDTO>> GetWorkersWithDishes();
+        Task<IEnumerable<WorkerNamesIdDTO>> GetWorkersNamesAndId();
     }
 }
