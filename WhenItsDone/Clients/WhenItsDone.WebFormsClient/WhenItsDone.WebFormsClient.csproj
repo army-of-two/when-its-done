@@ -273,7 +273,6 @@
     <Content Include="Site.Master" />
     <Content Include="ViewControls\AdminPageControls\APWorkerDishesControl.ascx" />
     <Content Include="ViewControls\AdminPageControls\APWorkersControl.ascx" />
-    <Content Include="ViewControls\AdminPageControls\APWorkersSourseControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopDishesUserControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopUsersUserControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopVideoItemsUserControl.ascx" />
@@ -469,13 +468,6 @@
     </Compile>
     <Compile Include="ViewControls\AdminPageControls\APWorkersControl.ascx.designer.cs">
       <DependentUpon>APWorkersControl.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControls\AdminPageControls\APWorkersSourseControl.ascx.cs">
-      <DependentUpon>APWorkersSourseControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewControls\AdminPageControls\APWorkersSourseControl.ascx.designer.cs">
-      <DependentUpon>APWorkersSourseControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViewControls\ContentContainers\TopDishesUserControl.ascx.cs">
       <DependentUpon>TopDishesUserControl.ascx</DependentUpon>
