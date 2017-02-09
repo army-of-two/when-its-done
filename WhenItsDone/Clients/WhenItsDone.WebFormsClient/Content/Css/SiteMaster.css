@@ -7,8 +7,8 @@ body form .well {
 }
 body form .content-container-odd,
 body form .content-container-even {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   padding: 0;
   padding-left: 0;
   padding-right: 0;
@@ -17,18 +17,23 @@ body form .content-container-even {
   border: none;
   box-shadow: none;
 }
+body form .content-container-odd.dynamic-height,
+body form .content-container-even.dynamic-height {
+  min-height: auto;
+}
 body form .content-container-odd .content-container-heading,
 body form .content-container-even .content-container-heading {
   color: #428bca;
   border-bottom: 1px solid rgba(0,0,0,0.15);
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-  padding: 25px;
+  padding: 15px;
   padding-left: 30px;
   padding-right: 30px;
 }
 body form .content-container-odd .content-container-content,
 body form .content-container-even .content-container-content {
-  padding: 25px;
+  padding: 30px;
+  padding-bottom: 15px;
 }
 body form .content-container-even {
   background-color: #fff;
