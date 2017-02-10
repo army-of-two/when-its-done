@@ -11,7 +11,7 @@
 </asp:SqlDataSource>
 
 <section class="content-container-heading">
-    <h1>Food.Me Top 3 Videos</h1>
+    <h2>Food.Me Top 3 Videos</h2>
 </section>
 <section class="content-container-content">
     <div class="row">

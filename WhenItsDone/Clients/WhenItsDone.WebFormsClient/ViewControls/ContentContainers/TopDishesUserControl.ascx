@@ -5,7 +5,7 @@
     Inherits="WhenItsDone.WebFormsClient.ViewControls.ContentContainers.TopDishesUserControl" %>
 
 <section class="content-container-heading">
-    <h1>Food.Me Top 3</h1>
+    <h2>Food.Me Top 3</h2>
 </section>
 <section class="content-container-content">
     <div class="row">

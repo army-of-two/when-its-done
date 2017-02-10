@@ -15,7 +15,7 @@
 </asp:EntityDataSource>
 
 <section class="content-container-heading">
-    <h1>Food.Me Top 3 Users</h1>
+    <h2>Food.Me Top 3 Users</h2>
 </section>
 <section class="content-container-content">
     <div class="row">
