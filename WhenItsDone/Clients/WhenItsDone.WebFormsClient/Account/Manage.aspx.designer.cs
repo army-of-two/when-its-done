@@ -13,39 +13,39 @@ namespace WhenItsDone.WebFormsClient.Account {
     public partial class Manage {
         
         /// <summary>
-        /// successMessage control.
+        /// ManageUserUpdatePanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder successMessage;
+        protected global::System.Web.UI.UpdatePanel ManageUserUpdatePanel;
         
         /// <summary>
-        /// ChangePassword control.
+        /// ProfilePictureButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ChangePassword;
+        protected global::System.Web.UI.WebControls.Button ProfilePictureButton;
         
         /// <summary>
-        /// CreatePassword control.
+        /// ActiveContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink CreatePassword;
+        protected global::System.Web.UI.WebControls.Panel ActiveContent;
         
         /// <summary>
-        /// PhoneNumber control.
+        /// Test control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PhoneNumber;
+        protected global::WhenItsDone.WebFormsClient.Account.OpenAuthProviders Test;
     }
 }
