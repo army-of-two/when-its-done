@@ -10,6 +10,8 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP
 {
     public class UploadProfilePicturePresenter : Presenter<IUploadProfilePictureView>, IUploadProfilePicturePresenter
     {
+        private const string UserNotFoundErrorText = "User with Username: {0} was not found.";
+
         private IUsersAsyncService usersService;
 
         public UploadProfilePicturePresenter(IUploadProfilePictureView view, IUsersAsyncService usersService)
@@ -26,7 +28,16 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP
 
         public void OnInitialState(object sender, UploadProfilePictureInitialStateEventArgs args)
         {
-            
+            Guard.WhenArgument(args, nameof(UploadProfilePictureEventArgs)).IsNull().Throw();
+            Guard.WhenArgument(args.LoggedUserUsername, nameof(args.LoggedUserUsername)).IsNullOrEmpty().Throw();
+
+            var foundUserView = this.usersService.GetCurrentUserProfilePicture(args.LoggedUserUsername);
+            if (foundUserView != null)
+            {
+                this.View.Model.IsSuccessful = true;
+                this.View.Model.CurrentProfilePictureBase64 = foundUserView.ProfilePictureBase64;
+                this.View.Model.CurrentProfilePictureMimeType = foundUserView.ProfilePictureExtension;
+            }
         }
 
         public void OnUploadProfilePicture(object sender, UploadProfilePictureEventArgs args)

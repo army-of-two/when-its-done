@@ -6,6 +6,6 @@
 
         public string ProfilePictureBase64 { get; set; }
 
-        public string PoriflePictureExtension { get; set; }
+        public string ProfilePictureExtension { get; set; }
     }
 }
