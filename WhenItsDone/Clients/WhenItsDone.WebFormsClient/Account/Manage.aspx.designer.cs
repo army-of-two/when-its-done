@@ -31,6 +31,33 @@ namespace WhenItsDone.WebFormsClient.Account {
         protected global::System.Web.UI.WebControls.Button ProfilePictureButton;
         
         /// <summary>
+        /// PersonalInformationButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button PersonalInformationButton;
+        
+        /// <summary>
+        /// MedicalInformationButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button MedicalInformationButton;
+        
+        /// <summary>
+        /// ContactInformationButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ContactInformationButton;
+        
+        /// <summary>
         /// ActiveContent control.
         /// </summary>
         /// <remarks>
@@ -40,12 +67,12 @@ namespace WhenItsDone.WebFormsClient.Account {
         protected global::System.Web.UI.WebControls.Panel ActiveContent;
         
         /// <summary>
-        /// Test control.
+        /// ManageProfilePictureUserControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WhenItsDone.WebFormsClient.Account.OpenAuthProviders Test;
+        protected global::WhenItsDone.WebFormsClient.ViewControls.ManageUserControls.UploadProfilePictureUserControl ManageProfilePictureUserControl;
     }
 }

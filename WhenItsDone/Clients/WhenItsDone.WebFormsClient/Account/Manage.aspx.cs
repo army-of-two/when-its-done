@@ -5,14 +5,42 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 
 using WhenItsDone.DefaultAuth;
+using System.Web.UI;
 
 namespace WhenItsDone.WebFormsClient.Account
 {
     public partial class Manage : System.Web.UI.Page
     {
-        protected void ProfilePictureButton_Click(object sender, EventArgs e)
+        protected void ProfilePictureButtonClick(object sender, EventArgs e)
         {
-            this.Test.Visible = !this.Test.Visible;
+            this.HideAllActivePanelControls();
+            this.ManageProfilePictureUserControl.Visible = true;
+        }
+
+        protected void PersonalInformationButtonClick(object sender, EventArgs e)
+        {
+            this.HideAllActivePanelControls();
+
+        }
+
+        protected void MedicalInformationButtonClick(object sender, EventArgs e)
+        {
+            this.HideAllActivePanelControls();
+
+        }
+
+        protected void ContactInformationButtonClick(object sender, EventArgs e)
+        {
+            this.HideAllActivePanelControls();
+
+        }
+
+        private void HideAllActivePanelControls()
+        {
+            foreach (Control item in this.ActiveContent.Controls)
+            {
+                item.Visible = false;
+            }
         }
     }
 }
