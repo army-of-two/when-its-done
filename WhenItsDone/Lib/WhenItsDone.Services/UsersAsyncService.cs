@@ -2,6 +2,7 @@
 
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
+using WhenItsDone.DTOs.UserViewsDTOs;
 using WhenItsDone.Models;
 using WhenItsDone.Services.Abstraction;
 using WhenItsDone.Services.Contracts;
@@ -21,6 +22,12 @@ namespace WhenItsDone.Services
             }
 
             this.asyncRepository = asyncRepository;
+        }
+
+        public UsernameProfilePictureUserViewDTO GetCurrentUserProfilePicture(string username)
+        {
+
+            return null;
         }
     }
 }
