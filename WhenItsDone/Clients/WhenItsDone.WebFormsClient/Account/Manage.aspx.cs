@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Web;
-
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-
-using WhenItsDone.DefaultAuth;
 using System.Web.UI;
 
 namespace WhenItsDone.WebFormsClient.Account
@@ -39,7 +33,7 @@ namespace WhenItsDone.WebFormsClient.Account
         protected void ContactInformationButtonClick(object sender, EventArgs e)
         {
             this.HideAllActivePanelControls();
-
+            this.UpdateContactInformationUserControl.Visible = true;
         }
 
         private void HideAllActivePanelControls()

@@ -11,6 +11,10 @@
 <%@ Register Src="~/ViewControls/ManageUserControls/UpdateMedicalInformationUserControl.ascx" TagPrefix="manage" TagName="medicalinformation" %>
 <%@ Register Src="~/ViewControls/ManageUserControls/UpdateContactInformationUserControl.ascx" TagPrefix="manage" TagName="contactinformation" %>
 
+<asp:Content ContentPlaceHolderID="Stylesheets" runat="server">
+    <link href="<%= ResolveUrl("~/Content/Css/Manage.css") %>" rel="stylesheet" type="text/css" />
+</asp:Content>
+
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
 
     <asp:UpdatePanel ID="ManageUserUpdatePanel" runat="server">
@@ -23,7 +27,7 @@
                     <asp:Button ID="ContactInformationButton" runat="server" OnClick="ContactInformationButtonClick" CssClass="btn btn-default" Text="Contact Information" />
                 </div>
             </div>
-            <asp:Panel ID="ActiveContent" runat="server">
+            <asp:Panel ID="ActiveContent" CssClass="active-content" runat="server">
                 <manage:profilepicture ID="ManageProfilePictureUserControl" runat="server" />
                 <manage:personalinformation ID="UpdatePersonalInformationUserControl" runat="server" />
                 <manage:medicalinformation ID="UpdateMedicalInformationUserControl" runat="server" />
