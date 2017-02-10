@@ -31,17 +31,26 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP
             Guard.WhenArgument(args, nameof(UploadProfilePictureEventArgs)).IsNull().Throw();
             Guard.WhenArgument(args.LoggedUserUsername, nameof(args.LoggedUserUsername)).IsNullOrEmpty().Throw();
 
-            var foundUserView = this.usersService.GetCurrentUserProfilePicture(args.LoggedUserUsername);
-            if (foundUserView != null)
+            try
             {
-                this.View.Model.IsSuccessful = true;
-                this.View.Model.CurrentProfilePictureBase64 = foundUserView.ProfilePictureBase64;
-                this.View.Model.CurrentProfilePictureMimeType = foundUserView.ProfilePictureExtension;
+                var foundUserView = this.usersService.GetCurrentUserProfilePicture(args.LoggedUserUsername);
+                if (foundUserView != null)
+                {
+                    this.View.Model.IsSuccessful = true;
+                    this.View.Model.CurrentProfilePictureBase64 = foundUserView.ProfilePictureBase64;
+                    this.View.Model.CurrentProfilePictureMimeType = foundUserView.ProfilePictureExtension;
+                }
+                else
+                {
+                    this.View.Model.IsSuccessful = false;
+                    this.View.Model.ResultText = string.Format(UploadProfilePicturePresenter.UserNotFoundErrorText, args.LoggedUserUsername);
+                }
+
             }
-            else
+            catch (Exception ex)
             {
                 this.View.Model.IsSuccessful = false;
-                this.View.Model.ResultText = string.Format(UploadProfilePicturePresenter.UserNotFoundErrorText, args.LoggedUserUsername);
+                this.View.Model.ResultText = ex.Message;
             }
         }
 

@@ -23,6 +23,11 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
 
             var uploadProfilePictureInitialStateEventArgs = new UploadProfilePictureInitialStateEventArgs(this.Model.LoggedUserUsername);
             this.InitialState?.Invoke(null, uploadProfilePictureInitialStateEventArgs);
+
+            if (!this.Model.IsSuccessful)
+            {
+                this.DisplayResultError(this.Model.ResultText);
+            }
         }
 
         public void OnUploadProfilePictureButtonClick(object sender, EventArgs args)
