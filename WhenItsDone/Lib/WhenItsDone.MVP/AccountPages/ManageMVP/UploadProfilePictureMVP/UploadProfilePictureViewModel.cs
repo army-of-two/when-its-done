@@ -4,6 +4,10 @@
     {
         public string CurrentProfilePictureBase64 { get; set; }
 
+        public string CurrentProfilePictureMimeType { get; set; }
+
+        public string LoggedUserUsername { get; set; }
+
         public string ErrorText { get; set; }
 
         public bool IsSuccessful { get; set; }
