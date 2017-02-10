@@ -15,7 +15,7 @@
             <asp:FileUpload ID="ProfilePictureFileUpload" runat="server" ToolTip="Upload Profile Picture" />
             <asp:Button runat="server" OnClick="OnUploadProfilePictureButtonClick" Text="Update Profile Picture" />
 
-            <asp:Label ID="ResultLable" runat="server" CssClass="" Visible="false"></asp:Label>
+            <asp:Label ID="ResultLable" runat="server" CssClass=""></asp:Label>
         </div>
     </ContentTemplate>
 </asp:UpdatePanel>

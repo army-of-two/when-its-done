@@ -8,7 +8,7 @@
 
         public string LoggedUserUsername { get; set; }
 
-        public string ErrorText { get; set; }
+        public string ResultText { get; set; }
 
         public bool IsSuccessful { get; set; }
     }

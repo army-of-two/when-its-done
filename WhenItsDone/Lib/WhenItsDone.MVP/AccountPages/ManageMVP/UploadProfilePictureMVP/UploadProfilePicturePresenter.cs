@@ -38,6 +38,11 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP
                 this.View.Model.CurrentProfilePictureBase64 = foundUserView.ProfilePictureBase64;
                 this.View.Model.CurrentProfilePictureMimeType = foundUserView.ProfilePictureExtension;
             }
+            else
+            {
+                this.View.Model.IsSuccessful = false;
+                this.View.Model.ResultText = string.Format(UploadProfilePicturePresenter.UserNotFoundErrorText, args.LoggedUserUsername);
+            }
         }
 
         public void OnUploadProfilePicture(object sender, UploadProfilePictureEventArgs args)
