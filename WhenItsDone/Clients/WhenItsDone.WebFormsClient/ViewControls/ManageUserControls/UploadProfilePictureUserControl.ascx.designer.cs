@@ -13,6 +13,15 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls {
     public partial class UploadProfilePictureUserControl {
         
         /// <summary>
+        /// ProfilePictureUrlTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ProfilePictureUrlTextBox;
+        
+        /// <summary>
         /// ProfilePictureFileUpload control.
         /// </summary>
         /// <remarks>
@@ -20,5 +29,14 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload ProfilePictureFileUpload;
+        
+        /// <summary>
+        /// ResultLable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ResultLable;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
@@ -23,6 +24,38 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
                 var uploadProfilePictureEventArgs = new UploadProfilePictureEventArgs(loggedUserUsername, uploadedFileName, uploadedFile);
                 this.UploadProfilePicture?.Invoke(null, uploadProfilePictureEventArgs);
             }
+            else if (this.ProfilePictureUrlTextBox.Text != null)
+            {
+                var profilePictureUrl = this.ProfilePictureUrlTextBox.Text;
+
+                var uploadProfilePictureFromUrlEventArgs = new UploadProfilePictureFromUrlEventArgs(loggedUserUsername, profilePictureUrl);
+                this.UploadProfilePictureFromUrl?.Invoke(null, uploadProfilePictureFromUrlEventArgs);
+            }
+            else
+            {
+                this.DisplayResultError("Something went wrong!");
+            }
+        }
+
+        private void DisplayResultError(string errorText)
+        {
+            this.ResultLable.Visible = true;
+            this.ResultLable.CssClass = "result-error";
+            this.ResultLable.Text = errorText ?? "Something went wrong!";
+        }
+
+        private void DisplayResultSuccess(string successText)
+        {
+            this.ResultLable.Visible = true;
+            this.ResultLable.CssClass = "result-success";
+            this.ResultLable.Text = successText ?? "Something went right!";
+        }
+
+        private void HideResult()
+        {
+            this.ResultLable.Visible = false;
+            this.ResultLable.CssClass = "";
+            this.ResultLable.Text = "";
         }
     }
 }
