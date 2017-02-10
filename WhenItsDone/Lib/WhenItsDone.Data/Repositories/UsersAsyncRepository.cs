@@ -1,4 +1,11 @@
-﻿using WhenItsDone.Data.Contracts;
+﻿using System.Linq;
+
+using AutoMapper;
+
+using Bytes2you.Validation;
+
+using WhenItsDone.Data.Contracts;
+using WhenItsDone.DTOs.UserViewsDTOs;
 using WhenItsDone.Models;
 
 namespace WhenItsDone.Data.Repositories
@@ -8,6 +15,13 @@ namespace WhenItsDone.Data.Repositories
         public UsersAsyncRepository(IWhenItsDoneDbContext dbContext)
             : base(dbContext)
         {
+        }
+
+        public UsernameProfilePictureUserViewDTO GetCurrentUserProfilePicture(string username)
+        {
+            Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
+
+            return this.DbSet.Where(user => user.Username == username).ProjectToFirstOrDefault<UsernameProfilePictureUserViewDTO>();
         }
     }
 }

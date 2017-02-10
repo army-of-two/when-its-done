@@ -1,0 +1,12 @@
+#manage-root .panel,
+#manage-root .panel-default {
+  background-color: rgba(0,0,0,0) !important;
+  border: none;
+  box-shadow: none;
+}
+#manage-root .panel .panel-heading,
+#manage-root .panel-default .panel-heading {
+  padding: 0;
+  background-color: rgba(0,0,0,0) !important;
+  border: none;
+}
