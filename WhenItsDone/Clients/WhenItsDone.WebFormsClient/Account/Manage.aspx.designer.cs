@@ -92,5 +92,14 @@ namespace WhenItsDone.WebFormsClient.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::WhenItsDone.WebFormsClient.ViewControls.ManageUserControls.UpdateMedicalInformationUserControl UpdateMedicalInformationUserControl;
+        
+        /// <summary>
+        /// UpdateContactInformationUserControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WhenItsDone.WebFormsClient.ViewControls.ManageUserControls.UpdateContactInformationUserControl UpdateContactInformationUserControl;
     }
 }

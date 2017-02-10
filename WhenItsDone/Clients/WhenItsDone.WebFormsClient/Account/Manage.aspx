@@ -9,6 +9,7 @@
 <%@ Register Src="~/ViewControls/ManageUserControls/UploadProfilePictureUserControl.ascx" TagPrefix="manage" TagName="profilepicture" %>
 <%@ Register Src="~/ViewControls/ManageUserControls/UpdatePersonalInformationUserControl.ascx" TagPrefix="manage" TagName="personalinformation" %>
 <%@ Register Src="~/ViewControls/ManageUserControls/UpdateMedicalInformationUserControl.ascx" TagPrefix="manage" TagName="medicalinformation" %>
+<%@ Register Src="~/ViewControls/ManageUserControls/UpdateContactInformationUserControl.ascx" TagPrefix="manage" TagName="contactinformation" %>
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
 
@@ -26,6 +27,7 @@
                 <manage:profilepicture ID="ManageProfilePictureUserControl" runat="server" />
                 <manage:personalinformation ID="UpdatePersonalInformationUserControl" runat="server" />
                 <manage:medicalinformation ID="UpdateMedicalInformationUserControl" runat="server" />
+                <manage:contactinformation ID="UpdateContactInformationUserControl" runat="server" />
             </asp:Panel>
         </ContentTemplate>
     </asp:UpdatePanel>
