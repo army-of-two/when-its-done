@@ -25,7 +25,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-md-10 text-left">
-                                        <h2 class="panel-title"><%#: Eval("Title") %></h2>
+                                        <h1 class="panel-title"><%#: Eval("Title") %></h1>
                                     </div>
                                     <div class="col-md-2 text-right">
                                         <h2 class="panel-title"><%#: Eval("Rating") %></h2>

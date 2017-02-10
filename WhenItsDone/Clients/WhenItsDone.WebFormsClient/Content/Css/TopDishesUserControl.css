@@ -5,6 +5,13 @@
 .content-container-even .panel,
 .content-container-odd .panel {
   box-shadow: 0px 0px 25px rgba(0,0,0,0.37);
+  border-width: 3px;
+  border-radius: 25px;
+}
+.content-container-even .panel-heading,
+.content-container-odd .panel-heading {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 .content-container-even .panel-body,
 .content-container-odd .panel-body {
@@ -40,6 +47,7 @@
 .content-container-even .panel-primary:hover,
 .content-container-odd .panel-primary:hover {
   background-color: rgba(255,255,255,0.93);
+  border-color: #2a6496;
 }
 .content-container-even .panel:hover .panel-heading,
 .content-container-odd .panel:hover .panel-heading {
