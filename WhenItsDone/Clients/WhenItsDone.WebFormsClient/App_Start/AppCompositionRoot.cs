@@ -137,6 +137,7 @@ namespace WhenItsDone.WebFormsClient.App_Start
             config.AddProfile(new ModelsProfile());
             config.AddProfile(new DishViewsProfile());
             config.AddProfile(new PhotoItemProfile());
+            config.AddProfile(new UserViewsProfile());
             config.AddProfile(new WorkerProfile());
         }
     }
