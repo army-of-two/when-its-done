@@ -1,5 +1,7 @@
 ﻿using System;
 
+using Bytes2you.Validation;
+
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.DTOs.UserViewsDTOs;
@@ -26,8 +28,9 @@ namespace WhenItsDone.Services
 
         public UsernameProfilePictureUserViewDTO GetCurrentUserProfilePicture(string username)
         {
+            Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
 
-            return null;
+            return this.asyncRepository.GetCurrentUserProfilePicture(username);
         }
     }
 }
