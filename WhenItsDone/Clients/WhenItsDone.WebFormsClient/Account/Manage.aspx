@@ -16,7 +16,7 @@
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
-    <div class="well content-container-even">
+    <div id="manage-root" class="well content-container-even">
         <section class="content-container-heading">
             <h2>Food.Me Profile Settings</h2>
         </section>
