@@ -11,7 +11,8 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
         {
             this.CreateMap<User, UsernameProfilePictureUserViewDTO>()
                 .ForMember(destination => destination.Username, options => options.MapFrom(source => source.Username))
-                .ForMember(destination => destination.ProfilePictureBase64, options => options.MapFrom(source => source.ProfilePicture.PictureBase64));
+                .ForMember(destination => destination.ProfilePictureBase64, options => options.MapFrom(source => source.ProfilePicture.PictureBase64))
+                .ForMember(destination => destination.PoriflePictureExtension, options => options.MapFrom(source => source.ProfilePicture.MimeType));
         }
     }
 }
