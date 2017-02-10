@@ -17,7 +17,7 @@
                     <asp:Button ID="ButtonDelete" runat="server" CommandName="Delete" Text="Delete" />
                 </ItemTemplate>
                 <EditItemTemplate>
-
+                    
                 </EditItemTemplate>
             </asp:ListView>
 
