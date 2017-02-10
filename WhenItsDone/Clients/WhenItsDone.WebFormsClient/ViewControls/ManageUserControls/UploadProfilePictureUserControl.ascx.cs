@@ -12,6 +12,17 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
     {
         public event EventHandler<UploadProfilePictureEventArgs> UploadProfilePicture;
         public event EventHandler<UploadProfilePictureFromUrlEventArgs> UploadProfilePictureFromUrl;
+        public event EventHandler<UploadProfilePictureInitialStateEventArgs> InitialState;
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            var loggedUserUsername = Page.User.Identity.Name;
+
+            var uploadProfilePictureInitialStateEventArgs = new UploadProfilePictureInitialStateEventArgs(loggedUserUsername);
+            this.InitialState?.Invoke(null, uploadProfilePictureInitialStateEventArgs);
+        }
 
         public void OnUploadProfilePictureButtonClick(object sender, EventArgs args)
         {

@@ -48,6 +48,7 @@
     <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\IUploadProfilePictureView.cs" />
     <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\UploadProfilePictureEventArgs.cs" />
     <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\UploadProfilePictureFromUrlEventArgs.cs" />
+    <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\UploadProfilePictureInitialStateEventArgs.cs" />
     <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\UploadProfilePicturePresenter.cs" />
     <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\UploadProfilePictureViewModel.cs" />
     <Compile Include="AdminPageControls\APWorkersControlMVP\APWorkersControlPresenter.cs" />

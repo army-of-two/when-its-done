@@ -9,5 +9,7 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP
         event EventHandler<UploadProfilePictureEventArgs> UploadProfilePicture;
 
         event EventHandler<UploadProfilePictureFromUrlEventArgs> UploadProfilePictureFromUrl;
+
+        event EventHandler<UploadProfilePictureInitialStateEventArgs> InitialState;
     }
 }
