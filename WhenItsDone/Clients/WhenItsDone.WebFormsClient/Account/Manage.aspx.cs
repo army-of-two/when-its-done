@@ -33,7 +33,7 @@ namespace WhenItsDone.WebFormsClient.Account
         protected void MedicalInformationButtonClick(object sender, EventArgs e)
         {
             this.HideAllActivePanelControls();
-
+            this.UpdateMedicalInformationUserControl.Visible = true;
         }
 
         protected void ContactInformationButtonClick(object sender, EventArgs e)
