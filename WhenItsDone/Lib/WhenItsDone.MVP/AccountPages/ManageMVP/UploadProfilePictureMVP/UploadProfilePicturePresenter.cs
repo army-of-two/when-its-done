@@ -1,14 +1,24 @@
 ﻿using System;
 
+using Bytes2you.Validation;
+
 using WebFormsMvp;
+
+using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP
 {
     public class UploadProfilePicturePresenter : Presenter<IUploadProfilePictureView>, IUploadProfilePicturePresenter
     {
-        public UploadProfilePicturePresenter(IUploadProfilePictureView view)
+        private IUsersAsyncService usersService;
+
+        public UploadProfilePicturePresenter(IUploadProfilePictureView view, IUsersAsyncService usersService)
             : base(view)
         {
+            Guard.WhenArgument(usersService, nameof(IUsersAsyncService)).IsNull().Throw();
+
+            this.usersService = usersService;
+
             this.View.InitialState += this.OnInitialState;
             this.View.UploadProfilePicture += this.OnUploadProfilePicture;
             this.View.UploadProfilePictureFromUrl += this.OnUploadProfilePictureFromUrl;
