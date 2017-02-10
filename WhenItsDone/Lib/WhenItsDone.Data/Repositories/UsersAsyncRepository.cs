@@ -2,6 +2,8 @@
 
 using AutoMapper;
 
+using Bytes2you.Validation;
+
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.DTOs.UserViewsDTOs;
 using WhenItsDone.Models;
@@ -17,6 +19,8 @@ namespace WhenItsDone.Data.Repositories
 
         public UsernameProfilePictureUserViewDTO GetCurrentUserProfilePicture(string username)
         {
+            Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
+
             return this.DbSet.Where(user => user.Username == username).ProjectToFirstOrDefault<UsernameProfilePictureUserViewDTO>();
         }
     }
