@@ -26,10 +26,11 @@ body form .content-container-even.dynamic-height {
 body form .content-container-odd .content-container-heading,
 body form .content-container-even .content-container-heading {
   color: #428bca;
+  box-shadow: 0 0 25px rgba(0,0,0,0.15);
   padding: 15px;
   padding-left: 30px;
   padding-right: 30px;
-  background-color: rgba(255,255,255,0);
+  background-color: rgba(0,0,0,0.05);
   text-align: center;
 }
 body form .content-container-odd .content-container-content,
