@@ -8,8 +8,8 @@ body
       background-color: white
 
     .content-container-odd, .content-container-even
-      margin-top 40px
-      margin-bottom: 40px
+      margin-top 0px
+      margin-bottom: 0px
       padding 0
       padding-left: 0
       padding-right: 0
@@ -17,24 +17,30 @@ body
       background-color: rgba(255, 255, 255, 0)
       border: none
       box-shadow: none
-
+      background-image: url("/Content/Images/food.png") !important;
+      border-bottom: 15px solid white 
+    
       &.dynamic-height
         min-height: auto
 
       .content-container-heading
         color: #428bca
-        border-bottom: 1px solid rgba(0, 0, 0, 0.15)
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15)
+        // border-bottom: 1px solid rgba(0, 0, 0, 0.15)
+        // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15)
         padding 15px
         padding-left: 30px
         padding-right: 30px
+        background-color: rgba(255, 255, 255, 0)
+        text-align: center
 
       .content-container-content
         padding 30px
         padding-bottom: 15px
 
-    .content-container-even
-      background-color: rgba(255, 255, 255, 1)
+    .content-container-odd
+      background-image: url("/Content/Images/restaurant.png") !important;
+      .content-container-heading
+        color white
 
     .jumbotron
       background-color: white      

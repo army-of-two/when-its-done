@@ -13,11 +13,9 @@
     <div class="well content-container-even">
         <uc:topdishes runat="server" />
     </div>
-    <hr />
-    <div class="well content-container-even">
+    <div class="well content-container-odd">
         <uc:topusers runat="server" />
     </div>
-    <hr />
     <div class="well content-container-even">
         <uc:topvideos runat="server" />
     </div>

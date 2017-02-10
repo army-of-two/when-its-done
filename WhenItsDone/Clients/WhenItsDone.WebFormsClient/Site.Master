@@ -77,10 +77,9 @@
             </div>
         </div>
 
-        <div class="container body-content">
+        <%--<div class="container body-content">--%>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
 
             <footer class="footer navbar">
                 <div class="">
@@ -102,7 +101,7 @@
                     </ul>
                 </div>
             </footer>
-        </div>
+        <%--</div>--%>
     </form>
     <asp:ContentPlaceHolder ID="JavaScript" runat="server"></asp:ContentPlaceHolder>
 </body>

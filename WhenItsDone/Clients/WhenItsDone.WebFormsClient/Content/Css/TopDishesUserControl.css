@@ -1,28 +1,47 @@
-.content-container-even {
+.content-container-even,
+.content-container-odd {
   min-height: 640px;
 }
-.content-container-even .panel-body {
-  max-height: 360px;
+.content-container-even .panel,
+.content-container-odd .panel {
+  box-shadow: 0px 0px 25px rgba(0,0,0,0.37);
+}
+.content-container-even .panel-body,
+.content-container-odd .panel-body {
+  max-height: 480px;
   overflow: hidden;
 }
-.content-container-even .panel-body img {
+.content-container-even .panel-body img,
+.content-container-odd .panel-body img {
   width: 100%;
   margin-top: -125px;
-  height: 600px;
+  height: 720px;
   object-fit: contain;
   padding: 25px;
 }
-.content-container-even .panel-body .embedded-video-container {
-  height: 600px;
+.content-container-even .panel-body .embedded-video-container,
+.content-container-odd .panel-body .embedded-video-container {
+  width: 100%;
+  height: 480px;
   object-fit: contain;
   margin-top: 25%;
 }
-.content-container-even .panel-body .embedded-video-container iframe.embedded-video:hover {
+.content-container-even .panel-body .embedded-video-container iframe.embedded-video,
+.content-container-odd .panel-body .embedded-video-container iframe.embedded-video {
+  width: 100%;
+  height: 56.25%;
+}
+.content-container-even .panel-body .embedded-video-container iframe.embedded-video:hover,
+.content-container-odd .panel-body .embedded-video-container iframe.embedded-video:hover {
   cursor: pointer;
 }
-.content-container-even .panel:hover {
-  background-color: rgba(66,139,202,0.1);
+.content-container-even .panel:hover,
+.content-container-odd .panel:hover,
+.content-container-even .panel-primary:hover,
+.content-container-odd .panel-primary:hover {
+  background-color: rgba(255,255,255,0.93);
 }
-.content-container-even .panel:hover .panel-heading {
+.content-container-even .panel:hover .panel-heading,
+.content-container-odd .panel:hover .panel-heading {
   background-color: #2a6496;
 }

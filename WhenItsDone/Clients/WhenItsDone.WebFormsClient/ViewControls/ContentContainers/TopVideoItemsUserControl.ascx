@@ -25,16 +25,16 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-md-10 text-left">
-                                        <h3 class="panel-title"><%#: Eval("Title") %></h3>
+                                        <h2 class="panel-title"><%#: Eval("Title") %></h2>
                                     </div>
                                     <div class="col-md-2 text-right">
-                                        <h3 class="panel-title"><%#: Eval("Rating") %></h3>
+                                        <h2 class="panel-title"><%#: Eval("Rating") %></h2>
                                     </div>
                                 </div>
                             </div>
                             <div class="panel-body">
                                 <div class="embedded-video-container">
-                                    <iframe class="embedded-video" width="320" height="180" src="https://www.youtube.com/embed/<%#: Eval("YouTubeId") %>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                    <iframe class="embedded-video" src="https://www.youtube.com/embed/<%#: Eval("YouTubeId") %>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div>
