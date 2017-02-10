@@ -26,7 +26,7 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP
 
         public void OnInitialState(object sender, UploadProfilePictureInitialStateEventArgs args)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void OnUploadProfilePicture(object sender, UploadProfilePictureEventArgs args)
