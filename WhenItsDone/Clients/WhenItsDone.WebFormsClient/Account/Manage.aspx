@@ -7,6 +7,7 @@
     Inherits="WhenItsDone.WebFormsClient.Account.Manage" %>
 
 <%@ Register Src="~/ViewControls/ManageUserControls/UploadProfilePictureUserControl.aspx" TagPrefix="manage" TagName="profilepicture" %>
+<%@ Register Src="~/ViewControls/ManageUserControls/UpdatePersonalInformationUserControl.ascx" TagPrefix="manage" TagName="personalinformation" %>
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
 
@@ -21,7 +22,8 @@
                 </div>
             </div>
             <asp:Panel ID="ActiveContent" runat="server">
-                <manage:profilepicture runat="server"></manage:profilepicture>
+                <manage:profilepicture ID="ManageProfilePictureUserControl" runat="server" />
+                <manage:personalinformation ID="UpdatePersonalInformationUserControl" runat="server" />
             </asp:Panel>
         </ContentTemplate>
     </asp:UpdatePanel>

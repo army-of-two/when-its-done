@@ -277,6 +277,7 @@
     <Content Include="ViewControls\ContentContainers\TopDishesUserControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopUsersUserControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopVideoItemsUserControl.ascx" />
+    <Content Include="ViewControls\ManageUserControls\UpdatePersonalInformationUserControl.ascx" />
     <Content Include="ViewControls\ManageUserControls\UploadProfilePictureUserControl.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -498,6 +499,13 @@
     </Compile>
     <Compile Include="ViewControls\ContentContainers\TopVideoItemsUserControl.ascx.designer.cs">
       <DependentUpon>TopVideoItemsUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControls\ManageUserControls\UpdatePersonalInformationUserControl.ascx.cs">
+      <DependentUpon>UpdatePersonalInformationUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\ManageUserControls\UpdatePersonalInformationUserControl.ascx.designer.cs">
+      <DependentUpon>UpdatePersonalInformationUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViewControls\ManageUserControls\UploadProfilePictureUserControl.aspx.cs">
       <DependentUpon>UploadProfilePictureUserControl.aspx</DependentUpon>

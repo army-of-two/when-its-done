@@ -11,6 +11,13 @@ namespace WhenItsDone.WebFormsClient.Account
 {
     public partial class Manage : System.Web.UI.Page
     {
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            this.HideAllActivePanelControls();
+        }
+
         protected void ProfilePictureButtonClick(object sender, EventArgs e)
         {
             this.HideAllActivePanelControls();
@@ -20,7 +27,7 @@ namespace WhenItsDone.WebFormsClient.Account
         protected void PersonalInformationButtonClick(object sender, EventArgs e)
         {
             this.HideAllActivePanelControls();
-
+            this.UpdatePersonalInformationUserControl.Visible = true;
         }
 
         protected void MedicalInformationButtonClick(object sender, EventArgs e)
