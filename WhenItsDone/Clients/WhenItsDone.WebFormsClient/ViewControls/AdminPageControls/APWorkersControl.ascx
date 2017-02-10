@@ -28,6 +28,7 @@
                         <asp:BoundField DataField="Id" HeaderText="Id" />
                         <asp:BoundField DataField="FirstName" HeaderText="First Name" />
                         <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                        <asp:ButtonField ButtonType="Link" DataTextField="NumberOfDishes" HeaderText="Dishes" />
                         <asp:ButtonField ButtonType="Link" ControlStyle-CssClass="btn btn-primary" Text="Info" />
                         <asp:ButtonField ButtonType="Link" ControlStyle-CssClass="btn btn-warning" Text="Edit" />
                         <asp:ButtonField ButtonType="Link" ControlStyle-CssClass="btn btn-danger" Text="Delete" />
