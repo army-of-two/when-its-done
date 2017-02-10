@@ -6,7 +6,7 @@
 
 <h1>Upload Profile Picture</h1>
 
-<img src="data:image/<%#: Eval("ProfilePictures.MimeType") %>;base64,<%#: Eval("ProfilePictures.PictureBase64") %>" alt="picture of <%#: Eval("Username") %>" />
+<img src="data:image/<%#: Model.CurrentProfilePictureMimeType %>;base64,<%#: Model.CurrentProfilePictureBase64 %>" alt="picture of <%#: Model.LoggedUserUsername %>" />
 
 <asp:TextBox ID="ProfilePictureUrlTextBox" runat="server"></asp:TextBox>
 <asp:FileUpload ID="ProfilePictureFileUpload" runat="server" ToolTip="Upload Profile Picture" />

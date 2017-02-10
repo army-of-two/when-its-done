@@ -19,14 +19,15 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
             base.OnLoad(e);
 
             var loggedUserUsername = Page.User.Identity.Name;
+            this.Model.LoggedUserUsername = loggedUserUsername;
 
-            var uploadProfilePictureInitialStateEventArgs = new UploadProfilePictureInitialStateEventArgs(loggedUserUsername);
+            var uploadProfilePictureInitialStateEventArgs = new UploadProfilePictureInitialStateEventArgs(this.Model.LoggedUserUsername);
             this.InitialState?.Invoke(null, uploadProfilePictureInitialStateEventArgs);
         }
 
         public void OnUploadProfilePictureButtonClick(object sender, EventArgs args)
         {
-            var loggedUserUsername = Page.User.Identity.Name;
+            var loggedUserUsername = this.Model.LoggedUserUsername;
             if (this.ProfilePictureFileUpload.HasFile)
             {
                 var uploadedFile = this.ProfilePictureFileUpload.FileBytes;
