@@ -15,7 +15,7 @@ namespace WhenItsDone.WebFormsClient.Account
         {
             base.OnLoad(e);
 
-            this.HideAllActivePanelControls();
+            this.ProfilePictureButtonClick(null, null);
         }
 
         protected void ProfilePictureButtonClick(object sender, EventArgs e)

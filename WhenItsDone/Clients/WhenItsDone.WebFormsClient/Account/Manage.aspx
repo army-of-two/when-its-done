@@ -6,7 +6,7 @@
     CodeBehind="Manage.aspx.cs"
     Inherits="WhenItsDone.WebFormsClient.Account.Manage" %>
 
-<%@ Register Src="~/ViewControls/ManageUserControls/UploadProfilePictureUserControl.aspx" TagPrefix="manage" TagName="profilepicture" %>
+<%@ Register Src="~/ViewControls/ManageUserControls/UploadProfilePictureUserControl.ascx" TagPrefix="manage" TagName="profilepicture" %>
 <%@ Register Src="~/ViewControls/ManageUserControls/UpdatePersonalInformationUserControl.ascx" TagPrefix="manage" TagName="personalinformation" %>
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">

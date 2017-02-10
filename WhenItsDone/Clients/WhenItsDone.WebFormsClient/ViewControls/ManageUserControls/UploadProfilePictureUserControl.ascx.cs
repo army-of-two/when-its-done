@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
 {
-    public partial class UploadProfilePictureUserControl : System.Web.UI.Page
+    public partial class UploadProfilePictureUserControl : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
