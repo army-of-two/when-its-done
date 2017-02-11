@@ -90,7 +90,7 @@ namespace WhenItsDone.Services
             this.asyncRepository.Update(foundUser);
             using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
             {
-                if (unitOfWork.SaveChanges() != 0)
+                if (unitOfWork.SaveChangesAsync().Result != 0)
                 {
                     return foundUser;
                 }
@@ -112,14 +112,41 @@ namespace WhenItsDone.Services
         {
             Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
 
-            var foundUser = this.asyncRepository.GetAll(user => user.Username == username).Result.FirstOrDefault();
+            var foundUser = this.asyncRepository.GetCurrentUserIncludingMedicalInformation(username);
             if (foundUser == null)
             {
                 throw new ArgumentException(string.Format("User {0} could not be found.", username));
             }
 
+            int heightInCmParsedValue;
+            if (int.TryParse(heightInCm, out heightInCmParsedValue))
+            {
+                foundUser.MedicalInformation.HeightInCm = heightInCmParsedValue;
+            }
 
-            throw new NotImplementedException();
+            int weightInKgParsedValue;
+            if (int.TryParse(weightInKg, out weightInKgParsedValue))
+            {
+                foundUser.MedicalInformation.WeightInKg = weightInKgParsedValue;
+            }
+
+            if (foundUser.MedicalInformation.HeightInCm.HasValue && foundUser.MedicalInformation.WeightInKg.HasValue)
+            {
+                foundUser.MedicalInformation.BMI = (int)(foundUser.MedicalInformation.WeightInKg / foundUser.MedicalInformation.HeightInCm * foundUser.MedicalInformation.HeightInCm);
+            }
+
+            this.asyncRepository.Update(foundUser);
+            using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
+            {
+                if (unitOfWork.SaveChangesAsync().Result != 0)
+                {
+                    return foundUser;
+                }
+                else
+                {
+                    throw new ArgumentException("Could not update medical information");
+                }
+            }
         }
     }
 }
