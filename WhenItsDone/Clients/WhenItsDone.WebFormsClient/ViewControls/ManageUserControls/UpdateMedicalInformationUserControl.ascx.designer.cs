@@ -13,48 +13,21 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls {
     public partial class UpdateMedicalInformationUserControl {
         
         /// <summary>
-        /// LoggedUserUsername control.
+        /// HeightInCmTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField LoggedUserUsername;
+        protected global::System.Web.UI.WebControls.TextBox HeightInCmTextBox;
         
         /// <summary>
-        /// UsersDataSource control.
+        /// WeightInKgTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource UsersDataSource;
-        
-        /// <summary>
-        /// UserInfoGridView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView UserInfoGridView;
-        
-        /// <summary>
-        /// MedicalInformationEntityDataSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource MedicalInformationEntityDataSource;
-        
-        /// <summary>
-        /// MedicalInformationGridView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView MedicalInformationGridView;
+        protected global::System.Web.UI.WebControls.TextBox WeightInKgTextBox;
     }
 }

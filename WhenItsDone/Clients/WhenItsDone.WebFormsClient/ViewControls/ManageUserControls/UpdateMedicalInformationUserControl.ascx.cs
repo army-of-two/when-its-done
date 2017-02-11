@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Web.UI;
 
 namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
 {
@@ -7,7 +6,13 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.LoggedUserUsername.Value = Page.User.Identity.Name;
+            this.HeightInCmTextBox.Text = string.Empty;
+            this.WeightInKgTextBox.Text = string.Empty;
+        }
+
+        public void OnUpdateMedicalInformation(object sender, EventArgs e)
+        {
+
         }
     }
 }
