@@ -114,6 +114,7 @@ namespace WhenItsDone.WebFormsClient.App_Start
             kernel.Load(new ServicesNinjectModule());
             kernel.Load(new DefaultAuthNinjectModule());
             kernel.Load(new ModelsNinjectModule());
+            kernel.Load(new CommonNinjectModule());
         }
 
         private static void RegisterPresenterFactory(IKernel kernel)

@@ -18,11 +18,18 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
         {
             base.OnLoad(e);
 
+            this.ProfilePictureUrlTextBox.Text = string.Empty;
+
             var loggedUserUsername = Page.User.Identity.Name;
             this.Model.LoggedUserUsername = loggedUserUsername;
 
             var uploadProfilePictureInitialStateEventArgs = new UploadProfilePictureInitialStateEventArgs(this.Model.LoggedUserUsername);
             this.InitialState?.Invoke(null, uploadProfilePictureInitialStateEventArgs);
+
+            if (!this.Model.IsSuccessful)
+            {
+                this.DisplayResultError(this.Model.ResultText);
+            }
         }
 
         public void OnUploadProfilePictureButtonClick(object sender, EventArgs args)
@@ -36,7 +43,7 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
                 var uploadProfilePictureEventArgs = new UploadProfilePictureEventArgs(loggedUserUsername, uploadedFileName, uploadedFile);
                 this.UploadProfilePicture?.Invoke(null, uploadProfilePictureEventArgs);
             }
-            else if (this.ProfilePictureUrlTextBox.Text != null)
+            else if (!string.IsNullOrEmpty(this.ProfilePictureUrlTextBox.Text))
             {
                 var profilePictureUrl = this.ProfilePictureUrlTextBox.Text;
 
@@ -46,6 +53,15 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
             else
             {
                 this.DisplayResultError("Something went wrong!");
+            }
+
+            if (!this.Model.IsSuccessful)
+            {
+                this.DisplayResultError(this.Model.ResultText);
+            }
+            else
+            {
+                this.DisplayResultSuccess(this.Model.ResultText);
             }
         }
 

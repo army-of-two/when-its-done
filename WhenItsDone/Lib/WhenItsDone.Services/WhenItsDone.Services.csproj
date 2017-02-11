@@ -59,6 +59,10 @@
     <Compile Include="WorkersAsyncService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WhenItsDone.Common\WhenItsDone.Common.csproj">
+      <Project>{42E362E0-9E6C-4867-88AA-CF2CC00FE1F8}</Project>
+      <Name>WhenItsDone.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WhenItsDone.Data\WhenItsDone.Data.csproj">
       <Project>{D3085631-83D5-4525-B69C-DFDC47BC7F9B}</Project>
       <Name>WhenItsDone.Data</Name>

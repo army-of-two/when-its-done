@@ -12,10 +12,13 @@
             <img src="data:image/<%#: Model.CurrentProfilePictureMimeType %>;base64,<%#: Model.CurrentProfilePictureBase64 %>" alt="The profile picture of <%#: Model.LoggedUserUsername %>" />
 
             <asp:TextBox ID="ProfilePictureUrlTextBox" runat="server"></asp:TextBox>
-            <asp:FileUpload ID="ProfilePictureFileUpload" runat="server" ToolTip="Upload Profile Picture" />
-            <asp:Button runat="server" OnClick="OnUploadProfilePictureButtonClick" Text="Update Profile Picture" />
+            <asp:FileUpload ID="ProfilePictureFileUpload" runat="server" />
+            <asp:Button ID="UpdateProfilePictureButton" runat="server" OnClick="OnUploadProfilePictureButtonClick" Text="Update Profile Picture" />
 
-            <asp:Label ID="ResultLable" runat="server" CssClass="" Visible="false"></asp:Label>
+            <asp:Label ID="ResultLable" runat="server" CssClass=""></asp:Label>
         </div>
     </ContentTemplate>
+    <Triggers>
+        <asp:PostBackTrigger ControlID="UpdateProfilePictureButton" />
+    </Triggers>
 </asp:UpdatePanel>
