@@ -2,8 +2,8 @@
 {
     public class MedicalInformationUserViewDTO
     {
-        public string HeightInCm { get; set; }
+        public int HeightInCm { get; set; }
 
-        public string WeightInKg { get; set; }
+        public int WeightInKg { get; set; }
     }
 }

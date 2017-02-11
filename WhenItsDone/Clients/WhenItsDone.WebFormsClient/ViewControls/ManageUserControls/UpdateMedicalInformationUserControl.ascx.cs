@@ -21,8 +21,6 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
 
                 var updateMedicalInformationInitialStateEventArgs = new UpdateMedicalInformationInitialStateEventArgs(loggedUserUsername);
                 this.InitialState?.Invoke(null, updateMedicalInformationInitialStateEventArgs);
-
-                this.UpdateTextBoxesTextFromModel();
             }
         }
 
@@ -34,14 +32,6 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
 
             var updateMedicalInformationUpdateValuesEventArgs = new UpdateMedicalInformationUpdateValuesEventArgs(loggedUserUsername, heightInCm, weightInKg);
             this.UpdateValues?.Invoke(null, updateMedicalInformationUpdateValuesEventArgs);
-
-            this.UpdateTextBoxesTextFromModel();
-        }
-
-        private void UpdateTextBoxesTextFromModel()
-        {
-            this.HeightInCmTextBox.Text = this.Model.HeightInCm ?? "Update your height";
-            this.WeightInKgTextBox.Text = this.Model.WeightInKg ?? "Update your weight";
         }
     }
 }
