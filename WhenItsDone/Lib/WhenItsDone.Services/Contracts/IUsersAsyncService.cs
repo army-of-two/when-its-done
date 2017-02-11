@@ -8,5 +8,7 @@ namespace WhenItsDone.Services.Contracts
         UsernameProfilePictureUserViewDTO GetCurrentUserProfilePicture(string username);
 
         User UpdateUserProfilePicture(string username, string uploadedFileName, byte[] uploadedFile);
+
+        User UpdateUserProfilePicture(string username, string profilePictureUrl);
     }
 }

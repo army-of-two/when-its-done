@@ -40,10 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyId\ICommonAssemblyId.cs" />
     <Compile Include="Enums\GenderType.cs" />
     <Compile Include="Enums\IngredientType.cs" />
     <Compile Include="Enums\MeasurementUnitType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\FileDownloadProviders\Contracts\IFileDownloadProvider.cs" />
+    <Compile Include="Providers\FileDownloadProviders\FileDownloadProvider.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

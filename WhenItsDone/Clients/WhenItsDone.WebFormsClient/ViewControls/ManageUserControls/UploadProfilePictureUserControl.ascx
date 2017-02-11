@@ -19,7 +19,6 @@
         </div>
     </ContentTemplate>
     <Triggers>
-        <%--<asp:AsyncPostBackTrigger ControlID="UpdateProfilePictureButton" EventName="Click" />--%>
         <asp:PostBackTrigger ControlID="UpdateProfilePictureButton" />
     </Triggers>
 </asp:UpdatePanel>
