@@ -30,8 +30,8 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UpdateMedicalInformationMVP
 
             var foundUserMedicalInformation = this.usersService.GetCurrentUserMedicalInformation(args.LoggedUserUsername);
 
-            this.View.Model.HeightInCm = foundUserMedicalInformation?.HeightInCm.ToString();
-            this.View.Model.WeightInKg = foundUserMedicalInformation?.WeightInKg.ToString();
+            this.View.Model.HeightInCm = foundUserMedicalInformation?.HeightInCm?.ToString();
+            this.View.Model.WeightInKg = foundUserMedicalInformation?.WeightInKg?.ToString();
         }
 
         public void OnUpdateValues(object sender, UpdateMedicalInformationUpdateValuesEventArgs args)
