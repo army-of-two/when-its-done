@@ -12,5 +12,7 @@ namespace WhenItsDone.Services.Contracts
         User UpdateUserProfilePicture(string username, string uploadedFileName, byte[] uploadedFile);
 
         User UpdateUserProfilePictureFromUrl(string username, string profilePictureUrl);
+
+        User UpdateUserMedicalInformationFromUserInput(string username, string heightInCm, string weightInKg);
     }
 }
