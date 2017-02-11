@@ -41,7 +41,7 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UpdateMedicalInformationMVP
 
             try
             {
-                var updatedUser = this.usersService.GetById(1).Result;
+                var updatedUser = this.usersService.UpdateUserMedicalInformationFromUserInput(args.LoggedUserUsername, args.HeightInCm, args.WeightInKg);
                 if (updatedUser == null)
                 {
                     throw new ArgumentException("User could not be found.");
