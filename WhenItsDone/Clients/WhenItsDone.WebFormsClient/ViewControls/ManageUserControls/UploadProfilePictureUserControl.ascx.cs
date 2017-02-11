@@ -41,7 +41,7 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
                 var uploadProfilePictureEventArgs = new UploadProfilePictureEventArgs(loggedUserUsername, uploadedFileName, uploadedFile);
                 this.UploadProfilePicture?.Invoke(null, uploadProfilePictureEventArgs);
             }
-            else if (this.ProfilePictureUrlTextBox.Text != null)
+            else if (!string.IsNullOrEmpty(this.ProfilePictureUrlTextBox.Text))
             {
                 var profilePictureUrl = this.ProfilePictureUrlTextBox.Text;
 

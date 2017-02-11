@@ -6,5 +6,7 @@ namespace WhenItsDone.Services.Contracts
     public interface IUsersAsyncService : IGenericAsyncService<User>
     {
         UsernameProfilePictureUserViewDTO GetCurrentUserProfilePicture(string username);
+
+        User UpdateUserProfilePicture(string username, string uploadedFileName, byte[] uploadedFile);
     }
 }

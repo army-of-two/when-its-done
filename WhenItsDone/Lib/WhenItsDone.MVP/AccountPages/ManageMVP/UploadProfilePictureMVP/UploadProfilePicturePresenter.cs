@@ -56,7 +56,31 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP
 
         public void OnUploadProfilePicture(object sender, UploadProfilePictureEventArgs args)
         {
-            throw new NotImplementedException();
+            Guard.WhenArgument(args, nameof(args)).IsNull().Throw();
+            Guard.WhenArgument(args.LoggedUserUsername, nameof(args.LoggedUserUsername)).IsNullOrEmpty().Throw();
+            Guard.WhenArgument(args.UploadedFileName, nameof(args.UploadedFileName)).IsNullOrEmpty().Throw();
+            Guard.WhenArgument(args.UploadedFile, nameof(args.UploadedFile)).IsNull().Throw();
+
+            try
+            {
+                var updatedUser = this.usersService.UpdateUserProfilePicture(args.LoggedUserUsername, args.UploadedFileName, args.UploadedFile);
+                if (updatedUser == null)
+                {
+                    throw new ArgumentException("User could not be found.");
+                }
+                else
+                {
+                    this.View.Model.IsSuccessful = true;
+                    this.View.Model.CurrentProfilePictureBase64 = updatedUser.ProfilePicture.PictureBase64;
+                    this.View.Model.CurrentProfilePictureMimeType = updatedUser.ProfilePicture.MimeType;
+                    this.View.Model.ResultText = "Successfully updated profile picture";
+                }
+            }
+            catch (Exception ex)
+            {
+                this.View.Model.IsSuccessful = false;
+                this.View.Model.ResultText = ex.Message;
+            }
         }
 
         public void OnUploadProfilePictureFromUrl(object sender, UploadProfilePictureFromUrlEventArgs args)

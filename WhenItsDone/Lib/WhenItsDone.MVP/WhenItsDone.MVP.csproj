@@ -86,6 +86,10 @@
       <Project>{DA36A62D-37D6-47F1-B292-A73CFF233CA8}</Project>
       <Name>WhenItsDone.DTOs</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WhenItsDone.Models\WhenItsDone.Models.csproj">
+      <Project>{e10cc5a1-7dd9-4f43-8798-aa58882caf6f}</Project>
+      <Name>WhenItsDone.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WhenItsDone.Services\WhenItsDone.Services.csproj">
       <Project>{5C51DB50-52FB-4B9C-8B16-B3B104FFA090}</Project>
       <Name>WhenItsDone.Services</Name>

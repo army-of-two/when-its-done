@@ -31,6 +31,15 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls {
         protected global::System.Web.UI.WebControls.FileUpload ProfilePictureFileUpload;
         
         /// <summary>
+        /// UpdateProfilePictureButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UpdateProfilePictureButton;
+        
+        /// <summary>
         /// ResultLable control.
         /// </summary>
         /// <remarks>

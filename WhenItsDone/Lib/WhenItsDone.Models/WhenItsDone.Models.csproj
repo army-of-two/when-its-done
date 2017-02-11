@@ -49,6 +49,7 @@
     <Compile Include="Factories\IContactInformationFactory.cs" />
     <Compile Include="Factories\IInitializedUserFactory.cs" />
     <Compile Include="Factories\IMedicalInformationFactory.cs" />
+    <Compile Include="Factories\IProfilePictureFactory.cs" />
     <Compile Include="Factories\IWorkerFactory.cs" />
     <Compile Include="Constants\RegexConstants.cs" />
     <Compile Include="Constants\ValidationConstants.cs" />
