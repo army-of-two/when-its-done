@@ -1,4 +1,6 @@
-﻿using Bytes2you.Validation;
+﻿using System;
+
+using Bytes2you.Validation;
 
 using WebFormsMvp;
 
@@ -34,7 +36,27 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UpdateMedicalInformationMVP
 
         public void OnUpdateValues(object sender, UpdateMedicalInformationUpdateValuesEventArgs args)
         {
+            Guard.WhenArgument(args, nameof(UpdateMedicalInformationUpdateValuesEventArgs)).IsNull().Throw();
+            Guard.WhenArgument(args.LoggedUserUsername, nameof(args.LoggedUserUsername)).IsNullOrEmpty().Throw();
 
+            try
+            {
+                var updatedUser = this.usersService.GetById(1).Result;
+                if (updatedUser == null)
+                {
+                    throw new ArgumentException("User could not be found.");
+                }
+                else
+                {
+                    this.View.Model.HeightInCm = updatedUser.MedicalInformation.HeightInCm?.ToString() ?? "Update information";
+                    this.View.Model.WeightInKg = updatedUser.MedicalInformation.WeightInKg?.ToString() ?? "Update information";
+                }
+            }
+            catch (Exception)
+            {
+                this.View.Model.HeightInCm = "Update information";
+                this.View.Model.WeightInKg = "Update information";
+            }
         }
     }
 }
