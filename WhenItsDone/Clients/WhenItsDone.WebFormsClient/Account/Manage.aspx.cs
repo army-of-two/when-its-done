@@ -20,24 +20,28 @@ namespace WhenItsDone.WebFormsClient.Account
         protected void ProfilePictureButtonClick(object sender, EventArgs e)
         {
             this.HideAllActivePanelControls();
+            this.ManageProfilePictureUserControl.Visible = true;
             (this.ManageProfilePictureUserControl as IShouldLoad).ShouldLoad = true;
         }
 
         protected void PersonalInformationButtonClick(object sender, EventArgs e)
         {
             this.HideAllActivePanelControls();
+            this.UpdatePersonalInformationUserControl.Visible = true;
             (this.UpdatePersonalInformationUserControl as IShouldLoad).ShouldLoad = true;
         }
 
         protected void MedicalInformationButtonClick(object sender, EventArgs e)
         {
             this.HideAllActivePanelControls();
+            this.UpdateMedicalInformationUserControl.Visible = true;
             (this.UpdateMedicalInformationUserControl as IShouldLoad).ShouldLoad = true;
         }
 
         protected void ContactInformationButtonClick(object sender, EventArgs e)
         {
             this.HideAllActivePanelControls();
+            this.UpdateContactInformationUserControl.Visible = true;
             (this.UpdateContactInformationUserControl as IShouldLoad).ShouldLoad = true;
         }
 
@@ -48,6 +52,7 @@ namespace WhenItsDone.WebFormsClient.Account
                 if (item is IShouldLoad)
                 {
                     (item as IShouldLoad).ShouldLoad = false;
+                    item.Visible = false;
                 }
             }
         }

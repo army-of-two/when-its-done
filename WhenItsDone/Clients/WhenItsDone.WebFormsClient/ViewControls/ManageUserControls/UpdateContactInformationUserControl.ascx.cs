@@ -12,11 +12,12 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
     {
         public bool ShouldLoad { get; set; }
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected override void OnPreRender(EventArgs e)
         {
+            base.OnPreRender(e);
+
             if (this.ShouldLoad)
             {
-
             }
         }
     }

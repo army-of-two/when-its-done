@@ -15,13 +15,15 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
         public event EventHandler<UpdateMedicalInformationUpdateValuesEventArgs> UpdateValues;
 
         public bool ShouldLoad { get; set; }
-
-        protected void Page_Load(object sender, EventArgs e)
+        
+        protected override void OnPreRender(EventArgs e)
         {
-            var loggedUserUsername = this.Page.User.Identity.Name;
+            base.OnPreRender(e);
 
             if (this.ShouldLoad)
             {
+                var loggedUserUsername = this.Page.User.Identity.Name;
+
                 var updateMedicalInformationInitialStateEventArgs = new UpdateMedicalInformationInitialStateEventArgs(loggedUserUsername);
                 this.InitialState?.Invoke(null, updateMedicalInformationInitialStateEventArgs);
             }

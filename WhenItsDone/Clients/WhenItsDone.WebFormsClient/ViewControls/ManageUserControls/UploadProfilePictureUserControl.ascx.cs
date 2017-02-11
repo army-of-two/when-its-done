@@ -25,6 +25,11 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
 
             var loggedUserUsername = Page.User.Identity.Name;
             this.Model.LoggedUserUsername = loggedUserUsername;
+        }
+
+        protected override void OnPreRender(EventArgs e)
+        {
+            base.OnPreRender(e);
 
             if (this.ShouldLoad)
             {

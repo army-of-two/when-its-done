@@ -13,11 +13,7 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-
-            if (this.ShouldLoad)
-            {
-                this.LoggedUserUsername.Value = Page.User.Identity.Name;
-            }
+            this.LoggedUserUsername.Value = Page.User.Identity.Name;
         }
     }
 }
