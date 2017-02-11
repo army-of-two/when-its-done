@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Data.Entity;
 
 using AutoMapper;
 
@@ -30,6 +31,13 @@ namespace WhenItsDone.Data.Repositories
             Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
 
             return this.DbSet.Where(user => user.Username == username).ProjectToFirstOrDefault<MedicalInformationUserViewDTO>();
+        }
+
+        public User GetCurrentUserIncludingMedicalInformation(string username)
+        {
+            Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
+
+            return this.DbSet.Include(user => user.MedicalInformation).FirstOrDefault(user => user.Username == username);
         }
     }
 }

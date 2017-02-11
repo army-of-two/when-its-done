@@ -107,5 +107,19 @@ namespace WhenItsDone.Services
 
             return this.asyncRepository.GetCurrentUserMedicalInformation(username);
         }
+
+        public User UpdateUserMedicalInformationFromUserInput(string username, string heightInCm, string weightInKg)
+        {
+            Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
+
+            var foundUser = this.asyncRepository.GetAll(user => user.Username == username).Result.FirstOrDefault();
+            if (foundUser == null)
+            {
+                throw new ArgumentException(string.Format("User {0} could not be found.", username));
+            }
+
+
+            throw new NotImplementedException();
+        }
     }
 }
