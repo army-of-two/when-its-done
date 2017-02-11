@@ -48,6 +48,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\IUpdateMedicalInformationPresenter.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\IUpdateMedicalInformationView.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\UpdateMedicalInformationPresenter.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\UpdateMedicalInformationInitialStateEventArgs.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\UpdateMedicalInformationUpdateValuesEventArgs.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\UpdateMedicalInformationViewModel.cs" />
     <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\IUploadProfilePicturePresenter.cs" />
     <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\IUploadProfilePictureView.cs" />
     <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\UploadProfilePictureEventArgs.cs" />

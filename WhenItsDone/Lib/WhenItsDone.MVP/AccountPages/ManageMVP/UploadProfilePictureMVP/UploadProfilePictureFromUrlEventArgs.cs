@@ -1,6 +1,8 @@
-﻿namespace WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP
+﻿using System;
+
+namespace WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP
 {
-    public class UploadProfilePictureFromUrlEventArgs
+    public class UploadProfilePictureFromUrlEventArgs : EventArgs
     {
         public UploadProfilePictureFromUrlEventArgs(string loggedUserUsername, string profilePictureUrl)
         {

@@ -504,6 +504,7 @@
     <Compile Include="ViewControls\ContentContainers\TopVideoItemsUserControl.ascx.designer.cs">
       <DependentUpon>TopVideoItemsUserControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ViewControls\Contracts\IShouldLoad.cs" />
     <Compile Include="ViewControls\ManageUserControls\UpdateContactInformationUserControl.ascx.cs">
       <DependentUpon>UpdateContactInformationUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

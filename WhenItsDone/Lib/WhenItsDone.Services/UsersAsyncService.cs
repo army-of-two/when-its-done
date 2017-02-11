@@ -4,14 +4,14 @@ using System.Linq;
 
 using Bytes2you.Validation;
 
+using WhenItsDone.Common.Providers.FileDownloadProviders.Contracts;
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.DTOs.UserViewsDTOs;
 using WhenItsDone.Models;
+using WhenItsDone.Models.Factories;
 using WhenItsDone.Services.Abstraction;
 using WhenItsDone.Services.Contracts;
-using WhenItsDone.Models.Factories;
-using WhenItsDone.Common.Providers.FileDownloadProviders.Contracts;
 
 namespace WhenItsDone.Services
 {
@@ -90,13 +90,61 @@ namespace WhenItsDone.Services
             this.asyncRepository.Update(foundUser);
             using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
             {
-                if (unitOfWork.SaveChanges() != 0)
+                if (unitOfWork.SaveChangesAsync().Result != 0)
                 {
                     return foundUser;
                 }
                 else
                 {
                     throw new ArgumentException("Could not update profile picture");
+                }
+            }
+        }
+
+        public MedicalInformationUserViewDTO GetCurrentUserMedicalInformation(string username)
+        {
+            Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
+
+            return this.asyncRepository.GetCurrentUserMedicalInformation(username);
+        }
+
+        public User UpdateUserMedicalInformationFromUserInput(string username, string heightInCm, string weightInKg)
+        {
+            Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
+
+            var foundUser = this.asyncRepository.GetCurrentUserIncludingMedicalInformation(username);
+            if (foundUser == null)
+            {
+                throw new ArgumentException(string.Format("User {0} could not be found.", username));
+            }
+
+            int heightInCmParsedValue;
+            if (int.TryParse(heightInCm, out heightInCmParsedValue))
+            {
+                foundUser.MedicalInformation.HeightInCm = heightInCmParsedValue;
+            }
+
+            int weightInKgParsedValue;
+            if (int.TryParse(weightInKg, out weightInKgParsedValue))
+            {
+                foundUser.MedicalInformation.WeightInKg = weightInKgParsedValue;
+            }
+
+            if (foundUser.MedicalInformation.HeightInCm.HasValue && foundUser.MedicalInformation.WeightInKg.HasValue)
+            {
+                foundUser.MedicalInformation.BMI = (int)(foundUser.MedicalInformation.WeightInKg / foundUser.MedicalInformation.HeightInCm * foundUser.MedicalInformation.HeightInCm);
+            }
+
+            this.asyncRepository.Update(foundUser);
+            using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
+            {
+                if (unitOfWork.SaveChangesAsync().Result != 0)
+                {
+                    return foundUser;
+                }
+                else
+                {
+                    throw new ArgumentException("Could not update medical information");
                 }
             }
         }

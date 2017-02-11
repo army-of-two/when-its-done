@@ -1,17 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+
+using WhenItsDone.WebFormsClient.ViewControls.Contracts;
 
 namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
 {
-    public partial class UpdatePersonalInformationUserControl : System.Web.UI.UserControl
+    public partial class UpdatePersonalInformationUserControl : System.Web.UI.UserControl, IShouldLoad
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+        public bool ShouldLoad { get; set; }
 
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            this.LoggedUserUsername.Value = Page.User.Identity.Name;
         }
     }
 }

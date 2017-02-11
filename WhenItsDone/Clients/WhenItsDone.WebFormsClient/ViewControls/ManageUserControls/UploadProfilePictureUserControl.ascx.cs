@@ -4,15 +4,18 @@ using WebFormsMvp;
 using WebFormsMvp.Web;
 
 using WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP;
+using WhenItsDone.WebFormsClient.ViewControls.Contracts;
 
 namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
 {
     [PresenterBinding(typeof(IUploadProfilePicturePresenter))]
-    public partial class UploadProfilePictureUserControl : MvpUserControl<UploadProfilePictureViewModel>, IUploadProfilePictureView
+    public partial class UploadProfilePictureUserControl : MvpUserControl<UploadProfilePictureViewModel>, IUploadProfilePictureView, IShouldLoad
     {
         public event EventHandler<UploadProfilePictureEventArgs> UploadProfilePicture;
         public event EventHandler<UploadProfilePictureFromUrlEventArgs> UploadProfilePictureFromUrl;
         public event EventHandler<UploadProfilePictureInitialStateEventArgs> InitialState;
+
+        public bool ShouldLoad { get; set; }
 
         protected override void OnLoad(EventArgs e)
         {
@@ -22,13 +25,21 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
 
             var loggedUserUsername = Page.User.Identity.Name;
             this.Model.LoggedUserUsername = loggedUserUsername;
+        }
 
-            var uploadProfilePictureInitialStateEventArgs = new UploadProfilePictureInitialStateEventArgs(this.Model.LoggedUserUsername);
-            this.InitialState?.Invoke(null, uploadProfilePictureInitialStateEventArgs);
+        protected override void OnPreRender(EventArgs e)
+        {
+            base.OnPreRender(e);
 
-            if (!this.Model.IsSuccessful)
+            if (this.ShouldLoad)
             {
-                this.DisplayResultError(this.Model.ResultText);
+                var uploadProfilePictureInitialStateEventArgs = new UploadProfilePictureInitialStateEventArgs(this.Model.LoggedUserUsername);
+                this.InitialState?.Invoke(null, uploadProfilePictureInitialStateEventArgs);
+
+                if (!this.Model.IsSuccessful)
+                {
+                    this.DisplayResultError(this.Model.ResultText);
+                }
             }
         }
 
