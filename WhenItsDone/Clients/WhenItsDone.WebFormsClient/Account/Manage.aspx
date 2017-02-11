@@ -27,8 +27,6 @@
             </ProgressTemplate>
         </asp:UpdateProgress>
 
-        <manage:medicalinformation ID="Medicalinformation1" runat="server" />
-
         <asp:UpdatePanel ID="ManageUserUpdatePanel" runat="server">
             <ContentTemplate>
                 <div class="panel panel-default">

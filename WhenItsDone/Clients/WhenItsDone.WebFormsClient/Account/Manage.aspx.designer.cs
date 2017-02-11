@@ -13,15 +13,6 @@ namespace WhenItsDone.WebFormsClient.Account {
     public partial class Manage {
         
         /// <summary>
-        /// Medicalinformation1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::WhenItsDone.WebFormsClient.ViewControls.ManageUserControls.UpdateMedicalInformationUserControl Medicalinformation1;
-        
-        /// <summary>
         /// ManageUserUpdatePanel control.
         /// </summary>
         /// <remarks>
