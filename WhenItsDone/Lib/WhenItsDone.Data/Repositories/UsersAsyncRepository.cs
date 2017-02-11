@@ -23,5 +23,13 @@ namespace WhenItsDone.Data.Repositories
 
             return this.DbSet.Where(user => user.Username == username).ProjectToFirstOrDefault<UsernameProfilePictureUserViewDTO>();
         }
+
+
+        public MedicalInformationUserViewDTO GetCurrentUserMedicalInformation(string username)
+        {
+            Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
+
+            return this.DbSet.Where(user => user.Username == username).ProjectToFirstOrDefault<MedicalInformationUserViewDTO>();
+        }
     }
 }

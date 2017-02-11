@@ -100,5 +100,10 @@ namespace WhenItsDone.Services
                 }
             }
         }
+
+        public MedicalInformationUserViewDTO GetCurrentUserMedicalInformation(string username)
+        {
+            return null;
+        }
     }
 }
