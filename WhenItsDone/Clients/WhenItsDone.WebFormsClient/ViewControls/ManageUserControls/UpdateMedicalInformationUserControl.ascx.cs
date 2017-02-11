@@ -11,8 +11,8 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
     [PresenterBinding(typeof(IUpdateMedicalInformationPresenter))]
     public partial class UpdateMedicalInformationUserControl : MvpUserControl<UpdateMedicalInformationViewModel>, IUpdateMedicalInformationView, IShouldLoad
     {
-        public event EventHandler<UpdateMedicalInformationInitialStateEventArgs> InitialState;
-        public event EventHandler<UpdateMedicalInformationUpdateValuesEventArgs> UpdateValues;
+        public event EventHandler<UpdateMedicalInformationInitialStateEventArgs> UpdateMedicalInformationInitialState;
+        public event EventHandler<UpdateMedicalInformationUpdateValuesEventArgs> UpdateMedicalInformationUpdateValues;
 
         public bool ShouldLoad { get; set; }
         
@@ -25,7 +25,7 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
                 var loggedUserUsername = this.Page.User.Identity.Name;
 
                 var updateMedicalInformationInitialStateEventArgs = new UpdateMedicalInformationInitialStateEventArgs(loggedUserUsername);
-                this.InitialState?.Invoke(null, updateMedicalInformationInitialStateEventArgs);
+                this.UpdateMedicalInformationInitialState?.Invoke(null, updateMedicalInformationInitialStateEventArgs);
             }
         }
 
@@ -36,7 +36,7 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
             var weightInKg = this.WeightInKgTextBox.Text;
 
             var updateMedicalInformationUpdateValuesEventArgs = new UpdateMedicalInformationUpdateValuesEventArgs(loggedUserUsername, heightInCm, weightInKg);
-            this.UpdateValues?.Invoke(null, updateMedicalInformationUpdateValuesEventArgs);
+            this.UpdateMedicalInformationUpdateValues?.Invoke(null, updateMedicalInformationUpdateValuesEventArgs);
         }
     }
 }
