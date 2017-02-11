@@ -20,7 +20,7 @@
         <section class="content-container-heading">
             <h2>Food.Me Profile Settings</h2>
         </section>
-        
+
         <asp:UpdateProgress runat="server">
             <ProgressTemplate>
                 Loading data...
