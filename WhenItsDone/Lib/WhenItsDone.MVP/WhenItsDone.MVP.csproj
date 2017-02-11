@@ -48,9 +48,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\IUpdateMedicalInformationInitialPresenter.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\IUpdateMedicalInformationPresenter.cs" />
     <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\IUpdateMedicalInformationView.cs" />
-    <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\UpdateMedicalInformationInitialPresenter.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\UpdateMedicalInformationPresenter.cs" />
     <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\UpdateMedicalInformationInitialStateEventArgs.cs" />
     <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\UpdateMedicalInformationUpdateValuesEventArgs.cs" />
     <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\UpdateMedicalInformationViewModel.cs" />

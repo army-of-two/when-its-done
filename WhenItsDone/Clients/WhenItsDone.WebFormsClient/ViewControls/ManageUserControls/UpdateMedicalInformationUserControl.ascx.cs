@@ -1,18 +1,47 @@
 ﻿using System;
 
+using WebFormsMvp;
+using WebFormsMvp.Web;
+
+using WhenItsDone.MVP.AccountPages.ManageMVP.UpdateMedicalInformationMVP;
+
 namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
 {
-    public partial class UpdateMedicalInformationUserControl : System.Web.UI.UserControl
+    [PresenterBinding(typeof(IUpdateMedicalInformationPresenter))]
+    public partial class UpdateMedicalInformationUserControl : MvpUserControl<UpdateMedicalInformationViewModel>, IUpdateMedicalInformationView
     {
+        public event EventHandler<UpdateMedicalInformationInitialStateEventArgs> InitialState;
+        public event EventHandler<UpdateMedicalInformationUpdateValuesEventArgs> UpdateValues;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.HeightInCmTextBox.Text = string.Empty;
-            this.WeightInKgTextBox.Text = string.Empty;
+            if (!this.IsPostBack)
+            {
+                var loggedUserUsername = this.Page.User.Identity.Name;
+
+                var updateMedicalInformationInitialStateEventArgs = new UpdateMedicalInformationInitialStateEventArgs(loggedUserUsername);
+                this.InitialState?.Invoke(null, updateMedicalInformationInitialStateEventArgs);
+
+                this.UpdateTextBoxes();
+            }
         }
 
         public void OnUpdateMedicalInformation(object sender, EventArgs e)
         {
+            var loggedUserUsername = this.Page.User.Identity.Name;
+            var heightInCm = this.HeightInCmTextBox.Text;
+            var weightInKg = this.WeightInKgTextBox.Text;
 
+            var updateMedicalInformationUpdateValuesEventArgs = new UpdateMedicalInformationUpdateValuesEventArgs(loggedUserUsername, heightInCm, weightInKg);
+            this.UpdateValues?.Invoke(null, updateMedicalInformationUpdateValuesEventArgs);
+
+            this.UpdateTextBoxes();
+        }
+
+        private void UpdateTextBoxes()
+        {
+            this.HeightInCmTextBox.Text = this.Model.HeightInCm ?? "Update your height";
+            this.WeightInKgTextBox.Text = this.Model.WeightInKg ?? "Update your weight";
         }
     }
 }

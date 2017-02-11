@@ -2,7 +2,7 @@
 
 namespace WhenItsDone.MVP.AccountPages.ManageMVP.UpdateMedicalInformationMVP
 {
-    public interface IUpdateMedicalInformationInitialPresenter : IPresenter<IUpdateMedicalInformationView>
+    public interface IUpdateMedicalInformationPresenter : IPresenter<IUpdateMedicalInformationView>
     {
     }
 }
