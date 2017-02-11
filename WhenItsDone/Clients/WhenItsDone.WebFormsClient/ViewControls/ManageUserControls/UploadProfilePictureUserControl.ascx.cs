@@ -52,6 +52,15 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
             {
                 this.DisplayResultError("Something went wrong!");
             }
+
+            if (!this.Model.IsSuccessful)
+            {
+                this.DisplayResultError(this.Model.ResultText);
+            }
+            else
+            {
+                this.DisplayResultSuccess(this.Model.ResultText);
+            }
         }
 
         private void DisplayResultError(string errorText)
