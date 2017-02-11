@@ -15,13 +15,10 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.IsPostBack)
-            {
-                var loggedUserUsername = this.Page.User.Identity.Name;
+            var loggedUserUsername = this.Page.User.Identity.Name;
 
-                var updateMedicalInformationInitialStateEventArgs = new UpdateMedicalInformationInitialStateEventArgs(loggedUserUsername);
-                this.InitialState?.Invoke(null, updateMedicalInformationInitialStateEventArgs);
-            }
+            var updateMedicalInformationInitialStateEventArgs = new UpdateMedicalInformationInitialStateEventArgs(loggedUserUsername);
+            this.InitialState?.Invoke(null, updateMedicalInformationInitialStateEventArgs);
         }
 
         public void OnUpdateMedicalInformation(object sender, EventArgs e)
