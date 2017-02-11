@@ -4,14 +4,14 @@ using System.Linq;
 
 using Bytes2you.Validation;
 
+using WhenItsDone.Common.Providers.FileDownloadProviders.Contracts;
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.DTOs.UserViewsDTOs;
 using WhenItsDone.Models;
+using WhenItsDone.Models.Factories;
 using WhenItsDone.Services.Abstraction;
 using WhenItsDone.Services.Contracts;
-using WhenItsDone.Models.Factories;
-using WhenItsDone.Common.Providers.FileDownloadProviders.Contracts;
 
 namespace WhenItsDone.Services
 {
@@ -103,7 +103,9 @@ namespace WhenItsDone.Services
 
         public MedicalInformationUserViewDTO GetCurrentUserMedicalInformation(string username)
         {
-            return null;
+            Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
+
+            return this.asyncRepository.GetCurrentUserMedicalInformation(username);
         }
     }
 }
