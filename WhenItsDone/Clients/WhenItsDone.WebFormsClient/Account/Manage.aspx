@@ -21,6 +21,9 @@
             <h2>Food.Me Profile Settings</h2>
         </section>
 
+        <asp:Button ID="Button1" runat="server" OnClick="MedicalInformationButtonClick" CssClass="btn btn-default" Text="Medical Information" />
+
+
         <asp:UpdateProgress runat="server">
             <ProgressTemplate>
                 Loading data...
