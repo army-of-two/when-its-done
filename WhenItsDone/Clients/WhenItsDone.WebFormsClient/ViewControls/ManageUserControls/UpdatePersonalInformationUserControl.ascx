@@ -6,12 +6,12 @@
 
 <h1>Update Personal Information</h1>
 
-<asp:HiddenField ID="LoggedUserUsername" Value="<%#: LoggedUserUsernameFromIdentity %>" runat="server" />
+<asp:HiddenField ID="LoggedUserUsername" Value="" runat="server" />
 <asp:EntityDataSource
     ID="UsersDataSource" runat="server"
     DefaultContainerName="Entities"
     EntitySetName="Users"
-    ConnectionString="Entities"
+    ConnectionString="name=Entities"
     EnableUpdate="true"
     EnableFlattening="false"
     Where="it.Username=@Username">
@@ -19,15 +19,15 @@
         <asp:ControlParameter
             ControlID="LoggedUserUsername"
             DbType="String"
-            Name="Username"
-            DefaultValue="" />
+            Name="Username" />
     </WhereParameters>
 </asp:EntityDataSource>
 
 <asp:GridView
     ID="UserPersonalInfomationGridView" runat="server"
     DataSourceID="UsersDataSource"
-    AutoGenerateColumns="false">
+    AutoGenerateColumns="false"
+    DataKeyNames="Id">
     <Columns>
         <asp:CommandField ShowEditButton="true" />
         <asp:BoundField DataField="FirstName" HeaderText="First Name" />

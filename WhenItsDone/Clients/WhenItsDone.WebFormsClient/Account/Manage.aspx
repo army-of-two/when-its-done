@@ -20,6 +20,13 @@
         <section class="content-container-heading">
             <h2>Food.Me Profile Settings</h2>
         </section>
+        
+        <asp:UpdateProgress runat="server">
+            <ProgressTemplate>
+                Loading data...
+            </ProgressTemplate>
+        </asp:UpdateProgress>
+
         <asp:UpdatePanel ID="ManageUserUpdatePanel" runat="server">
             <ContentTemplate>
                 <div class="panel panel-default">

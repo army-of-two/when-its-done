@@ -9,7 +9,10 @@ namespace WhenItsDone.WebFormsClient.Account
         {
             base.OnLoad(e);
 
-            this.ProfilePictureButtonClick(null, null);
+            if (!this.IsPostBack)
+            {
+                this.ProfilePictureButtonClick(null, null);
+            }
         }
 
         protected void ProfilePictureButtonClick(object sender, EventArgs e)

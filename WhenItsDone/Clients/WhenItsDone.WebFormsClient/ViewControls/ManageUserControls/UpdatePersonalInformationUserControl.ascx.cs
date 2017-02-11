@@ -1,15 +1,15 @@
-﻿using System.Web.UI;
+﻿using System;
+using System.Web.UI;
 
 namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
 {
     public partial class UpdatePersonalInformationUserControl : System.Web.UI.UserControl
     {
-        public string LoggedUserUsernameFromIdentity
+        protected override void OnLoad(EventArgs e)
         {
-            get
-            {
-                return Page.User.Identity.Name;
-            }
+            base.OnLoad(e);
+
+            this.LoggedUserUsername.Value = Page.User.Identity.Name;
         }
     }
 }
