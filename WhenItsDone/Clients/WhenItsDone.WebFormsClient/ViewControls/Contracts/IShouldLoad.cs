@@ -2,6 +2,6 @@
 {
     public interface IShouldLoad
     {
-        bool ShouldLoad { get; }
+        bool ShouldLoad { get; set; }
     }
 }

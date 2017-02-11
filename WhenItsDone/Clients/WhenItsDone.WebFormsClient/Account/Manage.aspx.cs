@@ -1,24 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Web.UI;
+
+using WhenItsDone.WebFormsClient.ViewControls.Contracts;
 
 namespace WhenItsDone.WebFormsClient.Account
 {
     public partial class Manage : System.Web.UI.Page
     {
-        private const string ManageProfilePictureUserControlId = "ManageProfilePictureUserControl";
-        private const string UpdatePersonalInformationUserControlId = "UpdatePersonalInformationUserControl";
-        private const string UpdateMedicalInformationUserControlId = "UpdateMedicalInformationUserControl";
-        private const string UpdateContactInformationUserControlId = "UpdateContactInformationUserControl";
-
-        private IDictionary<string, Control> manageControls;
-
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
-            this.manageControls = this.BuildManageControlsDictionary();
-            
             if (!this.IsPostBack)
             {
                 this.ProfilePictureButtonClick(null, null);
@@ -28,52 +20,35 @@ namespace WhenItsDone.WebFormsClient.Account
         protected void ProfilePictureButtonClick(object sender, EventArgs e)
         {
             this.HideAllActivePanelControls();
-            this.ActiveContent.Controls.Add(this.manageControls[Manage.ManageProfilePictureUserControlId]);
+            (this.ManageProfilePictureUserControl as IShouldLoad).ShouldLoad = true;
         }
 
         protected void PersonalInformationButtonClick(object sender, EventArgs e)
         {
             this.HideAllActivePanelControls();
-            this.ActiveContent.Controls.Add(this.manageControls[Manage.UpdatePersonalInformationUserControlId]);
+            (this.UpdatePersonalInformationUserControl as IShouldLoad).ShouldLoad = true;
         }
 
         protected void MedicalInformationButtonClick(object sender, EventArgs e)
         {
             this.HideAllActivePanelControls();
-            this.ActiveContent.Controls.Add(this.manageControls[Manage.UpdateMedicalInformationUserControlId]);
+            (this.UpdateMedicalInformationUserControl as IShouldLoad).ShouldLoad = true;
         }
 
         protected void ContactInformationButtonClick(object sender, EventArgs e)
         {
             this.HideAllActivePanelControls();
-            this.ActiveContent.Controls.Add(this.manageControls[Manage.UpdateContactInformationUserControlId]);
-        }
-
-        private IDictionary<string, Control> BuildManageControlsDictionary()
-        {
-            var manageControls = new Dictionary<string, Control>();
-
-            var controlsCount = this.ActiveContent.Controls.Count;
-            for (int i = controlsCount - 1; i >= 0; i--)
-            {
-                Control control = this.ActiveContent.Controls[i];
-                if (control.ID.Contains("UserControl"))
-                {
-                    manageControls.Add(control.ID, control);
-                }
-
-                this.ActiveContent.Controls.RemoveAt(i);
-            }
-
-            return manageControls;
+            (this.UpdateContactInformationUserControl as IShouldLoad).ShouldLoad = true;
         }
 
         private void HideAllActivePanelControls()
         {
-            var controlsCount = this.ActiveContent.Controls.Count;
-            for (int i = controlsCount - 1; i >= 0; i--)
+            foreach (Control item in this.ActiveContent.Controls)
             {
-                this.ActiveContent.Controls.RemoveAt(i);
+                if (item is IShouldLoad)
+                {
+                    (item as IShouldLoad).ShouldLoad = false;
+                }
             }
         }
     }
