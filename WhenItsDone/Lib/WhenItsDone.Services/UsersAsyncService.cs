@@ -50,7 +50,7 @@ namespace WhenItsDone.Services
 
             var updatedProfilePicture = this.profilePictureFactory.CreateProfilePicture();
             updatedProfilePicture.PictureBase64 = Convert.ToBase64String(uploadedFile);
-            updatedProfilePicture.MimeType = Path.GetExtension(uploadedFileName);
+            updatedProfilePicture.MimeType = Path.GetExtension(uploadedFileName).TrimStart(new[] { '.' });
 
             foundUser.ProfilePicture = updatedProfilePicture;
             this.asyncRepository.Update(foundUser);
