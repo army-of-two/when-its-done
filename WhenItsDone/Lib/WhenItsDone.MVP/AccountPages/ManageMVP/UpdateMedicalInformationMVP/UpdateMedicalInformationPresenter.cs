@@ -27,6 +27,9 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UpdateMedicalInformationMVP
             Guard.WhenArgument(args.LoggedUserUsername, nameof(args.LoggedUserUsername)).IsNull().Throw();
 
             var foundUserMedicalInformation = this.usersService.GetCurrentUserMedicalInformation(args.LoggedUserUsername);
+
+            this.View.Model.HeightInCm = foundUserMedicalInformation?.HeightInCm;
+            this.View.Model.WeightInKg = foundUserMedicalInformation?.WeightInKg;
         }
 
         public void OnUpdateValues(object sender, UpdateMedicalInformationUpdateValuesEventArgs args)
