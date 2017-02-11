@@ -18,6 +18,8 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
         {
             base.OnLoad(e);
 
+            this.ProfilePictureUrlTextBox.Text = string.Empty;
+
             var loggedUserUsername = Page.User.Identity.Name;
             this.Model.LoggedUserUsername = loggedUserUsername;
 
