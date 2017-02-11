@@ -47,6 +47,7 @@
 .content-container-even .panel-primary:hover,
 .content-container-odd .panel-primary:hover {
   border-color: #2a6496;
+  box-shadow: 0px 0px 25px rgba(0,0,0,0.69);
 }
 .content-container-even .panel:hover .panel-heading,
 .content-container-odd .panel:hover .panel-heading {
