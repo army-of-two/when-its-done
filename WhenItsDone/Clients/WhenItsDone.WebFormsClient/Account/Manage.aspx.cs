@@ -17,10 +17,11 @@ namespace WhenItsDone.WebFormsClient.Account
         {
             base.OnLoad(e);
 
+            this.manageControls = this.BuildManageControlsDictionary();
+            
             if (!this.IsPostBack)
             {
                 this.ProfilePictureButtonClick(null, null);
-                this.manageControls = this.BuildManageControlsDictionary();
             }
         }
 
