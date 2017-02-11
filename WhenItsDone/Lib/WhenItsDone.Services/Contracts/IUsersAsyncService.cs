@@ -9,6 +9,6 @@ namespace WhenItsDone.Services.Contracts
 
         User UpdateUserProfilePicture(string username, string uploadedFileName, byte[] uploadedFile);
 
-        User UpdateUserProfilePicture(string username, string profilePictureUrl);
+        User UpdateUserProfilePictureFromUrl(string username, string profilePictureUrl);
     }
 }

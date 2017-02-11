@@ -71,7 +71,7 @@ namespace WhenItsDone.Services
             }
         }
 
-        public User UpdateUserProfilePicture(string username, string profilePictureUrl)
+        public User UpdateUserProfilePictureFromUrl(string username, string profilePictureUrl)
         {
             Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
             Guard.WhenArgument(profilePictureUrl, nameof(profilePictureUrl)).IsNullOrEmpty().Throw();
