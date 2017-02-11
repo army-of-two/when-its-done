@@ -24,7 +24,7 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UpdateMedicalInformationMVP
         public void OnInitialState(object sender, UpdateMedicalInformationInitialStateEventArgs args)
         {
             Guard.WhenArgument(args, nameof(UpdateMedicalInformationInitialStateEventArgs)).IsNull().Throw();
-            Guard.WhenArgument(args.LoggedUserUsername, nameof(args.LoggedUserUsername)).IsNull().Throw();
+            Guard.WhenArgument(args.LoggedUserUsername, nameof(args.LoggedUserUsername)).IsNullOrEmpty().Throw();
 
             var foundUserMedicalInformation = this.usersService.GetCurrentUserMedicalInformation(args.LoggedUserUsername);
 
