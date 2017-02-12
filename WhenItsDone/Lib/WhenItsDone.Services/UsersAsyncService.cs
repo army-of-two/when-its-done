@@ -60,18 +60,8 @@ namespace WhenItsDone.Services
             updatedProfilePicture.MimeType = Path.GetExtension(uploadedFileName).TrimStart(new[] { '.' });
 
             foundUser.ProfilePicture = updatedProfilePicture;
-            this.asyncRepository.Update(foundUser);
-            using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
-            {
-                if (unitOfWork.SaveChanges() != 0)
-                {
-                    return foundUser;
-                }
-                else
-                {
-                    throw new ArgumentException("Could not update profile picture");
-                }
-            }
+
+            return this.SaveChangesToDatabase(foundUser);
         }
 
         public User UpdateUserProfilePictureFromUrl(string username, string profilePictureUrl)
@@ -90,18 +80,8 @@ namespace WhenItsDone.Services
             updatedProfilePicture.MimeType = profilePictureUrl.Split('.').Last();
 
             foundUser.ProfilePicture = updatedProfilePicture;
-            this.asyncRepository.Update(foundUser);
-            using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
-            {
-                if (unitOfWork.SaveChangesAsync().Result != 0)
-                {
-                    return foundUser;
-                }
-                else
-                {
-                    throw new ArgumentException("Could not update profile picture");
-                }
-            }
+
+            return this.SaveChangesToDatabase(foundUser);
         }
 
         public MedicalInformationUserViewDTO GetCurrentUserMedicalInformation(string username)
@@ -138,18 +118,7 @@ namespace WhenItsDone.Services
                 foundUser.MedicalInformation.BMI = (int)(foundUser.MedicalInformation.WeightInKg / foundUser.MedicalInformation.HeightInCm * foundUser.MedicalInformation.HeightInCm);
             }
 
-            this.asyncRepository.Update(foundUser);
-            using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
-            {
-                if (unitOfWork.SaveChangesAsync().Result != 0)
-                {
-                    return foundUser;
-                }
-                else
-                {
-                    throw new ArgumentException("Could not update medical information");
-                }
-            }
+            return this.SaveChangesToDatabase(foundUser);
         }
 
         public ContactInformationUserViewDTO GetCurrentUserContactInformation(string username)
@@ -169,7 +138,28 @@ namespace WhenItsDone.Services
                 throw new ArgumentException(string.Format("User {0} could not be found.", username));
             }
 
-            return null;
+            if (foundUser.ContactInformation.Address == null)
+            {
+                foundUser.ContactInformation.Address = this.addressFactory.CreateAddress();
+            }
+
+            return this.SaveChangesToDatabase(foundUser);
+        }
+
+        private User SaveChangesToDatabase(User user)
+        {
+            this.asyncRepository.Update(user);
+            using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
+            {
+                if (unitOfWork.SaveChangesAsync().Result != 0)
+                {
+                    return user;
+                }
+                else
+                {
+                    throw new ArgumentException("Could not update medical information");
+                }
+            }
         }
     }
 }
