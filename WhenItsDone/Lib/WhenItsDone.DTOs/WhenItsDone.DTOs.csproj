@@ -48,6 +48,7 @@
     <Compile Include="PhotoItemDTOs\PhotoItemDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecipeDTOs\RecipeWithIngredientsDTO.cs" />
+    <Compile Include="UserViewsDTOs\ContactInfomationUserViewDTO.cs" />
     <Compile Include="UserViewsDTOs\MedicalInformationUserViewDTO.cs" />
     <Compile Include="UserViewsDTOs\UsernameProfilePictureUserViewDTO.cs" />
     <Compile Include="WorkerVIewsDTOs\WorkerDetailInformationDTO.cs" />
