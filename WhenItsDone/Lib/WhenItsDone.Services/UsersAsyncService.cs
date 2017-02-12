@@ -153,7 +153,7 @@ namespace WhenItsDone.Services
         {
             Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
 
-            return this.asyncRepository.GetCurrentUserMedicalInformation(username);
+            return this.asyncRepository.GetCurrentUserContactInformation(username);
         }
     }
 }
