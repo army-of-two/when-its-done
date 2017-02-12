@@ -61,7 +61,7 @@ namespace WhenItsDone.Services
 
             foundUser.ProfilePicture = updatedProfilePicture;
 
-            return this.SaveChangesToDatabase(foundUser);
+            return this.CommitChanges(foundUser);
         }
 
         public User UpdateUserProfilePictureFromUrl(string username, string profilePictureUrl)
@@ -81,7 +81,7 @@ namespace WhenItsDone.Services
 
             foundUser.ProfilePicture = updatedProfilePicture;
 
-            return this.SaveChangesToDatabase(foundUser);
+            return this.CommitChanges(foundUser);
         }
 
         public MedicalInformationUserViewDTO GetCurrentUserMedicalInformation(string username)
@@ -118,7 +118,7 @@ namespace WhenItsDone.Services
                 foundUser.MedicalInformation.BMI = (int)(foundUser.MedicalInformation.WeightInKg / foundUser.MedicalInformation.HeightInCm * foundUser.MedicalInformation.HeightInCm);
             }
 
-            return this.SaveChangesToDatabase(foundUser);
+            return this.CommitChanges(foundUser);
         }
 
         public ContactInformationUserViewDTO GetCurrentUserContactInformation(string username)
@@ -140,13 +140,17 @@ namespace WhenItsDone.Services
 
             if (foundUser.ContactInformation.Address == null)
             {
-                foundUser.ContactInformation.Address = this.addressFactory.CreateAddress();
+                foundUser.ContactInformation.Address = this.CreateNewAddress();
             }
 
-            return this.SaveChangesToDatabase(foundUser);
+            foundUser.ContactInformation.Address.Country = country ?? foundUser.ContactInformation.Address.Country;
+            foundUser.ContactInformation.Address.Street = street ?? foundUser.ContactInformation.Address.Street;
+            foundUser.ContactInformation.Address.City = city ?? foundUser.ContactInformation.Address.City;
+
+            return this.CommitChanges(foundUser);
         }
 
-        private User SaveChangesToDatabase(User user)
+        private User CommitChanges(User user)
         {
             this.asyncRepository.Update(user);
             using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
@@ -160,6 +164,16 @@ namespace WhenItsDone.Services
                     throw new ArgumentException("Could not update medical information");
                 }
             }
+        }
+
+        private Address CreateNewAddress()
+        {
+            var newAddress = this.addressFactory.CreateAddress();
+            newAddress.Country = "Not set.";
+            newAddress.Street = "Not set.";
+            newAddress.City = "Not set.";
+
+            return newAddress;
         }
     }
 }
