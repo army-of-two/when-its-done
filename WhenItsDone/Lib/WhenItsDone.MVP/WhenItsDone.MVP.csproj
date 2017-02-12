@@ -48,6 +48,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountPages\ManageMVP\UpdateContactInformationMVP\IUpdateContactInformationPresenter.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateContactInformationMVP\IUpdateContactInformationView.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateContactInformationMVP\UpdateContactInformationInitialStateEventArgs.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateContactInformationMVP\UpdateContactInformationPresenter.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateContactInformationMVP\UpdateContactInformationUpdateValuesEventArgs.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateContactInformationMVP\UpdateContactInformationViewModel.cs" />
     <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\IUpdateMedicalInformationPresenter.cs" />
     <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\IUpdateMedicalInformationView.cs" />
     <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\UpdateMedicalInformationPresenter.cs" />

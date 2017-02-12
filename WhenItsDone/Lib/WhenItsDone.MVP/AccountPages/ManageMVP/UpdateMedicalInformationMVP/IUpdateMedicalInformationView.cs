@@ -6,8 +6,8 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UpdateMedicalInformationMVP
 {
     public interface IUpdateMedicalInformationView : IView<UpdateMedicalInformationViewModel>
     {
-        event EventHandler<UpdateMedicalInformationInitialStateEventArgs> InitialState;
+        event EventHandler<UpdateMedicalInformationInitialStateEventArgs> UpdateMedicalInformationInitialState;
 
-        event EventHandler<UpdateMedicalInformationUpdateValuesEventArgs> UpdateValues;
+        event EventHandler<UpdateMedicalInformationUpdateValuesEventArgs> UpdateMedicalInformationUpdateValues;
     }
 }

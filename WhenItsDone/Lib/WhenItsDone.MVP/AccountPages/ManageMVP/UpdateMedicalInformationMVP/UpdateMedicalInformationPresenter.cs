@@ -19,11 +19,11 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UpdateMedicalInformationMVP
 
             this.usersService = usersService;
 
-            this.View.InitialState += this.OnInitialState;
-            this.View.UpdateValues += this.OnUpdateValues;
+            this.View.UpdateMedicalInformationInitialState += this.OnUpdateMedicalInformationInitialState;
+            this.View.UpdateMedicalInformationUpdateValues += this.OnUpdateMedicalInformationUpdateValues;
         }
 
-        public void OnInitialState(object sender, UpdateMedicalInformationInitialStateEventArgs args)
+        public void OnUpdateMedicalInformationInitialState(object sender, UpdateMedicalInformationInitialStateEventArgs args)
         {
             Guard.WhenArgument(args, nameof(UpdateMedicalInformationInitialStateEventArgs)).IsNull().Throw();
             Guard.WhenArgument(args.LoggedUserUsername, nameof(args.LoggedUserUsername)).IsNullOrEmpty().Throw();
@@ -34,7 +34,7 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UpdateMedicalInformationMVP
             this.View.Model.WeightInKg = foundUserMedicalInformation?.WeightInKg?.ToString();
         }
 
-        public void OnUpdateValues(object sender, UpdateMedicalInformationUpdateValuesEventArgs args)
+        public void OnUpdateMedicalInformationUpdateValues(object sender, UpdateMedicalInformationUpdateValuesEventArgs args)
         {
             Guard.WhenArgument(args, nameof(UpdateMedicalInformationUpdateValuesEventArgs)).IsNull().Throw();
             Guard.WhenArgument(args.LoggedUserUsername, nameof(args.LoggedUserUsername)).IsNullOrEmpty().Throw();
