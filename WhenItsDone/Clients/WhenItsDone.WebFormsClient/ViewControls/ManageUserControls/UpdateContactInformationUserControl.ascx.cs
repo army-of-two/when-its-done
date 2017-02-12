@@ -28,5 +28,10 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
                 this.UpdateContactInformationInitialState?.Invoke(null, updateContactInformationInitialStateEventArgs);
             }
         }
+
+        public void OnUpdateContactInformation(object sender, EventArgs e)
+        {
+
+        }
     }
 }
