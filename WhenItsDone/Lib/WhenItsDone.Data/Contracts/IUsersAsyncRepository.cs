@@ -7,6 +7,8 @@ namespace WhenItsDone.Data.Contracts
     {
         User GetCurrentUserIncludingMedicalInformation(string username);
 
+        ContactInformationUserViewDTO GetCurrentUserContactInformation(string username);
+
         MedicalInformationUserViewDTO GetCurrentUserMedicalInformation(string username);
 
         UsernameProfilePictureUserViewDTO GetCurrentUserProfilePicture(string username);

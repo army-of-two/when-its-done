@@ -148,5 +148,12 @@ namespace WhenItsDone.Services
                 }
             }
         }
+
+        public ContactInformationUserViewDTO GetCurrentUserContactInformation(string username)
+        {
+            Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
+
+            return this.asyncRepository.GetCurrentUserMedicalInformation(username);
+        }
     }
 }
