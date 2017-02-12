@@ -160,7 +160,7 @@ namespace WhenItsDone.Services
         {
             Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
 
-            var foundUser = this.asyncRepository.GetCurrentUserIncludingMedicalInformation(username);
+            var foundUser = this.asyncRepository.GetCurrentUserIncludingContactInformation(username);
             if (foundUser == null)
             {
                 throw new ArgumentException(string.Format("User {0} could not be found.", username));

@@ -45,6 +45,7 @@
     <Compile Include="AssemblyId\IModelsAssemblyId.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="ClientReview.cs" />
+    <Compile Include="Factories\IAddressFactory.cs" />
     <Compile Include="Factories\ICompleteUserFactory.cs" />
     <Compile Include="Factories\IContactInformationFactory.cs" />
     <Compile Include="Factories\IInitializedUserFactory.cs" />
