@@ -155,5 +155,18 @@ namespace WhenItsDone.Services
 
             return this.asyncRepository.GetCurrentUserContactInformation(username);
         }
+
+        public User UpdateUserContactInformationFromUserInput(string username, string country, string city, string street)
+        {
+            Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
+
+            var foundUser = this.asyncRepository.GetCurrentUserIncludingMedicalInformation(username);
+            if (foundUser == null)
+            {
+                throw new ArgumentException(string.Format("User {0} could not be found.", username));
+            }
+
+            return null;
+        }
     }
 }

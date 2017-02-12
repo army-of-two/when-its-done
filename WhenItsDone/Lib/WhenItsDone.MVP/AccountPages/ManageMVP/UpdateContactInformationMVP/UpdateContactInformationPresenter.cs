@@ -3,6 +3,7 @@
 using Bytes2you.Validation;
 
 using WebFormsMvp;
+
 using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.MVP.AccountPages.ManageMVP.UpdateContactInformationMVP
@@ -39,6 +40,17 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UpdateContactInformationMVP
             Guard.WhenArgument(args, nameof(UpdateContactInformationInitialStateEventArgs)).IsNull().Throw();
             Guard.WhenArgument(args.LoggedUserUsername, nameof(args.LoggedUserUsername)).IsNullOrEmpty().Throw();
 
+            try
+            {
+                var updatedUser = this.usersService.UpdateUserContactInformationFromUserInput(args.LoggedUserUsername, args.Country, args.City, args.Street);
+
+            }
+            catch (Exception)
+            {
+                this.View.Model.Country = "Country not set";
+                this.View.Model.City = "City not set";
+                this.View.Model.Street = "Street not set";
+            }
         }
     }
 }
