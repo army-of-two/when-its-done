@@ -18,19 +18,22 @@ namespace WhenItsDone.Services
     public class UsersAsyncService : GenericAsyncService<User>, IUsersAsyncService, IGenericAsyncService<User>
     {
         private readonly IUsersAsyncRepository asyncRepository;
-        private readonly IProfilePictureFactory profilePictureFactory;
         private readonly IFileDownloadProvider fileDownloadProvider;
+        private readonly IProfilePictureFactory profilePictureFactory;
+        private readonly IAddressFactory addressFactory;
 
-        public UsersAsyncService(IUsersAsyncRepository asyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory, IProfilePictureFactory profilePictureFactory, IFileDownloadProvider fileDownloadProvider)
+        public UsersAsyncService(IUsersAsyncRepository asyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory, IFileDownloadProvider fileDownloadProvider, IProfilePictureFactory profilePictureFactory, IAddressFactory addressFactory)
             : base(asyncRepository, unitOfWorkFactory)
         {
             Guard.WhenArgument(asyncRepository, nameof(IUsersAsyncRepository)).IsNull().Throw();
-            Guard.WhenArgument(profilePictureFactory, nameof(IProfilePictureFactory)).IsNull().Throw();
             Guard.WhenArgument(fileDownloadProvider, nameof(IFileDownloadProvider)).IsNull().Throw();
+            Guard.WhenArgument(profilePictureFactory, nameof(IProfilePictureFactory)).IsNull().Throw();
+            Guard.WhenArgument(addressFactory, nameof(IAddressFactory)).IsNull().Throw();
 
             this.asyncRepository = asyncRepository;
-            this.profilePictureFactory = profilePictureFactory;
             this.fileDownloadProvider = fileDownloadProvider;
+            this.profilePictureFactory = profilePictureFactory;
+            this.addressFactory = addressFactory;
         }
 
         public UsernameProfilePictureUserViewDTO GetCurrentUserProfilePicture(string username)
