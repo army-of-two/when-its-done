@@ -161,7 +161,7 @@ namespace WhenItsDone.Services
                 }
                 else
                 {
-                    throw new ArgumentException("Could not update medical information");
+                    throw new ArgumentException("Could not commit changes to user.");
                 }
             }
         }
