@@ -28,5 +28,16 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
                 this.UpdateContactInformationInitialState?.Invoke(null, updateContactInformationInitialStateEventArgs);
             }
         }
+
+        public void OnUpdateContactInformation(object sender, EventArgs e)
+        {
+            var loggedUserUsername = this.Page.User.Identity.Name;
+            var country = this.CountryTextBox.Text;
+            var city = this.CityTextBox.Text;
+            var street = this.StreetTextBox.Text;
+
+            var updateContactInformationUpdateValuesEventArgs = new UpdateContactInformationUpdateValuesEventArgs(loggedUserUsername, country, city, street);
+            this.UpdateContactInformationUpdateValues?.Invoke(null, updateContactInformationUpdateValuesEventArgs);
+        }
     }
 }

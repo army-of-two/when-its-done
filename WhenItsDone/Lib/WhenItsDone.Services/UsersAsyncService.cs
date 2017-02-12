@@ -18,19 +18,22 @@ namespace WhenItsDone.Services
     public class UsersAsyncService : GenericAsyncService<User>, IUsersAsyncService, IGenericAsyncService<User>
     {
         private readonly IUsersAsyncRepository asyncRepository;
-        private readonly IProfilePictureFactory profilePictureFactory;
         private readonly IFileDownloadProvider fileDownloadProvider;
+        private readonly IProfilePictureFactory profilePictureFactory;
+        private readonly IAddressFactory addressFactory;
 
-        public UsersAsyncService(IUsersAsyncRepository asyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory, IProfilePictureFactory profilePictureFactory, IFileDownloadProvider fileDownloadProvider)
+        public UsersAsyncService(IUsersAsyncRepository asyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory, IFileDownloadProvider fileDownloadProvider, IProfilePictureFactory profilePictureFactory, IAddressFactory addressFactory)
             : base(asyncRepository, unitOfWorkFactory)
         {
             Guard.WhenArgument(asyncRepository, nameof(IUsersAsyncRepository)).IsNull().Throw();
-            Guard.WhenArgument(profilePictureFactory, nameof(IProfilePictureFactory)).IsNull().Throw();
             Guard.WhenArgument(fileDownloadProvider, nameof(IFileDownloadProvider)).IsNull().Throw();
+            Guard.WhenArgument(profilePictureFactory, nameof(IProfilePictureFactory)).IsNull().Throw();
+            Guard.WhenArgument(addressFactory, nameof(IAddressFactory)).IsNull().Throw();
 
             this.asyncRepository = asyncRepository;
-            this.profilePictureFactory = profilePictureFactory;
             this.fileDownloadProvider = fileDownloadProvider;
+            this.profilePictureFactory = profilePictureFactory;
+            this.addressFactory = addressFactory;
         }
 
         public UsernameProfilePictureUserViewDTO GetCurrentUserProfilePicture(string username)
@@ -57,18 +60,8 @@ namespace WhenItsDone.Services
             updatedProfilePicture.MimeType = Path.GetExtension(uploadedFileName).TrimStart(new[] { '.' });
 
             foundUser.ProfilePicture = updatedProfilePicture;
-            this.asyncRepository.Update(foundUser);
-            using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
-            {
-                if (unitOfWork.SaveChanges() != 0)
-                {
-                    return foundUser;
-                }
-                else
-                {
-                    throw new ArgumentException("Could not update profile picture");
-                }
-            }
+
+            return this.CommitChanges(foundUser);
         }
 
         public User UpdateUserProfilePictureFromUrl(string username, string profilePictureUrl)
@@ -87,18 +80,8 @@ namespace WhenItsDone.Services
             updatedProfilePicture.MimeType = profilePictureUrl.Split('.').Last();
 
             foundUser.ProfilePicture = updatedProfilePicture;
-            this.asyncRepository.Update(foundUser);
-            using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
-            {
-                if (unitOfWork.SaveChangesAsync().Result != 0)
-                {
-                    return foundUser;
-                }
-                else
-                {
-                    throw new ArgumentException("Could not update profile picture");
-                }
-            }
+
+            return this.CommitChanges(foundUser);
         }
 
         public MedicalInformationUserViewDTO GetCurrentUserMedicalInformation(string username)
@@ -135,18 +118,62 @@ namespace WhenItsDone.Services
                 foundUser.MedicalInformation.BMI = (int)(foundUser.MedicalInformation.WeightInKg / foundUser.MedicalInformation.HeightInCm * foundUser.MedicalInformation.HeightInCm);
             }
 
-            this.asyncRepository.Update(foundUser);
+            return this.CommitChanges(foundUser);
+        }
+
+        public ContactInformationUserViewDTO GetCurrentUserContactInformation(string username)
+        {
+            Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
+
+            return this.asyncRepository.GetCurrentUserContactInformation(username);
+        }
+
+        public User UpdateUserContactInformationFromUserInput(string username, string country, string city, string street)
+        {
+            Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
+
+            var foundUser = this.asyncRepository.GetCurrentUserIncludingContactInformation(username);
+            if (foundUser == null)
+            {
+                throw new ArgumentException(string.Format("User {0} could not be found.", username));
+            }
+
+            if (foundUser.ContactInformation.Address == null)
+            {
+                foundUser.ContactInformation.Address = this.CreateNewAddress();
+            }
+
+            foundUser.ContactInformation.Address.Country = country ?? foundUser.ContactInformation.Address.Country;
+            foundUser.ContactInformation.Address.Street = street ?? foundUser.ContactInformation.Address.Street;
+            foundUser.ContactInformation.Address.City = city ?? foundUser.ContactInformation.Address.City;
+
+            return this.CommitChanges(foundUser);
+        }
+
+        private User CommitChanges(User user)
+        {
+            this.asyncRepository.Update(user);
             using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
             {
                 if (unitOfWork.SaveChangesAsync().Result != 0)
                 {
-                    return foundUser;
+                    return user;
                 }
                 else
                 {
-                    throw new ArgumentException("Could not update medical information");
+                    throw new ArgumentException("Could not commit changes to user.");
                 }
             }
+        }
+
+        private Address CreateNewAddress()
+        {
+            var newAddress = this.addressFactory.CreateAddress();
+            newAddress.Country = "Country not set.";
+            newAddress.Street = "Street not set.";
+            newAddress.City = "City not set.";
+
+            return newAddress;
         }
     }
 }
