@@ -43,13 +43,22 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UpdateContactInformationMVP
             try
             {
                 var updatedUser = this.usersService.UpdateUserContactInformationFromUserInput(args.LoggedUserUsername, args.Country, args.City, args.Street);
-
+                if (updatedUser == null)
+                {
+                    throw new ArgumentException("User could not be found.");
+                }
+                else
+                {
+                    this.View.Model.Country = updatedUser.ContactInformation.Address.Country;
+                    this.View.Model.Street = updatedUser.ContactInformation.Address.Street;
+                    this.View.Model.City = updatedUser.ContactInformation.Address.City;
+                }
             }
             catch (Exception)
             {
                 this.View.Model.Country = "Country not set";
-                this.View.Model.City = "City not set";
                 this.View.Model.Street = "Street not set";
+                this.View.Model.City = "City not set";
             }
         }
     }
