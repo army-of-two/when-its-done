@@ -169,9 +169,9 @@ namespace WhenItsDone.Services
         private Address CreateNewAddress()
         {
             var newAddress = this.addressFactory.CreateAddress();
-            newAddress.Country = "Not set.";
-            newAddress.Street = "Not set.";
-            newAddress.City = "Not set.";
+            newAddress.Country = "Country not set.";
+            newAddress.Street = "Street not set.";
+            newAddress.City = "City not set.";
 
             return newAddress;
         }
