@@ -1,15 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+
+using WebFormsMvp;
+using WebFormsMvp.Web;
+
+using WhenItsDone.MVP.AccountPages.ManageMVP.UpdateContactInformationMVP;
 using WhenItsDone.WebFormsClient.ViewControls.Contracts;
 
 namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
 {
-    public partial class UpdateContactInformationUserControl : System.Web.UI.UserControl, IShouldLoad
+    [PresenterBinding(typeof(IUpdateContactInformationPresenter))]
+    public partial class UpdateContactInformationUserControl : MvpUserControl<UpdateContactInformationViewModel>, IUpdateContactInformationView, IShouldLoad
     {
+        public event EventHandler<UpdateContactInformationInitialStateEventArgs> UpdateContactInformationInitialState;
+        public event EventHandler<UpdateContactInformationUpdateValuesEventArgs> UpdateContactInformationUpdateValues;
+
         public bool ShouldLoad { get; set; }
 
         protected override void OnPreRender(EventArgs e)
@@ -18,6 +22,10 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
 
             if (this.ShouldLoad)
             {
+                var loggedUserUsername = this.Page.User.Identity.Name;
+
+                var updateContactInformationInitialStateEventArgs = new UpdateContactInformationInitialStateEventArgs(loggedUserUsername);
+                this.UpdateContactInformationInitialState?.Invoke(null, updateContactInformationInitialStateEventArgs);
             }
         }
     }
