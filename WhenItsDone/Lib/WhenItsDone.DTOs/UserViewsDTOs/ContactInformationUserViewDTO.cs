@@ -1,6 +1,6 @@
 ﻿namespace WhenItsDone.DTOs.UserViewsDTOs
 {
-    public class ContactInfomationUserViewDTO
+    public class ContactInformationUserViewDTO
     {
         public string Country { get; set; }
 

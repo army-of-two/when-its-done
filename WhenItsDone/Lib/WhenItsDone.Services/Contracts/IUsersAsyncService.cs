@@ -5,6 +5,8 @@ namespace WhenItsDone.Services.Contracts
 {
     public interface IUsersAsyncService : IGenericAsyncService<User>
     {
+        ContactInformationUserViewDTO GetCurrentUserContactInformation(string username);
+
         MedicalInformationUserViewDTO GetCurrentUserMedicalInformation(string username);
 
         UsernameProfilePictureUserViewDTO GetCurrentUserProfilePicture(string username);

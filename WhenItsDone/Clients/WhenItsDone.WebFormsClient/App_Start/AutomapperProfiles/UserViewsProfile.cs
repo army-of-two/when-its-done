@@ -18,7 +18,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
                 .ForMember(destination => destination.HeightInCm, options => options.MapFrom(source => source.MedicalInformation.HeightInCm))
                 .ForMember(destination => destination.WeightInKg, options => options.MapFrom(source => source.MedicalInformation.WeightInKg));
 
-            this.CreateMap<User, ContactInfomationUserViewDTO>()
+            this.CreateMap<User, ContactInformationUserViewDTO>()
                 .ForMember(destination => destination.Country, options => options.MapFrom(source => source.ContactInformation.Address.Country))
                 .ForMember(destination => destination.City, options => options.MapFrom(source => source.ContactInformation.Address.City))
                 .ForMember(destination => destination.Street, options => options.MapFrom(source => source.ContactInformation.Address.Street));
