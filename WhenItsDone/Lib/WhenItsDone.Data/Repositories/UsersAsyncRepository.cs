@@ -45,5 +45,13 @@ namespace WhenItsDone.Data.Repositories
 
             return this.DbSet.Include(user => user.MedicalInformation).FirstOrDefault(user => user.Username == username);
         }
+
+        public User GetCurrentUserIncludingContactInformation(string username)
+        {
+            Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
+
+            return this.DbSet.Include(user => user.ContactInformation).Include(user => user.ContactInformation.Address).FirstOrDefault(user => user.Username == username);
+        }
+
     }
 }
