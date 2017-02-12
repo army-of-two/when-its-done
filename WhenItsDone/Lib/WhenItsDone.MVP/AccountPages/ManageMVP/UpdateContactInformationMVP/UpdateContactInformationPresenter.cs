@@ -36,7 +36,9 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UpdateContactInformationMVP
 
         public void OnUpdateContactInformationUpdateValues(object sender, UpdateContactInformationUpdateValuesEventArgs args)
         {
-            throw new NotImplementedException();
+            Guard.WhenArgument(args, nameof(UpdateContactInformationInitialStateEventArgs)).IsNull().Throw();
+            Guard.WhenArgument(args.LoggedUserUsername, nameof(args.LoggedUserUsername)).IsNullOrEmpty().Throw();
+
         }
     }
 }
