@@ -1,0 +1,23 @@
+﻿.APViewsWrapper {
+    display: inline-block;
+    background-color: azure;
+    padding: 0px;
+    border-radius: 10px;
+    font-size:1.4em;
+}
+
+    .APViewsWrapper .padding-5 {
+        padding: 0px 15px;
+    }
+
+    .APViewsWrapper .item-row {
+        padding-left: 30px;
+    }
+
+    .APViewsWrapper .row-hover:hover {
+        background-color: greenyellow;
+    }
+
+    .APViewsWrapper .border-bottom {
+        border-bottom: 1px solid black;
+    }

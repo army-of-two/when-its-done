@@ -12,7 +12,8 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
             this.CreateMap<Worker, WorkerNamesIdDTO>()
                 .ForMember(dest => dest.Id, opts => opts.MapFrom(x => x.Id))
                 .ForMember(dest => dest.FirstName, opts => opts.MapFrom(x => x.FirstName))
-                .ForMember(dest => dest.LastName, opts => opts.MapFrom(x => x.LastName));
+                .ForMember(dest => dest.LastName, opts => opts.MapFrom(x => x.LastName))
+                .ForMember(dest => dest.NumberOfDishes, opts => opts.MapFrom(x => x.Dishes.Count));
 
             this.CreateMap<Worker, WorkerDetailInformationDTO>()
                 .ForMember(dest => dest.Id, opts => opts.MapFrom(x => x.Id))

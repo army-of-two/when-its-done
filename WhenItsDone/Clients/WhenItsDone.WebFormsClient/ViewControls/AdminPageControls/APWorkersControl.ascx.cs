@@ -14,14 +14,24 @@ namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls
     [PresenterBinding(typeof(IAPWorkersControlPresenter))]
     public partial class APWorkersControl : MvpUserControl<APWorkersControlViewModel>, IAPWorkersControlView
     {
-        public event EventHandler GetWorkersWithDishes;
+        public event EventHandler GetWorkersNamesAndId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.GetWorkersWithDishes?.Invoke(this, null);
+            if (!this.IsPostBack)
+            {
+                this.GetWorkersNamesAndId?.Invoke(this, null);
 
-            this.workersList.DataSource = this.Model.WorkersWithDishes;
-            this.workersList.DataBind();
+                this.WorkersList.DataSource = this.Model.WorkersWithDishes;
+                this.WorkersList.DataBind();
+            }
+        }
+
+        protected void InfoClick(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+
+
         }
     }
 }

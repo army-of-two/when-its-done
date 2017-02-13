@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls
+namespace WhenItsDone.WebFormsClient
 {
-    public partial class APWorkersSourseControl : System.Web.UI.UserControl
+    public partial class AdminPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
