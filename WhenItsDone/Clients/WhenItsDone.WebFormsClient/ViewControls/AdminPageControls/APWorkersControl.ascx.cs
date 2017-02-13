@@ -30,8 +30,6 @@ namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls
         protected void InfoClick(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-
-
         }
     }
 }

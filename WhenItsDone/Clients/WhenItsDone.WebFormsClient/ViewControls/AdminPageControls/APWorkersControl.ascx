@@ -2,11 +2,12 @@
     CodeBehind="APWorkersControl.ascx.cs"
     Inherits="WhenItsDone.WebFormsClient.ViewControls.AdminPageControls.APWorkersControl" %>
 
-<div id="workers-list">
+<div id="workers-list" class="container">
 
-    <asp:UpdatePanel runat="server" UpdateMode="Always">
+    <asp:UpdatePanel runat="server" UpdateMode="Conditional"
+        ChildrenAsTriggers="false">
         <ContentTemplate>
-            <div class="APViewsWrapper container" runat="server">
+            <div class="APViewsWrapper" runat="server">
                 <table class="centered striped">
                     <thead>
                         <th data-field="Id" class="padding-5">Id</th>
@@ -27,7 +28,7 @@
                                     <td><%# Item.FirstName %></td>
                                     <td><%# Item.LastName %></td>
                                     <td><%# Item.NumberOfDishes %></td>
-                                    <td>
+                                    <td class="padding-5">
                                         <asp:Button runat="server" Text="Info" CssClass="btn light-green"
                                             ID="RepeaterBtn"
                                             CommandName="NeedInfo"
@@ -42,6 +43,14 @@
 
                 </table>
 
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+
+    <asp:UpdatePanel runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+        <ContentTemplate>
+            <div>
+                
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
