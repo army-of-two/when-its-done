@@ -71,6 +71,7 @@
     <Compile Include="DishesAsyncServiceTests\DishesAsyncServiceTests\GetTopCountDishesByRating_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkersAsyncServiceTests\Constructor_Should.cs" />
+    <Compile Include="WorkersAsyncServiceTests\GetWorkersNamesAndId_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
