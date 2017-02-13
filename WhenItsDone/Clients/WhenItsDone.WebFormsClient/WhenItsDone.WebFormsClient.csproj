@@ -231,6 +231,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Css\AdminPage.css" />
+    <Content Include="Content\Css\Manage.css" />
     <Content Include="Content\Css\SiteMaster.css" />
     <Content Include="Content\Css\TopDishesUserControl.css" />
     <Content Include="Content\Site.css" />
@@ -278,6 +279,10 @@
     <Content Include="ViewControls\ContentContainers\TopDishesUserControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopUsersUserControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopVideoItemsUserControl.ascx" />
+    <Content Include="ViewControls\ManageUserControls\UpdateContactInformationUserControl.ascx" />
+    <Content Include="ViewControls\ManageUserControls\UpdateMedicalInformationUserControl.ascx" />
+    <Content Include="ViewControls\ManageUserControls\UpdatePersonalInformationUserControl.ascx" />
+    <Content Include="ViewControls\ManageUserControls\UploadProfilePictureUserControl.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -420,6 +425,7 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\NinjectBindingsModules\CommonNinjectModule.cs" />
     <Compile Include="App_Start\NinjectBindingsModules\DefaultAuthNinjectModule.cs" />
     <Compile Include="App_Start\NinjectBindingsModules\ModelsNinjectModule.cs" />
     <Compile Include="App_Start\PresenterFactories\WebFormsMvpPresenterFactory.cs" />
@@ -498,6 +504,35 @@
     </Compile>
     <Compile Include="ViewControls\ContentContainers\TopVideoItemsUserControl.ascx.designer.cs">
       <DependentUpon>TopVideoItemsUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControls\Contracts\IShouldLoad.cs" />
+    <Compile Include="ViewControls\ManageUserControls\UpdateContactInformationUserControl.ascx.cs">
+      <DependentUpon>UpdateContactInformationUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\ManageUserControls\UpdateContactInformationUserControl.ascx.designer.cs">
+      <DependentUpon>UpdateContactInformationUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControls\ManageUserControls\UpdateMedicalInformationUserControl.ascx.cs">
+      <DependentUpon>UpdateMedicalInformationUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\ManageUserControls\UpdateMedicalInformationUserControl.ascx.designer.cs">
+      <DependentUpon>UpdateMedicalInformationUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControls\ManageUserControls\UpdatePersonalInformationUserControl.ascx.cs">
+      <DependentUpon>UpdatePersonalInformationUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\ManageUserControls\UpdatePersonalInformationUserControl.ascx.designer.cs">
+      <DependentUpon>UpdatePersonalInformationUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControls\ManageUserControls\UploadProfilePictureUserControl.ascx.cs">
+      <DependentUpon>UploadProfilePictureUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\ManageUserControls\UploadProfilePictureUserControl.ascx.designer.cs">
+      <DependentUpon>UploadProfilePictureUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

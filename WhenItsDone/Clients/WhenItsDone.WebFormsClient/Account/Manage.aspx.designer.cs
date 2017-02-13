@@ -13,39 +13,93 @@ namespace WhenItsDone.WebFormsClient.Account {
     public partial class Manage {
         
         /// <summary>
-        /// successMessage control.
+        /// ManageUserUpdatePanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder successMessage;
+        protected global::System.Web.UI.UpdatePanel ManageUserUpdatePanel;
         
         /// <summary>
-        /// ChangePassword control.
+        /// ProfilePictureButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ChangePassword;
+        protected global::System.Web.UI.WebControls.Button ProfilePictureButton;
         
         /// <summary>
-        /// CreatePassword control.
+        /// PersonalInformationButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink CreatePassword;
+        protected global::System.Web.UI.WebControls.Button PersonalInformationButton;
         
         /// <summary>
-        /// PhoneNumber control.
+        /// MedicalInformationButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PhoneNumber;
+        protected global::System.Web.UI.WebControls.Button MedicalInformationButton;
+        
+        /// <summary>
+        /// ContactInformationButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ContactInformationButton;
+        
+        /// <summary>
+        /// ActiveContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ActiveContent;
+        
+        /// <summary>
+        /// ManageProfilePictureUserControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WhenItsDone.WebFormsClient.ViewControls.ManageUserControls.UploadProfilePictureUserControl ManageProfilePictureUserControl;
+        
+        /// <summary>
+        /// UpdatePersonalInformationUserControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WhenItsDone.WebFormsClient.ViewControls.ManageUserControls.UpdatePersonalInformationUserControl UpdatePersonalInformationUserControl;
+        
+        /// <summary>
+        /// UpdateMedicalInformationUserControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WhenItsDone.WebFormsClient.ViewControls.ManageUserControls.UpdateMedicalInformationUserControl UpdateMedicalInformationUserControl;
+        
+        /// <summary>
+        /// UpdateContactInformationUserControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WhenItsDone.WebFormsClient.ViewControls.ManageUserControls.UpdateContactInformationUserControl UpdateContactInformationUserControl;
     }
 }

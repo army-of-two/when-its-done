@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bytes2you.Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a7d501dd757e0442, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Bytes2you.Validation.2.0.0.0\lib\portable-win+net40+sl40+wp+Xbox40\Bytes2you.Validation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,6 +48,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountPages\ManageMVP\UpdateContactInformationMVP\IUpdateContactInformationPresenter.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateContactInformationMVP\IUpdateContactInformationView.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateContactInformationMVP\UpdateContactInformationInitialStateEventArgs.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateContactInformationMVP\UpdateContactInformationPresenter.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateContactInformationMVP\UpdateContactInformationUpdateValuesEventArgs.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateContactInformationMVP\UpdateContactInformationViewModel.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\IUpdateMedicalInformationPresenter.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\IUpdateMedicalInformationView.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\UpdateMedicalInformationPresenter.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\UpdateMedicalInformationInitialStateEventArgs.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\UpdateMedicalInformationUpdateValuesEventArgs.cs" />
+    <Compile Include="AccountPages\ManageMVP\UpdateMedicalInformationMVP\UpdateMedicalInformationViewModel.cs" />
+    <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\IUploadProfilePicturePresenter.cs" />
+    <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\IUploadProfilePictureView.cs" />
+    <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\UploadProfilePictureEventArgs.cs" />
+    <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\UploadProfilePictureFromUrlEventArgs.cs" />
+    <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\UploadProfilePictureInitialStateEventArgs.cs" />
+    <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\UploadProfilePicturePresenter.cs" />
+    <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\UploadProfilePictureViewModel.cs" />
     <Compile Include="AdminPageControls\APWorkersControlMVP\APWorkersControlPresenter.cs" />
     <Compile Include="AdminPageControls\APWorkersControlMVP\APWorkersControlViewModel.cs" />
     <Compile Include="AdminPageControls\APWorkersControlMVP\IAPWorkersControlPresenter.cs" />
@@ -74,6 +97,10 @@
     <ProjectReference Include="..\WhenItsDone.DTOs\WhenItsDone.DTOs.csproj">
       <Project>{DA36A62D-37D6-47F1-B292-A73CFF233CA8}</Project>
       <Name>WhenItsDone.DTOs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WhenItsDone.Models\WhenItsDone.Models.csproj">
+      <Project>{e10cc5a1-7dd9-4f43-8798-aa58882caf6f}</Project>
+      <Name>WhenItsDone.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\WhenItsDone.Services\WhenItsDone.Services.csproj">
       <Project>{5C51DB50-52FB-4B9C-8B16-B3B104FFA090}</Project>

@@ -1,29 +1,43 @@
-.content-container-even
+.content-container-even, .content-container-odd
   min-height: 640px
- 
+
+  .panel
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.42)
+    border-width: 3px
+    border-radius: 25px
+
+  .panel-heading
+    border-top-left-radius: 18px
+    border-top-right-radius: 18px
+
   .panel-body
-    max-height: 360px
+    max-height: 480px
     overflow: hidden
     
     img
       width: 100%;
       margin-top: -125px;
-      height: 600px;
+      height: 720px;
       object-fit: contain;
       padding: 25px
 
     .embedded-video-container
-      height: 600px;
+      width: 100%;    
+      height: 480px;
       object-fit: contain;
       margin-top: 25%
 
       iframe.embedded-video
-      
+        width: 100%;    
+        height: (@width / 16 * 9)
+
         &:hover
           cursor: pointer
         
-  .panel:hover
-    background-color: rgba(66, 139, 202, 0.10)
+  .panel:hover, .panel-primary:hover
+    // background-color: rgba(255, 255, 255, 0.93)
+    border-color: darken(#428bca, 15)
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.69)
 
   .panel:hover .panel-heading
     background-color: darken(#428bca, 15)

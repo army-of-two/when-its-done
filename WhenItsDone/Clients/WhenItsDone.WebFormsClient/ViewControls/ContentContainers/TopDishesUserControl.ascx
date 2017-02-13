@@ -5,7 +5,7 @@
     Inherits="WhenItsDone.WebFormsClient.ViewControls.ContentContainers.TopDishesUserControl" %>
 
 <section class="content-container-heading">
-    <h1>Food.Me Top 3</h1>
+    <h2>Food.Me Top 3</h2>
 </section>
 <section class="content-container-content">
     <div class="row">
@@ -17,10 +17,10 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-md-10 text-left">
-                                        <h3 class="panel-title"><%#: Item.Name %></h3>
+                                        <h1 class="panel-title"><%#: Item.Name %></h1>
                                     </div>
                                     <div class="col-md-2 text-right">
-                                        <h3 class="panel-title"><%#: Item.Rating %></h3>
+                                        <h2 class="panel-title"><%#: Item.Rating %></h2>
                                     </div>
                                 </div>
                             </div>
