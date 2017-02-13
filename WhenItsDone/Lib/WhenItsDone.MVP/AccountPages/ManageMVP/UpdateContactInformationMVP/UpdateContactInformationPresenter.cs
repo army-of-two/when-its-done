@@ -31,8 +31,8 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UpdateContactInformationMVP
             var foundUserContactInformation = this.usersService.GetCurrentUserContactInformation(args.LoggedUserUsername);
 
             this.View.Model.Country = foundUserContactInformation.Country ?? "Country not set";
-            this.View.Model.City = foundUserContactInformation.City ?? "City not set";
             this.View.Model.Street = foundUserContactInformation.Street ?? "Street not set";
+            this.View.Model.City = foundUserContactInformation.City ?? "City not set";
         }
 
         public void OnUpdateContactInformationUpdateValues(object sender, UpdateContactInformationUpdateValuesEventArgs args)
