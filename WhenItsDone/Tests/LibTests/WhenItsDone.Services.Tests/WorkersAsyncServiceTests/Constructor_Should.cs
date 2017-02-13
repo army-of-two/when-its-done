@@ -36,5 +36,43 @@ namespace WhenItsDone.Services.Tests.WorkersAsyncServiceTests
 
             Assert.AreSame(mockedRepo.Object, repoField);
         }
+
+        [Test]
+        public void Should_Call_Base_WithSameRepo_WhenArguments_AreValid()
+        {
+            var mockedRepo = new Mock<IWorkerAsyncRepository>();
+
+            var mockedFactory = new Mock<IDisposableUnitOfWorkFactory>();
+
+            var obj = new WorkersAsyncService(mockedRepo.Object, mockedFactory.Object);
+
+            var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
+
+            var repoField = typeof(WorkersAsyncService)
+                                .BaseType
+                                .GetField("asyncRepository", bindingFlags)
+                                .GetValue(obj);
+
+            Assert.AreSame(mockedRepo.Object, repoField);
+        }
+
+        [Test]
+        public void Should_Call_Base_WithSameFactory_WhenArguments_AreValid()
+        {
+            var mockedRepo = new Mock<IWorkerAsyncRepository>();
+
+            var mockedFactory = new Mock<IDisposableUnitOfWorkFactory>();
+
+            var obj = new WorkersAsyncService(mockedRepo.Object, mockedFactory.Object);
+
+            var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
+
+            var factoryField = typeof(WorkersAsyncService)
+                                .BaseType
+                                .GetField("unitOfWorkFactory", bindingFlags)
+                                .GetValue(obj);
+
+            Assert.AreSame(mockedFactory.Object, factoryField);
+        }
     }
 }
