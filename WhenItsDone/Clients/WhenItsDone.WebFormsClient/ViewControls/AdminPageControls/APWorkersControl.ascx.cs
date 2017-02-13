@@ -15,6 +15,7 @@ namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls
     public partial class APWorkersControl : MvpUserControl<APWorkersControlViewModel>, IAPWorkersControlView
     {
         public event EventHandler GetWorkersNamesAndId;
+        public event EventHandler<string> UserClickedInfoButton;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,13 +24,16 @@ namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls
                 this.GetWorkersNamesAndId?.Invoke(this, null);
 
                 this.WorkersList.DataSource = this.Model.WorkersWithDishes;
-                this.WorkersList.DataBind();
             }
+
+            this.WorkersList.DataBind();
         }
 
         protected void InfoClick(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
+
+            UserClickedInfoButton?.Invoke(this, btn.CommandArgument);
         }
     }
 }

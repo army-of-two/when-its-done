@@ -5,9 +5,9 @@
 <div id="workers-list" class="container">
 
     <asp:UpdatePanel runat="server" UpdateMode="Conditional"
-        ChildrenAsTriggers="false">
+        ChildrenAsTriggers="true">
         <ContentTemplate>
-            <div class="APViewsWrapper" runat="server">
+            <div class="APViewsWrapper" runat="server" id="WorkersTable">
                 <table class="centered striped">
                     <thead>
                         <th data-field="Id" class="padding-5">Id</th>
@@ -29,13 +29,14 @@
                                     <td><%# Item.LastName %></td>
                                     <td><%# Item.NumberOfDishes %></td>
                                     <td class="padding-5">
-                                        <asp:Button runat="server" Text="Info" CssClass="btn light-green"
+                                        <asp:Button runat="server" Text="Info" CssClass="light-green waves-effect waves-light btn"
                                             ID="RepeaterBtn"
                                             CommandName="NeedInfo"
                                             CommandArgument="<%# Item.Id %>"
                                             OnClick="InfoClick" />
                                     </td>
                                 </tr>
+
                             </ItemTemplate>
 
                         </asp:Repeater>
@@ -43,14 +44,6 @@
 
                 </table>
 
-            </div>
-        </ContentTemplate>
-    </asp:UpdatePanel>
-
-    <asp:UpdatePanel runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
-        <ContentTemplate>
-            <div>
-                
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
