@@ -23,7 +23,7 @@ namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls
             {
                 this.GetWorkersNamesAndId?.Invoke(this, null);
 
-                this.WorkersList.DataSource = this.Model.WorkersWithDishes;
+                this.WorkersList.DataSource = this.Model.WorkersNamesAndId;
             }
 
             this.WorkersList.DataBind();

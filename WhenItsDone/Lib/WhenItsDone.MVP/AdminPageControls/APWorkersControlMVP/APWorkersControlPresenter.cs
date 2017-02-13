@@ -25,7 +25,7 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkersControlMVP
 
         private void View_GetWorkersNamesAndId(object sender, EventArgs e)
         {
-            this.View.Model.WorkersWithDishes = this.GetMocks();// this.workersService.GetWorkersNamesAndId();
+            this.View.Model.WorkersNamesAndId = this.GetMocks();// this.workersService.GetWorkersNamesAndId();
         }
 
         private IEnumerable<WorkerNamesIdDTO> GetMocks()

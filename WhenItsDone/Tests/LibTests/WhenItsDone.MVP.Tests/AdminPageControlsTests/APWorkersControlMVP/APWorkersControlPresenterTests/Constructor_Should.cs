@@ -45,5 +45,7 @@ namespace WhenItsDone.MVP.Tests.AdminPageControlsTests.APWorkersControlMVP.APWor
 
             Assert.AreSame(mockedView.Object, obj.View);
         }
+
+
     }
 }
