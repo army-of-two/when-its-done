@@ -18,10 +18,20 @@ namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.GetWorkersNamesAndId?.Invoke(this, null);
+            if (!this.IsPostBack)
+            {
+                this.GetWorkersNamesAndId?.Invoke(this, null);
 
-            this.workersList.DataSource = this.Model.WorkersWithDishes;
-            this.workersList.DataBind();
+                this.WorkersList.DataSource = this.Model.WorkersWithDishes;
+                this.WorkersList.DataBind();
+            }
+        }
+
+        protected void InfoClick(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+
+
         }
     }
 }

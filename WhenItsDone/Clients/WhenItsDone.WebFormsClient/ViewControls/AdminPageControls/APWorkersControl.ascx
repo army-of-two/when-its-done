@@ -4,37 +4,43 @@
 
 <div id="workers-list">
 
-    <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+    <asp:UpdatePanel runat="server" UpdateMode="Always">
         <ContentTemplate>
             <div class="APViewsWrapper container" runat="server">
+                <table class="centered striped">
+                    <thead>
+                        <th data-field="Id" class="padding-5">Id</th>
+                        <th data-field="FirstName">First Name</th>
+                        <th data-field="LastName">Last Name</th>
+                        <th data-field="NumberOfDishes">Number Of Dishes</th>
+                        <th data-field="buttons"></th>
+                    </thead>
+                    <tbody>
+                        <asp:Repeater runat="server"
+                            ID="WorkersList"
+                            ItemType="WhenItsDone.DTOs.WorkerVIewsDTOs.WorkerNamesIdDTO"
+                            DataSource="<%# this.Model.WorkersWithDishes %>">
 
-                <asp:GridView runat="server" ID="workersList"
-                    DataKeyNames="Id"
-                    GridLines="None"
-                    PageSize="10"
-                    RowStyle-Height="25px"
-                    HeaderStyle-Height="30px"
-                    HeaderStyle-CssClass="border-bottom"
-                    HeaderStyle-BackColor="DarkCyan"
-                    HeaderStyle-ForeColor="Azure"
-                    Font-Size="Larger"
-                    ForeColor="#000099"
-                    CellPadding="5"
-                    AutoGenerateColumns="false">
+                            <ItemTemplate>
+                                <tr>
+                                    <td class="padding-5"><%# Item.Id %></td>
+                                    <td><%# Item.FirstName %></td>
+                                    <td><%# Item.LastName %></td>
+                                    <td><%# Item.NumberOfDishes %></td>
+                                    <td>
+                                        <asp:Button runat="server" Text="Info" CssClass="btn light-green"
+                                            ID="RepeaterBtn"
+                                            CommandName="NeedInfo"
+                                            CommandArgument="<%# Item.Id %>"
+                                            OnClick="InfoClick" />
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
 
-                    <AlternatingRowStyle BackColor="Highlight" />
+                        </asp:Repeater>
+                    </tbody>
 
-                    <Columns>
-                        <asp:BoundField DataField="Id" HeaderText="Id" />
-                        <asp:BoundField DataField="FirstName" HeaderText="First Name" />
-                        <asp:BoundField DataField="LastName" HeaderText="Last Name" />
-                        <asp:ButtonField ButtonType="Link" DataTextField="NumberOfDishes" HeaderText="Dishes" />
-                        <asp:ButtonField ButtonType="Link" ControlStyle-CssClass="btn btn-primary" Text="Info" />
-                        <asp:ButtonField ButtonType="Link" ControlStyle-CssClass="btn btn-warning" Text="Edit" />
-                        <asp:ButtonField ButtonType="Link" ControlStyle-CssClass="btn btn-danger" Text="Delete" />
-                    </Columns>
-
-                </asp:GridView>
+                </table>
 
             </div>
         </ContentTemplate>
