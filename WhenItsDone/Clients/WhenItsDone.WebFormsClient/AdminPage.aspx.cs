@@ -16,6 +16,8 @@ namespace WhenItsDone.WebFormsClient
 
         private void APWorkersControl_UserClickedInfoButton(object sender, string e)
         {
+            
+
             // Call right user control here
         }
     }

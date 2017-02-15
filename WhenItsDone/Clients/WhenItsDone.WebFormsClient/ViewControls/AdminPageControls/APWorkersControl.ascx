@@ -2,7 +2,7 @@
     CodeBehind="APWorkersControl.ascx.cs"
     Inherits="WhenItsDone.WebFormsClient.ViewControls.AdminPageControls.APWorkersControl" %>
 
-<div id="workers-list" class="container">
+<div id="workers-list">
 
     <asp:UpdatePanel runat="server" UpdateMode="Conditional"
         ChildrenAsTriggers="false">
@@ -31,7 +31,7 @@
                                     <td class="padding-5">
                                         <asp:Button runat="server" Text="Info" CssClass="light-green waves-effect waves-light btn"
                                             ID="RepeaterBtn"
-                                            CommandName="NeedInfo"
+                                            CommandName="InfoClick"
                                             CommandArgument="<%# Item.Id %>"
                                             OnClick="InfoClick" />
                                     </td>

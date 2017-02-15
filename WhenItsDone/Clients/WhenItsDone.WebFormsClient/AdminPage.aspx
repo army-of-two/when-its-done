@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminPage.aspx.cs" Inherits="WhenItsDone.WebFormsClient.AdminPage" %>
 
 <%@ Register Src="~/ViewControls/AdminPageControls/APWorkersControl.ascx" TagPrefix="uc" TagName="APWorkersControl" %>
+<%@ Register Src="~/ViewControls/AdminPageControls/APWorkerDetailsControl.ascx" TagPrefix="uc" TagName="APWorkerDetailsControl" %>
+
 
 <asp:Content ContentPlaceHolderID="Stylesheets" runat="server">
     <link href="<%= ResolveUrl("~/Content/Css/AdminPage.css") %>" rel="stylesheet" type="text/css" />
@@ -12,9 +14,10 @@
     <asp:UpdatePanel runat="server" UpdateMode="Conditional"
         ChildrenAsTriggers="false" ID="AdminPageUpdater">
         <ContentTemplate>
-
-            <uc:APWorkersControl runat="server" ID="APWorkersControl" />
-
+            <div class="container">
+                <uc:APWorkersControl runat="server" ID="APWorkersControl" />
+                <uc:APWorkerDetailsControl runat="server" ID="APWorkerDetailsControl" />
+            </div>
         </ContentTemplate>
     </asp:UpdatePanel>
 
