@@ -61,13 +61,15 @@ namespace WhenItsDone.Services
                 return isSuccessful;
             }
 
-            var convertedPrice = this.ConvertStringValueToDecimal(price);
-            var convertedCalories = this.ConvertStringValueToDecimal(calories);
-            var convertedCarbohydrates = this.ConvertStringValueToDecimal(carbohydrates);
-            var convertedFats = this.ConvertStringValueToDecimal(fats);
-            var convertedProtein = this.ConvertStringValueToDecimal(protein);
+            var convertedPrice = this.ConvertStringValueToDecimal(price, nameof(price));
+            var convertedCalories = this.ConvertStringValueToDecimal(calories, nameof(calories));
+            var convertedCarbohydrates = this.ConvertStringValueToDecimal(carbohydrates, nameof(carbohydrates));
+            var convertedFats = this.ConvertStringValueToDecimal(fats, nameof(fats));
+            var convertedProtein = this.ConvertStringValueToDecimal(protein, nameof(protein));
 
             var newDish = this.dishFactory.GetInitializedDish(dishName, convertedPrice, convertedCalories, convertedCarbohydrates, convertedFats, convertedProtein);
+            newDish.WorkerId = loggedUserId.Value;
+
             this.dishesAsyncRepository.Add(newDish);
             using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
             {
@@ -81,12 +83,12 @@ namespace WhenItsDone.Services
             return isSuccessful;
         }
 
-        private decimal ConvertStringValueToDecimal(string value)
+        private decimal ConvertStringValueToDecimal(string value, string parameterName)
         {
             decimal convertedValue;
             if (!decimal.TryParse(value, out convertedValue))
             {
-                throw new ArgumentException("Invalid decimal value");
+                throw new ArgumentException(parameterName);
             }
 
             return convertedValue;
