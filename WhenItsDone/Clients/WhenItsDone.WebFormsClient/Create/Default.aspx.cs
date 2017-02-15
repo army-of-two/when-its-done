@@ -13,5 +13,10 @@ namespace WhenItsDone.WebFormsClient.Create
         {
 
         }
+
+        public void OnCreateFormSubmit(object sender, EventArgs e)
+        {
+
+        }
     }
 }
