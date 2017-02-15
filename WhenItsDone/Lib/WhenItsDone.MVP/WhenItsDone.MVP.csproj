@@ -82,6 +82,11 @@
     <Compile Include="ContentContainers\TopDishesMVP\TopDishesEventArgs.cs" />
     <Compile Include="ContentContainers\TopDishesMVP\TopDishesPresenter.cs" />
     <Compile Include="ContentContainers\TopDishesMVP\TopDishesViewModel.cs" />
+    <Compile Include="CreatePages\CreateEventArgs.cs" />
+    <Compile Include="CreatePages\CreatePresenter.cs" />
+    <Compile Include="CreatePages\CreateViewModel.cs" />
+    <Compile Include="CreatePages\ICreatePresenter.cs" />
+    <Compile Include="CreatePages\ICreateView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
