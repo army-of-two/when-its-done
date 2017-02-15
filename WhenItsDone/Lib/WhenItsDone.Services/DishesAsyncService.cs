@@ -43,8 +43,10 @@ namespace WhenItsDone.Services
             return topDishes;
         }
 
-        public bool CreateDish()
+        public bool CreateDish(string username, string dishName, string price, string calories, string carbohydrates, string fats, string protein, string video)
         {
+
+
             return true;
         }
     }

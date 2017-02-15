@@ -2,13 +2,21 @@
 
 using WebFormsMvp;
 
+using WhenItsDone.Services.Contracts;
+
 namespace WhenItsDone.MVP.CreatePages
 {
     public class CreatePresenter : Presenter<ICreateView>, ICreatePresenter
     {
-        public CreatePresenter(ICreateView view)
+        private readonly IDishesAsyncService dishesAsyncService;
+
+        public CreatePresenter(ICreateView view, IDishesAsyncService dishesAsyncService)
             : base(view)
         {
+            Guard.WhenArgument(dishesAsyncService, nameof(IDishesAsyncService)).IsNull().Throw();
+
+            this.dishesAsyncService = dishesAsyncService;
+
             this.View.CreateDish += this.OnCreateDish;
         }
 

@@ -23,8 +23,9 @@ namespace WhenItsDone.Services.Tests.DishesAsyncServiceTests.DishesAsyncServiceT
             asyncRepository.Setup(repo => repo.GetTopCountDishesByRating(It.IsAny<int>())).Returns(Task.Run<ICollection<NamePhotoRatingDishViewDTO>>(() => new List<NamePhotoRatingDishViewDTO>()));
 
             var unitOfWorkFactory = new Mock<IDisposableUnitOfWorkFactory>();
+            var usersRepository = new Mock<IUsersAsyncRepository>();
 
-            var dishesAsyncService = new DishesAsyncService(asyncRepository.Object, unitOfWorkFactory.Object);
+            var dishesAsyncService = new DishesAsyncService(asyncRepository.Object, usersRepository.Object, unitOfWorkFactory.Object);
 
             Assert.That(
                 () => dishesAsyncService.GetTopCountDishesByRating(dishesCount, false),
@@ -38,8 +39,9 @@ namespace WhenItsDone.Services.Tests.DishesAsyncServiceTests.DishesAsyncServiceT
             asyncRepository.Setup(repo => repo.GetTopCountDishesByRating(It.IsAny<int>())).Returns(Task.Run<ICollection<NamePhotoRatingDishViewDTO>>(() => new List<NamePhotoRatingDishViewDTO>()));
 
             var unitOfWorkFactory = new Mock<IDisposableUnitOfWorkFactory>();
+            var usersRepository = new Mock<IUsersAsyncRepository>();
 
-            var dishesAsyncService = new DishesAsyncService(asyncRepository.Object, unitOfWorkFactory.Object);
+            var dishesAsyncService = new DishesAsyncService(asyncRepository.Object, usersRepository.Object, unitOfWorkFactory.Object);
 
             var dishesCount = 3;
             dishesAsyncService.GetTopCountDishesByRating(dishesCount, false);
@@ -57,8 +59,9 @@ namespace WhenItsDone.Services.Tests.DishesAsyncServiceTests.DishesAsyncServiceT
             asyncRepository.Setup(repo => repo.GetTopCountDishesByRating(It.IsAny<int>())).Returns(Task.Run<ICollection<NamePhotoRatingDishViewDTO>>(() => new List<NamePhotoRatingDishViewDTO>()));
 
             var unitOfWorkFactory = new Mock<IDisposableUnitOfWorkFactory>();
+            var usersRepository = new Mock<IUsersAsyncRepository>();
 
-            var dishesAsyncService = new DishesAsyncService(asyncRepository.Object, unitOfWorkFactory.Object);
+            var dishesAsyncService = new DishesAsyncService(asyncRepository.Object, usersRepository.Object, unitOfWorkFactory.Object);
 
             dishesAsyncService.GetTopCountDishesByRating(dishesCount, false);
 
@@ -72,8 +75,9 @@ namespace WhenItsDone.Services.Tests.DishesAsyncServiceTests.DishesAsyncServiceT
             asyncRepository.Setup(repo => repo.GetTopCountDishesByRating(It.IsAny<int>())).Returns(Task.Run<ICollection<NamePhotoRatingDishViewDTO>>(() => new List<NamePhotoRatingDishViewDTO>()));
 
             var unitOfWorkFactory = new Mock<IDisposableUnitOfWorkFactory>();
+            var usersRepository = new Mock<IUsersAsyncRepository>();
 
-            var dishesAsyncService = new DishesAsyncService(asyncRepository.Object, unitOfWorkFactory.Object);
+            var dishesAsyncService = new DishesAsyncService(asyncRepository.Object, usersRepository.Object, unitOfWorkFactory.Object);
 
             var dishesCount = 3;
             var actualResult = dishesAsyncService.GetTopCountDishesByRating(dishesCount, false);
@@ -90,8 +94,9 @@ namespace WhenItsDone.Services.Tests.DishesAsyncServiceTests.DishesAsyncServiceT
             asyncRepository.Setup(repo => repo.GetTopCountDishesByRating(It.IsAny<int>())).Returns(Task.Run<ICollection<NamePhotoRatingDishViewDTO>>(() => mockRepositoryResult));
 
             var unitOfWorkFactory = new Mock<IDisposableUnitOfWorkFactory>();
+            var usersRepository = new Mock<IUsersAsyncRepository>();
 
-            var dishesAsyncService = new DishesAsyncService(asyncRepository.Object, unitOfWorkFactory.Object);
+            var dishesAsyncService = new DishesAsyncService(asyncRepository.Object, usersRepository.Object, unitOfWorkFactory.Object);
 
             var dishesCount = 3;
             var actualResult = dishesAsyncService.GetTopCountDishesByRating(dishesCount, false);
