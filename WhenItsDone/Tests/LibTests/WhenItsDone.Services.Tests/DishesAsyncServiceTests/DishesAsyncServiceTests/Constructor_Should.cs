@@ -22,9 +22,10 @@ namespace WhenItsDone.Services.Tests.DishesAsyncServiceTests.DishesAsyncServiceT
             var usersRepository = new Mock<IUsersAsyncRepository>();
             var dishFactory = new Mock<IInitializedDishFactory>();
             var videoItemFactory = new Mock<IInitializedVideoItemFactory>();
+            var photoItemFactory = new Mock<IInitializedPhotoItemFactory>();
 
             Assert.That(
-                () => new DishesAsyncService(asyncRepository, usersRepository.Object, dishFactory.Object, videoItemFactory.Object, unitOfWorkFactory.Object),
+                () => new DishesAsyncService(asyncRepository, usersRepository.Object, dishFactory.Object, videoItemFactory.Object, photoItemFactory.Object, unitOfWorkFactory.Object),
                 Throws.InstanceOf<ArgumentNullException>().With.Message.Contains(nameof(asyncRepository)));
         }
 
@@ -36,8 +37,9 @@ namespace WhenItsDone.Services.Tests.DishesAsyncServiceTests.DishesAsyncServiceT
             var usersRepository = new Mock<IUsersAsyncRepository>();
             var dishFactory = new Mock<IInitializedDishFactory>();
             var videoItemFactory = new Mock<IInitializedVideoItemFactory>();
+            var photoItemFactory = new Mock<IInitializedPhotoItemFactory>();
 
-            var actualInstace = new DishesAsyncService(asyncRepository.Object, usersRepository.Object, dishFactory.Object, videoItemFactory.Object, unitOfWorkFactory.Object);
+            var actualInstace = new DishesAsyncService(asyncRepository.Object, usersRepository.Object, dishFactory.Object, videoItemFactory.Object, photoItemFactory.Object, unitOfWorkFactory.Object);
 
             Assert.That(actualInstace, Is.Not.Null.And.InstanceOf<IDishesAsyncService>());
         }
@@ -50,8 +52,9 @@ namespace WhenItsDone.Services.Tests.DishesAsyncServiceTests.DishesAsyncServiceT
             var usersRepository = new Mock<IUsersAsyncRepository>();
             var dishFactory = new Mock<IInitializedDishFactory>();
             var videoItemFactory = new Mock<IInitializedVideoItemFactory>();
+            var photoItemFactory = new Mock<IInitializedPhotoItemFactory>();
 
-            var actualInstace = new DishesAsyncService(asyncRepository.Object, usersRepository.Object, dishFactory.Object, videoItemFactory.Object, unitOfWorkFactory.Object);
+            var actualInstace = new DishesAsyncService(asyncRepository.Object, usersRepository.Object, dishFactory.Object, videoItemFactory.Object, photoItemFactory.Object, unitOfWorkFactory.Object);
 
             var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
             var dishesAsyncRepositoryField = typeof(DishesAsyncService).GetField("dishesAsyncRepository", bindingFlags);
@@ -68,8 +71,9 @@ namespace WhenItsDone.Services.Tests.DishesAsyncServiceTests.DishesAsyncServiceT
             var usersRepository = new Mock<IUsersAsyncRepository>();
             var dishFactory = new Mock<IInitializedDishFactory>();
             var videoItemFactory = new Mock<IInitializedVideoItemFactory>();
+            var photoItemFactory = new Mock<IInitializedPhotoItemFactory>();
 
-            var actualInstace = new DishesAsyncService(asyncRepository.Object, usersRepository.Object, dishFactory.Object, videoItemFactory.Object, unitOfWorkFactory.Object);
+            var actualInstace = new DishesAsyncService(asyncRepository.Object, usersRepository.Object, dishFactory.Object, videoItemFactory.Object, photoItemFactory.Object, unitOfWorkFactory.Object);
 
             var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
             var dishesAsyncRepositoryField = typeof(DishesAsyncService).GetField("dishesAsyncRepository", bindingFlags);
