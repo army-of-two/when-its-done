@@ -61,7 +61,13 @@ namespace WhenItsDone.Services
                 return isSuccessful;
             }
 
-            var newDish = this.dishFactory.GetInitializedDish(dishName, price, calories, carbohydrates, fats, protein, video);
+            var convertedPrice = this.ConvertStringValueToDecimal(price);
+            var convertedCalories = this.ConvertStringValueToDecimal(calories);
+            var convertedCarbohydrates = this.ConvertStringValueToDecimal(carbohydrates);
+            var convertedFats = this.ConvertStringValueToDecimal(fats);
+            var convertedProtein = this.ConvertStringValueToDecimal(protein);
+
+            var newDish = this.dishFactory.GetInitializedDish(dishName, convertedPrice, convertedCalories, convertedCarbohydrates, convertedFats, convertedProtein);
             this.dishesAsyncRepository.Add(newDish);
             using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
             {
@@ -73,6 +79,17 @@ namespace WhenItsDone.Services
             }
 
             return isSuccessful;
+        }
+
+        private decimal ConvertStringValueToDecimal(string value)
+        {
+            decimal convertedValue;
+            if (!decimal.TryParse(value, out convertedValue))
+            {
+                throw new ArgumentException("Invalid decimal value");
+            }
+
+            return convertedValue;
         }
     }
 }
