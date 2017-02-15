@@ -50,7 +50,7 @@ namespace WhenItsDone.Services
             return topDishes;
         }
 
-        public bool CreateDish(string username, string dishName, string price, string calories, string carbohydrates, string fats, string protein, string videoYouTubeUrl)
+        public bool CreateDish(string username, string dishName, string price, string calories, string carbohydrates, string fats, string protein, string videoYouTubeUrl, string photoUrl)
         {
             var isSuccessful = false;
             if (string.IsNullOrEmpty(username))

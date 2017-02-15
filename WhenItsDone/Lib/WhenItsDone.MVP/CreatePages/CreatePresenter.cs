@@ -31,8 +31,9 @@ namespace WhenItsDone.MVP.CreatePages
             Guard.WhenArgument(args.Fats, nameof(args.Fats)).IsNullOrEmpty().Throw();
             Guard.WhenArgument(args.Protein, nameof(args.Protein)).IsNullOrEmpty().Throw();
             Guard.WhenArgument(args.VideoUrl, nameof(args.VideoUrl)).IsNullOrEmpty().Throw();
+            Guard.WhenArgument(args.PhotoUrl, nameof(args.PhotoUrl)).IsNullOrEmpty().Throw();
 
-            var isSuccessful = this.dishesAsyncService.CreateDish(args.LoggedUserUsername, args.Name, args.Price, args.Calories, args.Carbohydrates, args.Fats, args.Protein, args.VideoUrl);
+            var isSuccessful = this.dishesAsyncService.CreateDish(args.LoggedUserUsername, args.Name, args.Price, args.Calories, args.Carbohydrates, args.Fats, args.Protein, args.VideoUrl, args.PhotoUrl);
         }
     }
 }
