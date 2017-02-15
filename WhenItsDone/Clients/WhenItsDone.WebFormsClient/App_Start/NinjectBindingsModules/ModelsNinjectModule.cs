@@ -113,17 +113,15 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
         private PhotoItem GetInitializedPhotoItemFactoryMethod(IContext context)
         {
             var methodParameters = context.Parameters.ToList();
-            var title = (string)methodParameters[0].GetValue(context, null);
-            var youTubeUrl = (string)methodParameters[1].GetValue(context, null);
-            var youTubeId = youTubeUrl.Split('=')[1];
+            var url = (string)methodParameters[0].GetValue(context, null);
+            var userId = (int)methodParameters[1].GetValue(context, null);
 
-            var videoItemFactory = context.Kernel.Get<IVideoItemFactory>();
-            var nextVideoItem = videoItemFactory.GetVideoItem();
-            nextVideoItem.Title = title;
-            nextVideoItem.YouTubeId = youTubeId;
-            nextVideoItem.YouTubeUrl = youTubeUrl;
+            var videoItemFactory = context.Kernel.Get<IPhotoItemFactory>();
+            var nextPhotoItem = videoItemFactory.GetPhotoItem();
+            nextPhotoItem.Url = url;
+            nextPhotoItem.WorkerId = userId;
 
-            return null;
+            return nextPhotoItem;
         }
     }
 }
