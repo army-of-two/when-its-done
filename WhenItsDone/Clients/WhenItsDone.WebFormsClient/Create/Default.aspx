@@ -14,47 +14,62 @@
 
         <div class="well">
             <div class="row">
-                <div class="input-field col s4">
-                    <input id="DishName" type="text" class="validate">
-                    <label for="DishName">Name</label>
+
+                <div class="col s8">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="DishName" type="text" class="validate">
+                            <label for="DishName">Name</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                            <input id="DishPrice" type="text" class="validate">
+                            <label for="DishPrice">Price</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="Calories" type="text" class="validate">
+                            <label for="Calories">Calories</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                            <input id="Carbohydrates" type="text" class="validate">
+                            <label for="Carbohydrates">Carbohydrates</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="Fats" type="text" class="validate">
+                            <label for="Fats">Fats</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                            <input id="Protein" type="text" class="validate">
+                            <label for="Protein">Protein</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="Video" type="text" class="validate">
+                            <label for="Video">Video</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <asp:LinkButton CssClass="waves-effect waves-light btn" runat="server" OnClick="OnCreateFormSubmit">
+                            <i class="material-icons right">cloud</i>Submit
+                        </asp:LinkButton>
+                    </div>
                 </div>
 
-                <div class="input-field col s4">
-                    <input id="DishPrice" type="text" class="validate">
-                    <label for="DishPrice">Price</label>
+                <div class="col s4">
+                    <span>image tag here</span>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="input-field col s4">
-                    <input id="Calories" type="text" class="validate">
-                    <label for="Calories">Calories</label>
-                </div>
-
-                <div class="input-field col s4">
-                    <input id="Carbohydrates" type="text" class="validate">
-                    <label for="Carbohydrates">Carbohydrates</label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="input-field col s4">
-                    <input id="Fats" type="text" class="validate">
-                    <label for="Fats">Fats</label>
-                </div>
-
-                <div class="input-field col s4">
-                    <input id="Protein" type="text" class="validate">
-                    <label for="Protein">Protein</label>
-                </div>
-            </div>
-
-            <div class="row">
-                <asp:LinkButton CssClass="waves-effect waves-light btn" runat="server" OnClick="OnCreateFormSubmit">
-                <i class="material-icons right">cloud</i>Submit
-                </asp:LinkButton>
-            </div>
-
         </div>
     </div>
 
