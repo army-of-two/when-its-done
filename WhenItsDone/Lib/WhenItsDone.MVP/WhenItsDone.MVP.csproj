@@ -67,6 +67,10 @@
     <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\UploadProfilePictureInitialStateEventArgs.cs" />
     <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\UploadProfilePicturePresenter.cs" />
     <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\UploadProfilePictureViewModel.cs" />
+    <Compile Include="AdminPageControls\APWorkerDetailsControlMVP\APWorkerDetailsControlViewModel.cs" />
+    <Compile Include="AdminPageControls\APWorkerDetailsControlMVP\APWorkerDetailsPresenter.cs" />
+    <Compile Include="AdminPageControls\APWorkerDetailsControlMVP\IAPWorkerDetailsControlView.cs" />
+    <Compile Include="AdminPageControls\APWorkerDetailsControlMVP\IAPWorkerDetailsPresenter.cs" />
     <Compile Include="AdminPageControls\APWorkersControlMVP\APWorkersControlPresenter.cs" />
     <Compile Include="AdminPageControls\APWorkersControlMVP\APWorkersControlViewModel.cs" />
     <Compile Include="AdminPageControls\APWorkersControlMVP\IAPWorkersControlPresenter.cs" />

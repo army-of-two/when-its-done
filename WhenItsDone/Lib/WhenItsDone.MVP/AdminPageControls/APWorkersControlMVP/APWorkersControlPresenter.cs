@@ -13,12 +13,7 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkersControlMVP
         public APWorkersControlPresenter(IAPWorkersControlView view, IWorkersAsyncService workersService)
             : base(view)
         {
-            if (workersService == null)
-            {
-                throw new ArgumentNullException("WorkersService");
-            }
-
-            this.workersService = workersService;
+            this.workersService = workersService ?? throw new ArgumentNullException("WorkersService");
 
             this.View.GetWorkersNamesAndId += View_GetWorkersNamesAndId;
         }
