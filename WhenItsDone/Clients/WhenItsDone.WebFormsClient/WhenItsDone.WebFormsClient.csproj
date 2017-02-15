@@ -275,6 +275,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="ViewControls\AdminPageControls\APWorkerDetails.ascx" />
     <Content Include="ViewControls\AdminPageControls\APWorkerDishesControl.ascx" />
     <Content Include="ViewControls\AdminPageControls\APWorkersControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopDishesUserControl.ascx" />
@@ -471,6 +472,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewControls\AdminPageControls\APWorkerDetails.ascx.cs">
+      <DependentUpon>APWorkerDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\AdminPageControls\APWorkerDetails.ascx.designer.cs">
+      <DependentUpon>APWorkerDetails.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ViewControls\AdminPageControls\APWorkerDishesControl.ascx.cs">
       <DependentUpon>APWorkerDishesControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
