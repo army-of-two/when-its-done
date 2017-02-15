@@ -18,17 +18,20 @@ namespace WhenItsDone.Services
         private readonly IDishesAsyncRepository dishesAsyncRepository;
         private readonly IUsersAsyncRepository usersAsyncRepository;
         private readonly IInitializedDishFactory dishFactory;
+        private readonly IInitializedVideoItemFactory videoItemFactory;
 
-        public DishesAsyncService(IDishesAsyncRepository dishesAsyncRepository, IUsersAsyncRepository usersAsyncRepository, IInitializedDishFactory dishFactory, IDisposableUnitOfWorkFactory unitOfWorkFactory)
+        public DishesAsyncService(IDishesAsyncRepository dishesAsyncRepository, IUsersAsyncRepository usersAsyncRepository, IInitializedDishFactory dishFactory, IInitializedVideoItemFactory videoItemFactory, IDisposableUnitOfWorkFactory unitOfWorkFactory)
             : base(dishesAsyncRepository, unitOfWorkFactory)
         {
             Guard.WhenArgument(dishesAsyncRepository, nameof(IDishesAsyncRepository)).IsNull().Throw();
             Guard.WhenArgument(usersAsyncRepository, nameof(IUsersAsyncRepository)).IsNull().Throw();
             Guard.WhenArgument(dishFactory, nameof(IDishFactory)).IsNull().Throw();
+            Guard.WhenArgument(videoItemFactory, nameof(IVideoItemFactory)).IsNull().Throw();
 
             this.dishesAsyncRepository = dishesAsyncRepository;
             this.usersAsyncRepository = usersAsyncRepository;
             this.dishFactory = dishFactory;
+            this.videoItemFactory = videoItemFactory;
         }
 
         public IEnumerable<NamePhotoRatingDishViewDTO> GetTopCountDishesByRating(int dishesCount, bool addSampleData)
@@ -47,10 +50,15 @@ namespace WhenItsDone.Services
             return topDishes;
         }
 
-        public bool CreateDish(string username, string dishName, string price, string calories, string carbohydrates, string fats, string protein, string video)
+        public bool CreateDish(string username, string dishName, string price, string calories, string carbohydrates, string fats, string protein, string videoYouTubeUrl)
         {
             var isSuccessful = false;
             if (string.IsNullOrEmpty(username))
+            {
+                return isSuccessful;
+            }
+
+            if (string.IsNullOrEmpty(videoYouTubeUrl))
             {
                 return isSuccessful;
             }
@@ -67,10 +75,13 @@ namespace WhenItsDone.Services
             var convertedFats = this.ConvertStringValueToDecimal(fats, nameof(fats));
             var convertedProtein = this.ConvertStringValueToDecimal(protein, nameof(protein));
 
-            var newDish = this.dishFactory.GetInitializedDish(dishName, convertedPrice, convertedCalories, convertedCarbohydrates, convertedFats, convertedProtein);
-            newDish.WorkerId = loggedUserId.Value;
+            var nextDish = this.dishFactory.GetInitializedDish(dishName, convertedPrice, convertedCalories, convertedCarbohydrates, convertedFats, convertedProtein);
+            var nextVideoItem = this.videoItemFactory.GetInitializedVideoItem(dishName, videoYouTubeUrl);
 
-            this.dishesAsyncRepository.Add(newDish);
+            nextDish.WorkerId = loggedUserId.Value;
+            nextDish.VideoItems.Add(nextVideoItem);
+
+            this.dishesAsyncRepository.Add(nextDish);
             using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
             {
                 var result = unitOfWork.SaveChanges();
