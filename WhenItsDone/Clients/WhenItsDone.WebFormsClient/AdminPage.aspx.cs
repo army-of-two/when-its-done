@@ -11,7 +11,12 @@ namespace WhenItsDone.WebFormsClient
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.APWorkersControl.UserClickedInfoButton += APWorkersControl_UserClickedInfoButton;
+        }
 
+        private void APWorkersControl_UserClickedInfoButton(object sender, string e)
+        {
+            // Call right user control here
         }
     }
 }

@@ -1,23 +1,27 @@
-﻿.APViewsWrapper {
-    display: inline-block;
-    background-color: azure;
-    padding: 0px;
-    border-radius: 10px;
-    font-size:1.4em;
+﻿#workers-list {
+    margin-top: 20px;
 }
 
-    .APViewsWrapper .padding-5 {
-        padding: 0px 15px;
+    #workers-list .APViewsWrapper {
+        margin: 20px 0px;
+        display: inline-block;
+        background-color: azure;
+        border-radius: 10px;
+        font-size: 1.4em;
     }
 
-    .APViewsWrapper .item-row {
-        padding-left: 30px;
-    }
+        #workers-list .APViewsWrapper .padding-5 {
+            padding: 0px 15px;
+        }
 
-    .APViewsWrapper .row-hover:hover {
-        background-color: greenyellow;
-    }
+        #workers-list .APViewsWrapper .item-row {
+            padding-left: 30px;
+        }
 
-    .APViewsWrapper .border-bottom {
-        border-bottom: 1px solid black;
-    }
+        #workers-list .APViewsWrapper .row-hover:hover {
+            background-color: greenyellow;
+        }
+
+        #workers-list .APViewsWrapper .border-bottom {
+            border-bottom: 1px solid black;
+        }

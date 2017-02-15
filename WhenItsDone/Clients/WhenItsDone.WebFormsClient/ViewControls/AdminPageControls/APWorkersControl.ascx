@@ -2,11 +2,12 @@
     CodeBehind="APWorkersControl.ascx.cs"
     Inherits="WhenItsDone.WebFormsClient.ViewControls.AdminPageControls.APWorkersControl" %>
 
-<div id="workers-list">
+<div id="workers-list" class="container">
 
-    <asp:UpdatePanel runat="server" UpdateMode="Always">
+    <asp:UpdatePanel runat="server" UpdateMode="Conditional"
+        ChildrenAsTriggers="true">
         <ContentTemplate>
-            <div class="APViewsWrapper container" runat="server">
+            <div class="APViewsWrapper" runat="server" id="WorkersTable">
                 <table class="centered striped">
                     <thead>
                         <th data-field="Id" class="padding-5">Id</th>
@@ -19,7 +20,7 @@
                         <asp:Repeater runat="server"
                             ID="WorkersList"
                             ItemType="WhenItsDone.DTOs.WorkerVIewsDTOs.WorkerNamesIdDTO"
-                            DataSource="<%# this.Model.WorkersWithDishes %>">
+                            DataSource="<%# this.Model.WorkersNamesAndId %>">
 
                             <ItemTemplate>
                                 <tr>
@@ -27,14 +28,15 @@
                                     <td><%# Item.FirstName %></td>
                                     <td><%# Item.LastName %></td>
                                     <td><%# Item.NumberOfDishes %></td>
-                                    <td>
-                                        <asp:Button runat="server" Text="Info" CssClass="btn light-green"
+                                    <td class="padding-5">
+                                        <asp:Button runat="server" Text="Info" CssClass="light-green waves-effect waves-light btn"
                                             ID="RepeaterBtn"
                                             CommandName="NeedInfo"
                                             CommandArgument="<%# Item.Id %>"
                                             OnClick="InfoClick" />
                                     </td>
                                 </tr>
+
                             </ItemTemplate>
 
                         </asp:Repeater>

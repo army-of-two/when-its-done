@@ -13,6 +13,15 @@ namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls {
     public partial class APWorkersControl {
         
         /// <summary>
+        /// WorkersTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl WorkersTable;
+        
+        /// <summary>
         /// WorkersList control.
         /// </summary>
         /// <remarks>
