@@ -53,5 +53,11 @@ namespace WhenItsDone.Data.Repositories
             return base.DbSet.Include(user => user.ContactInformation).Include(user => user.ContactInformation.Address).FirstOrDefault(user => user.Username == username);
         }
 
+        public int? GetCurrentUserId(string username)
+        {
+            Guard.WhenArgument(username, nameof(username)).IsNullOrEmpty().Throw();
+
+            return base.DbSet.Where(user => user.Username == username).Select(user => user.Id).FirstOrDefault();
+        }
     }
 }
