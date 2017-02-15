@@ -19,19 +19,22 @@ namespace WhenItsDone.Services
         private readonly IUsersAsyncRepository usersAsyncRepository;
         private readonly IInitializedDishFactory dishFactory;
         private readonly IInitializedVideoItemFactory videoItemFactory;
+        private readonly IInitializedPhotoItemFactory photoItemFactory;
 
-        public DishesAsyncService(IDishesAsyncRepository dishesAsyncRepository, IUsersAsyncRepository usersAsyncRepository, IInitializedDishFactory dishFactory, IInitializedVideoItemFactory videoItemFactory, IDisposableUnitOfWorkFactory unitOfWorkFactory)
+        public DishesAsyncService(IDishesAsyncRepository dishesAsyncRepository, IUsersAsyncRepository usersAsyncRepository, IInitializedDishFactory dishFactory, IInitializedVideoItemFactory videoItemFactory, IInitializedPhotoItemFactory photoItemFactory, IDisposableUnitOfWorkFactory unitOfWorkFactory)
             : base(dishesAsyncRepository, unitOfWorkFactory)
         {
             Guard.WhenArgument(dishesAsyncRepository, nameof(IDishesAsyncRepository)).IsNull().Throw();
             Guard.WhenArgument(usersAsyncRepository, nameof(IUsersAsyncRepository)).IsNull().Throw();
             Guard.WhenArgument(dishFactory, nameof(IDishFactory)).IsNull().Throw();
             Guard.WhenArgument(videoItemFactory, nameof(IVideoItemFactory)).IsNull().Throw();
+            Guard.WhenArgument(photoItemFactory, nameof(IPhotoItemFactory)).IsNull().Throw();
 
             this.dishesAsyncRepository = dishesAsyncRepository;
             this.usersAsyncRepository = usersAsyncRepository;
             this.dishFactory = dishFactory;
             this.videoItemFactory = videoItemFactory;
+            this.photoItemFactory = photoItemFactory;
         }
 
         public IEnumerable<NamePhotoRatingDishViewDTO> GetTopCountDishesByRating(int dishesCount, bool addSampleData)
@@ -77,9 +80,11 @@ namespace WhenItsDone.Services
 
             var nextDish = this.dishFactory.GetInitializedDish(dishName, convertedPrice, convertedCalories, convertedCarbohydrates, convertedFats, convertedProtein);
             var nextVideoItem = this.videoItemFactory.GetInitializedVideoItem(dishName, videoYouTubeUrl);
+            var nextPhotoItem = this.photoItemFactory.GetInitializedPhotoItem(photoUrl, loggedUserId.Value);
 
             nextDish.WorkerId = loggedUserId.Value;
             nextDish.VideoItems.Add(nextVideoItem);
+            nextDish.PhotoItems.Add(nextPhotoItem);
 
             this.dishesAsyncRepository.Add(nextDish);
             using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
