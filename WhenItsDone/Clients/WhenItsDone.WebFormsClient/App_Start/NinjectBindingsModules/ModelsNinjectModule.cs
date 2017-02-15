@@ -22,11 +22,15 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 
             this.Bind<User>().ToSelf().NamedLikeFactoryMethod((ICompleteUserFactory factory) => factory.GetUser());
             this.Bind<User>().ToMethod(this.GetInitializedUserFactoryMethod)
-                .NamedLikeFactoryMethod((IInitializedUserFactory factory) => factory.GetInitializedUser(default(Guid), null));
+                .NamedLikeFactoryMethod((IInitializedUserFactory factory) => factory.GetInitializedUser(default(Guid), default(string)));
 
             this.Bind<Dish>().ToSelf().NamedLikeFactoryMethod((ICompleteDishFactory factory) => factory.GetDish());
             this.Bind<Dish>().ToMethod(this.GetInitializedDishFactoryMethod)
                 .NamedLikeFactoryMethod((IInitializedDishFactory factory) => factory.GetInitializedDish(null, default(decimal), default(decimal), default(decimal), default(decimal), default(decimal)));
+
+            this.Bind<VideoItem>().ToSelf().NamedLikeFactoryMethod((IVideoItemFactory factory) => factory.GetVideoItem());
+            this.Bind<VideoItem>().ToMethod(this.GetInitializedVideoItemFactoryMethod)
+                .NamedLikeFactoryMethod((IInitializedVideoItemFactory factory) => factory.GetInitializedVideoItem(default(string)));
         }
 
         private void ConfigureFactoriesConventionBinding(IFromSyntax bindingSyntax)
@@ -84,6 +88,11 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
             nextDish.Recipe.NutritionFacts.Protein = protein;
 
             return nextDish;
+        }
+
+        private VideoItem GetInitializedVideoItemFactoryMethod(IContext context)
+        {
+            return null;
         }
     }
 }
