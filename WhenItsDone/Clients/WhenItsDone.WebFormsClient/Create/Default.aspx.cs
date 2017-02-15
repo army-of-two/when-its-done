@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
 
 using WebFormsMvp;
 using WebFormsMvp.Web;
@@ -37,13 +35,14 @@ namespace WhenItsDone.WebFormsClient.Create
 
         private void ClearInputControlsValues()
         {
-            foreach (Control item in this.Controls)
-            {
-                if (item is HtmlInputText)
-                {
-                    (item as HtmlInputText).Value = string.Empty;
-                }
-            }
+            this.DishName.Value = string.Empty;
+            this.DishPrice.Value = string.Empty;
+            this.Calories.Value = string.Empty;
+            this.Carbohydrates.Value = string.Empty;
+            this.Fats.Value = string.Empty;
+            this.Protein.Value = string.Empty;
+            this.Video.Value = string.Empty;
+            this.Photo.Value = string.Empty;
         }
     }
 }
