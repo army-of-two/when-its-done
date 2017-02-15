@@ -20,7 +20,7 @@
                         <asp:Repeater runat="server"
                             ID="WorkersList"
                             ItemType="WhenItsDone.DTOs.WorkerVIewsDTOs.WorkerNamesIdDTO"
-                            DataSource="<%# this.Model.WorkersWithDishes %>">
+                            DataSource="<%# this.Model.WorkersNamesAndId %>">
 
                             <ItemTemplate>
                                 <tr>
