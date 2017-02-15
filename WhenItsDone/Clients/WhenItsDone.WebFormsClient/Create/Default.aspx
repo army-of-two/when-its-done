@@ -57,6 +57,11 @@
                             <input runat="server" id="Video" type="text" class="validate">
                             <label for="Video">Video</label>
                         </div>
+
+                        <div class="input-field col s6">
+                            <input runat="server" id="Photo" type="text" class="validate">
+                            <label for="Photo">Photo</label>
+                        </div>
                     </div>
 
                     <div class="row">
