@@ -5,7 +5,7 @@
 <div id="workers-list" class="container">
 
     <asp:UpdatePanel runat="server" UpdateMode="Conditional"
-        ChildrenAsTriggers="true">
+        ChildrenAsTriggers="false">
         <ContentTemplate>
             <div class="APViewsWrapper" runat="server" id="WorkersTable">
                 <table class="centered striped">

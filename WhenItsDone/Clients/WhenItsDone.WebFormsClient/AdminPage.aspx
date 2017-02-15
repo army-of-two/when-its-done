@@ -9,8 +9,14 @@
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
-    
-    <uc:APWorkersControl runat="server" ID="APWorkersControl" />
+    <asp:UpdatePanel runat="server" UpdateMode="Conditional"
+        ChildrenAsTriggers="false" ID="AdminPageUpdater">
+        <ContentTemplate>
+
+            <uc:APWorkersControl runat="server" ID="APWorkersControl" />
+
+        </ContentTemplate>
+    </asp:UpdatePanel>
 
 </asp:Content>
 
