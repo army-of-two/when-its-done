@@ -7,11 +7,11 @@ namespace WhenItsDone.Data.Tests.Helpers
 {
     public static class QueryableDbSetMock
     {
-        public static IDbSet<T> GetQueryableMockDbSet<T>(IEnumerable<T> sourceList) where T : class
+        public static DbSet<T> GetQueryableMockDbSet<T>(IEnumerable<T> sourceList) where T : class
         {
             var queryable = sourceList.AsQueryable();
 
-            var dbSet = new Mock<IDbSet<T>>();
+            var dbSet = new Mock<DbSet<T>>();
             dbSet.As<IQueryable<T>>().Setup(m => m.Provider).Returns(queryable.Provider);
             dbSet.As<IQueryable<T>>().Setup(m => m.Expression).Returns(queryable.Expression);
             dbSet.As<IQueryable<T>>().Setup(m => m.ElementType).Returns(queryable.ElementType);

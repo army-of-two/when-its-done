@@ -100,6 +100,7 @@
     <Compile Include="RepositoriesTests\DishesAsyncRepositoryTests\Constructor_Should.cs" />
     <Compile Include="RepositoriesTests\DishesAsyncRepositoryTests\GetTopCountDishesByRating_Should.cs" />
     <Compile Include="RepositoriesTests\WorkerAsyncRepositoryTests\Constructor_Should.cs" />
+    <Compile Include="RepositoriesTests\WorkerAsyncRepositoryTests\GetWorkersNamesAndId_Should.cs" />
     <Compile Include="UnitsOfWorkTests\UnitOfWorkTests\Constructor_Should.cs" />
     <Compile Include="UnitsOfWorkTests\UnitOfWorkTests\SaveChangesAsync_Should.cs" />
     <Compile Include="UnitsOfWorkTests\UnitOfWorkTests\SaveChanges_Should.cs" />
