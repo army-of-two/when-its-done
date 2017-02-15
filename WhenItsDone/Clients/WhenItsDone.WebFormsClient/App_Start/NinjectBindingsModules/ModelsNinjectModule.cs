@@ -26,11 +26,15 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 
             this.Bind<Dish>().ToSelf().NamedLikeFactoryMethod((ICompleteDishFactory factory) => factory.GetDish());
             this.Bind<Dish>().ToMethod(this.GetInitializedDishFactoryMethod)
-                .NamedLikeFactoryMethod((IInitializedDishFactory factory) => factory.GetInitializedDish(null, default(decimal), default(decimal), default(decimal), default(decimal), default(decimal)));
+                .NamedLikeFactoryMethod((IInitializedDishFactory factory) => factory.GetInitializedDish(default(string), default(decimal), default(decimal), default(decimal), default(decimal), default(decimal)));
 
             this.Bind<VideoItem>().ToSelf().NamedLikeFactoryMethod((IVideoItemFactory factory) => factory.GetVideoItem());
             this.Bind<VideoItem>().ToMethod(this.GetInitializedVideoItemFactoryMethod)
                 .NamedLikeFactoryMethod((IInitializedVideoItemFactory factory) => factory.GetInitializedVideoItem(default(string), default(string)));
+
+            this.Bind<PhotoItem>().ToSelf().NamedLikeFactoryMethod((IPhotoItemFactory factory) => factory.GetPhotoItem());
+            this.Bind<PhotoItem>().ToMethod(this.GetInitializedPhotoItemFactoryMethod)
+                .NamedLikeFactoryMethod((IInitializedPhotoItemFactory factory) => factory.GetInitializedPhotoItem(default(string), default(int)));
         }
 
         private void ConfigureFactoriesConventionBinding(IFromSyntax bindingSyntax)
@@ -104,6 +108,22 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
             nextVideoItem.YouTubeUrl = youTubeUrl;
 
             return nextVideoItem;
+        }
+
+        private PhotoItem GetInitializedPhotoItemFactoryMethod(IContext context)
+        {
+            var methodParameters = context.Parameters.ToList();
+            var title = (string)methodParameters[0].GetValue(context, null);
+            var youTubeUrl = (string)methodParameters[1].GetValue(context, null);
+            var youTubeId = youTubeUrl.Split('=')[1];
+
+            var videoItemFactory = context.Kernel.Get<IVideoItemFactory>();
+            var nextVideoItem = videoItemFactory.GetVideoItem();
+            nextVideoItem.Title = title;
+            nextVideoItem.YouTubeId = youTubeId;
+            nextVideoItem.YouTubeUrl = youTubeUrl;
+
+            return null;
         }
     }
 }

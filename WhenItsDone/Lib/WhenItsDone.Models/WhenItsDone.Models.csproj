@@ -51,10 +51,12 @@
     <Compile Include="Factories\IContactInformationFactory.cs" />
     <Compile Include="Factories\IDishFactory.cs" />
     <Compile Include="Factories\IInitializedDishFactory.cs" />
+    <Compile Include="Factories\IInitializedPhotoItemFactory.cs" />
     <Compile Include="Factories\IInitializedUserFactory.cs" />
     <Compile Include="Factories\IInitializedVideoItemFactory.cs" />
     <Compile Include="Factories\IMedicalInformationFactory.cs" />
     <Compile Include="Factories\INutritionFactsFactory.cs" />
+    <Compile Include="Factories\IPhotoItemFactory.cs" />
     <Compile Include="Factories\IProfilePictureFactory.cs" />
     <Compile Include="Factories\IRecipeFactory.cs" />
     <Compile Include="Factories\IVideoItemFactory.cs" />
