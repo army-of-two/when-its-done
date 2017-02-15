@@ -4,8 +4,9 @@ namespace WhenItsDone.MVP.CreatePages
 {
     public class CreateEventArgs : EventArgs
     {
-        public CreateEventArgs(string name, string price, string calories, string carbohydrates, string fats, string protein, string video)
+        public CreateEventArgs(string loggedUserUsername, string name, string price, string calories, string carbohydrates, string fats, string protein, string video)
         {
+            this.LoggedUserUsername = loggedUserUsername;
             this.Name = name;
             this.Price = price;
             this.Calories = calories;
@@ -14,6 +15,8 @@ namespace WhenItsDone.MVP.CreatePages
             this.Protein = protein;
             this.Video = video;
         }
+
+        public string LoggedUserUsername { get; private set; }
 
         public string Name { get; private set; }
 
