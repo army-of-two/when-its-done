@@ -21,7 +21,12 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
             this.Bind(this.ConfigureFactoriesConventionBinding);
 
             this.Bind<User>().ToSelf().NamedLikeFactoryMethod((ICompleteUserFactory factory) => factory.GetUser());
-            this.Bind<User>().ToMethod(this.GetInitializedUserFactoryMethod).NamedLikeFactoryMethod((IInitializedUserFactory factory) => factory.GetInitializedUser(default(Guid), null));
+            this.Bind<User>().ToMethod(this.GetInitializedUserFactoryMethod)
+                .NamedLikeFactoryMethod((IInitializedUserFactory factory) => factory.GetInitializedUser(default(Guid), null));
+
+            this.Bind<Dish>().ToSelf().NamedLikeFactoryMethod((ICompleteDishFactory factory) => factory.GetDish());
+            this.Bind<Dish>().ToMethod(this.GetInitializedDishFactoryMethod)
+                .NamedLikeFactoryMethod((IInitializedDishFactory factory) => factory.GetInitializedDish(null, default(decimal), default(decimal), default(decimal), default(decimal), default(decimal)));
         }
 
         private void ConfigureFactoriesConventionBinding(IFromSyntax bindingSyntax)
@@ -38,7 +43,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
         {
             var methodParameters = context.Parameters.ToList();
             var aspUserId = (Guid)methodParameters[0].GetValue(context, null);
-            var username = (string)methodParameters[1].GetValue(context, null);           
+            var username = (string)methodParameters[1].GetValue(context, null);
 
             var completeUserFactory = context.Kernel.Get<ICompleteUserFactory>();
             var nextUser = completeUserFactory.GetUser();
@@ -52,6 +57,11 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
             nextUser.Username = username;
 
             return nextUser;
+        }
+
+        private Dish GetInitializedDishFactoryMethod(IContext context)
+        {
+            return null;
         }
     }
 }
