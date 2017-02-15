@@ -2,6 +2,6 @@
 {
     public interface IInitializedVideoItemFactory
     {
-        VideoItem GetInitializedVideoItem(string youTubeUrl);
+        VideoItem GetInitializedVideoItem(string title, string youTubeUrl);
     }
 }
