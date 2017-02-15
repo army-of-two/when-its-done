@@ -16,6 +16,7 @@
 
     <link href="<%= ResolveUrl("~/Content/Css/SiteMaster.css") %>" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="Stylesheets" runat="server"></asp:ContentPlaceHolder>
+
 </head>
 <body>
     <form runat="server">
@@ -54,19 +55,18 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/">Browse</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/create">Create</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                                <li><a runat="server" href="~/account/register">Register</a></li>
+                                <li><a runat="server" href="~/account/login">Log in</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li><a runat="server" href="~/account/manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                                 <li>
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
@@ -78,29 +78,29 @@
         </div>
 
         <%--<div class="container body-content">--%>
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
 
-            <footer class="footer navbar">
-                <div class="">
-                    <ul class="nav navbar-nav text-center">
-                        <li>
-                            <a href="https://github.com/army-of-two/when-its-done" target="_blank">Food.Me @ GitHub</a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/shakuu" target="_blank">Hristo Todorov</a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/StoikoNeykov" target="_blank">Stoiko Neykov</a>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a>Food.Me &copy; <%: DateTime.Now.Year %></a>
-                        </li>
-                    </ul>
-                </div>
-            </footer>
+        <footer class="footer navbar">
+            <div class="">
+                <ul class="nav navbar-nav text-center">
+                    <li>
+                        <a href="https://github.com/army-of-two/when-its-done" target="_blank">Food.Me @ GitHub</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/shakuu" target="_blank">Hristo Todorov</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/StoikoNeykov" target="_blank">Stoiko Neykov</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a>Food.Me &copy; <%: DateTime.Now.Year %></a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
         <%--</div>--%>
     </form>
     <asp:ContentPlaceHolder ID="JavaScript" runat="server"></asp:ContentPlaceHolder>
