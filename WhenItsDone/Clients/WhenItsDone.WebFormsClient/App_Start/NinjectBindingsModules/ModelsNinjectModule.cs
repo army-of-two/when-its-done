@@ -61,7 +61,29 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 
         private Dish GetInitializedDishFactoryMethod(IContext context)
         {
-            return null;
+            var methodParameters = context.Parameters.ToList();
+            var name = (string)methodParameters[0].GetValue(context, null);
+            var price = (decimal)methodParameters[1].GetValue(context, null);
+            var calories = (decimal)methodParameters[2].GetValue(context, null);
+            var carbohydrates = (decimal)methodParameters[3].GetValue(context, null);
+            var fats = (decimal)methodParameters[4].GetValue(context, null);
+            var protein = (decimal)methodParameters[5].GetValue(context, null);
+
+            var completeDishFactory = context.Kernel.Get<ICompleteDishFactory>();
+            var nextDish = completeDishFactory.GetDish();
+            nextDish.Recipe = completeDishFactory.CreateRecipe();
+            nextDish.Recipe.NutritionFacts = completeDishFactory.CreateNutritionFacts();
+
+            nextDish.Price = price;
+
+            nextDish.Recipe.Name = name;
+
+            nextDish.Recipe.NutritionFacts.Calories = calories;
+            nextDish.Recipe.NutritionFacts.Carbohydrates = carbohydrates;
+            nextDish.Recipe.NutritionFacts.Fats = fats;
+            nextDish.Recipe.NutritionFacts.Protein = protein;
+
+            return nextDish;
         }
     }
 }
