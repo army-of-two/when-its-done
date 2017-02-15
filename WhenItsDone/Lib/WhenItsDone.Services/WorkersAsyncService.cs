@@ -28,5 +28,10 @@ namespace WhenItsDone.Services
         {
             return this.workerRepo.GetWorkersNamesAndId().Result;
         }
+
+        public WorkerDetailInformationDTO GetDetailInfoById(string id)
+        {
+            return this.workerRepo.GetDetailInfoById(id).Result;
+        }
     }
 }
