@@ -9,6 +9,7 @@ using WhenItsDone.DTOs.DishViewsDTOs;
 using WhenItsDone.Models;
 using WhenItsDone.Services.Abstraction;
 using WhenItsDone.Services.Contracts;
+using WhenItsDone.Models.Factories;
 
 namespace WhenItsDone.Services
 {
@@ -16,15 +17,18 @@ namespace WhenItsDone.Services
     {
         private readonly IDishesAsyncRepository dishesAsyncRepository;
         private readonly IUsersAsyncRepository usersAsyncRepository;
+        private readonly IInitializedDishFactory dishFactory;
 
-        public DishesAsyncService(IDishesAsyncRepository dishesAsyncRepository, IUsersAsyncRepository usersAsyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory)
+        public DishesAsyncService(IDishesAsyncRepository dishesAsyncRepository, IUsersAsyncRepository usersAsyncRepository, IInitializedDishFactory dishFactory, IDisposableUnitOfWorkFactory unitOfWorkFactory)
             : base(dishesAsyncRepository, unitOfWorkFactory)
         {
             Guard.WhenArgument(dishesAsyncRepository, nameof(IDishesAsyncRepository)).IsNull().Throw();
             Guard.WhenArgument(usersAsyncRepository, nameof(IUsersAsyncRepository)).IsNull().Throw();
+            Guard.WhenArgument(dishFactory, nameof(IDishFactory)).IsNull().Throw();
 
             this.dishesAsyncRepository = dishesAsyncRepository;
             this.usersAsyncRepository = usersAsyncRepository;
+            this.dishFactory = dishFactory;
         }
 
         public IEnumerable<NamePhotoRatingDishViewDTO> GetTopCountDishesByRating(int dishesCount, bool addSampleData)
@@ -57,7 +61,18 @@ namespace WhenItsDone.Services
                 return isSuccessful;
             }
 
-            return true;
+            var newDish = this.dishFactory.GetInitializedDish(dishName, price, calories, carbohydrates, fats, protein, video);
+            this.dishesAsyncRepository.Add(newDish);
+            using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
+            {
+                var result = unitOfWork.SaveChanges();
+                if (result != 0)
+                {
+                    isSuccessful = true;
+                }
+            }
+
+            return isSuccessful;
         }
     }
 }
