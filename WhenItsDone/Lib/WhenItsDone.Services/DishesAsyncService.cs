@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using Bytes2you.Validation;
+
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.DTOs.DishViewsDTOs;
@@ -13,16 +15,16 @@ namespace WhenItsDone.Services
     public class DishesAsyncService : GenericAsyncService<Dish>, IDishesAsyncService, IGenericAsyncService<Dish>, IService
     {
         private readonly IDishesAsyncRepository dishesAsyncRepository;
+        private readonly IUsersAsyncRepository usersAsyncRepository;
 
-        public DishesAsyncService(IDishesAsyncRepository asyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory)
-            : base(asyncRepository, unitOfWorkFactory)
+        public DishesAsyncService(IDishesAsyncRepository dishesAsyncRepository, IUsersAsyncRepository usersAsyncRepository, IDisposableUnitOfWorkFactory unitOfWorkFactory)
+            : base(dishesAsyncRepository, unitOfWorkFactory)
         {
-            if (asyncRepository == null)
-            {
-                throw new ArgumentNullException(nameof(asyncRepository));
-            }
+            Guard.WhenArgument(dishesAsyncRepository, nameof(IDishesAsyncRepository)).IsNull().Throw();
+            Guard.WhenArgument(usersAsyncRepository, nameof(IUsersAsyncRepository)).IsNull().Throw();
 
-            this.dishesAsyncRepository = asyncRepository;
+            this.dishesAsyncRepository = dishesAsyncRepository;
+            this.usersAsyncRepository = usersAsyncRepository;
         }
 
         public IEnumerable<NamePhotoRatingDishViewDTO> GetTopCountDishesByRating(int dishesCount, bool addSampleData)
@@ -39,6 +41,11 @@ namespace WhenItsDone.Services
             }
 
             return topDishes;
+        }
+
+        public bool CreateDish()
+        {
+            return true;
         }
     }
 }
