@@ -45,7 +45,17 @@ namespace WhenItsDone.Services
 
         public bool CreateDish(string username, string dishName, string price, string calories, string carbohydrates, string fats, string protein, string video)
         {
+            var isSuccessful = false;
+            if (string.IsNullOrEmpty(username))
+            {
+                return isSuccessful;
+            }
 
+            var loggedUserId = this.usersAsyncRepository.GetCurrentUserId(username);
+            if (!loggedUserId.HasValue)
+            {
+                return isSuccessful;
+            }
 
             return true;
         }
