@@ -7,9 +7,11 @@
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
-    <h1>Create Dish</h1>
+    <div id="manage-root" class="content-container-even">
+        <section class="content-container-heading">
+            <h3>Create Dish</h3>
+        </section>
 
-    <div class="container">
         <div class="well">
             <div class="row">
                 <div class="input-field col s4">
