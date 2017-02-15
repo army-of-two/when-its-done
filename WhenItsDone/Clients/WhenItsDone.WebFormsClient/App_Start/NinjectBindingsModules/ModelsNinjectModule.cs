@@ -92,6 +92,12 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 
         private VideoItem GetInitializedVideoItemFactoryMethod(IContext context)
         {
+            var methodParameters = context.Parameters.FirstOrDefault();
+            var youTubeUrl = (string)methodParameters?.GetValue(context, null);
+
+            var videoItemFactory = context.Kernel.Get<IVideoItemFactory>();
+            var nextVideoItem = videoItemFactory.GetVideoItem();
+
             return null;
         }
     }
