@@ -18,43 +18,43 @@
                 <div class="col s8">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="DishName" type="text" class="validate">
+                            <input runat="server" id="DishName" type="text" class="validate">
                             <label for="DishName">Name</label>
                         </div>
 
                         <div class="input-field col s6">
-                            <input id="DishPrice" type="text" class="validate">
+                            <input runat="server" id="DishPrice" type="text" class="validate">
                             <label for="DishPrice">Price</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="Calories" type="text" class="validate">
+                            <input runat="server" id="Calories" type="text" class="validate">
                             <label for="Calories">Calories</label>
                         </div>
 
                         <div class="input-field col s6">
-                            <input id="Carbohydrates" type="text" class="validate">
+                            <input runat="server" id="Carbohydrates" type="text" class="validate">
                             <label for="Carbohydrates">Carbohydrates</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="Fats" type="text" class="validate">
+                            <input runat="server" id="Fats" type="text" class="validate">
                             <label for="Fats">Fats</label>
                         </div>
 
                         <div class="input-field col s6">
-                            <input id="Protein" type="text" class="validate">
+                            <input runat="server" id="Protein" type="text" class="validate">
                             <label for="Protein">Protein</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="Video" type="text" class="validate">
+                            <input runat="server" id="Video" type="text" class="validate">
                             <label for="Video">Video</label>
                         </div>
                     </div>
