@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
 
 using WebFormsMvp;
 using WebFormsMvp.Web;
@@ -26,6 +28,22 @@ namespace WhenItsDone.WebFormsClient.Create
         {
             var createEventArgs = new CreateEventArgs(this.Page.User.Identity.Name, this.DishName.Value, this.DishPrice.Value, this.Calories.Value, this.Carbohydrates.Value, this.Fats.Value, this.Protein.Value, this.Video.Value, this.Photo.Value);
             this.CreateDish?.Invoke(null, createEventArgs);
+
+            if (this.Model.IsSuccessful)
+            {
+                this.ClearInputControlsValues();
+            }
+        }
+
+        private void ClearInputControlsValues()
+        {
+            foreach (Control item in this.Controls)
+            {
+                if (item is HtmlInputText)
+                {
+                    (item as HtmlInputText).Value = string.Empty;
+                }
+            }
         }
     }
 }
