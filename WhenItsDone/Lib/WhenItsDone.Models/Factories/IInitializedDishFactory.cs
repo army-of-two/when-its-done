@@ -2,6 +2,6 @@
 {
     public interface IInitializedDishFactory
     {
-        Dish GetInitializedDish(string name, string price, string calories, string carbohydrates, string fats, string protein, string video);
+        Dish GetInitializedDish(string name, decimal price, decimal calories, decimal carbohydrates, decimal fats, decimal protein);
     }
 }
