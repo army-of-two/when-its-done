@@ -56,12 +56,17 @@ namespace WhenItsDone.Services
         public bool CreateDish(string username, string dishName, string price, string calories, string carbohydrates, string fats, string protein, string videoYouTubeUrl, string photoUrl)
         {
             var isSuccessful = false;
-            if (string.IsNullOrEmpty(username))
+            if (string.IsNullOrEmpty(photoUrl))
             {
                 return isSuccessful;
             }
 
             if (string.IsNullOrEmpty(videoYouTubeUrl))
+            {
+                return isSuccessful;
+            }
+
+            if (string.IsNullOrEmpty(username))
             {
                 return isSuccessful;
             }
