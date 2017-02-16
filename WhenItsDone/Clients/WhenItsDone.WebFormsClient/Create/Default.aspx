@@ -20,11 +20,13 @@
                         <div class="input-field col s6">
                             <input runat="server" id="DishName" type="text" class="validate">
                             <label for="DishName">Name</label>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="DishName" ErrorMessage="Name is required." Display="None"></asp:RequiredFieldValidator>
                         </div>
 
                         <div class="input-field col s6">
                             <input runat="server" id="DishPrice" type="text" class="validate">
                             <label for="DishPrice">Price</label>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="DishPrice" ErrorMessage="Price is required." Display="None"></asp:RequiredFieldValidator>
                         </div>
                     </div>
 
@@ -32,11 +34,13 @@
                         <div class="input-field col s6">
                             <input runat="server" id="Calories" type="text" class="validate">
                             <label for="Calories">Calories</label>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Calories" ErrorMessage="Calories is required." Display="None"></asp:RequiredFieldValidator>
                         </div>
 
                         <div class="input-field col s6">
                             <input runat="server" id="Carbohydrates" type="text" class="validate">
                             <label for="Carbohydrates">Carbohydrates</label>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Carbohydrates" ErrorMessage="Carbohydrates is required." Display="None"></asp:RequiredFieldValidator>
                         </div>
                     </div>
 
@@ -44,11 +48,13 @@
                         <div class="input-field col s6">
                             <input runat="server" id="Fats" type="text" class="validate">
                             <label for="Fats">Fats</label>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Fats" ErrorMessage="Fats is required." Display="None"></asp:RequiredFieldValidator>
                         </div>
 
                         <div class="input-field col s6">
                             <input runat="server" id="Protein" type="text" class="validate">
                             <label for="Protein">Protein</label>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Protein" ErrorMessage="Protein is required." Display="None"></asp:RequiredFieldValidator>
                         </div>
                     </div>
 
@@ -56,11 +62,13 @@
                         <div class="input-field col s6">
                             <input runat="server" id="Video" type="text" class="validate">
                             <label for="Video">Video</label>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Video" ErrorMessage="Video is required." Display="None"></asp:RequiredFieldValidator>
                         </div>
 
                         <div class="input-field col s6">
                             <input runat="server" id="Photo" type="text" class="validate">
                             <label for="Photo">Photo</label>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Photo" ErrorMessage="Photo is required." Display="None"></asp:RequiredFieldValidator>
                         </div>
                     </div>
 
@@ -68,6 +76,10 @@
                         <asp:LinkButton CssClass="waves-effect waves-light btn" runat="server" OnClick="OnCreateFormSubmit">
                             <i class="material-icons right">cloud</i>Submit
                         </asp:LinkButton>
+                    </div>
+
+                    <div class="row">
+                        <asp:ValidationSummary runat="server" ForeColor="Red" DisplayMode="BulletList" />
                     </div>
                 </div>
 
