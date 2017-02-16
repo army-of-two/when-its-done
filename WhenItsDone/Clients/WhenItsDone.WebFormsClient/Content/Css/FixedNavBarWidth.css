@@ -2,7 +2,7 @@
     .container {
         padding-left: 0;
         padding-right: 0;
-        width: 100%;
+        width: 90%;
         max-width: 750px !important;
     }
 }
@@ -11,7 +11,7 @@
     .container {
         padding-left: 0;
         padding-right: 0;
-        width: 100%;
+        width: 90%;
         max-width: 970px !important;
     }
 }
@@ -20,7 +20,7 @@
     .container {
         padding-left: 0;
         padding-right: 0;
-        width: 100%;
+        width: 90%;
         max-width: 1170px !important;
     }
 }
