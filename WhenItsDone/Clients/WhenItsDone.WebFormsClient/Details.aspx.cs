@@ -28,12 +28,22 @@ namespace WhenItsDone.WebFormsClient
 
         public void OnLikeLinkButtonClick(object sender, EventArgs e)
         {
-
+            var detailsRatingVoteEventArgs = this.CreateDetailsRatingVoteEventArgs();
+            this.OnLikeVote?.Invoke(null, detailsRatingVoteEventArgs);
         }
 
         public void OnDislikeLinkButtonClick(object sender, EventArgs e)
         {
+            var detailsRatingVoteEventArgs = this.CreateDetailsRatingVoteEventArgs();
+            this.OnDislikeVote?.Invoke(null, detailsRatingVoteEventArgs);
+        }
 
+        private DetailsRatingVoteEventArgs CreateDetailsRatingVoteEventArgs()
+        {
+            var dishId = this.Model.DishDetails.Id;
+            var detailsRatingVoteEventArgs = new DetailsRatingVoteEventArgs(dishId);
+
+            return detailsRatingVoteEventArgs;
         }
     }
 }
