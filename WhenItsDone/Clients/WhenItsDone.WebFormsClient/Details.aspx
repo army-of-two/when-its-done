@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Details.aspx.cs" Inherits="WhenItsDone.WebFormsClient.Details" %>
 
+<%@ Register Src="~/ViewControls/DetailsUserControls/DishRatingUserControl.ascx" TagPrefix="uc" TagName="DishRatingUserControl" %>
+
 <asp:Content ContentPlaceHolderID="Stylesheets" runat="server">
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet">
@@ -42,6 +44,10 @@
                         </div>
 
                         <div class="col s6">
+                            <section>
+                                <uc:DishRatingUserControl runat="server" DishRating="<%#: Item.Rating %>" DishId="<%#: Item.Id %>" />
+                            </section>
+
                             <section>
                                 <header>
                                     <h5>Nutrition:</h5>

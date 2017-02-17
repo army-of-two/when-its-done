@@ -284,6 +284,7 @@
     <Content Include="ViewControls\ContentContainers\TopDishesUserControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopUsersUserControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopVideoItemsUserControl.ascx" />
+    <Content Include="ViewControls\DetailsUserControls\DishRatingUserControl.ascx" />
     <Content Include="ViewControls\ManageUserControls\UpdateContactInformationUserControl.ascx" />
     <Content Include="ViewControls\ManageUserControls\UpdateMedicalInformationUserControl.ascx" />
     <Content Include="ViewControls\ManageUserControls\UpdatePersonalInformationUserControl.ascx" />
@@ -525,6 +526,13 @@
       <DependentUpon>TopVideoItemsUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViewControls\Contracts\IShouldLoad.cs" />
+    <Compile Include="ViewControls\DetailsUserControls\DishRatingUserControl.ascx.cs">
+      <DependentUpon>DishRatingUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\DetailsUserControls\DishRatingUserControl.ascx.designer.cs">
+      <DependentUpon>DishRatingUserControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ViewControls\ManageUserControls\UpdateContactInformationUserControl.ascx.cs">
       <DependentUpon>UpdateContactInformationUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
