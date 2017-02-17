@@ -15,12 +15,12 @@
     </section>
 
     <section class="row">
-        <asp:LinkButton runat="server" CssClass="waves-effect waves-light btn">
+        <asp:LinkButton ID="LikeLinkButton" runat="server" CssClass="waves-effect waves-light btn">
             <i class="material-icons right">thumb_up</i>
             <span>Like</span>
         </asp:LinkButton>
 
-        <asp:LinkButton runat="server" CssClass="waves-effect waves-light btn">
+        <asp:LinkButton ID="DislikeLinkButton" runat="server" CssClass="waves-effect waves-light btn">
             <i class="material-icons left">thumb_down</i>
             <span>Dislike</span>
         </asp:LinkButton>

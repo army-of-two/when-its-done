@@ -16,5 +16,29 @@ namespace WhenItsDone.WebFormsClient.ViewControls.DetailsUserControls
         public string DishRating { get; set; }
 
         public string DishId { get; set; }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            if (string.IsNullOrEmpty(this.DishId))
+            {
+                this.LikeLinkButton.Enabled = false;
+                this.LikeLinkButton.CssClass += " disabled";
+
+                this.DislikeLinkButton.Enabled = false;
+                this.DislikeLinkButton.CssClass += " disabled";
+            }
+        }
+
+        public void OnButtonLikeClick(object sender, EventArgs e)
+        {
+
+        }
+
+        public void OnButtonDislikeClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
