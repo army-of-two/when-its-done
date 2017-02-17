@@ -17,18 +17,18 @@ namespace WhenItsDone.WebFormsClient.ViewControls.DetailsUserControls
 
         public string DishId { get; set; }
 
-        protected override void OnLoad(EventArgs e)
+        protected override void OnPreRender(EventArgs e)
         {
-            base.OnLoad(e);
+            base.OnPreRender(e);
 
-            if (string.IsNullOrEmpty(this.DishId))
-            {
-                this.LikeLinkButton.Enabled = false;
-                this.LikeLinkButton.CssClass += " disabled";
+            //if (string.IsNullOrEmpty(this.DishId) && !this.IsPostBack)
+            //{
+            //    this.LikeLinkButton.Enabled = false;
+            //    this.LikeLinkButton.CssClass += " disabled";
 
-                this.DislikeLinkButton.Enabled = false;
-                this.DislikeLinkButton.CssClass += " disabled";
-            }
+            //    this.DislikeLinkButton.Enabled = false;
+            //    this.DislikeLinkButton.CssClass += " disabled";
+            //}
         }
 
         public void OnButtonLikeClick(object sender, EventArgs e)

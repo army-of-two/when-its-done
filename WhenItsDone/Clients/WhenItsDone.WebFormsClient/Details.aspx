@@ -1,4 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Details.aspx.cs" Inherits="WhenItsDone.WebFormsClient.Details" %>
+﻿<%@ Page
+    Title="Details"
+    Language="C#"
+    MasterPageFile="~/Site.Master"
+    AutoEventWireup="true"
+    CodeBehind="Details.aspx.cs"
+    Inherits="WhenItsDone.WebFormsClient.Details" %>
 
 <%@ Register Src="~/ViewControls/DetailsUserControls/DishRatingUserControl.ascx" TagPrefix="uc" TagName="DishRatingUserControl" %>
 

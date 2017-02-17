@@ -15,7 +15,7 @@
     </section>
 
     <section class="row">
-        <asp:LinkButton ID="LikeLinkButton" runat="server" CssClass="waves-effect waves-light btn">
+        <asp:LinkButton ID="LikeLinkButton" runat="server" CssClass="waves-effect waves-light btn" OnClick="OnButtonLikeClick">
             <i class="material-icons right">thumb_up</i>
             <span>Like</span>
         </asp:LinkButton>
