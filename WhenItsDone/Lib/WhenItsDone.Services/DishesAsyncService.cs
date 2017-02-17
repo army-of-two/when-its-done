@@ -53,15 +53,20 @@ namespace WhenItsDone.Services
             return topDishes;
         }
 
-        public bool CreateDish(string username, string dishName, string price, string calories, string carbohydrates, string fats, string protein, string videoYouTubeUrl, string photoUrl)
+        public bool CreateDish(string username, string dishName, string description, string price, string calories, string carbohydrates, string fats, string protein, string videoYouTubeUrl, string photoUrl)
         {
             var isSuccessful = false;
-            if (string.IsNullOrEmpty(username))
+            if (string.IsNullOrEmpty(photoUrl))
             {
                 return isSuccessful;
             }
 
             if (string.IsNullOrEmpty(videoYouTubeUrl))
+            {
+                return isSuccessful;
+            }
+
+            if (string.IsNullOrEmpty(username))
             {
                 return isSuccessful;
             }
@@ -78,7 +83,7 @@ namespace WhenItsDone.Services
             var convertedFats = this.ConvertStringValueToDecimal(fats, nameof(fats));
             var convertedProtein = this.ConvertStringValueToDecimal(protein, nameof(protein));
 
-            var nextDish = this.dishFactory.GetInitializedDish(dishName, convertedPrice, convertedCalories, convertedCarbohydrates, convertedFats, convertedProtein);
+            var nextDish = this.dishFactory.GetInitializedDish(dishName, description, convertedPrice, convertedCalories, convertedCarbohydrates, convertedFats, convertedProtein);
             var nextVideoItem = this.videoItemFactory.GetInitializedVideoItem(dishName, videoYouTubeUrl);
             var nextPhotoItem = this.photoItemFactory.GetInitializedPhotoItem(photoUrl, loggedUserId.Value);
 

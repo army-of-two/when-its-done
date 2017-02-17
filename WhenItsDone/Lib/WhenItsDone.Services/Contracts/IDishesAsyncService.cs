@@ -9,6 +9,6 @@ namespace WhenItsDone.Services.Contracts
     {
         IEnumerable<NamePhotoRatingDishViewDTO> GetTopCountDishesByRating(int dishesCount, bool addSampleData);
 
-        bool CreateDish(string username, string dishName, string price, string calories, string carbohydrates, string fats, string protein, string videoYouTubeUrl, string photoUrl);
+        bool CreateDish(string username, string dishName, string description, string price, string calories, string carbohydrates, string fats, string protein, string videoYouTubeUrl, string photoUrl);
     }
 }
