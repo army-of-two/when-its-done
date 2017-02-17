@@ -39,7 +39,7 @@
                             <label for="Calories">Calories</label>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Calories" ErrorMessage="Calories is required." Display="None"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator runat="server" ControlToValidate="Calories" ValidationExpression=".{1,5}" ErrorMessage="Calories must be a value with max 5 digits." Display="None"></asp:RegularExpressionValidator>
-                            <asp:RangeValidator runat="server" ControlToValidate="Calories" MinimumValue="0" MaximumValue="10000" ErrorMessage="Calories must be a value between 0 and 10 000." Display="None"></asp:RangeValidator>
+                            <asp:RangeValidator runat="server" ControlToValidate="Calories" MinimumValue="0" MaximumValue="10000" Type="Integer" ErrorMessage="Calories must be a value between 0 and 10 000." Display="None"></asp:RangeValidator>
                         </div>
 
                         <div class="input-field col s6">
@@ -47,7 +47,7 @@
                             <label for="Carbohydrates">Carbohydrates</label>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Carbohydrates" ErrorMessage="Carbohydrates is required." Display="None"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator runat="server" ControlToValidate="Carbohydrates" ValidationExpression=".{1,5}" ErrorMessage="Carbohydrates must be a value with max 5 digits." Display="None"></asp:RegularExpressionValidator>
-                            <asp:RangeValidator runat="server" ControlToValidate="Carbohydrates" MinimumValue="0" MaximumValue="10000" ErrorMessage="Carbohydrates must be a value between 0 and 10 000." Display="None"></asp:RangeValidator>
+                            <asp:RangeValidator runat="server" ControlToValidate="Carbohydrates" MinimumValue="0" MaximumValue="10000" Type="Integer" ErrorMessage="Carbohydrates must be a value between 0 and 10 000." Display="None"></asp:RangeValidator>
                         </div>
                     </div>
 
@@ -57,7 +57,7 @@
                             <label for="Fats">Fats</label>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Fats" ErrorMessage="Fats is required." Display="None"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator runat="server" ControlToValidate="Fats" ValidationExpression=".{1,5}" ErrorMessage="Fats must be a value with max 5 digits." Display="None"></asp:RegularExpressionValidator>
-                            <asp:RangeValidator runat="server" ControlToValidate="Fats" MinimumValue="0" MaximumValue="10000" ErrorMessage="Fats must be a value between 0 and 10 000." Display="None"></asp:RangeValidator>
+                            <asp:RangeValidator runat="server" ControlToValidate="Fats" MinimumValue="0" MaximumValue="10000" Type="Integer" ErrorMessage="Fats must be a value between 0 and 10 000." Display="None"></asp:RangeValidator>
                         </div>
 
                         <div class="input-field col s6">
@@ -65,7 +65,7 @@
                             <label for="Protein">Protein</label>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Protein" ErrorMessage="Protein is required." Display="None"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator runat="server" ControlToValidate="Protein" ValidationExpression=".{1,5}" ErrorMessage="Protein must be a value with max 5 digits." Display="None"></asp:RegularExpressionValidator>
-                            <asp:RangeValidator runat="server" ControlToValidate="Protein" MinimumValue="0" MaximumValue="10000" ErrorMessage="Protein must be a value between 0 and 10 000." Display="None"></asp:RangeValidator>
+                            <asp:RangeValidator runat="server" ControlToValidate="Protein" MinimumValue="0" MaximumValue="10000" Type="Integer" ErrorMessage="Protein must be a value between 0 and 10 000." Display="None"></asp:RangeValidator>
                         </div>
                     </div>
 
@@ -80,12 +80,13 @@
                             <input runat="server" id="Photo" type="url" class="validate">
                             <label for="Photo">Photo</label>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Photo" ErrorMessage="Photo is required." Display="None"></asp:RequiredFieldValidator>
+                            <asp:CustomValidator runat="server" ControlToValidate="Photo" OnServerValidate="PhotoServerValidate" ErrorMessage="Allowed extensions: .png, .jpg" Display="None"></asp:CustomValidator>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea runat="server" id="Description" class="materialize-textarea"></textarea>
+                            <textarea runat="server" id="Description" class="materialize-textarea" maxlength="2000" data-length="2000"></textarea>
                             <label for="Description">Description</label>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Description" ErrorMessage="Description is required." Display="None"></asp:RequiredFieldValidator>
                         </div>
