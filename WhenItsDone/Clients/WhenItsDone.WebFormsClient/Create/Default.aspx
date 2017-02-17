@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="input-field col s6">
-                            <input runat="server" id="DishPrice" type="text" class="validate">
+                            <input runat="server" id="DishPrice" type="number" class="validate">
                             <label for="DishPrice">Price</label>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="DishPrice" ErrorMessage="Price is required." Display="None"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator runat="server" ControlToValidate="DishPrice" ValidationExpression="[0-9\.]{1,9}" ErrorMessage="Price must be a number." Display="None"></asp:RegularExpressionValidator>
