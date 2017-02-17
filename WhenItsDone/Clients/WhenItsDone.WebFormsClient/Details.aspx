@@ -42,16 +42,46 @@
                         </div>
 
                         <div class="col s6">
-
                             <section>
                                 <header>
-                                    <h5>Description:</h5>
+                                    <h5>Nutrition:</h5>
                                 </header>
-                                <p>
-                                    <%#: Item.Description %>
-                                </p>
+
+                                <div class="row">
+                                    <div class="col s6">
+                                        <p>Calories: <span><%#: Item.Calories %></span> </p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col s6">
+                                        <p>Carbohydrates: <span><%#: Item.Carbohydrates %></span> </p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col s6">
+                                        <p>Protein: <span><%#: Item.Protein %></span> </p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col s6">
+                                        <p>Fats: <span><%#: Item.Fats %></span> </p>
+                                    </div>
+                                </div>
                             </section>
 
+                            <div class="row">
+                                <section>
+                                    <header>
+                                        <h5>Description:</h5>
+                                    </header>
+                                    <p>
+                                        <%#: Item.Description %>
+                                    </p>
+                                </section>
+                            </div>
                         </div>
                     </div>
                 </div>

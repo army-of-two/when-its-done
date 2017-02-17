@@ -43,7 +43,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
                 .ForMember(dest => dest.Fats, opts => opts.MapFrom(src => src.Recipe.NutritionFacts.Fats))
                 .ForMember(dest => dest.Protein, opts => opts.MapFrom(src => src.Recipe.NutritionFacts.Protein))
                 .ForMember(dest => dest.VideoYouTubeId, opts => opts.MapFrom(src => src.VideoItems.FirstOrDefault().YouTubeId))
-                .ForMember(dest => dest.PhotoUrl, opts => opts.MapFrom(src => src.PhotoItems.FirstOrDefault().Url));
+                .ForMember(dest => dest.Rating, opts => opts.MapFrom(src => src.Rating));
         }
     }
 }
