@@ -17,5 +17,9 @@
         public decimal Fats { get; set; }
 
         public decimal Protein { get; set; }
+
+        public string VideoYouTubeId { get; set; }
+
+        public string PhotoUrl { get; set; }
     }
 }
