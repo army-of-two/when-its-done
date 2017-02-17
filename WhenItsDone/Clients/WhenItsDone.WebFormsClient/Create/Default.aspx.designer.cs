@@ -73,7 +73,7 @@ namespace WhenItsDone.WebFormsClient.Create {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Video;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Video;
         
         /// <summary>
         /// Photo control.
@@ -82,7 +82,7 @@ namespace WhenItsDone.WebFormsClient.Create {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Photo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Photo;
         
         /// <summary>
         /// Description control.
