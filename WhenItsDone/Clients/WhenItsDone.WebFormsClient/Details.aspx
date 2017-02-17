@@ -8,6 +8,7 @@
 
     <asp:FormView runat="server" ItemType="WhenItsDone.DTOs.DishViewsDTOs.DishDetailsViewDTO" SelectMethod="Unnamed_GetItem" DataKeyNames="Id">
         <ItemTemplate>
+            <h1><%#: Item.Name %></h1>
         </ItemTemplate>
     </asp:FormView>
 </asp:Content>

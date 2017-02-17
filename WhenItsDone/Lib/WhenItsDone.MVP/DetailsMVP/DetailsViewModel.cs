@@ -4,6 +4,6 @@ namespace WhenItsDone.MVP.DetailsMVP
 {
     public class DetailsViewModel
     {
-        DishDetailsViewDTO DishDetails { get; set; }
+        public DishDetailsViewDTO DishDetails { get; set; }
     }
 }
