@@ -23,6 +23,8 @@ namespace WhenItsDone.MVP.DetailsMVP
         private void OnGetDishDetails(object sender, DetailsGetDishDetailsEventArgs args)
         {
             Guard.WhenArgument(args, nameof(DetailsGetDishDetailsEventArgs)).IsNull().Throw();
+
+            this.View.Model.DishDetails = this.dishesAsyncService.GetDishDetailsViewById(args.DishId);
         }
     }
 }
