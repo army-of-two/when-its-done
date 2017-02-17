@@ -37,6 +37,11 @@ namespace WhenItsDone.Services
             this.photoItemFactory = photoItemFactory;
         }
 
+        public DishDetailsViewDTO GetDishDetailsViewById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<NamePhotoRatingDishViewDTO> GetTopCountDishesByRating(int dishesCount, bool addSampleData)
         {
             if (dishesCount < 0)
