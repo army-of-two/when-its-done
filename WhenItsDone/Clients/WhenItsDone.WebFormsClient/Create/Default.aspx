@@ -76,6 +76,7 @@
                         <div class="input-field col s12">
                             <textarea runat="server" id="Description" class="materialize-textarea"></textarea>
                             <label for="Description">Description</label>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Description" ErrorMessage="Description is required." Display="None"></asp:RequiredFieldValidator>
                         </div>
                     </div>
 
