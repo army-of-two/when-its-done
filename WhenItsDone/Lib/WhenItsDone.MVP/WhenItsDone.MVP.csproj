@@ -80,6 +80,7 @@
     <Compile Include="AccountPages\RegisterMVP\RegisterEventArgs.cs" />
     <Compile Include="AccountPages\RegisterMVP\RegisterPresenter.cs" />
     <Compile Include="AccountPages\RegisterMVP\RegisterViewModel.cs" />
+    <Compile Include="AdminPageControls\EventArguments\StringEventArgs.cs" />
     <Compile Include="AssemblyId\IMvpAssemblyId.cs" />
     <Compile Include="ContentContainers\TopDishesMVP\ITopDishesPresenter.cs" />
     <Compile Include="ContentContainers\TopDishesMVP\ITopDishesView.cs" />
