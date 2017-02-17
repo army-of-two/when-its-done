@@ -24,7 +24,7 @@ namespace WhenItsDone.WebFormsClient.Create
 
         public void OnCreateFormSubmit(object sender, EventArgs e)
         {
-            var createEventArgs = new CreateEventArgs(this.Page.User.Identity.Name, this.DishName.Value, this.DishPrice.Value, this.Calories.Value, this.Carbohydrates.Value, this.Fats.Value, this.Protein.Value, this.Video.Value, this.Photo.Value);
+            var createEventArgs = new CreateEventArgs(this.Page.User.Identity.Name, this.DishName.Value, this.DishPrice.Value, this.Calories.Value, this.Carbohydrates.Value, this.Fats.Value, this.Protein.Value, this.Video.Value, this.Photo.Value, this.Description.Value);
             this.CreateDish?.Invoke(null, createEventArgs);
 
             if (this.Model.IsSuccessful)

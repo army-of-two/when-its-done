@@ -73,6 +73,13 @@
                     </div>
 
                     <div class="row">
+                        <div class="input-field col s12">
+                            <textarea runat="server" id="Description" class="materialize-textarea"></textarea>
+                            <label for="Description">Description</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
                         <asp:LinkButton CssClass="waves-effect waves-light btn" runat="server" OnClick="OnCreateFormSubmit">
                             <i class="material-icons right">cloud</i>Submit
                         </asp:LinkButton>
