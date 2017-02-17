@@ -22,6 +22,7 @@
                             <label for="DishName">Name</label>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="DishName" ErrorMessage="Name is required." Display="None"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator runat="server" ControlToValidate="DishName" ValidationExpression=".{2,50}" ErrorMessage="Name must be between 2 and 50 characters long." Display="None"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator runat="server" ControlToValidate="DishName" ValidationExpression="[a-zA-Z\-]+" ErrorMessage="Name must contain letters and dashes only." Display="None"></asp:RegularExpressionValidator>
                         </div>
 
                         <div class="input-field col s6">
