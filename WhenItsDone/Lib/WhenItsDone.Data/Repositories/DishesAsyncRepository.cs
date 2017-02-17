@@ -21,6 +21,11 @@ namespace WhenItsDone.Data.Repositories
         {
         }
 
+        public DishDetailsViewDTO GetDishDetailsViewById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<ICollection<NamePhotoRatingDishViewDTO>> GetTopCountDishesByRating(int dishesCount)
         {
             if (dishesCount < 0)

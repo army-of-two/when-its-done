@@ -37,7 +37,7 @@ namespace WhenItsDone.Services
             this.photoItemFactory = photoItemFactory;
         }
 
-        public DishDetailsViewDTO GetDishDetailsViewById(int id)
+        public DishDetailsViewDTO GetDishDetailsViewById(int? id)
         {
             throw new NotImplementedException();
         }
