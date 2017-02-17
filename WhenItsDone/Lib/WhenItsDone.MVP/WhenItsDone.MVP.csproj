@@ -89,6 +89,7 @@
     <Compile Include="CreatePages\ICreateView.cs" />
     <Compile Include="DetailsMVP\DetailsGetDishDetailsEventArgs.cs" />
     <Compile Include="DetailsMVP\DetailsPresenter.cs" />
+    <Compile Include="DetailsMVP\DetailsRatingVoteEventArgs.cs" />
     <Compile Include="DetailsMVP\DetailsViewModel.cs" />
     <Compile Include="DetailsMVP\IDetailsPresenter.cs" />
     <Compile Include="DetailsMVP\IDetailsView.cs" />

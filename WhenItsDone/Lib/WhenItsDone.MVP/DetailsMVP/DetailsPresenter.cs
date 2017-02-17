@@ -1,4 +1,5 @@
-﻿using Bytes2you.Validation;
+﻿using System;
+using Bytes2you.Validation;
 
 using WebFormsMvp;
 
@@ -18,6 +19,19 @@ namespace WhenItsDone.MVP.DetailsMVP
             this.dishesAsyncService = dishesAsyncService;
 
             base.View.OnGetDishDetails += this.OnGetDishDetails;
+            base.View.OnLikeVote += this.OnLikeVote;
+            base.View.OnDislikeVote += this.OnDislikeVote;
+        }
+
+        private void OnLikeVote(object sender, DetailsRatingVoteEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        private void OnDislikeVote(object sender, DetailsRatingVoteEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void OnGetDishDetails(object sender, DetailsGetDishDetailsEventArgs args)

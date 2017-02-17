@@ -11,23 +11,5 @@ namespace WhenItsDone.WebFormsClient.ViewControls.DetailsUserControls {
     
     
     public partial class DishRatingUserControl {
-        
-        /// <summary>
-        /// LikeLinkButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LikeLinkButton;
-        
-        /// <summary>
-        /// DislikeLinkButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton DislikeLinkButton;
     }
 }
