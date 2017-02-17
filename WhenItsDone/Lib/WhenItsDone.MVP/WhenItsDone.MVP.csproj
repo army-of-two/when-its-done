@@ -87,6 +87,11 @@
     <Compile Include="CreatePages\CreateViewModel.cs" />
     <Compile Include="CreatePages\ICreatePresenter.cs" />
     <Compile Include="CreatePages\ICreateView.cs" />
+    <Compile Include="DetailsMVP\DetailsGetDishDetailsEventArgs.cs" />
+    <Compile Include="DetailsMVP\DetailsPresenter.cs" />
+    <Compile Include="DetailsMVP\DetailsViewModel.cs" />
+    <Compile Include="DetailsMVP\IDetailsPresenter.cs" />
+    <Compile Include="DetailsMVP\IDetailsView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
