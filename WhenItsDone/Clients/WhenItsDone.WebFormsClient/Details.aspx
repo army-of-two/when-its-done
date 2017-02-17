@@ -8,6 +8,17 @@
         td {
             padding: 0;
         }
+
+        .embedded-container {
+            width: 100%;
+            height: 480px;
+            object-fit: contain;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </asp:Content>
 
@@ -24,7 +35,23 @@
                 <div class="well">
                     <div class="row">
 
-                        <div class="col s8">
+                        <div class="col s6">
+                            <div class="embedded-container">
+                                <iframe class="embedded-video" src="https://www.youtube.com/embed/<%#: Eval("VideoYouTubeId") %>?rel=0&amp;controls=1&amp;showinfo=0" frameborder="0"></iframe>
+                            </div>
+                        </div>
+
+                        <div class="col s6">
+
+                            <section>
+                                <header>
+                                    <h5>Description:</h5>
+                                </header>
+                                <p>
+                                    <%#: Item.Description %>
+                                </p>
+                            </section>
+
                         </div>
                     </div>
                 </div>

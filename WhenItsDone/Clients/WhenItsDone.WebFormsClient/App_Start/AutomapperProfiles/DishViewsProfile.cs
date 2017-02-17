@@ -36,6 +36,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
             this.CreateMap<Dish, DishDetailsViewDTO>()
                 .ForMember(dest => dest.Id, opts => opts.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Name, opts => opts.MapFrom(src => src.Recipe.Name))
+                .ForMember(dest => dest.Description, opts => opts.MapFrom(src => src.Recipe.Description))
                 .ForMember(dest => dest.Price, opts => opts.MapFrom(src => src.Price))
                 .ForMember(dest => dest.Calories, opts => opts.MapFrom(src => src.Recipe.NutritionFacts.Calories))
                 .ForMember(dest => dest.Carbohydrates, opts => opts.MapFrom(src => src.Recipe.NutritionFacts.Carbohydrates))
