@@ -19,7 +19,7 @@
             ID="TopDishesRepeater" runat="server"
             DataSourceID="VideoItemsSqlDataSource">
             <ItemTemplate>
-                <a class="panel-anchor" href="/Details?itemid=<%#: Eval("Id") %>" title="Click for more details: <%#: Eval("Title") %>">
+                <a class="panel-anchor" href="/details?itemid=<%#: Eval("Id") %>" title="Click for more details: <%#: Eval("Title") %>">
                     <div class="col-md-4">
                         <div class="panel panel-primary">
                             <div class="panel-heading">

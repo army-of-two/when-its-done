@@ -23,7 +23,7 @@
             ID="TopDishesRepeater" runat="server"
             DataSourceID="UsersDataSource">
             <ItemTemplate>
-                <a class="panel-anchor" href="/Details?itemid=<%#: Eval("Id") %>" title="Click for more details: <%#: Eval("Username") %>">
+                <a class="panel-anchor" href="/details?itemid=<%#: Eval("Id") %>" title="Click for more details: <%#: Eval("Username") %>">
                     <div class="col-md-4">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
