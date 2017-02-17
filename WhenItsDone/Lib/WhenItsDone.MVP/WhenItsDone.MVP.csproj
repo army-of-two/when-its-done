@@ -93,8 +93,11 @@
     <Compile Include="DetailsMVP\IDetailsPresenter.cs" />
     <Compile Include="DetailsMVP\IDetailsView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RatingsMVP\DishRatingPresenter.cs" />
     <Compile Include="RatingsMVP\DishRatingViewModel.cs" />
     <Compile Include="RatingsMVP\DishRatingVoteEventArgs.cs" />
+    <Compile Include="RatingsMVP\IDishRatingPresenter.cs" />
+    <Compile Include="RatingsMVP\IDishRatingView.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
