@@ -12,11 +12,11 @@
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel runat="server" UpdateMode="Conditional"
-        ChildrenAsTriggers="false" ID="AdminPageUpdater">
+        ChildrenAsTriggers="true" ID="AdminPageUpdater">
         <ContentTemplate>
             <div class="container">
                 <uc:APWorkersControl runat="server" ID="APWorkersControl" />
-                <uc:APWorkerDetailsControl runat="server" ID="APWorkerDetailsControl" />
+                <uc:APWorkerDetailsControl runat="server" ID="APWorkerDetailsControl" Visible="false" />
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>

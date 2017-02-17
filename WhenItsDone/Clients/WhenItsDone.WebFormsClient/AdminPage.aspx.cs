@@ -16,8 +16,8 @@ namespace WhenItsDone.WebFormsClient
 
         private void APWorkersControl_UserClickedInfoButton(object sender, string e)
         {
-            
 
+            this.APWorkersControl.Visible = false;
             // Call right user control here
         }
     }
