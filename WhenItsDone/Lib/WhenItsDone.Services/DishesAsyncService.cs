@@ -39,7 +39,12 @@ namespace WhenItsDone.Services
 
         public DishDetailsViewDTO GetDishDetailsViewById(int? id)
         {
-            throw new NotImplementedException();
+            if (!id.HasValue)
+            {
+                return null;
+            }
+
+            return this.dishesAsyncRepository.GetDishDetailsViewById(id.Value);
         }
 
         public IEnumerable<NamePhotoRatingDishViewDTO> GetTopCountDishesByRating(int dishesCount, bool addSampleData)
