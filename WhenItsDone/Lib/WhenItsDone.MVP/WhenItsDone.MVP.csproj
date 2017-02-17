@@ -95,6 +95,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WhenItsDone.Common\WhenItsDone.Common.csproj">
+      <Project>{42E362E0-9E6C-4867-88AA-CF2CC00FE1F8}</Project>
+      <Name>WhenItsDone.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WhenItsDone.DefaultAuth\WhenItsDone.DefaultAuth.csproj">
       <Project>{EBC86ED0-136E-46DA-8E84-1491DF78E8C7}</Project>
       <Name>WhenItsDone.DefaultAuth</Name>

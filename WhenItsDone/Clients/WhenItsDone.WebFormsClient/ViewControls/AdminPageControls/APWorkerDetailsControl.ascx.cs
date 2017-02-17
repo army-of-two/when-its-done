@@ -21,6 +21,8 @@ namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls
             var args = new StringEventArgs(id);
 
             this.GetWorkerDetailsById?.Invoke(this, args);
+
+            
         }
     }
 }

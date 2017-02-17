@@ -1,5 +1,7 @@
 ﻿using System;
 using WebFormsMvp;
+using WhenItsDone.Common.Enums;
+using WhenItsDone.DTOs.WorkerVIewsDTOs;
 using WhenItsDone.MVP.AdminPageControls.EventArguments;
 using WhenItsDone.Services.Contracts;
 
@@ -19,7 +21,25 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkerDetailsControlMVP
 
         private void View_GetWorkerDetailsById(object sender, StringEventArgs e)
         {
-            this.View.Model.Worker = this.workerService.GetDetailInfoById(e.StringParameter);
+            this.View.Model.Worker = this.GetMock(); // this.workerService.GetDetailInfoById(e.StringParameter);
+        }
+
+        public WorkerDetailInformationDTO GetMock()
+        {
+            return new WorkerDetailInformationDTO()
+            {
+                Id = 1,
+                Age = 12,
+                AddressInformationId = 1,
+                City = "Stoyo",
+                ContactInformationId = 18,
+                Country = "Brazil",
+                Email = "me@me.me",
+                Gender = GenderType.Female,
+                PhoneNumber = "call me",
+                Rating = 4,
+                Street = "Na kraq"
+            };
         }
     }
 }

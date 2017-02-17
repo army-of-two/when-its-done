@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WhenItsDone.MVP.AdminPageControls.EventArguments;
 
 namespace WhenItsDone.WebFormsClient
 {
@@ -11,22 +12,63 @@ namespace WhenItsDone.WebFormsClient
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.APWorkersControl.UserClickedInfoButton += APWorkersControl_UserClickedInfoButton;
+            this.APWorkersControl.UserClickedInfoButton += ContactInformationRequired;
         }
 
-        private void APWorkersControl_UserClickedInfoButton(object sender, string e)
+        protected void ContactsButtonWasClicked(object sender, EventArgs e)
         {
-            this.APWorkerDetailsControl.GetWorkersFireEvent(e);
+            this.ContactInformationRequired(sender, null);
+        }
+
+        protected void ContactInformationRequired(object sender, StringEventArgs e)
+        {
+            if (e == null)
+            {
+                e = new StringEventArgs(this.hiddenIdField.Text);
+            }
+
+            if (e.StringParameter == null)
+            {
+                e.StringParameter = this.hiddenIdField.Text;
+            }
+            else
+            {
+                this.hiddenIdField.Text = e.StringParameter;
+            }
+
+            this.APWorkerDetailsControl.GetWorkersFireEvent(e.StringParameter);
 
             this.HideAllControlsOnThatPage();
+            this.RemoveActiveForAllButtons();
+
             this.APWorkerDetailsControl.Visible = true;
-            // Call right user control here
+            this.buttons.Visible = true;
+            this.ContactsBtn.CssClass += " active";
+        }
+
+        protected void BackToAllWorkersClicked(object sender, EventArgs e)
+        {
+            this.APWorkersControl.GetWorkersFireEvent();
+
+            this.HideAllControlsOnThatPage();
+            this.RemoveActiveForAllButtons();
+
+            this.APWorkersControl.Visible = true;
         }
 
         private void HideAllControlsOnThatPage()
         {
             this.APWorkersControl.Visible = false;
             this.APWorkerDetailsControl.Visible = false;
+            this.buttons.Visible = false;
+        }
+
+        private void RemoveActiveForAllButtons()
+        {
+            this.BackToAll.CssClass = "collection-item";
+            this.ContactsBtn.CssClass = "collection-item";
+            this.MedicalBtn.CssClass = "collection-item";
+            this.DishesBtn.CssClass = "collection-item";
         }
     }
 }
