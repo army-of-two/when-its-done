@@ -23,7 +23,7 @@ namespace WhenItsDone.Data.Repositories
 
         public DishDetailsViewDTO GetDishDetailsViewById(int id)
         {
-            throw new NotImplementedException();
+            return base.DbSet.Where(dish => dish.IsDeleted == false && dish.Id == id).ProjectToFirstOrDefault<DishDetailsViewDTO>();
         }
 
         public Task<ICollection<NamePhotoRatingDishViewDTO>> GetTopCountDishesByRating(int dishesCount)
