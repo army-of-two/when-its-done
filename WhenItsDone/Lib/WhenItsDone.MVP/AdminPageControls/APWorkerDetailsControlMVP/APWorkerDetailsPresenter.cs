@@ -1,5 +1,6 @@
 ﻿using System;
 using WebFormsMvp;
+using WhenItsDone.MVP.AdminPageControls.EventArguments;
 using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.MVP.AdminPageControls.APWorkerDetailsControlMVP
@@ -16,9 +17,9 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkerDetailsControlMVP
             this.View.GetWorkerDetailsById += View_GetWorkerDetailsById;
         }
 
-        private void View_GetWorkerDetailsById(object sender, string e)
+        private void View_GetWorkerDetailsById(object sender, StringEventArgs e)
         {
-            this.View.Model.Worker = this.workerService.GetDetailInfoById(e);
+            this.View.Model.Worker = this.workerService.GetDetailInfoById(e.StringParameter);
         }
     }
 }
