@@ -37,7 +37,7 @@ namespace WhenItsDone.WebFormsClient.Create {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Calories;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Calories;
         
         /// <summary>
         /// Carbohydrates control.
@@ -46,7 +46,7 @@ namespace WhenItsDone.WebFormsClient.Create {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Carbohydrates;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Carbohydrates;
         
         /// <summary>
         /// Fats control.
@@ -55,7 +55,7 @@ namespace WhenItsDone.WebFormsClient.Create {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Fats;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Fats;
         
         /// <summary>
         /// Protein control.
@@ -64,7 +64,7 @@ namespace WhenItsDone.WebFormsClient.Create {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Protein;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Protein;
         
         /// <summary>
         /// Video control.
