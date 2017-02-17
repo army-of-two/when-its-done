@@ -21,12 +21,14 @@
                             <input runat="server" id="DishName" type="text" class="validate">
                             <label for="DishName">Name</label>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="DishName" ErrorMessage="Name is required." Display="None"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator runat="server" ControlToValidate="DishName" ValidationExpression=".{2,50}" ErrorMessage="Name must be between 2 and 50 characters long." Display="None"></asp:RegularExpressionValidator>
                         </div>
 
                         <div class="input-field col s6">
                             <input runat="server" id="DishPrice" type="text" class="validate">
                             <label for="DishPrice">Price</label>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="DishPrice" ErrorMessage="Price is required." Display="None"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator runat="server" ControlToValidate="DishPrice" ValidationExpression="[0-9\.]{1,9}" ErrorMessage="Price must be a number." Display="None"></asp:RegularExpressionValidator>
                         </div>
                     </div>
 
@@ -86,13 +88,12 @@
                         </asp:LinkButton>
                     </div>
 
-                    <div class="row">
-                        <asp:ValidationSummary runat="server" ForeColor="Red" DisplayMode="BulletList" />
-                    </div>
                 </div>
 
                 <div class="col s4">
-                    <span>image tag here</span>
+                    <div class="row">
+                        <asp:ValidationSummary runat="server" ForeColor="Red" DisplayMode="BulletList" />
+                    </div>
                 </div>
             </div>
         </div>
