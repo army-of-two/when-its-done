@@ -4,7 +4,7 @@ namespace WhenItsDone.MVP.CreatePages
 {
     public class CreateEventArgs : EventArgs
     {
-        public CreateEventArgs(string loggedUserUsername, string name, string price, string calories, string carbohydrates, string fats, string protein, string videoUrl, string photoUrl)
+        public CreateEventArgs(string loggedUserUsername, string name, string price, string calories, string carbohydrates, string fats, string protein, string videoUrl, string photoUrl, string description)
         {
             this.LoggedUserUsername = loggedUserUsername;
             this.Name = name;
@@ -15,6 +15,7 @@ namespace WhenItsDone.MVP.CreatePages
             this.Protein = protein;
             this.VideoUrl = videoUrl;
             this.PhotoUrl = photoUrl;
+            this.Description = description;
         }
 
         public string LoggedUserUsername { get; private set; }
@@ -33,6 +34,8 @@ namespace WhenItsDone.MVP.CreatePages
 
         public string VideoUrl { get; private set; }
 
-        public string PhotoUrl { get; set; }
+        public string PhotoUrl { get; private set; }
+
+        public string Description { get; private set; }
     }
 }

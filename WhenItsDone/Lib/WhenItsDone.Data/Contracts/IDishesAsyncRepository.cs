@@ -8,6 +8,8 @@ namespace WhenItsDone.Data.Contracts
 {
     public interface IDishesAsyncRepository : IAsyncRepository<Dish>
     {
+        DishDetailsViewDTO GetDishDetailsViewById(int id);
+
         Task<ICollection<NamePhotoRatingDishViewDTO>> GetTopCountDishesByRating(int dishesCount);
 
         ICollection<NamePhotoRatingDishViewDTO> AddTopCountDishesSampleData(int dishesCount, ICollection<NamePhotoRatingDishViewDTO> existingData);

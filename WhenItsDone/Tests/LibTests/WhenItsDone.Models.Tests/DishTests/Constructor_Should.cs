@@ -53,6 +53,7 @@ namespace WhenItsDone.Models.Tests.DishTests
             Assert.That(attribute, Is.Not.Null);
         }
 
+        [Ignore("Intentionally removed.")]
         [Test]
         public void RecipeProperty_MustHaveRequiredAttribute()
         {

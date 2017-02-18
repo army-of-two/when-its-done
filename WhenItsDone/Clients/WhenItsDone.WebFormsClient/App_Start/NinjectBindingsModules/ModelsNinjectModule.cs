@@ -26,7 +26,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 
             this.Bind<Dish>().ToSelf().NamedLikeFactoryMethod((ICompleteDishFactory factory) => factory.GetDish());
             this.Bind<Dish>().ToMethod(this.GetInitializedDishFactoryMethod)
-                .NamedLikeFactoryMethod((IInitializedDishFactory factory) => factory.GetInitializedDish(default(string), default(decimal), default(decimal), default(decimal), default(decimal), default(decimal)));
+                .NamedLikeFactoryMethod((IInitializedDishFactory factory) => factory.GetInitializedDish(default(string), default(string), default(decimal), default(decimal), default(decimal), default(decimal), default(decimal)));
 
             this.Bind<VideoItem>().ToSelf().NamedLikeFactoryMethod((IVideoItemFactory factory) => factory.GetVideoItem());
             this.Bind<VideoItem>().ToMethod(this.GetInitializedVideoItemFactoryMethod)
@@ -71,11 +71,13 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
         {
             var methodParameters = context.Parameters.ToList();
             var name = (string)methodParameters[0].GetValue(context, null);
-            var price = (decimal)methodParameters[1].GetValue(context, null);
-            var calories = (decimal)methodParameters[2].GetValue(context, null);
-            var carbohydrates = (decimal)methodParameters[3].GetValue(context, null);
-            var fats = (decimal)methodParameters[4].GetValue(context, null);
-            var protein = (decimal)methodParameters[5].GetValue(context, null);
+            var description = (string)methodParameters[1].GetValue(context, null);
+
+            var price = (decimal)methodParameters[2].GetValue(context, null);
+            var calories = (decimal)methodParameters[3].GetValue(context, null);
+            var carbohydrates = (decimal)methodParameters[4].GetValue(context, null);
+            var fats = (decimal)methodParameters[5].GetValue(context, null);
+            var protein = (decimal)methodParameters[6].GetValue(context, null);
 
             var completeDishFactory = context.Kernel.Get<ICompleteDishFactory>();
             var nextDish = completeDishFactory.GetDish();
@@ -85,6 +87,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
             nextDish.Price = price;
 
             nextDish.Recipe.Name = name;
+            nextDish.Recipe.Description = description;
 
             nextDish.Recipe.NutritionFacts.Calories = calories;
             nextDish.Recipe.NutritionFacts.Carbohydrates = carbohydrates;

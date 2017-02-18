@@ -26,8 +26,7 @@ namespace WhenItsDone.Models
         public int Rating { get; set; }
 
         public int RecipeId { get; set; }
-
-        [Required]
+        
         public virtual Recipe Recipe { get; set; }
 
         [Range(ValidationConstants.DishPriceMinValue, ValidationConstants.DishPriceMaxValue)]

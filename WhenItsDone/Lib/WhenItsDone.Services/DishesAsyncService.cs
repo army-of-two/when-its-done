@@ -10,6 +10,7 @@ using WhenItsDone.Models;
 using WhenItsDone.Services.Abstraction;
 using WhenItsDone.Services.Contracts;
 using WhenItsDone.Models.Factories;
+using WhenItsDone.Models.Constants;
 
 namespace WhenItsDone.Services
 {
@@ -37,6 +38,43 @@ namespace WhenItsDone.Services
             this.photoItemFactory = photoItemFactory;
         }
 
+        public int ChangeDishRating(int dishId, int ratingChange)
+        {
+            var foundDish = this.dishesAsyncRepository.GetByIdAsync(dishId).Result;
+            if (foundDish == null)
+            {
+                throw new ArgumentException("Dish with this id could not be found.");
+            }
+
+            foundDish.Rating += ratingChange;
+            if (foundDish.Rating > ValidationConstants.RatingMaxValue)
+            {
+                foundDish.Rating = ValidationConstants.RatingMaxValue;
+            }
+            else if (foundDish.Rating < ValidationConstants.RatingMinValue)
+            {
+                foundDish.Rating = ValidationConstants.RatingMinValue;
+            }
+
+            this.dishesAsyncRepository.Update(foundDish);
+            using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
+            {
+                unitOfWork.SaveChangesAsync();
+            }
+
+            return foundDish.Rating;
+        }
+
+        public DishDetailsViewDTO GetDishDetailsViewById(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return null;
+            }
+
+            return this.dishesAsyncRepository.GetDishDetailsViewById(id.Value);
+        }
+
         public IEnumerable<NamePhotoRatingDishViewDTO> GetTopCountDishesByRating(int dishesCount, bool addSampleData)
         {
             if (dishesCount < 0)
@@ -53,15 +91,20 @@ namespace WhenItsDone.Services
             return topDishes;
         }
 
-        public bool CreateDish(string username, string dishName, string price, string calories, string carbohydrates, string fats, string protein, string videoYouTubeUrl, string photoUrl)
+        public bool CreateDish(string username, string dishName, string description, string price, string calories, string carbohydrates, string fats, string protein, string videoYouTubeUrl, string photoUrl)
         {
             var isSuccessful = false;
-            if (string.IsNullOrEmpty(username))
+            if (string.IsNullOrEmpty(photoUrl))
             {
                 return isSuccessful;
             }
 
             if (string.IsNullOrEmpty(videoYouTubeUrl))
+            {
+                return isSuccessful;
+            }
+
+            if (string.IsNullOrEmpty(username))
             {
                 return isSuccessful;
             }
@@ -78,7 +121,7 @@ namespace WhenItsDone.Services
             var convertedFats = this.ConvertStringValueToDecimal(fats, nameof(fats));
             var convertedProtein = this.ConvertStringValueToDecimal(protein, nameof(protein));
 
-            var nextDish = this.dishFactory.GetInitializedDish(dishName, convertedPrice, convertedCalories, convertedCarbohydrates, convertedFats, convertedProtein);
+            var nextDish = this.dishFactory.GetInitializedDish(dishName, description, convertedPrice, convertedCalories, convertedCarbohydrates, convertedFats, convertedProtein);
             var nextVideoItem = this.videoItemFactory.GetInitializedVideoItem(dishName, videoYouTubeUrl);
             var nextPhotoItem = this.photoItemFactory.GetInitializedPhotoItem(photoUrl, loggedUserId.Value);
 
