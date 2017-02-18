@@ -49,6 +49,7 @@
                 </LayoutTemplate>
 
                 <ItemTemplate>
+                    <h1><%#: Item.Name %></h1>
                 </ItemTemplate>
 
                 <ItemSeparatorTemplate>

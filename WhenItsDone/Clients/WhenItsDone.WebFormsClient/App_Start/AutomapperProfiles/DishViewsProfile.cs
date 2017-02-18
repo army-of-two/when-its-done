@@ -44,6 +44,13 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
                 .ForMember(dest => dest.Protein, opts => opts.MapFrom(src => src.Recipe.NutritionFacts.Protein))
                 .ForMember(dest => dest.VideoYouTubeId, opts => opts.MapFrom(src => src.VideoItems.FirstOrDefault().YouTubeId))
                 .ForMember(dest => dest.Rating, opts => opts.MapFrom(src => src.Rating));
+
+            this.CreateMap<Dish, DishBrowseViewDTO>()
+                .ForMember(dest => dest.Name, opts => opts.MapFrom(src => src.Recipe.Name))
+                .ForMember(dest => dest.Id, opts => opts.MapFrom(src => src.Id))
+                .ForMember(dest => dest.Rating, opts => opts.MapFrom(src => src.Rating))
+                .ForMember(dest => dest.PhotoUrl, opts => opts.MapFrom(src => src.PhotoItems.FirstOrDefault().Url))
+                .ForMember(dest => dest.AverageNutritionAmount, opts => opts.MapFrom(src => (src.Recipe.NutritionFacts.Calories + src.Recipe.NutritionFacts.Carbohydrates + src.Recipe.NutritionFacts.Fats + src.Recipe.NutritionFacts.Protein) / 4));
         }
     }
 }
