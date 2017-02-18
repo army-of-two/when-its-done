@@ -49,6 +49,7 @@ namespace WhenItsDone.WebFormsClient
         {
             if (!this.Page.User.Identity.IsAuthenticated)
             {
+                this.RatingHeaderLabel.Text = string.Format("<a href='/account/login?ReturnUrl={0}'>Login to enable voting.</a>", this.Request.RawUrl);
 
                 this.LikeLinkButton.Enabled = false;
                 this.LikeLinkButton.CssClass += " disabled";
