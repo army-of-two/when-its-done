@@ -17,7 +17,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.AutomapperProfiles
 
             this.CreateMap<Worker, WorkerDetailInformationDTO>()
                 .ForMember(dest => dest.Id, opts => opts.MapFrom(x => x.Id))
-                .ForMember(dest => dest.AddressInformationId, opts => opts.MapFrom(x => x.ContactInformationId))
+                .ForMember(dest => dest.AddressInformationId, opts => opts.MapFrom(x => x.ContactInformation.AddressId))
                 .ForMember(dest => dest.Age, opts => opts.MapFrom(x => x.Age))
                 .ForMember(dest => dest.City, opts => opts.MapFrom(x => x.ContactInformation.Address.City))
                 .ForMember(dest => dest.ContactInformationId, opts => opts.MapFrom(x => x.ContactInformationId))

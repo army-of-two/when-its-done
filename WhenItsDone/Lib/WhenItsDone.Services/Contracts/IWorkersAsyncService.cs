@@ -7,5 +7,7 @@ namespace WhenItsDone.Services.Contracts
     public interface IWorkersAsyncService : IGenericAsyncService<Worker>
     {
         IEnumerable<WorkerNamesIdDTO> GetWorkersNamesAndId();
+
+        WorkerDetailInformationDTO GetDetailInfoById(string id);
     }
 }

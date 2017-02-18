@@ -67,6 +67,10 @@
     <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\UploadProfilePictureInitialStateEventArgs.cs" />
     <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\UploadProfilePicturePresenter.cs" />
     <Compile Include="AccountPages\ManageMVP\UploadProfilePictureMVP\UploadProfilePictureViewModel.cs" />
+    <Compile Include="AdminPageControls\APWorkerDetailsControlMVP\APWorkerDetailsControlViewModel.cs" />
+    <Compile Include="AdminPageControls\APWorkerDetailsControlMVP\APWorkerDetailsPresenter.cs" />
+    <Compile Include="AdminPageControls\APWorkerDetailsControlMVP\IAPWorkerDetailsControlView.cs" />
+    <Compile Include="AdminPageControls\APWorkerDetailsControlMVP\IAPWorkerDetailsPresenter.cs" />
     <Compile Include="AdminPageControls\APWorkersControlMVP\APWorkersControlPresenter.cs" />
     <Compile Include="AdminPageControls\APWorkersControlMVP\APWorkersControlViewModel.cs" />
     <Compile Include="AdminPageControls\APWorkersControlMVP\IAPWorkersControlPresenter.cs" />
@@ -76,6 +80,7 @@
     <Compile Include="AccountPages\RegisterMVP\RegisterEventArgs.cs" />
     <Compile Include="AccountPages\RegisterMVP\RegisterPresenter.cs" />
     <Compile Include="AccountPages\RegisterMVP\RegisterViewModel.cs" />
+    <Compile Include="AdminPageControls\EventArguments\StringEventArgs.cs" />
     <Compile Include="AssemblyId\IMvpAssemblyId.cs" />
     <Compile Include="ContentContainers\TopDishesMVP\ITopDishesPresenter.cs" />
     <Compile Include="ContentContainers\TopDishesMVP\ITopDishesView.cs" />
@@ -106,6 +111,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WhenItsDone.Common\WhenItsDone.Common.csproj">
+      <Project>{42E362E0-9E6C-4867-88AA-CF2CC00FE1F8}</Project>
+      <Name>WhenItsDone.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WhenItsDone.DefaultAuth\WhenItsDone.DefaultAuth.csproj">
       <Project>{EBC86ED0-136E-46DA-8E84-1491DF78E8C7}</Project>
       <Name>WhenItsDone.DefaultAuth</Name>

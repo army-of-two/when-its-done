@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminPage.aspx.cs" Inherits="WhenItsDone.WebFormsClient.AdminPage" %>
 
 <%@ Register Src="~/ViewControls/AdminPageControls/APWorkersControl.ascx" TagPrefix="uc" TagName="APWorkersControl" %>
+<%@ Register Src="~/ViewControls/AdminPageControls/APWorkerDetailsControl.ascx" TagPrefix="uc" TagName="APWorkerDetailsControl" %>
+
 
 <asp:Content ContentPlaceHolderID="Stylesheets" runat="server">
     <link href="<%= ResolveUrl("~/Content/Css/AdminPage.css") %>" rel="stylesheet" type="text/css" />
@@ -9,8 +11,26 @@
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
-    
-    <uc:APWorkersControl runat="server" ID="APWorkersControl" />
+    <asp:UpdatePanel runat="server" UpdateMode="Conditional"
+        ChildrenAsTriggers="true" ID="AdminPageUpdater">
+        <ContentTemplate>
+            <asp:Label runat="server" ID="hiddenIdField" Visible="false"></asp:Label>
+
+            <div class="container">
+                <uc:APWorkersControl runat="server" ID="APWorkersControl" />
+                <div class=" margin-top-40">
+                    <div class="collection" runat="server" id="buttons" visible="false">
+                        <asp:Button runat="server" class="collection-item" Text="Back" ID="BackToAll" OnClick="BackToAllWorkersClicked" />
+                        <asp:Button runat="server" class="collection-item active" Text="Contact informations" ID="ContactsBtn" OnClick="ContactsButtonWasClicked" />
+                        <asp:Button runat="server" class="collection-item" Text="Medical information" ID="MedicalBtn" />
+                        <asp:Button runat="server" class="collection-item" Text="Dishes" ID="DishesBtn" />
+                    </div>
+
+                    <uc:APWorkerDetailsControl runat="server" ID="APWorkerDetailsControl" Visible="false" />
+                </div>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 
 </asp:Content>
 

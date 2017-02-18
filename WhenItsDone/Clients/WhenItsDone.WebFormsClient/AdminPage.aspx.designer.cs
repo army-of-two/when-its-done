@@ -13,6 +13,24 @@ namespace WhenItsDone.WebFormsClient {
     public partial class AdminPage {
         
         /// <summary>
+        /// AdminPageUpdater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel AdminPageUpdater;
+        
+        /// <summary>
+        /// hiddenIdField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label hiddenIdField;
+        
+        /// <summary>
         /// APWorkersControl control.
         /// </summary>
         /// <remarks>
@@ -20,5 +38,59 @@ namespace WhenItsDone.WebFormsClient {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::WhenItsDone.WebFormsClient.ViewControls.AdminPageControls.APWorkersControl APWorkersControl;
+        
+        /// <summary>
+        /// buttons control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl buttons;
+        
+        /// <summary>
+        /// BackToAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BackToAll;
+        
+        /// <summary>
+        /// ContactsBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ContactsBtn;
+        
+        /// <summary>
+        /// MedicalBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button MedicalBtn;
+        
+        /// <summary>
+        /// DishesBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button DishesBtn;
+        
+        /// <summary>
+        /// APWorkerDetailsControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WhenItsDone.WebFormsClient.ViewControls.AdminPageControls.APWorkerDetails APWorkerDetailsControl;
     }
 }

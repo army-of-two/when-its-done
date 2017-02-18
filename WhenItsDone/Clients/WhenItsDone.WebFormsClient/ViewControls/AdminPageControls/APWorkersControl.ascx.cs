@@ -8,6 +8,7 @@ using WebFormsMvp;
 using WebFormsMvp.Web;
 using WhenItsDone.DTOs.WorkerVIewsDTOs;
 using WhenItsDone.MVP.AdminPageControls.APWorkersControlMVP;
+using WhenItsDone.MVP.AdminPageControls.EventArguments;
 
 namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls
 {
@@ -15,7 +16,7 @@ namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls
     public partial class APWorkersControl : MvpUserControl<APWorkersControlViewModel>, IAPWorkersControlView
     {
         public event EventHandler GetWorkersNamesAndId;
-        public event EventHandler<string> UserClickedInfoButton;
+        public event EventHandler<StringEventArgs> UserClickedInfoButton;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,16 +25,22 @@ namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls
                 this.GetWorkersNamesAndId?.Invoke(this, null);
 
                 this.WorkersList.DataSource = this.Model.WorkersNamesAndId;
+                this.WorkersList.DataBind();
             }
+        }
 
-            this.WorkersList.DataBind();
+        public void GetWorkersFireEvent()
+        {
+            this.GetWorkersNamesAndId?.Invoke(this, EventArgs.Empty);
         }
 
         protected void InfoClick(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
 
-            UserClickedInfoButton?.Invoke(this, btn.CommandArgument);
+            var args = new StringEventArgs(btn.CommandArgument);
+
+            UserClickedInfoButton?.Invoke(this, args);
         }
     }
 }
