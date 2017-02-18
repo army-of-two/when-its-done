@@ -37,6 +37,11 @@ namespace WhenItsDone.Services
             this.photoItemFactory = photoItemFactory;
         }
 
+        public int ChangeDishRating(int ratingChange)
+        {
+            throw new NotImplementedException();
+        }
+
         public DishDetailsViewDTO GetDishDetailsViewById(int? id)
         {
             if (!id.HasValue)

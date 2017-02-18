@@ -38,7 +38,13 @@ namespace WhenItsDone.MVP.DetailsMVP
         {
             Guard.WhenArgument(args, nameof(DetailsGetDishDetailsEventArgs)).IsNull().Throw();
 
-            this.View.Model.DishDetails = this.dishesAsyncService.GetDishDetailsViewById(args.DishId);
+            int dishId;
+            if (!int.TryParse(args.DishId, out dishId))
+            {
+                throw new ArgumentException("Invalid Dish Id");
+            }
+
+            this.View.Model.DishDetails = this.dishesAsyncService.GetDishDetailsViewById(dishId);
             this.View.Model.DishRating = this.View.Model.DishDetails.Rating;
         }
     }

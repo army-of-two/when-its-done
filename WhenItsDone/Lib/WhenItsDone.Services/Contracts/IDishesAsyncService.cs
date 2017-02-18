@@ -7,6 +7,8 @@ namespace WhenItsDone.Services.Contracts
 {
     public interface IDishesAsyncService : IGenericAsyncService<Dish>
     {
+        int ChangeDishRating(int ratingChange);
+
         DishDetailsViewDTO GetDishDetailsViewById(int? id);
 
         IEnumerable<NamePhotoRatingDishViewDTO> GetTopCountDishesByRating(int dishesCount, bool addSampleData);

@@ -2,11 +2,11 @@
 {
     public class DetailsRatingVoteEventArgs
     {
-        public DetailsRatingVoteEventArgs(int dishId)
+        public DetailsRatingVoteEventArgs(string dishId)
         {
             this.DishId = dishId;
         }
 
-        public int DishId { get; private set; }
+        public string DishId { get; private set; }
     }
 }

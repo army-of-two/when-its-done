@@ -4,11 +4,11 @@ namespace WhenItsDone.MVP.DetailsMVP
 {
     public class DetailsGetDishDetailsEventArgs : EventArgs
     {
-        public DetailsGetDishDetailsEventArgs(int? dishId)
+        public DetailsGetDishDetailsEventArgs(string dishId)
         {
             this.DishId = dishId;
         }
 
-        public int? DishId { get; private set; }
+        public string DishId { get; private set; }
     }
 }
