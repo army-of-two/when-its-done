@@ -15,15 +15,10 @@
             padding: 0;
         }
 
-        .embedded-container {
+        img {
             width: 100%;
-            height: 480px;
+            height: 360px;
             object-fit: contain;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
         }
     </style>
 </asp:Content>
@@ -34,7 +29,7 @@
 
             <asp:ListView
                 ID="BrowseDishesListView" runat="server"
-                ItemType="WhenItsDone.Models.Dish"
+                ItemType="WhenItsDone.DTOs.DishViewsDTOs.DishBrowseViewDTO"
                 SelectMethod="BrowseDishesListViewGetData"
                 OnSelectedIndexChanged="BrowseDishesListViewSelectedIndexChanged"
                 DataKeyNames="Id">
@@ -52,7 +47,11 @@
                 </LayoutTemplate>
 
                 <ItemTemplate>
-                    <h1><%#: Item.Recipe.Name %></h1>
+                    <div class="row">
+                        <div class="col s4">
+                            <img src="<%#: Item.PhotoUrl %>" alt="<%#: Item.Name %>" />
+                        </div>
+                    </div>
                 </ItemTemplate>
 
                 <ItemSeparatorTemplate>

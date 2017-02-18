@@ -15,6 +15,6 @@ namespace WhenItsDone.Data.Contracts
 
         ICollection<NamePhotoRatingDishViewDTO> AddTopCountDishesSampleData(int dishesCount, ICollection<NamePhotoRatingDishViewDTO> existingData);
 
-        IQueryable<Dish> GetAllDishesQueryable();
+        IQueryable<DishBrowseViewDTO> GetAllDishesQueryable();
     }
 }

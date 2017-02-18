@@ -22,9 +22,9 @@ namespace WhenItsDone.Data.Repositories
         {
         }
 
-        public IQueryable<Dish> GetAllDishesQueryable()
+        public IQueryable<DishBrowseViewDTO> GetAllDishesQueryable()
         {
-            return this.DbSet.Include(dish => dish.Recipe).Include(dish => dish.Recipe.NutritionFacts);
+            return this.DbSet.ProjectToList<DishBrowseViewDTO>().AsQueryable();
         }
 
         public DishDetailsViewDTO GetDishDetailsViewById(int id)

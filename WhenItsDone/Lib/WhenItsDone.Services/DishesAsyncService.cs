@@ -39,7 +39,7 @@ namespace WhenItsDone.Services
             this.photoItemFactory = photoItemFactory;
         }
 
-        public IQueryable<Dish> GetAllDishesQueryable()
+        public IQueryable<DishBrowseViewDTO> GetAllDishesQueryable()
         {
             return this.dishesAsyncRepository.GetAllDishesQueryable();
         }

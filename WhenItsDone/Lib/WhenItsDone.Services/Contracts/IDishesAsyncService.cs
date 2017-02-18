@@ -14,7 +14,7 @@ namespace WhenItsDone.Services.Contracts
 
         IEnumerable<NamePhotoRatingDishViewDTO> GetTopCountDishesByRating(int dishesCount, bool addSampleData);
 
-        IQueryable<Dish> GetAllDishesQueryable();
+        IQueryable<DishBrowseViewDTO> GetAllDishesQueryable();
 
         bool CreateDish(string username, string dishName, string description, string price, string calories, string carbohydrates, string fats, string protein, string videoYouTubeUrl, string photoUrl);
     }
