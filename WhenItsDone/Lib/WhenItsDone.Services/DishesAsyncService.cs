@@ -41,7 +41,7 @@ namespace WhenItsDone.Services
 
         public IQueryable<DishBrowseViewDTO> GetAllDishesQueryable()
         {
-            return null;
+            return this.dishesAsyncRepository.GetAllDishesQueryable();
         }
 
         public int ChangeDishRating(int dishId, int ratingChange)
