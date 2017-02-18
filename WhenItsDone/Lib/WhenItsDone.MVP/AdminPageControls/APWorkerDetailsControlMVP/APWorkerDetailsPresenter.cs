@@ -34,6 +34,8 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkerDetailsControlMVP
             return new WorkerDetailInformationDTO()
             {
                 Id = 1,
+                FirstName = "firstName",
+                LastName = "lastname",
                 Age = 12,
                 AddressInformationId = 1,
                 City = "Stoyo",
