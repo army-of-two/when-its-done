@@ -4,13 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using WebFormsMvp;
+using WebFormsMvp.Web;
 using WhenItsDone.DTOs.DishViewsDTOs;
+using WhenItsDone.MVP.BrowseMVP;
 
 namespace WhenItsDone.WebFormsClient
 {
-    public partial class Browse : System.Web.UI.Page
+    [PresenterBinding(typeof(IBrowsePresenter))]
+    public partial class Browse : MvpPage<BrowseViewModel>, IBrowseView
     {
+        public event EventHandler OnBrowseDishesGetData;
+
         // The return type can be changed to IEnumerable, however to support
         // paging and sorting, the following parameters must be added:
         //     int maximumRows
@@ -19,7 +24,9 @@ namespace WhenItsDone.WebFormsClient
         //     string sortByExpression
         public IQueryable<DishBrowseViewDTO> BrowseDishesListViewGetData()
         {
-            return null;
+            this.OnBrowseDishesGetData?.Invoke(null, null);
+
+            return this.Model.BrowseDishesViews;
         }
 
         protected void BrowseDishesListViewSelectedIndexChanged(object sender, EventArgs e)
