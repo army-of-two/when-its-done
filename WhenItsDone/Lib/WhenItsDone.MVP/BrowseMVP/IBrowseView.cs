@@ -6,6 +6,6 @@ namespace WhenItsDone.MVP.BrowseMVP
 {
     public interface IBrowseView : IView<BrowseViewModel>
     {
-        event EventHandler BrowseDishesGetData;
+        event EventHandler OnBrowseDishesGetData;
     }
 }
