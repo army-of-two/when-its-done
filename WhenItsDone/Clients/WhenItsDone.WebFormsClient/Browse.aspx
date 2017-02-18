@@ -32,15 +32,29 @@
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
 
-            <asp:ListView ID="BrowseDishesListView" runat="server" ItemType="WhenItsDone.DTOs.DishViewsDTOs.DishBrowseViewDTO"
+            <asp:ListView
+                ID="BrowseDishesListView" runat="server"
+                ItemType="WhenItsDone.DTOs.DishViewsDTOs.DishBrowseViewDTO"
                 SelectMethod="BrowseDishesListViewGetData"
                 OnSelectedIndexChanged="BrowseDishesListViewSelectedIndexChanged">
+
+                <LayoutTemplate>
+                    <div class="row">
+                        <asp:PlaceHolder runat="server" ID="itemPlaceHolder"></asp:PlaceHolder>
+                    </div>
+
+                    <asp:DataPager runat="server" PageSize="1">
+                    </asp:DataPager>
+                </LayoutTemplate>
+
                 <ItemTemplate>
+                    <asp:se
                 </ItemTemplate>
 
                 <ItemSeparatorTemplate>
                     <hr />
                 </ItemSeparatorTemplate>
+                
             </asp:ListView>
 
         </ContentTemplate>
