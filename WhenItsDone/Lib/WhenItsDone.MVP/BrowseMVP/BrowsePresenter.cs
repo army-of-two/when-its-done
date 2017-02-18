@@ -24,7 +24,7 @@ namespace WhenItsDone.MVP.BrowseMVP
 
         private void OnBrowseDishesGetData(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            base.View.Model.BrowseDishesViews = this.dishesAsyncService.GetAllDishesQueryable();
         }
     }
 }

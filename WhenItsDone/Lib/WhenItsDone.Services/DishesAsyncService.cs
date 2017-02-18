@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using Bytes2you.Validation;
 
@@ -11,7 +12,6 @@ using WhenItsDone.Services.Abstraction;
 using WhenItsDone.Services.Contracts;
 using WhenItsDone.Models.Factories;
 using WhenItsDone.Models.Constants;
-using System.Linq;
 
 namespace WhenItsDone.Services
 {
