@@ -29,6 +29,13 @@
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:UpdatePanel runat="server">
+        <ContentTemplate>
+
+            <asp:ListView runat="server" ></asp:ListView>
+
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="JavaScript" runat="server">
