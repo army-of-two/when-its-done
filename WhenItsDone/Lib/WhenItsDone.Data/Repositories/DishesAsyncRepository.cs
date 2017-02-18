@@ -21,6 +21,11 @@ namespace WhenItsDone.Data.Repositories
         {
         }
 
+        public DishDetailsViewDTO GetDishDetailsViewById(int id)
+        {
+            return base.DbSet.Where(dish => dish.IsDeleted == false && dish.Id == id).ProjectToFirstOrDefault<DishDetailsViewDTO>();
+        }
+
         public Task<ICollection<NamePhotoRatingDishViewDTO>> GetTopCountDishesByRating(int dishesCount)
         {
             if (dishesCount < 0)

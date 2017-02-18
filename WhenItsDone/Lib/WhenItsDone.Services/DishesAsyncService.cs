@@ -10,6 +10,7 @@ using WhenItsDone.Models;
 using WhenItsDone.Services.Abstraction;
 using WhenItsDone.Services.Contracts;
 using WhenItsDone.Models.Factories;
+using WhenItsDone.Models.Constants;
 
 namespace WhenItsDone.Services
 {
@@ -35,6 +36,43 @@ namespace WhenItsDone.Services
             this.dishFactory = dishFactory;
             this.videoItemFactory = videoItemFactory;
             this.photoItemFactory = photoItemFactory;
+        }
+
+        public int ChangeDishRating(int dishId, int ratingChange)
+        {
+            var foundDish = this.dishesAsyncRepository.GetByIdAsync(dishId).Result;
+            if (foundDish == null)
+            {
+                throw new ArgumentException("Dish with this id could not be found.");
+            }
+
+            foundDish.Rating += ratingChange;
+            if (foundDish.Rating > ValidationConstants.RatingMaxValue)
+            {
+                foundDish.Rating = ValidationConstants.RatingMaxValue;
+            }
+            else if (foundDish.Rating < ValidationConstants.RatingMinValue)
+            {
+                foundDish.Rating = ValidationConstants.RatingMinValue;
+            }
+
+            this.dishesAsyncRepository.Update(foundDish);
+            using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
+            {
+                unitOfWork.SaveChangesAsync();
+            }
+
+            return foundDish.Rating;
+        }
+
+        public DishDetailsViewDTO GetDishDetailsViewById(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return null;
+            }
+
+            return this.dishesAsyncRepository.GetDishDetailsViewById(id.Value);
         }
 
         public IEnumerable<NamePhotoRatingDishViewDTO> GetTopCountDishesByRating(int dishesCount, bool addSampleData)

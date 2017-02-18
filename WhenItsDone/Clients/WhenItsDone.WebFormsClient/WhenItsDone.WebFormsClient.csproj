@@ -239,6 +239,7 @@
     <Content Include="Content\Css\TopDishesUserControl.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Create\Default.aspx" />
+    <Content Include="Details.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -283,6 +284,7 @@
     <Content Include="ViewControls\ContentContainers\TopDishesUserControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopUsersUserControl.ascx" />
     <Content Include="ViewControls\ContentContainers\TopVideoItemsUserControl.ascx" />
+    <Content Include="ViewControls\DetailsUserControls\DishRatingUserControl.ascx" />
     <Content Include="ViewControls\ManageUserControls\UpdateContactInformationUserControl.ascx" />
     <Content Include="ViewControls\ManageUserControls\UpdateMedicalInformationUserControl.ascx" />
     <Content Include="ViewControls\ManageUserControls\UpdatePersonalInformationUserControl.ascx" />
@@ -462,6 +464,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -517,6 +526,13 @@
       <DependentUpon>TopVideoItemsUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViewControls\Contracts\IShouldLoad.cs" />
+    <Compile Include="ViewControls\DetailsUserControls\DishRatingUserControl.ascx.cs">
+      <DependentUpon>DishRatingUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewControls\DetailsUserControls\DishRatingUserControl.ascx.designer.cs">
+      <DependentUpon>DishRatingUserControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ViewControls\ManageUserControls\UpdateContactInformationUserControl.ascx.cs">
       <DependentUpon>UpdateContactInformationUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
