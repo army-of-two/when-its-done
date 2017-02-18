@@ -7,7 +7,7 @@ namespace WhenItsDone.Services.Contracts
 {
     public interface IDishesAsyncService : IGenericAsyncService<Dish>
     {
-        int ChangeDishRating(int ratingChange);
+        int ChangeDishRating(int dishId, int ratingChange);
 
         DishDetailsViewDTO GetDishDetailsViewById(int? id);
 

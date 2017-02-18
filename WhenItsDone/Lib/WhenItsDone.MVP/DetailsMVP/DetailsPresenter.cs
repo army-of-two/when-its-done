@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Bytes2you.Validation;
 
 using WebFormsMvp;
@@ -23,15 +24,31 @@ namespace WhenItsDone.MVP.DetailsMVP
             base.View.OnDislikeVote += this.OnDislikeVote;
         }
 
-        private void OnLikeVote(object sender, DetailsRatingVoteEventArgs e)
+        private void OnLikeVote(object sender, DetailsRatingVoteEventArgs args)
         {
-            throw new NotImplementedException();
+            Guard.WhenArgument(args, nameof(DetailsGetDishDetailsEventArgs)).IsNull().Throw();
+
+            int dishId;
+            if (!int.TryParse(args.DishId, out dishId))
+            {
+                throw new ArgumentException("Invalid Dish Id");
+            }
+
+            base.View.Model.DishRating = this.dishesAsyncService.ChangeDishRating(dishId, 1);
         }
 
 
-        private void OnDislikeVote(object sender, DetailsRatingVoteEventArgs e)
+        private void OnDislikeVote(object sender, DetailsRatingVoteEventArgs args)
         {
-            throw new NotImplementedException();
+            Guard.WhenArgument(args, nameof(DetailsGetDishDetailsEventArgs)).IsNull().Throw();
+
+            int dishId;
+            if (!int.TryParse(args.DishId, out dishId))
+            {
+                throw new ArgumentException("Invalid Dish Id");
+            }
+
+            base.View.Model.DishRating = this.dishesAsyncService.ChangeDishRating(dishId, -1);
         }
 
         private void OnGetDishDetails(object sender, DetailsGetDishDetailsEventArgs args)
@@ -44,8 +61,8 @@ namespace WhenItsDone.MVP.DetailsMVP
                 throw new ArgumentException("Invalid Dish Id");
             }
 
-            this.View.Model.DishDetails = this.dishesAsyncService.GetDishDetailsViewById(dishId);
-            this.View.Model.DishRating = this.View.Model.DishDetails.Rating;
+            base.View.Model.DishDetails = this.dishesAsyncService.GetDishDetailsViewById(dishId);
+            base.View.Model.DishRating = this.View.Model.DishDetails.Rating;
         }
     }
 }
