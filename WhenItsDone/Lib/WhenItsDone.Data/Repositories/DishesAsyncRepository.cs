@@ -21,6 +21,11 @@ namespace WhenItsDone.Data.Repositories
         {
         }
 
+        public IQueryable<DishBrowseViewDTO> GetAllDishesQueryable()
+        {
+            return this.DbSet.ProjectToQueryable<DishBrowseViewDTO>();
+        }
+
         public DishDetailsViewDTO GetDishDetailsViewById(int id)
         {
             return base.DbSet.Where(dish => dish.IsDeleted == false && dish.Id == id).ProjectToFirstOrDefault<DishDetailsViewDTO>();

@@ -11,6 +11,7 @@ using WhenItsDone.Services.Abstraction;
 using WhenItsDone.Services.Contracts;
 using WhenItsDone.Models.Factories;
 using WhenItsDone.Models.Constants;
+using System.Linq;
 
 namespace WhenItsDone.Services
 {
@@ -36,6 +37,11 @@ namespace WhenItsDone.Services
             this.dishFactory = dishFactory;
             this.videoItemFactory = videoItemFactory;
             this.photoItemFactory = photoItemFactory;
+        }
+
+        public IQueryable<DishBrowseViewDTO> GetAllDishesQueryable()
+        {
+            return null;
         }
 
         public int ChangeDishRating(int dishId, int ratingChange)
