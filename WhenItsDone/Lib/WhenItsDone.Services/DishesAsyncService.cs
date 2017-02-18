@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using Bytes2you.Validation;
 
@@ -36,6 +37,11 @@ namespace WhenItsDone.Services
             this.dishFactory = dishFactory;
             this.videoItemFactory = videoItemFactory;
             this.photoItemFactory = photoItemFactory;
+        }
+
+        public IQueryable<DishBrowseViewDTO> GetAllDishesQueryable()
+        {
+            return this.dishesAsyncRepository.GetAllDishesQueryable();
         }
 
         public int ChangeDishRating(int dishId, int ratingChange)

@@ -115,7 +115,7 @@ namespace WhenItsDone.Services
 
             if (foundUser.MedicalInformation.HeightInCm.HasValue && foundUser.MedicalInformation.WeightInKg.HasValue)
             {
-                foundUser.MedicalInformation.BMI = (int)(foundUser.MedicalInformation.WeightInKg / foundUser.MedicalInformation.HeightInCm * foundUser.MedicalInformation.HeightInCm);
+                foundUser.MedicalInformation.BMI = (int)(foundUser.MedicalInformation.WeightInKg / (foundUser.MedicalInformation.HeightInCm / 100) * (foundUser.MedicalInformation.HeightInCm / 100));
             }
 
             return this.CommitChanges(foundUser);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,6 +20,11 @@ namespace WhenItsDone.Data.Repositories
         public DishesAsyncRepository(IWhenItsDoneDbContext dbContext)
             : base(dbContext)
         {
+        }
+
+        public IQueryable<DishBrowseViewDTO> GetAllDishesQueryable()
+        {
+            return this.DbSet.OrderByDescending(dish => dish.Rating).ProjectToList<DishBrowseViewDTO>().AsQueryable();
         }
 
         public DishDetailsViewDTO GetDishDetailsViewById(int id)

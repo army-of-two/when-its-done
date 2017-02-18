@@ -1,0 +1,40 @@
+﻿using System;
+using System.Linq;
+
+using WebFormsMvp;
+using WebFormsMvp.Web;
+
+using WhenItsDone.DTOs.DishViewsDTOs;
+using WhenItsDone.MVP.BrowseMVP;
+
+namespace WhenItsDone.WebFormsClient
+{
+    [PresenterBinding(typeof(IBrowsePresenter))]
+    public partial class Browse : MvpPage<BrowseViewModel>, IBrowseView
+    {
+        public event EventHandler OnBrowseDishesGetData;
+
+        // The return type can be changed to IEnumerable, however to support
+        // paging and sorting, the following parameters must be added:
+        //     int maximumRows
+        //     int startRowIndex
+        //     out int totalRowCount
+        //     string sortByExpression
+        public IQueryable<DishBrowseViewDTO> BrowseDishesListViewGetData()
+        {
+            this.OnBrowseDishesGetData?.Invoke(null, null);
+
+            return this.Model.BrowseDishesViews;
+        }
+
+        public void OnLikeLinkButtonClick(object sender, EventArgs args)
+        {
+
+        }
+
+        public void OnDislikeLinkButtonClick(object sender, EventArgs args)
+        {
+
+        }
+    }
+}
