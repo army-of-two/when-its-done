@@ -27,7 +27,12 @@ namespace WhenItsDone.WebFormsClient
             return this.Model.BrowseDishesViews;
         }
 
-        protected void BrowseDishesListViewSelectedIndexChanged(object sender, EventArgs e)
+        public void OnLikeLinkButtonClick(object sender, EventArgs args)
+        {
+
+        }
+
+        public void OnDislikeLinkButtonClick(object sender, EventArgs args)
         {
 
         }

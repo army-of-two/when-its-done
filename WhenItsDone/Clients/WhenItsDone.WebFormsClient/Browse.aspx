@@ -20,6 +20,11 @@
             height: 240px;
             object-fit: contain;
         }
+
+        .card-title,
+        .card-action {
+            text-align: center;
+        }
     </style>
 </asp:Content>
 
@@ -31,7 +36,6 @@
                 ID="BrowseDishesListView" runat="server"
                 ItemType="WhenItsDone.DTOs.DishViewsDTOs.DishBrowseViewDTO"
                 SelectMethod="BrowseDishesListViewGetData"
-                OnSelectedIndexChanged="BrowseDishesListViewSelectedIndexChanged"
                 DataKeyNames="Id">
 
                 <LayoutTemplate>
@@ -48,15 +52,22 @@
 
                 <ItemTemplate>
                     <div class="row">
-                        <div class="col s4">
-                            <img src="<%#: Item.PhotoUrl %>" alt="<%#: Item.Name %>" />
+                        <div class="col s12 m6">
+                            <div class="card blue-grey darken-1">
+                                <div class="card-content white-text">
+                                    <span class="card-title"><%#: Item.Name %></span>
+                                    <p>
+                                        <img src="<%#: Item.PhotoUrl %>" alt="<%#: Item.Name %>" />
+                                    </p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="/details?itemid=<%#: Item.Id %>">More info</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </ItemTemplate>
 
-                <ItemSeparatorTemplate>
-                    <hr />
-                </ItemSeparatorTemplate>
             </asp:ListView>
 
         </ContentTemplate>
