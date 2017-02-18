@@ -59,7 +59,7 @@ namespace WhenItsDone.Services
             this.dishesAsyncRepository.Update(foundDish);
             using (var unitOfWork = base.UnitOfWorkFactory.CreateUnitOfWork())
             {
-                unitOfWork.SaveChanges();
+                unitOfWork.SaveChangesAsync();
             }
 
             return foundDish.Rating;
