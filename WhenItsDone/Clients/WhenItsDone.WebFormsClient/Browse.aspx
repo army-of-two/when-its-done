@@ -36,7 +36,8 @@
                 ID="BrowseDishesListView" runat="server"
                 ItemType="WhenItsDone.DTOs.DishViewsDTOs.DishBrowseViewDTO"
                 SelectMethod="BrowseDishesListViewGetData"
-                OnSelectedIndexChanged="BrowseDishesListViewSelectedIndexChanged">
+                OnSelectedIndexChanged="BrowseDishesListViewSelectedIndexChanged"
+                DataKeyNames="Id">
 
                 <LayoutTemplate>
                     <div class="row">
@@ -48,13 +49,11 @@
                 </LayoutTemplate>
 
                 <ItemTemplate>
-                    <asp:se
                 </ItemTemplate>
 
                 <ItemSeparatorTemplate>
                     <hr />
                 </ItemSeparatorTemplate>
-                
             </asp:ListView>
 
         </ContentTemplate>

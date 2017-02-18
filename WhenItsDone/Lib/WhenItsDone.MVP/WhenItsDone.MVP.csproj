@@ -82,6 +82,7 @@
     <Compile Include="AccountPages\RegisterMVP\RegisterViewModel.cs" />
     <Compile Include="AdminPageControls\EventArguments\StringEventArgs.cs" />
     <Compile Include="AssemblyId\IMvpAssemblyId.cs" />
+    <Compile Include="BrowseMVP\BrowseViewModel.cs" />
     <Compile Include="ContentContainers\TopDishesMVP\ITopDishesPresenter.cs" />
     <Compile Include="ContentContainers\TopDishesMVP\ITopDishesView.cs" />
     <Compile Include="ContentContainers\TopDishesMVP\TopDishesEventArgs.cs" />
