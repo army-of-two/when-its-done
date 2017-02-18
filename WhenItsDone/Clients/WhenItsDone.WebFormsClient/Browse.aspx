@@ -32,7 +32,16 @@
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
 
-            <asp:ListView runat="server" ></asp:ListView>
+            <asp:ListView ID="BrowseDishesListView" runat="server" ItemType="WhenItsDone.DTOs.DishViewsDTOs.DishBrowseViewDTO"
+                SelectMethod="BrowseDishesListViewGetData"
+                OnSelectedIndexChanged="BrowseDishesListViewSelectedIndexChanged">
+                <ItemTemplate>
+                </ItemTemplate>
+
+                <ItemSeparatorTemplate>
+                    <hr />
+                </ItemSeparatorTemplate>
+            </asp:ListView>
 
         </ContentTemplate>
     </asp:UpdatePanel>
