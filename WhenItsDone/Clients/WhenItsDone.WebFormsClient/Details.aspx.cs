@@ -53,7 +53,7 @@ namespace WhenItsDone.WebFormsClient
                 this.LikeLinkButton.CssClass += " disabled";
 
                 this.DislikeLinkButton.Enabled = false;
-                this.DislikeLinkButton.CssClass += "disabled";
+                this.DislikeLinkButton.CssClass += " disabled";
             }
         }
     }

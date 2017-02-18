@@ -81,6 +81,8 @@
                             </Triggers>
                         </asp:UpdatePanel>
 
+                        <hr />
+
                         <section>
                             <header>
                                 <h5>Nutrition:</h5>
@@ -110,6 +112,8 @@
                                 </div>
                             </div>
                         </section>
+
+                        <hr />
 
                         <div class="row">
                             <section>
