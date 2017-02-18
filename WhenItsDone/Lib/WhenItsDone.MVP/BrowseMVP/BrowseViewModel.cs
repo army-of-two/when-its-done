@@ -1,11 +1,11 @@
 ﻿using System.Linq;
 
-using WhenItsDone.DTOs.DishViewsDTOs;
+using WhenItsDone.Models;
 
 namespace WhenItsDone.MVP.BrowseMVP
 {
     public class BrowseViewModel
     {
-        public IQueryable<DishBrowseViewDTO> BrowseDishesViews { get; set; }
+        public IQueryable<Dish> BrowseDishesViews { get; set; }
     }
 }

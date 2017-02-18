@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,9 +22,9 @@ namespace WhenItsDone.Data.Repositories
         {
         }
 
-        public IQueryable<DishBrowseViewDTO> GetAllDishesQueryable()
+        public IQueryable<Dish> GetAllDishesQueryable()
         {
-            return this.DbSet.ProjectToQueryable<DishBrowseViewDTO>();
+            return this.DbSet.Include(dish => dish.Recipe).Include(dish => dish.Recipe.NutritionFacts);
         }
 
         public DishDetailsViewDTO GetDishDetailsViewById(int id)

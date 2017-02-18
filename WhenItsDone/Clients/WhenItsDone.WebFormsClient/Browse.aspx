@@ -34,7 +34,7 @@
 
             <asp:ListView
                 ID="BrowseDishesListView" runat="server"
-                ItemType="WhenItsDone.DTOs.DishViewsDTOs.DishBrowseViewDTO"
+                ItemType="WhenItsDone.Models.Dish"
                 SelectMethod="BrowseDishesListViewGetData"
                 OnSelectedIndexChanged="BrowseDishesListViewSelectedIndexChanged"
                 DataKeyNames="Id">
@@ -44,12 +44,15 @@
                         <asp:PlaceHolder runat="server" ID="itemPlaceHolder"></asp:PlaceHolder>
                     </div>
 
-                    <asp:DataPager runat="server" PageSize="1">
+                    <asp:DataPager runat="server" PageSize="5" QueryStringField="Id">
+                        <Fields>
+                            <asp:NextPreviousPagerField />
+                        </Fields>
                     </asp:DataPager>
                 </LayoutTemplate>
 
                 <ItemTemplate>
-                    <h1><%#: Item.Name %></h1>
+                    <h1><%#: Item.Recipe.Name %></h1>
                 </ItemTemplate>
 
                 <ItemSeparatorTemplate>

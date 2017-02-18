@@ -4,7 +4,7 @@ using System.Linq;
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
-using WhenItsDone.DTOs.DishViewsDTOs;
+using WhenItsDone.Models;
 using WhenItsDone.MVP.BrowseMVP;
 
 namespace WhenItsDone.WebFormsClient
@@ -20,7 +20,7 @@ namespace WhenItsDone.WebFormsClient
         //     int startRowIndex
         //     out int totalRowCount
         //     string sortByExpression
-        public IQueryable<DishBrowseViewDTO> BrowseDishesListViewGetData()
+        public IQueryable<Dish> BrowseDishesListViewGetData()
         {
             this.OnBrowseDishesGetData?.Invoke(null, null);
 
