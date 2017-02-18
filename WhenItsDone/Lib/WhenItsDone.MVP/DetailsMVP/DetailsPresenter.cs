@@ -39,6 +39,7 @@ namespace WhenItsDone.MVP.DetailsMVP
             Guard.WhenArgument(args, nameof(DetailsGetDishDetailsEventArgs)).IsNull().Throw();
 
             this.View.Model.DishDetails = this.dishesAsyncService.GetDishDetailsViewById(args.DishId);
+            this.View.Model.DishRating = this.View.Model.DishDetails.Rating;
         }
     }
 }

@@ -16,6 +16,15 @@ namespace WhenItsDone.WebFormsClient
         public event EventHandler<DetailsRatingVoteEventArgs> OnLikeVote;
         public event EventHandler<DetailsRatingVoteEventArgs> OnDislikeVote;
 
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            var itemid = int.Parse(this.Request.QueryString["itemid"]);
+            var detailsGetDishDetailsEventArgs = new DetailsGetDishDetailsEventArgs(itemid);
+            this.OnGetDishDetails?.Invoke(null, detailsGetDishDetailsEventArgs);
+        }
+
         // The id parameter should match the DataKeyNames value set on the control
         // or be decorated with a value provider attribute, e.g. [QueryString]int id
         public DishDetailsViewDTO Unnamed_GetItem([QueryString]int? itemid)
@@ -40,7 +49,7 @@ namespace WhenItsDone.WebFormsClient
 
         private DetailsRatingVoteEventArgs CreateDetailsRatingVoteEventArgs()
         {
-            var dishId = this.Model.DishDetails.Id;
+            var dishId = int.Parse(this.DishIdHiddenField.Value);
             var detailsRatingVoteEventArgs = new DetailsRatingVoteEventArgs(dishId);
 
             return detailsRatingVoteEventArgs;
