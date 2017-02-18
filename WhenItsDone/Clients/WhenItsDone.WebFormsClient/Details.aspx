@@ -58,18 +58,18 @@
                                 <section class="row">
                                     <header>
                                         <h5>
-                                            <asp:Label runat="server">Rating: <%#: Model.DishRating %></asp:Label>
+                                            <asp:Label ID="RatingHeaderLabel" runat="server">Rating: <%#: Model.DishRating %></asp:Label>
                                         </h5>
                                     </header>
                                 </section>
 
                                 <section class="row">
-                                    <asp:LinkButton ID="LikeLinkButton" runat="server" CssClass="waves-effect waves-light btn" OnClick="OnLikeLinkButtonClick">
+                                    <asp:LinkButton ID="LikeLinkButton" runat="server" ToolTip="Like" CssClass="waves-effect waves-light btn" OnClick="OnLikeLinkButtonClick">
                                         <i class="material-icons right">thumb_up</i>
                                         <span>Like</span>
                                     </asp:LinkButton>
 
-                                    <asp:LinkButton ID="DislikeLinkButton" runat="server" CssClass="waves-effect waves-light btn" OnClick="OnDislikeLinkButtonClick">
+                                    <asp:LinkButton ID="DislikeLinkButton" runat="server" ToolTip="Dislike" CssClass="waves-effect waves-light btn" OnClick="OnDislikeLinkButtonClick">
                                         <i class="material-icons left">thumb_down</i>
                                         <span>Dislike</span>
                                     </asp:LinkButton>

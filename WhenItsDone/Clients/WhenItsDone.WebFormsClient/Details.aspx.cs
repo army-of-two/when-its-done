@@ -18,11 +18,11 @@ namespace WhenItsDone.WebFormsClient
         {
             base.OnLoad(e);
 
-            this.EnableVotingOnLoggedUser();
-
             var itemid = this.Request.QueryString["itemid"];
             var detailsGetDishDetailsEventArgs = new DetailsGetDishDetailsEventArgs(itemid);
             this.OnGetDishDetails?.Invoke(null, detailsGetDishDetailsEventArgs);
+
+            this.EnableVotingOnLoggedUser();
         }
 
         public void OnLikeLinkButtonClick(object sender, EventArgs e)
@@ -49,11 +49,19 @@ namespace WhenItsDone.WebFormsClient
         {
             if (!this.Page.User.Identity.IsAuthenticated)
             {
+
                 this.LikeLinkButton.Enabled = false;
                 this.LikeLinkButton.CssClass += " disabled";
+                this.LikeLinkButton.ToolTip = "Login to enable voting.";
 
                 this.DislikeLinkButton.Enabled = false;
                 this.DislikeLinkButton.CssClass += " disabled";
+                this.DislikeLinkButton.ToolTip = "Login to enable voting.";
+            }
+            else
+            {
+                this.LikeLinkButton.ToolTip = string.Format("Like: {0}", this.Model.DishDetails.Name);
+                this.DislikeLinkButton.ToolTip = string.Format("Dislike: {0}", this.Model.DishDetails.Name);
             }
         }
     }
