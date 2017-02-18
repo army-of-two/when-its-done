@@ -87,7 +87,23 @@
     <Compile Include="ContentContainers\TopDishesMVP\TopDishesEventArgs.cs" />
     <Compile Include="ContentContainers\TopDishesMVP\TopDishesPresenter.cs" />
     <Compile Include="ContentContainers\TopDishesMVP\TopDishesViewModel.cs" />
+    <Compile Include="CreatePages\CreateEventArgs.cs" />
+    <Compile Include="CreatePages\CreatePresenter.cs" />
+    <Compile Include="CreatePages\CreateViewModel.cs" />
+    <Compile Include="CreatePages\ICreatePresenter.cs" />
+    <Compile Include="CreatePages\ICreateView.cs" />
+    <Compile Include="DetailsMVP\DetailsGetDishDetailsEventArgs.cs" />
+    <Compile Include="DetailsMVP\DetailsPresenter.cs" />
+    <Compile Include="DetailsMVP\DetailsRatingVoteEventArgs.cs" />
+    <Compile Include="DetailsMVP\DetailsViewModel.cs" />
+    <Compile Include="DetailsMVP\IDetailsPresenter.cs" />
+    <Compile Include="DetailsMVP\IDetailsView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RatingsMVP\DishRatingPresenter.cs" />
+    <Compile Include="RatingsMVP\DishRatingViewModel.cs" />
+    <Compile Include="RatingsMVP\DishRatingVoteEventArgs.cs" />
+    <Compile Include="RatingsMVP\IDishRatingPresenter.cs" />
+    <Compile Include="RatingsMVP\IDishRatingView.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
