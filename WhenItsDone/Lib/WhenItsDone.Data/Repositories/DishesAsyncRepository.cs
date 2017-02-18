@@ -24,7 +24,7 @@ namespace WhenItsDone.Data.Repositories
 
         public IQueryable<DishBrowseViewDTO> GetAllDishesQueryable()
         {
-            return this.DbSet.ProjectToList<DishBrowseViewDTO>().AsQueryable();
+            return this.DbSet.OrderByDescending(dish => dish.Rating).ProjectToList<DishBrowseViewDTO>().AsQueryable();
         }
 
         public DishDetailsViewDTO GetDishDetailsViewById(int id)

@@ -17,7 +17,7 @@
 
         img {
             width: 100%;
-            height: 360px;
+            height: 240px;
             object-fit: contain;
         }
     </style>
