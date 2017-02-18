@@ -18,6 +18,8 @@ namespace WhenItsDone.WebFormsClient
         {
             base.OnLoad(e);
 
+            this.EnableVotingOnLoggedUser();
+
             var itemid = this.Request.QueryString["itemid"];
             var detailsGetDishDetailsEventArgs = new DetailsGetDishDetailsEventArgs(itemid);
             this.OnGetDishDetails?.Invoke(null, detailsGetDishDetailsEventArgs);
@@ -41,6 +43,18 @@ namespace WhenItsDone.WebFormsClient
             var detailsRatingVoteEventArgs = new DetailsRatingVoteEventArgs(dishId);
 
             return detailsRatingVoteEventArgs;
+        }
+
+        private void EnableVotingOnLoggedUser()
+        {
+            if (!this.Page.User.Identity.IsAuthenticated)
+            {
+                this.LikeLinkButton.Enabled = false;
+                this.LikeLinkButton.CssClass += " disabled";
+
+                this.DislikeLinkButton.Enabled = false;
+                this.DislikeLinkButton.CssClass += "disabled";
+            }
         }
     }
 }
