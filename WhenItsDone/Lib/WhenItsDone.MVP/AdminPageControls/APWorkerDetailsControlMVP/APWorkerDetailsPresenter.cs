@@ -14,7 +14,12 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkerDetailsControlMVP
         public APWorkerDetailsPresenter(IAPWorkerDetailsControlView view, IWorkersAsyncService workerService)
             : base(view)
         {
-            this.workerService = workerService ?? throw new ArgumentNullException(nameof(workerService));
+            if (workerService == null)
+            {
+                throw new ArgumentNullException(nameof(workerService));
+            }
+
+            this.workerService = workerService;
 
             this.View.GetWorkerDetailsById += View_GetWorkerDetailsById;
         }
