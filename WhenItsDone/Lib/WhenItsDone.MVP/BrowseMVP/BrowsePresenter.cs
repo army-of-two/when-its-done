@@ -1,14 +1,24 @@
 ﻿using System;
 
+using Bytes2you.Validation;
+
 using WebFormsMvp;
+
+using WhenItsDone.Services.Contracts;
 
 namespace WhenItsDone.MVP.BrowseMVP
 {
     public class BrowsePresenter : Presenter<IBrowseView>, IBrowsePresenter
     {
-        public BrowsePresenter(IBrowseView view)
+        private readonly IDishesAsyncService dishesAsyncService;
+
+        public BrowsePresenter(IBrowseView view, IDishesAsyncService dishesAsyncService)
             : base(view)
         {
+            Guard.WhenArgument(dishesAsyncService, nameof(IDishesAsyncService)).IsNull().Throw();
+
+            this.dishesAsyncService = dishesAsyncService;
+
             base.View.OnBrowseDishesGetData += this.OnBrowseDishesGetData;
         }
 
