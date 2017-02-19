@@ -21,7 +21,7 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
         {
             base.OnLoad(e);
 
-            this.ProfilePictureUrlTextBox.Text = string.Empty;
+            this.ProfilePictureUrlTextBox.Value = string.Empty;
 
             var loggedUserUsername = Page.User.Identity.Name;
             this.Model.LoggedUserUsername = loggedUserUsername;
@@ -54,9 +54,9 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
                 var uploadProfilePictureEventArgs = new UploadProfilePictureEventArgs(loggedUserUsername, uploadedFileName, uploadedFile);
                 this.UploadProfilePicture?.Invoke(null, uploadProfilePictureEventArgs);
             }
-            else if (!string.IsNullOrEmpty(this.ProfilePictureUrlTextBox.Text))
+            else if (!string.IsNullOrEmpty(this.ProfilePictureUrlTextBox.Value))
             {
-                var profilePictureUrl = this.ProfilePictureUrlTextBox.Text;
+                var profilePictureUrl = this.ProfilePictureUrlTextBox.Value;
 
                 var uploadProfilePictureFromUrlEventArgs = new UploadProfilePictureFromUrlEventArgs(loggedUserUsername, profilePictureUrl);
                 this.UploadProfilePictureFromUrl?.Invoke(null, uploadProfilePictureFromUrlEventArgs);
