@@ -16,13 +16,9 @@ namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls
 
         }
 
-        public void GetWorkersFireEvent(string id)
+        public void GetWorkersFireEvent(StringEventArgs args)
         {
-            var args = new StringEventArgs(id);
-
-            this.GetWorkerDetailsById?.Invoke(this, args);
-
-            
+            this.GetWorkerDetailsById?.Invoke(this, args);       
         }
     }
 }

@@ -36,7 +36,7 @@ namespace WhenItsDone.WebFormsClient
                 this.hiddenIdField.Text = e.StringParameter;
             }
 
-            this.APWorkerDetailsControl.GetWorkersFireEvent(e.StringParameter);
+            this.APWorkerDetailsControl.GetWorkersFireEvent(e);
 
             this.HideAllControlsOnThatPage();
             this.RemoveActiveForAllButtons();
