@@ -22,6 +22,15 @@ namespace WhenItsDone.WebFormsClient {
         protected global::System.Web.UI.WebControls.HiddenField DishIdHiddenField;
         
         /// <summary>
+        /// RatingHeaderLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label RatingHeaderLabel;
+        
+        /// <summary>
         /// LikeLinkButton control.
         /// </summary>
         /// <remarks>

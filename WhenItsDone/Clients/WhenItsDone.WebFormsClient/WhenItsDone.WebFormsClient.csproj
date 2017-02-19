@@ -229,6 +229,7 @@
     <Content Include="App_Data\default.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Browse.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -434,6 +435,8 @@
     </Compile>
     <Compile Include="App_Start\NinjectBindingsModules\CommonNinjectModule.cs" />
     <Compile Include="App_Start\NinjectBindingsModules\DefaultAuthNinjectModule.cs" />
+    <Compile Include="App_Start\NinjectBindingsModules\EntityDataSourceContainerNinjectModule.cs" />
+    <Compile Include="App_Start\NinjectBindingsModules\EntityDataSourceServicesNinjectModule.cs" />
     <Compile Include="App_Start\NinjectBindingsModules\ModelsNinjectModule.cs" />
     <Compile Include="App_Start\PresenterFactories\WebFormsMvpPresenterFactory.cs" />
     <Compile Include="App_Start\PresenterFactories\ICustomPresenterFactory.cs" />
@@ -444,6 +447,13 @@
     <Compile Include="App_Start\AppCompositionRoot.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Browse.aspx.cs">
+      <DependentUpon>Browse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Browse.aspx.designer.cs">
+      <DependentUpon>Browse.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -588,6 +598,10 @@
     <ProjectReference Include="..\..\Lib\WhenItsDone.Data.EntityDataSourceContainer\WhenItsDone.Data.EntityDataSourceContainer.csproj">
       <Project>{8645ee12-b05f-43ad-911e-1fdd8ac1c3e6}</Project>
       <Name>WhenItsDone.Data.EntityDataSourceContainer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Lib\WhenItsDone.Data.EntityDataSourceServices\WhenItsDone.Data.EntityDataSourceServices.csproj">
+      <Project>{27405733-9fdf-458b-97bb-a7f371c9f8de}</Project>
+      <Name>WhenItsDone.Data.EntityDataSourceServices</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Lib\WhenItsDone.Data\WhenItsDone.Data.csproj">
       <Project>{D3085631-83D5-4525-B69C-DFDC47BC7F9B}</Project>

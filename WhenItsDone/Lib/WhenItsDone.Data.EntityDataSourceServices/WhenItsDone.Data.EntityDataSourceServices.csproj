@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DA36A62D-37D6-47F1-B292-A73CFF233CA8}</ProjectGuid>
+    <ProjectGuid>{27405733-9FDF-458B-97BB-A7F371C9F8DE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WhenItsDone.DTOs</RootNamespace>
-    <AssemblyName>WhenItsDone.DTOs</AssemblyName>
+    <RootNamespace>WhenItsDone.Data.EntityDataSourceServices</RootNamespace>
+    <AssemblyName>WhenItsDone.Data.EntityDataSourceServices</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,7 +30,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bytes2you.Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a7d501dd757e0442, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Bytes2you.Validation.2.0.0.0\lib\portable-win+net40+sl40+wp+Xbox40\Bytes2you.Validation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,35 +53,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DishViewsDTOs\DishBasicsInfoDTO.cs" />
-    <Compile Include="DishViewsDTOs\DishBrowseViewDTO.cs" />
-    <Compile Include="DishViewsDTOs\DishDetailsViewDTO.cs" />
-    <Compile Include="DishViewsDTOs\DishWithPhotosDTO.cs" />
-    <Compile Include="DishViewsDTOs\NamePhotoDishViewDTO.cs" />
-    <Compile Include="DishViewsDTOs\NamePhotoRatingDishViewDTO.cs" />
-    <Compile Include="IngredientDTOs\IngredientWithNamesDTO.cs" />
-    <Compile Include="PhotoItemDTOs\PhotoItemDTO.cs" />
+    <Compile Include="AssemblyId\IEntityDataSourceServicesAssemblyId.cs" />
+    <Compile Include="DishesQueryableService.cs" />
+    <Compile Include="IDishesQueryableService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecipeDTOs\RecipeWithIngredientsDTO.cs" />
-    <Compile Include="UserViewsDTOs\ContactInformationUserViewDTO.cs" />
-    <Compile Include="UserViewsDTOs\MedicalInformationUserViewDTO.cs" />
-    <Compile Include="UserViewsDTOs\UsernameProfilePictureUserViewDTO.cs" />
-    <Compile Include="WorkerVIewsDTOs\WorkerDetailInformationDTO.cs" />
-    <Compile Include="WorkerVIewsDTOs\WorkerMedicalInformationDTO.cs" />
-    <Compile Include="WorkerVIewsDTOs\WorkerNamesIdDTO.cs" />
-    <Compile Include="WorkerVIewsDTOs\WorkerWithDishesDTO.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WhenItsDone.Common\WhenItsDone.Common.csproj">
-      <Project>{42e362e0-9e6c-4867-88aa-cf2cc00fe1f8}</Project>
-      <Name>WhenItsDone.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WhenItsDone.Models\WhenItsDone.Models.csproj">
-      <Project>{E10CC5A1-7DD9-4F43-8798-AA58882CAF6F}</Project>
-      <Name>WhenItsDone.Models</Name>
+    <ProjectReference Include="..\WhenItsDone.Data.EntityDataSourceContainer\WhenItsDone.Data.EntityDataSourceContainer.csproj">
+      <Project>{8645ee12-b05f-43ad-911e-1fdd8ac1c3e6}</Project>
+      <Name>WhenItsDone.Data.EntityDataSourceContainer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

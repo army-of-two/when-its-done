@@ -66,9 +66,11 @@
     <Compile Include="Dishes.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities.cs" />
     <Compile Include="Foods.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="IEntities.cs" />
     <Compile Include="Ingredients.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
