@@ -6,7 +6,30 @@
 
 <h1>Update Contact Information</h1>
 
-<asp:TextBox ID="CountryTextBox" Text="<%#: Model.Country %>" runat="server"></asp:TextBox>
-<asp:TextBox ID="CityTextBox" Text="<%#: Model.City %>" runat="server"></asp:TextBox>
-<asp:TextBox ID="StreetTextBox" Text="<%#: Model.Street %>" runat="server"></asp:TextBox>
-<asp:Button runat="server" Text="Update Contact Information" OnClick="OnUpdateContactInformation" />
+<div class="row">
+    <div class="input-field col s12">
+        <input runat="server" id="CountryTextBox" type="text" class="validate">
+        <label for="CountryTextBox"><%#: Model.Country %></label>
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field col s12">
+        <input runat="server" id="CityTextBox" type="text" class="validate">
+        <label for="CityTextBox"><%#: Model.City %></label>
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field col s12">
+        <input runat="server" id="StreetTextBox" type="text" class="validate">
+        <label for="StreetTextBox"><%#: Model.Street %></label>
+    </div>
+</div>
+
+<div class="row">
+    <asp:LinkButton CssClass="waves-effect waves-light btn" ID="UpdateProfilePictureButton" runat="server" OnClick="OnUpdateContactInformation">
+        <i class="material-icons right">cloud</i>
+        <asp:Label runat="server">Update Contact Information</asp:Label>
+    </asp:LinkButton>
+</div>
