@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 using WhenItsDone.DTOs.DishViewsDTOs;
@@ -14,7 +13,5 @@ namespace WhenItsDone.Data.Contracts
         Task<ICollection<NamePhotoRatingDishViewDTO>> GetTopCountDishesByRating(int dishesCount);
 
         ICollection<NamePhotoRatingDishViewDTO> AddTopCountDishesSampleData(int dishesCount, ICollection<NamePhotoRatingDishViewDTO> existingData);
-
-        IQueryable<DishBrowseViewDTO> GetAllDishesQueryable();
     }
 }
