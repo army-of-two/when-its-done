@@ -34,7 +34,7 @@
 
             <asp:ListView
                 ID="BrowseDishesListView" runat="server"
-                ItemType="WhenItsDone.DTOs.DishViewsDTOs.DishBrowseViewDTO"
+                ItemType="WhenItsDone.Data.EntityDataSourceContainer.Dishes"
                 SelectMethod="BrowseDishesListViewGetData"
                 DataKeyNames="Id">
 
@@ -55,9 +55,9 @@
                         <div class="col s12 m6">
                             <div class="card blue-grey darken-1">
                                 <div class="card-content white-text">
-                                    <span class="card-title"><%#: Item.Name %></span>
+                                    <span class="card-title"><%#: Item.Recipes.Name %></span>
                                     <p>
-                                        <img src="<%#: Item.PhotoUrl %>" alt="<%#: Item.Name %>" />
+                                        <img src="<%#: Item.PhotoItems.FirstOrDefault().Url %>" alt="<%#: Item.Recipes.Name %>" />
                                     </p>
                                 </div>
                                 <div class="card-action">

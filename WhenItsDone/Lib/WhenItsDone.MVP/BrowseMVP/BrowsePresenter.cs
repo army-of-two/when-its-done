@@ -4,18 +4,18 @@ using Bytes2you.Validation;
 
 using WebFormsMvp;
 
-using WhenItsDone.Services.Contracts;
+using WhenItsDone.Data.EntityDataSourceServices;
 
 namespace WhenItsDone.MVP.BrowseMVP
 {
     public class BrowsePresenter : Presenter<IBrowseView>, IBrowsePresenter
     {
-        private readonly IDishesAsyncService dishesAsyncService;
+        private readonly IDishesQueryableService dishesAsyncService;
 
-        public BrowsePresenter(IBrowseView view, IDishesAsyncService dishesAsyncService)
+        public BrowsePresenter(IBrowseView view, IDishesQueryableService dishesAsyncService)
             : base(view)
         {
-            Guard.WhenArgument(dishesAsyncService, nameof(IDishesAsyncService)).IsNull().Throw();
+            Guard.WhenArgument(dishesAsyncService, nameof(IDishesQueryableService)).IsNull().Throw();
 
             this.dishesAsyncService = dishesAsyncService;
 
