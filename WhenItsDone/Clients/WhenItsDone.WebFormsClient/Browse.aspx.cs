@@ -26,15 +26,5 @@ namespace WhenItsDone.WebFormsClient
 
             return this.Model.BrowseDishesViews;
         }
-
-        public void OnLikeLinkButtonClick(object sender, EventArgs args)
-        {
-
-        }
-
-        public void OnDislikeLinkButtonClick(object sender, EventArgs args)
-        {
-
-        }
     }
 }
