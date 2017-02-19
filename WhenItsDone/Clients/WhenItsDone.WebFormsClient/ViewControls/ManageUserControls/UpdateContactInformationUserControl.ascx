@@ -4,7 +4,7 @@
     CodeBehind="UpdateContactInformationUserControl.ascx.cs"
     Inherits="WhenItsDone.WebFormsClient.ViewControls.ManageUserControls.UpdateContactInformationUserControl" %>
 
-<h1>Update Contact Information</h1>
+<h3>Update Contact Information</h3>
 
 <div class="row">
     <div class="input-field col s12">

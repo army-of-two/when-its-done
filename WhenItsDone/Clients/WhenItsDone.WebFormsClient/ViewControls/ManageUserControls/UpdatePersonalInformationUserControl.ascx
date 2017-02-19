@@ -4,7 +4,7 @@
     CodeBehind="UpdatePersonalInformationUserControl.ascx.cs"
     Inherits="WhenItsDone.WebFormsClient.ViewControls.ManageUserControls.UpdatePersonalInformationUserControl" %>
 
-<h1>Update Personal Information</h1>
+<h3>Update Personal Information</h3>
 
 <asp:HiddenField ID="LoggedUserUsername" Value="" runat="server" />
 <asp:EntityDataSource

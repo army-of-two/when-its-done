@@ -4,7 +4,7 @@
     CodeBehind="UploadProfilePictureUserControl.ascx.cs"
     Inherits="WhenItsDone.WebFormsClient.ViewControls.ManageUserControls.UploadProfilePictureUserControl" %>
 
-<h1>Upload Profile Picture</h1>
+<h3>Upload Profile Picture</h3>
 
 <asp:UpdatePanel runat="server">
     <ContentTemplate>

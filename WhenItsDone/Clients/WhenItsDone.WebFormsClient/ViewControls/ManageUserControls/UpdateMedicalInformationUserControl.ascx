@@ -4,7 +4,7 @@
     CodeBehind="UpdateMedicalInformationUserControl.ascx.cs"
     Inherits="WhenItsDone.WebFormsClient.ViewControls.ManageUserControls.UpdateMedicalInformationUserControl" %>
 
-<h1>Update Medical Information</h1>
+<h3>Update Medical Information</h3>
 
 <div class="row">
     <div class="input-field col s12">
