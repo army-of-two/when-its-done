@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyId\IEntityDataSourceServicesAssemblyId.cs" />
     <Compile Include="DishesQueryableService.cs" />
     <Compile Include="IDishesQueryableService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
