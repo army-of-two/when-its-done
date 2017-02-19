@@ -19,7 +19,7 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox HeightInCmTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText HeightInCmTextBox;
         
         /// <summary>
         /// WeightInKgTextBox control.
@@ -28,6 +28,15 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox WeightInKgTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText WeightInKgTextBox;
+        
+        /// <summary>
+        /// UpdateProfilePictureButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton UpdateProfilePictureButton;
     }
 }

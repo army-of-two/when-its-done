@@ -35,8 +35,8 @@
 
                 <div class="row">
                     <asp:LinkButton CssClass="waves-effect waves-light btn" ID="UpdateProfilePictureButton" runat="server" OnClick="OnUploadProfilePictureButtonClick">
-                <i class="material-icons right">cloud</i>
-                <asp:Label runat="server">Update Profile Picture</asp:Label>
+                        <i class="material-icons right">cloud</i>
+                        <asp:Label runat="server">Update Profile Picture</asp:Label>
                     </asp:LinkButton>
                 </div>
 

@@ -15,7 +15,7 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
         public event EventHandler<UpdateMedicalInformationUpdateValuesEventArgs> UpdateMedicalInformationUpdateValues;
 
         public bool ShouldLoad { get; set; }
-        
+
         protected override void OnPreRender(EventArgs e)
         {
             base.OnPreRender(e);
@@ -32,8 +32,8 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
         public void OnUpdateMedicalInformation(object sender, EventArgs e)
         {
             var loggedUserUsername = this.Page.User.Identity.Name;
-            var heightInCm = this.HeightInCmTextBox.Text;
-            var weightInKg = this.WeightInKgTextBox.Text;
+            var heightInCm = this.HeightInCmTextBox.Value;
+            var weightInKg = this.WeightInKgTextBox.Value;
 
             var updateMedicalInformationUpdateValuesEventArgs = new UpdateMedicalInformationUpdateValuesEventArgs(loggedUserUsername, heightInCm, weightInKg);
             this.UpdateMedicalInformationUpdateValues?.Invoke(null, updateMedicalInformationUpdateValuesEventArgs);
