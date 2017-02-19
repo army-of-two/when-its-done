@@ -19,7 +19,7 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProfilePictureUrlTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl ProfilePictureUrlTextBox;
         
         /// <summary>
         /// ProfilePictureFileUpload control.
