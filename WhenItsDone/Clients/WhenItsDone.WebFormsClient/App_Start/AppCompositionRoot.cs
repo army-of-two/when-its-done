@@ -22,40 +22,6 @@ namespace WhenItsDone.WebFormsClient.App_Start
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
-        private static volatile IKernel ninjectKernelInstance;
-        private static object syncRoot = new Object();
-
-        /// <summary>
-        /// Singleton implementation
-        /// https://msdn.microsoft.com/en-us/library/ff650316.aspx
-        /// 
-        /// Singleton should not be required,
-        /// Ninject kernel is guaranteed to be only 
-        /// registered once by Ninject itself. (?)
-        /// Delete this ? 
-        /// </summary>
-        private static IKernel NinjectKernelInstance
-        {
-            get
-            {
-                return AppCompositionRoot.ninjectKernelInstance;
-            }
-
-            set
-            {
-                if (ninjectKernelInstance == null)
-                {
-                    lock (syncRoot)
-                    {
-                        if (ninjectKernelInstance == null)
-                        {
-                            AppCompositionRoot.ninjectKernelInstance = value;
-                        }
-                    }
-                }
-            }
-        }
-
         /// <summary>
         /// Starts the application
         /// </summary>
@@ -91,9 +57,6 @@ namespace WhenItsDone.WebFormsClient.App_Start
                 AppCompositionRoot.RegisterControllerFactory(kernel);
                 AppCompositionRoot.InitializeAutomapperConfig();
 
-                // Make IKernel instance available.
-                AppCompositionRoot.NinjectKernelInstance = kernel;
-
                 return kernel;
             }
             catch
@@ -115,6 +78,7 @@ namespace WhenItsDone.WebFormsClient.App_Start
             kernel.Load(new DefaultAuthNinjectModule());
             kernel.Load(new ModelsNinjectModule());
             kernel.Load(new CommonNinjectModule());
+            kernel.Load(new EntityDataSourceServicesNinjectModule());
         }
 
         private static void RegisterPresenterFactory(IKernel kernel)
