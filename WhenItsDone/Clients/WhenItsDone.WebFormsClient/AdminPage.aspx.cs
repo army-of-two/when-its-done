@@ -43,7 +43,7 @@ namespace WhenItsDone.WebFormsClient
 
             this.APWorkerDetailsControl.Visible = true;
             this.buttons.Visible = true;
-            this.ContactsBtn.CssClass += " active";
+            this.ContactsBtn.CssClass += " red accent-2";
         }
 
         protected void BackToAllWorkersClicked(object sender, EventArgs e)
@@ -65,10 +65,12 @@ namespace WhenItsDone.WebFormsClient
 
         private void RemoveActiveForAllButtons()
         {
-            this.BackToAll.CssClass = "collection-item";
-            this.ContactsBtn.CssClass = "collection-item";
-            this.MedicalBtn.CssClass = "collection-item";
-            this.DishesBtn.CssClass = "collection-item";
+            var defaultBtnStyles = "waves-effect waves-light btn";
+
+            this.BackToAll.CssClass = defaultBtnStyles;
+            this.ContactsBtn.CssClass = defaultBtnStyles;
+            this.MedicalBtn.CssClass = defaultBtnStyles;
+            this.DishesBtn.CssClass = defaultBtnStyles;
         }
     }
 }

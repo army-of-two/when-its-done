@@ -4,7 +4,7 @@
 
     #workers-list .APViewsWrapper {
         margin: 20px 0px;
-        display: inline-block;
+        /*display: inline-block;*/
         background-color: azure;
         border-radius: 10px;
         font-size: 1.4em;
