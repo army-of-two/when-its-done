@@ -78,6 +78,7 @@ namespace WhenItsDone.WebFormsClient.App_Start
             kernel.Load(new DefaultAuthNinjectModule());
             kernel.Load(new ModelsNinjectModule());
             kernel.Load(new CommonNinjectModule());
+            kernel.Load(new EntityDataSourceContainerNinjectModule());
             kernel.Load(new EntityDataSourceServicesNinjectModule());
         }
 

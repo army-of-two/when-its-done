@@ -435,6 +435,7 @@
     </Compile>
     <Compile Include="App_Start\NinjectBindingsModules\CommonNinjectModule.cs" />
     <Compile Include="App_Start\NinjectBindingsModules\DefaultAuthNinjectModule.cs" />
+    <Compile Include="App_Start\NinjectBindingsModules\EntityDataSourceContainerNinjectModule.cs" />
     <Compile Include="App_Start\NinjectBindingsModules\EntityDataSourceServicesNinjectModule.cs" />
     <Compile Include="App_Start\NinjectBindingsModules\ModelsNinjectModule.cs" />
     <Compile Include="App_Start\PresenterFactories\WebFormsMvpPresenterFactory.cs" />
