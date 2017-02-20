@@ -25,6 +25,14 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 .Configure(y => y.InRequestScope())
             );
 
+            this.Kernel.Bind(x =>
+                x.FromAssemblyContaining<IServicesAssemblyId>()
+                .SelectAllInterfaces()
+                .EndingWith("Factory")
+                .BindToFactory()
+                .Configure(z => z.InSingletonScope())
+            );
+
             this.Kernel.Bind<WorkerDetailInformationDTO>().ToMethod(this.GetWorkerDetailInformationDTO)
                 .NamedLikeFactoryMethod((IWorkerDetailInformationDTOFactory fac) =>
                                                     fac.GetWorkerDetailInformationDTO(default(int),

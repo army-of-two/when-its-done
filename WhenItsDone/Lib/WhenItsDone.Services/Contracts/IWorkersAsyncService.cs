@@ -9,5 +9,7 @@ namespace WhenItsDone.Services.Contracts
         IEnumerable<WorkerNamesIdDTO> GetWorkersNamesAndId();
 
         WorkerDetailInformationDTO GetDetailInfoById(string id);
+
+        string UpdateWorkerDetailInformationDTO(WorkerDetailInformationDTO worker);
     }
 }

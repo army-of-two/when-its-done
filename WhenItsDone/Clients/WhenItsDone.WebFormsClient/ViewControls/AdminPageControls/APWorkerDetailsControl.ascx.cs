@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.UI;
 using WebFormsMvp;
 using WebFormsMvp.Web;
 using WhenItsDone.MVP.AdminPageControls.APWorkerDetailsControlMVP;
@@ -37,6 +38,12 @@ namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls
                                                   this.Address.Value);
 
             this.EditRequest?.Invoke(this, args);
+            
+            this.GetWorkerDetailsById(this, new StringEventArgs(this.Id.Value));
+            
+            this.toastText.Text = this.Model.EditingResult;
+
+            // TODO run toastr script on client if posible 
         }
     }
 }

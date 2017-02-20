@@ -42,7 +42,8 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkerDetailsControlMVP
                                                                                    e.City,
                                                                                    e.Street);
 
-            
+            var result = this.workerService.UpdateWorkerDetailInformationDTO(worker);
+
         }
 
         private void View_GetWorkerDetailsById(object sender, StringEventArgs e)
@@ -58,9 +59,7 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkerDetailsControlMVP
                 FirstName = "firstName",
                 LastName = "lastname",
                 Age = 12,
-                AddressInformationId = 1,
                 City = "Stoyo",
-                ContactInformationId = 18,
                 Country = "Brazil",
                 Email = "me@me.me",
                 Gender = GenderType.Female,

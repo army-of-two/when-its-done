@@ -4,6 +4,10 @@
     Inherits="WhenItsDone.WebFormsClient.ViewControls.AdminPageControls.APWorkerDetails" %>
 
 <div id="workers-list">
+    <asp:TextBox runat="server" Visible="false" ID="toastText">
+
+    </asp:TextBox>
+
     <div class="APViewsWrapper col s12 padding-20-0">
         <div class="row">
             <div class="input-field col s1 offset-s1">
@@ -62,7 +66,7 @@
         <div class="row">
             <div class="input-field col s2 offset-s1">
                 <asp:Button runat="server" ID="EditBtn" Text="Save" OnClick="OnEdit"
-                    OnClientClick="Materialize.toast('Saved', 4000, 'rounded')" CssClass="btn green lighten-1 waves-effect waves-light" />
+                    OnClientClick="Materialize.toast('Saving', 4000, 'rounded')" CssClass="btn green lighten-1 waves-effect waves-light" />
             </div>
         </div>
     </div>
