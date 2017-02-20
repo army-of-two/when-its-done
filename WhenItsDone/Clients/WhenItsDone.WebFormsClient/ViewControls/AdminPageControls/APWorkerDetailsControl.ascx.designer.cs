@@ -31,15 +31,6 @@ namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls {
         protected global::System.Web.UI.HtmlControls.HtmlInputText Rating;
         
         /// <summary>
-        /// EditBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EditBtn;
-        
-        /// <summary>
         /// FirstName control.
         /// </summary>
         /// <remarks>
@@ -119,5 +110,14 @@ namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText Address;
+        
+        /// <summary>
+        /// EditBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button EditBtn;
     }
 }

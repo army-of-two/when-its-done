@@ -7,5 +7,7 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkerDetailsControlMVP
     public interface IAPWorkerDetailsControlView : IView<APWorkerDetailsControlViewModel>
     {
         event EventHandler<StringEventArgs> GetWorkerDetailsById;
+
+        event EventHandler<WorkerDetailsEventArgs> EditRequest;
     }
 }

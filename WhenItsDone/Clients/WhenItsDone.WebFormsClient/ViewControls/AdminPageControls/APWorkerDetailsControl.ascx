@@ -4,7 +4,7 @@
     Inherits="WhenItsDone.WebFormsClient.ViewControls.AdminPageControls.APWorkerDetails" %>
 
 <div id="workers-list">
-    <div class="APViewsWrapper col s12">
+    <div class="APViewsWrapper col s12 padding-20-0">
         <div class="row">
             <div class="input-field col s1 offset-s1">
                 <label for="Id" class="active">Id</label>
@@ -14,7 +14,6 @@
                 <label for="Rating" class="active">Rating</label>
                 <input runat="server" type="text" id="Rating" value="<%#this.Model.Worker?.Rating.ToString() %>" />
             </div>
-            <asp:Button runat="server" Id="EditBtn" Text="Save" OnClick="OnEdit" />
         </div>
         <div class="row">
             <div class="input-field col s3 offset-s1">
@@ -58,6 +57,12 @@
             <div class="input-field col s4">
                 <label for="Address" class="active">Address</label>
                 <input runat="server" type="text" id="Address" value="<%#this.Model.Worker?.Street.ToString() %>" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s2 offset-s1">
+                <asp:Button runat="server" ID="EditBtn" Text="Save" OnClick="OnEdit"
+                    OnClientClick="Materialize.toast('Saved', 4000, 'rounded')" CssClass="btn green lighten-1 waves-effect waves-light" />
             </div>
         </div>
     </div>

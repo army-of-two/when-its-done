@@ -43,7 +43,7 @@ namespace WhenItsDone.WebFormsClient
 
             this.APWorkerDetailsControl.Visible = true;
             this.buttons.Visible = true;
-            this.ContactsBtn.CssClass += " red accent-2";
+            this.ContactsBtn.CssClass += " grey lighten-2";
         }
 
         protected void BackToAllWorkersClicked(object sender, EventArgs e)
