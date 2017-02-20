@@ -21,9 +21,9 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP
 
             this.usersService = usersService;
 
-            this.View.OnInitialState += this.OnInitialState;
-            this.View.OnUploadProfilePicture += this.OnUploadProfilePicture;
-            this.View.OnUploadProfilePictureFromUrl += this.OnUploadProfilePictureFromUrl;
+            base.View.OnInitialState += this.OnInitialState;
+            base.View.OnUploadProfilePicture += this.OnUploadProfilePicture;
+            base.View.OnUploadProfilePictureFromUrl += this.OnUploadProfilePictureFromUrl;
         }
 
         public void OnInitialState(object sender, UploadProfilePictureInitialStateEventArgs args)
@@ -36,21 +36,21 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP
                 var foundUserView = this.usersService.GetCurrentUserProfilePicture(args.LoggedUserUsername);
                 if (foundUserView != null)
                 {
-                    this.View.Model.IsSuccessful = true;
-                    this.View.Model.CurrentProfilePictureBase64 = foundUserView.ProfilePictureBase64;
-                    this.View.Model.CurrentProfilePictureMimeType = foundUserView.ProfilePictureExtension;
+                    base.View.Model.IsSuccessful = true;
+                    base.View.Model.CurrentProfilePictureBase64 = foundUserView.ProfilePictureBase64;
+                    base.View.Model.CurrentProfilePictureMimeType = foundUserView.ProfilePictureExtension;
                 }
                 else
                 {
-                    this.View.Model.IsSuccessful = false;
-                    this.View.Model.ResultText = string.Format(UploadProfilePicturePresenter.UserNotFoundErrorText, args.LoggedUserUsername);
+                    base.View.Model.IsSuccessful = false;
+                    base.View.Model.ResultText = string.Format(UploadProfilePicturePresenter.UserNotFoundErrorText, args.LoggedUserUsername);
                 }
 
             }
             catch (Exception ex)
             {
-                this.View.Model.IsSuccessful = false;
-                this.View.Model.ResultText = ex.Message;
+                base.View.Model.IsSuccessful = false;
+                base.View.Model.ResultText = ex.Message;
             }
         }
 
@@ -70,16 +70,16 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP
                 }
                 else
                 {
-                    this.View.Model.IsSuccessful = true;
-                    this.View.Model.CurrentProfilePictureBase64 = updatedUser.ProfilePicture.PictureBase64;
-                    this.View.Model.CurrentProfilePictureMimeType = updatedUser.ProfilePicture.MimeType;
-                    this.View.Model.ResultText = "Successfully updated profile picture";
+                    base.View.Model.IsSuccessful = true;
+                    base.View.Model.CurrentProfilePictureBase64 = updatedUser.ProfilePicture.PictureBase64;
+                    base.View.Model.CurrentProfilePictureMimeType = updatedUser.ProfilePicture.MimeType;
+                    base.View.Model.ResultText = "Successfully updated profile picture";
                 }
             }
             catch (Exception ex)
             {
-                this.View.Model.IsSuccessful = false;
-                this.View.Model.ResultText = ex.Message;
+                base.View.Model.IsSuccessful = false;
+                base.View.Model.ResultText = ex.Message;
             }
         }
 
@@ -98,16 +98,16 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP
                 }
                 else
                 {
-                    this.View.Model.IsSuccessful = true;
-                    this.View.Model.CurrentProfilePictureBase64 = updatedUser.ProfilePicture.PictureBase64;
-                    this.View.Model.CurrentProfilePictureMimeType = updatedUser.ProfilePicture.MimeType;
-                    this.View.Model.ResultText = "Successfully updated profile picture";
+                    base.View.Model.IsSuccessful = true;
+                    base.View.Model.CurrentProfilePictureBase64 = updatedUser.ProfilePicture.PictureBase64;
+                    base.View.Model.CurrentProfilePictureMimeType = updatedUser.ProfilePicture.MimeType;
+                    base.View.Model.ResultText = "Successfully updated profile picture";
                 }
             }
             catch (Exception ex)
             {
-                this.View.Model.IsSuccessful = false;
-                this.View.Model.ResultText = ex.Message;
+                base.View.Model.IsSuccessful = false;
+                base.View.Model.ResultText = ex.Message;
             }
         }
     }

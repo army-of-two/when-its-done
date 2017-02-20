@@ -68,10 +68,10 @@ namespace WhenItsDone.MVP.Tests.AccountPages.ManageMVP.UploadProfilePicturePrese
             var actualInstance = new UploadProfilePicturePresenter(topDishesView.Object, usersAsyncService.Object);
 
             var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
-            var dishesServiceField = typeof(UploadProfilePicturePresenter).GetField("usersService", bindingFlags);
-            var dishesServiceFieldValue = dishesServiceField.GetValue(actualInstance);
+            var usersServiceField = typeof(UploadProfilePicturePresenter).GetField("usersService", bindingFlags);
+            var usersServiceFieldValue = usersServiceField.GetValue(actualInstance);
 
-            Assert.That(dishesServiceFieldValue, Is.Not.Null);
+            Assert.That(usersServiceFieldValue, Is.Not.Null);
         }
     }
 }
