@@ -9,6 +9,11 @@ using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.Factories;
 using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.Data.UnitsOfWork;
+using WhenItsDone.Models;
+using WhenItsDone.DTOs.WorkerVIewsDTOs;
+using Ninject.Activation;
+using Ninject;
+using System.Linq;
 
 namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 {
@@ -22,6 +27,14 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 .BindDefaultInterface()
             );
 
+            this.Kernel.Bind(x =>
+                x.FromAssemblyContaining<IDataAssemblyId>()
+                .SelectAllInterfaces()
+                .EndingWith("Mapper")
+                .BindToFactory()
+                .Configure(z => z.InSingletonScope())
+                );
+
             this.Bind<IDisposableUnitOfWork>().To<UnitOfWork>();
 
             this.Bind<IDisposableUnitOfWorkFactory>()
@@ -33,6 +46,37 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 .InRequestScope();
 
             this.Bind<IStatefulFactory>().ToFactory().InSingletonScope();
+
+            this.Bind<Worker>().ToMethod(this.MapWorker)
+                .NamedLikeFactoryMethod((IDtoToWorkerMapper mapper) => mapper.GetWorker(null));
+        }
+
+        private Worker MapWorker(IContext ctx)
+        {
+            var dto = (WorkerDetailInformationDTO)ctx.Parameters.ToList().FirstOrDefault();
+
+            var worker = ctx.Kernel.Get<Worker>();
+            worker.Id = dto.Id;
+            worker.FirstName = dto.FirstName;
+            worker.LastName = dto.LastName;
+            worker.Gender = dto.Gender;
+            worker.Age = dto.Age;
+            worker.Rating = dto.Rating;
+
+            var contactInfo = ctx.Kernel.Get<ContactInformation>();
+            worker.ContactInformation = contactInfo;
+
+            contactInfo.Email = dto.Email;
+            contactInfo.PhoneNumber = dto.PhoneNumber;
+
+            var address = ctx.Kernel.Get<Address>();
+            contactInfo.Address = address;
+
+            address.City = dto.City;
+            address.Country = dto.Country;
+            address.Street = dto.Street;
+
+            return worker;
         }
     }
 }
