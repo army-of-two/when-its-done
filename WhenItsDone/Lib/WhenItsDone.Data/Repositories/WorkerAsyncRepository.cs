@@ -35,5 +35,13 @@ namespace WhenItsDone.Data.Repositories
                                 .ProjectToSingleOrDefault<WorkerDetailInformationDTO>();
             });
         }
+
+        public Task<string> UpdateWorkerDetailInformationDTO(WorkerDetailInformationDTO worker)
+        {
+            return Task.Run(() =>
+            {
+                return "Save success";
+            });
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.DTOs.WorkerVIewsDTOs;
@@ -32,6 +33,19 @@ namespace WhenItsDone.Services
         public WorkerDetailInformationDTO GetDetailInfoById(string id)
         {
             return this.workerRepo.GetDetailInfoById(id).Result;
+        }
+
+        public string UpdateWorkerDetailInformationDTO(WorkerDetailInformationDTO worker)
+        {
+            string result = "Update fail";
+
+            try
+            {
+                result = this.workerRepo.UpdateWorkerDetailInformationDTO(worker).Result;
+            }
+            catch (SqlException) { }
+
+            return result;
         }
     }
 }
