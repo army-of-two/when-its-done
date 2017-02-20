@@ -16,7 +16,7 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkerDetailsControlMVP
         {
             if (workerService == null)
             {
-                throw new ArgumentNullException(nameof(workerService));
+                throw new ArgumentNullException("workersService");
             }
 
             this.workerService = workerService;
@@ -26,7 +26,7 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkerDetailsControlMVP
 
         private void View_GetWorkerDetailsById(object sender, StringEventArgs e)
         {
-            this.View.Model.Worker = this.GetMock(); // this.workerService.GetDetailInfoById(e.StringParameter);
+            this.View.Model.Worker = this.workerService.GetDetailInfoById(e.StringParameter);
         }
 
         public WorkerDetailInformationDTO GetMock()
