@@ -48,7 +48,7 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkerDetailsControlMVP
 
         private void View_GetWorkerDetailsById(object sender, StringEventArgs e)
         {
-            this.View.Model.Worker = GetMock();// this.workerService.GetDetailInfoById(e.StringParameter);
+            this.View.Model.Worker = this.workerService.GetDetailInfoById(e.StringParameter);
         }
 
         public WorkerDetailInformationDTO GetMock()

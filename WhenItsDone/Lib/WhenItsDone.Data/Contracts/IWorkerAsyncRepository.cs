@@ -10,7 +10,5 @@ namespace WhenItsDone.Data.Contracts
         Task<IEnumerable<WorkerNamesIdDTO>> GetWorkersNamesAndId();
 
         Task<WorkerDetailInformationDTO> GetDetailInfoById(string id);
-
-        Task<string> UpdateWorkerDetailInformationDTO(WorkerDetailInformationDTO worker);
     }
 }

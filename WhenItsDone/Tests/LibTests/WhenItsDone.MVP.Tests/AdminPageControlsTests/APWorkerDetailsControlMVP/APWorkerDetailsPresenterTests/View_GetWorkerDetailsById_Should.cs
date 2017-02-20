@@ -4,6 +4,7 @@ using WhenItsDone.DTOs.WorkerVIewsDTOs;
 using WhenItsDone.MVP.AdminPageControls.APWorkerDetailsControlMVP;
 using WhenItsDone.MVP.AdminPageControls.EventArguments;
 using WhenItsDone.Services.Contracts;
+using WhenItsDone.Services.Factories;
 
 namespace WhenItsDone.MVP.Tests.AdminPageControlsTests.APWorkerDetailsControlMVP.APWorkerDetailsPresenterTests
 {
@@ -25,7 +26,9 @@ namespace WhenItsDone.MVP.Tests.AdminPageControlsTests.APWorkerDetailsControlMVP
             var mockedService = new Mock<IWorkersAsyncService>();
             mockedService.Setup(x => x.GetDetailInfoById(It.IsAny<string>())).Returns(mockedResult.Object);
 
-            var obj = new APWorkerDetailsPresenter(mockedView.Object, mockedService.Object);
+            var mockedFactory = new Mock<IWorkerDetailInformationDTOFactory>();
+
+            var obj = new APWorkerDetailsPresenter(mockedView.Object, mockedService.Object, mockedFactory.Object);
 
             mockedView.Raise(x => x.GetWorkerDetailsById += null, mockedArgs.Object);
 

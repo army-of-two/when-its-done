@@ -25,7 +25,7 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkersControlMVP
 
         private void View_GetWorkersNamesAndId(object sender, EventArgs e)
         {
-            this.View.Model.WorkersNamesAndId = GetMocks();// this.workersService.GetWorkersNamesAndId();
+            this.View.Model.WorkersNamesAndId =  this.workersService.GetWorkersNamesAndId();
         }
 
         // TODO delete before deadline

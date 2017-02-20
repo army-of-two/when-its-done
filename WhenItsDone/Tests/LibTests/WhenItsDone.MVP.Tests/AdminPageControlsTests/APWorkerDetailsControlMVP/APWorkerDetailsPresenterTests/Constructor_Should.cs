@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.Reflection;
 using WhenItsDone.MVP.AdminPageControls.APWorkerDetailsControlMVP;
 using WhenItsDone.Services.Contracts;
+using WhenItsDone.Services.Factories;
 
 namespace WhenItsDone.MVP.Tests.AdminPageControlsTests.APWorkerDetailsControlMVP.APWorkerDetailsPresenterTests
 {
@@ -14,8 +15,10 @@ namespace WhenItsDone.MVP.Tests.AdminPageControlsTests.APWorkerDetailsControlMVP
         {
             var mockedView = new Mock<IAPWorkerDetailsControlView>();
 
-            Assert.That(() => new APWorkerDetailsPresenter(mockedView.Object, null),
-                                Throws.ArgumentNullException.With.Message.Contains("workersService"));
+            var mockedFactory = new Mock<IWorkerDetailInformationDTOFactory>();
+            
+            Assert.That(() => new APWorkerDetailsPresenter(mockedView.Object, null, mockedFactory.Object),
+                                Throws.ArgumentNullException.With.Message.Contains("workerService"));
         }
 
         [Test]
@@ -28,7 +31,9 @@ namespace WhenItsDone.MVP.Tests.AdminPageControlsTests.APWorkerDetailsControlMVP
             BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic;
             var field = typeof(APWorkerDetailsPresenter).GetField("workerService", flags);
 
-            var obj = new APWorkerDetailsPresenter(mockedView.Object, mockedService.Object);
+            var mockedFactory = new Mock<IWorkerDetailInformationDTOFactory>();
+            
+            var obj = new APWorkerDetailsPresenter(mockedView.Object, mockedService.Object, mockedFactory.Object);
 
             var result = field.GetValue(obj);
 
@@ -41,7 +46,9 @@ namespace WhenItsDone.MVP.Tests.AdminPageControlsTests.APWorkerDetailsControlMVP
             var mockedView = new Mock<IAPWorkerDetailsControlView>();
             var mockedService = new Mock<IWorkersAsyncService>();
 
-            var obj = new APWorkerDetailsPresenter(mockedView.Object, mockedService.Object);
+            var mockedFactory = new Mock<IWorkerDetailInformationDTOFactory>();
+            
+            var obj = new APWorkerDetailsPresenter(mockedView.Object, mockedService.Object, mockedFactory.Object);
 
             Assert.AreSame(mockedView.Object, obj.View);
         }
