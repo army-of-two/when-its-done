@@ -8,7 +8,7 @@
         <div class="row">
             <div class="input-field col s1 offset-s1">
                 <label for="Id" class="active">Id</label>
-                <input runat="server" type="text" id="Id" value="<%#this.Model.Worker?.Id.ToString() %>" />
+                <input runat="server" disabled type="text" id="Id" value="<%#this.Model.Worker?.Id.ToString() %>" />
             </div>
             <div class="input-field col s1">
                 <label for="Rating" class="active">Rating</label>
