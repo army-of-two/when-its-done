@@ -56,6 +56,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountPages\ManageMVP\UploadProfilePicturePresenterTests\Constructor_Should.cs" />
     <Compile Include="AdminPageControlsTests\APWorkersControlMVP\APWorkersControlPresenterTests\Constructor_Should.cs" />
     <Compile Include="AssemblyIdTests\Assembly_Should.cs" />
     <Compile Include="ContentContainersTests\TopDishesMVPTests\Mocks\FakeTopDishesView.cs" />
@@ -67,7 +68,9 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="AccountPages\ManageMVP\Mocks\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Lib\WhenItsDone.DTOs\WhenItsDone.DTOs.csproj">
       <Project>{da36a62d-37d6-47f1-b292-a73cff233ca8}</Project>
