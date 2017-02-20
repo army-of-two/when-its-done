@@ -21,9 +21,9 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP
 
             this.usersService = usersService;
 
-            this.View.InitialState += this.OnInitialState;
-            this.View.UploadProfilePicture += this.OnUploadProfilePicture;
-            this.View.UploadProfilePictureFromUrl += this.OnUploadProfilePictureFromUrl;
+            this.View.OnInitialState += this.OnInitialState;
+            this.View.OnUploadProfilePicture += this.OnUploadProfilePicture;
+            this.View.OnUploadProfilePictureFromUrl += this.OnUploadProfilePictureFromUrl;
         }
 
         public void OnInitialState(object sender, UploadProfilePictureInitialStateEventArgs args)
