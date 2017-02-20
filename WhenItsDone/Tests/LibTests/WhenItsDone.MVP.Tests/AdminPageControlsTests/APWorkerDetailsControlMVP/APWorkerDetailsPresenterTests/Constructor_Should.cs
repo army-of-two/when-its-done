@@ -4,7 +4,7 @@ using System.Reflection;
 using WhenItsDone.MVP.AdminPageControls.APWorkerDetailsControlMVP;
 using WhenItsDone.Services.Contracts;
 
-namespace WhenItsDone.MVP.Tests.AdminPageControlsTests.APWorkerDetailsControlMVP.APWorkersControlPresenterTests
+namespace WhenItsDone.MVP.Tests.AdminPageControlsTests.APWorkerDetailsControlMVP.APWorkerDetailsPresenterTests
 {
     [TestFixture]
     public class Constructor_Should
