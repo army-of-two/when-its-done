@@ -53,6 +53,7 @@
     <Compile Include="Contracts\IUsersAsyncService.cs" />
     <Compile Include="Contracts\IWorkersAsyncService.cs" />
     <Compile Include="DishesAsyncService.cs" />
+    <Compile Include="Factories\IWorkerDetailInformationDTOFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsersAsyncService.cs" />
     <Compile Include="UsersRegistrationAsyncService.cs" />

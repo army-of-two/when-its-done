@@ -22,6 +22,12 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkerDetailsControlMVP
             this.workerService = workerService;
 
             this.View.GetWorkerDetailsById += View_GetWorkerDetailsById;
+            this.View.EditRequest += View_EditRequest;
+        }
+
+        private void View_EditRequest(object sender, WorkerDetailsEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void View_GetWorkerDetailsById(object sender, StringEventArgs e)

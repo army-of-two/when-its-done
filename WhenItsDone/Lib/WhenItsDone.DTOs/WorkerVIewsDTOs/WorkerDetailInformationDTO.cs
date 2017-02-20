@@ -16,10 +16,6 @@ namespace WhenItsDone.DTOs.WorkerVIewsDTOs
 
         public int Rating { get; set; }
 
-        public int? ContactInformationId { get; set; }
-
-        public int? AddressInformationId { get; set; }
-
         public string Email { get; set; }
 
         public string PhoneNumber { get; set; }
