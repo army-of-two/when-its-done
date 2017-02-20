@@ -18,7 +18,12 @@ namespace WhenItsDone.WebFormsClient.ViewControls.AdminPageControls
 
         public void GetWorkersFireEvent(StringEventArgs args)
         {
-            this.GetWorkerDetailsById?.Invoke(this, args);       
+            this.GetWorkerDetailsById?.Invoke(this, args);
+        }
+
+        protected void OnEdit(object sender, EventArgs e)
+        {
+
         }
     }
 }

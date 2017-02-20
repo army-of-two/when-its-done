@@ -14,6 +14,7 @@
                 <label for="Rating" class="active">Rating</label>
                 <input runat="server" type="text" id="Rating" value="<%#this.Model.Worker?.Rating.ToString() %>" />
             </div>
+            <asp:Button runat="server" Id="EditBtn" Text="Save" OnClick="OnEdit" />
         </div>
         <div class="row">
             <div class="input-field col s3 offset-s1">
