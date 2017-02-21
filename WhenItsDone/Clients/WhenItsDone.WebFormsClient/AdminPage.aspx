@@ -22,8 +22,8 @@
                     <div runat="server" id="buttons" visible="false">
                         <asp:Button runat="server" class="waves-effect waves-light btn" Text="Back" ID="BackToAll" OnClick="BackToAllWorkersClicked" />
                         <asp:Button runat="server" class="waves-effect waves-light btn" Text="Contact informations" ID="ContactsBtn" OnClick="ContactsButtonWasClicked" />
-                        <asp:Button runat="server" class="waves-effect waves-light btn" Text="Medical information" ID="MedicalBtn" />
-                        <asp:Button runat="server" class="waves-effect waves-light btn" Text="Dishes" ID="DishesBtn" />
+                        <asp:Button runat="server" class="waves-effect waves-light btn" Text="Medical information" ID="MedicalBtn" OnClick="MedicalBtnWasClicked"/>
+                        <asp:Button runat="server" class="waves-effect waves-light btn" Text="Dishes" ID="DishesBtn" OnClick="DishesBtnWasClicked" />
                     </div>
 
                     <uc:APWorkerDetailsControl runat="server" ID="APWorkerDetailsControl" Visible="false" />

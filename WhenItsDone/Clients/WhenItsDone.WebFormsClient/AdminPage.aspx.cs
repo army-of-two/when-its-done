@@ -72,5 +72,23 @@ namespace WhenItsDone.WebFormsClient
             this.MedicalBtn.CssClass = defaultBtnStyles;
             this.DishesBtn.CssClass = defaultBtnStyles;
         }
+
+        protected void MedicalBtnWasClicked(object sender, EventArgs e)
+        {
+            this.HideAllControlsOnThatPage();
+            this.RemoveActiveForAllButtons();
+
+            this.buttons.Visible = true;
+            this.MedicalBtn.CssClass += " grey lighten-2";
+        }
+
+        protected void DishesBtnWasClicked(object sender, EventArgs e)
+        {
+            this.HideAllControlsOnThatPage();
+            this.RemoveActiveForAllButtons();
+
+            this.buttons.Visible = true;
+            this.DishesBtn.CssClass += " grey lighten-2";
+        }
     }
 }
