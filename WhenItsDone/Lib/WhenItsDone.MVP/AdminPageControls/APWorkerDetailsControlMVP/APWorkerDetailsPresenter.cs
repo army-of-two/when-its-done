@@ -30,6 +30,8 @@ namespace WhenItsDone.MVP.AdminPageControls.APWorkerDetailsControlMVP
 
         private void View_EditRequest(object sender, WorkerDetailsEventArgs e)
         {
+            Guard.WhenArgument(e, "WorkerDetailsEventArgs").IsNull().Throw();
+
             var worker = this.WorkerDetailInformationDTOFactory.GetWorkerDetailInformationDTO(e.Id,
                                                                                    e.FirstName,
                                                                                    e.LastName,

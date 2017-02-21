@@ -100,7 +100,10 @@ namespace WhenItsDone.Services
                 }
                 result = "Save success";
             }
-            catch (SqlException) { }
+            catch (SqlException)
+            {
+                result = "Update fail";
+            }
 
             return result;
         }
