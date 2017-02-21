@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminPageControlsTests\APWorkerDetailsControlMVP\APWorkerDetailsPresenterTests\Constructor_Should.cs" />
+    <Compile Include="AdminPageControlsTests\APWorkerDetailsControlMVP\APWorkerDetailsPresenterTests\View_EditRequest_Should.cs" />
     <Compile Include="AdminPageControlsTests\APWorkerDetailsControlMVP\APWorkerDetailsPresenterTests\View_GetWorkerDetailsById_Should.cs" />
     <Compile Include="AccountPages\ManageMVP\UploadProfilePicturePresenterTests\Constructor_Should.cs" />
     <Compile Include="AdminPageControlsTests\APWorkersControlMVP\APWorkersControlPresenterTests\Constructor_Should.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="ContentContainersTests\TopDishesMVPTests\Mocks\FakeTopDishesView.cs" />
     <Compile Include="ContentContainersTests\TopDishesMVPTests\TopDishesPresenterTests\Constructor_Should.cs" />
     <Compile Include="ContentContainersTests\TopDishesMVPTests\TopDishesPresenterTests\OnGetTopDishes_Should.cs" />
+    <Compile Include="Mocks\MockedWorkerDetailsEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +76,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Lib\WhenItsDone.Common\WhenItsDone.Common.csproj">
+      <Project>{42E362E0-9E6C-4867-88AA-CF2CC00FE1F8}</Project>
+      <Name>WhenItsDone.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Lib\WhenItsDone.DTOs\WhenItsDone.DTOs.csproj">
       <Project>{da36a62d-37d6-47f1-b292-a73cff233ca8}</Project>
       <Name>WhenItsDone.DTOs</Name>
