@@ -63,7 +63,9 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
             }
             else
             {
-                this.DisplayResultError("Something went wrong!");
+                var uploadProfilePictureInitialStateEventArgs = new UploadProfilePictureInitialStateEventArgs(this.Model.LoggedUserUsername);
+                this.OnInitialState?.Invoke(null, uploadProfilePictureInitialStateEventArgs);
+                this.Model.IsSuccessful = false;
             }
 
             if (!this.Model.IsSuccessful)
