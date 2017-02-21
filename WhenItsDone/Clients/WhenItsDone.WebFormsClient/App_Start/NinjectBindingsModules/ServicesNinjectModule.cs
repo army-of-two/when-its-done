@@ -14,8 +14,6 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
     {
         public override void Load()
         {
-            this.Bind<TopDishesCachingInterceptor>().ToSelf().InSingletonScope();
-
             this.Kernel.Bind(x =>
                 x.FromAssemblyContaining<IServicesAssemblyId>()
                 .SelectAllClasses()
