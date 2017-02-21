@@ -45,7 +45,6 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP
                     base.View.Model.IsSuccessful = false;
                     base.View.Model.ResultText = string.Format(UploadProfilePicturePresenter.UserNotFoundErrorText, args.LoggedUserUsername);
                 }
-
             }
             catch (Exception ex)
             {
