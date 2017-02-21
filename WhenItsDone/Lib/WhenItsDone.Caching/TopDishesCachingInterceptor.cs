@@ -33,7 +33,7 @@ namespace WhenItsDone.Caching
                 return;
             }
 
-            var timeElapsedSinceLastUpdate = (DateTime.UtcNow - (lastUpdate ?? DateTime.UtcNow)).Duration();
+            var timeElapsedSinceLastUpdate = (DateTime.UtcNow - (this.lastUpdate ?? DateTime.UtcNow)).Duration();
             var currentCachedContent = HttpContext.Current.Cache[TopDishesCachingInterceptor.CacheItemName];
             if (currentCachedContent != null && timeElapsedSinceLastUpdate.Minutes < TopDishesCachingInterceptor.CacheTimeOut)
             {
