@@ -9,6 +9,12 @@ using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.Factories;
 using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.Data.UnitsOfWork;
+using WhenItsDone.Models;
+using WhenItsDone.DTOs.WorkerVIewsDTOs;
+using Ninject.Activation;
+using Ninject;
+using System.Linq;
+using WhenItsDone.Data.Repositories;
 
 namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
 {
@@ -33,6 +39,8 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 .InRequestScope();
 
             this.Bind<IStatefulFactory>().ToFactory().InSingletonScope();
+
+            this.Bind(typeof(IAsyncRepository<>)).To(typeof(GenericAsyncRepository<>)).InRequestScope();
         }
     }
 }

@@ -36,14 +36,14 @@ namespace WhenItsDone.WebFormsClient
                 this.hiddenIdField.Text = e.StringParameter;
             }
 
-            this.APWorkerDetailsControl.GetWorkersFireEvent(e.StringParameter);
+            this.APWorkerDetailsControl.GetWorkersFireEvent(e);
 
             this.HideAllControlsOnThatPage();
             this.RemoveActiveForAllButtons();
 
             this.APWorkerDetailsControl.Visible = true;
             this.buttons.Visible = true;
-            this.ContactsBtn.CssClass += " active";
+            this.ContactsBtn.CssClass += " grey lighten-2";
         }
 
         protected void BackToAllWorkersClicked(object sender, EventArgs e)
@@ -65,10 +65,30 @@ namespace WhenItsDone.WebFormsClient
 
         private void RemoveActiveForAllButtons()
         {
-            this.BackToAll.CssClass = "collection-item";
-            this.ContactsBtn.CssClass = "collection-item";
-            this.MedicalBtn.CssClass = "collection-item";
-            this.DishesBtn.CssClass = "collection-item";
+            var defaultBtnStyles = "waves-effect waves-light btn";
+
+            this.BackToAll.CssClass = defaultBtnStyles;
+            this.ContactsBtn.CssClass = defaultBtnStyles;
+            this.MedicalBtn.CssClass = defaultBtnStyles;
+            this.DishesBtn.CssClass = defaultBtnStyles;
+        }
+
+        protected void MedicalBtnWasClicked(object sender, EventArgs e)
+        {
+            this.HideAllControlsOnThatPage();
+            this.RemoveActiveForAllButtons();
+
+            this.buttons.Visible = true;
+            this.MedicalBtn.CssClass += " grey lighten-2";
+        }
+
+        protected void DishesBtnWasClicked(object sender, EventArgs e)
+        {
+            this.HideAllControlsOnThatPage();
+            this.RemoveActiveForAllButtons();
+
+            this.buttons.Visible = true;
+            this.DishesBtn.CssClass += " grey lighten-2";
         }
     }
 }

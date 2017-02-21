@@ -19,11 +19,11 @@
             <div class="container">
                 <uc:APWorkersControl runat="server" ID="APWorkersControl" />
                 <div class=" margin-top-40">
-                    <div class="collection" runat="server" id="buttons" visible="false">
-                        <asp:Button runat="server" class="collection-item" Text="Back" ID="BackToAll" OnClick="BackToAllWorkersClicked" />
-                        <asp:Button runat="server" class="collection-item active" Text="Contact informations" ID="ContactsBtn" OnClick="ContactsButtonWasClicked" />
-                        <asp:Button runat="server" class="collection-item" Text="Medical information" ID="MedicalBtn" />
-                        <asp:Button runat="server" class="collection-item" Text="Dishes" ID="DishesBtn" />
+                    <div runat="server" id="buttons" visible="false">
+                        <asp:Button runat="server" class="waves-effect waves-light btn" Text="Back" ID="BackToAll" OnClick="BackToAllWorkersClicked" />
+                        <asp:Button runat="server" class="waves-effect waves-light btn" Text="Contact informations" ID="ContactsBtn" OnClick="ContactsButtonWasClicked" />
+                        <asp:Button runat="server" class="waves-effect waves-light btn" Text="Medical information" ID="MedicalBtn" OnClick="MedicalBtnWasClicked"/>
+                        <asp:Button runat="server" class="waves-effect waves-light btn" Text="Dishes" ID="DishesBtn" OnClick="DishesBtnWasClicked" />
                     </div>
 
                     <uc:APWorkerDetailsControl runat="server" ID="APWorkerDetailsControl" Visible="false" />

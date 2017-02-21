@@ -56,8 +56,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPageControlsTests\APWorkerDetailsControlMVP\APWorkerDetailsPresenterTests\Constructor_Should.cs" />
+    <Compile Include="AdminPageControlsTests\APWorkerDetailsControlMVP\APWorkerDetailsPresenterTests\View_GetWorkerDetailsById_Should.cs" />
     <Compile Include="AccountPages\ManageMVP\UploadProfilePicturePresenterTests\Constructor_Should.cs" />
     <Compile Include="AdminPageControlsTests\APWorkersControlMVP\APWorkersControlPresenterTests\Constructor_Should.cs" />
+    <Compile Include="AdminPageControlsTests\APWorkersControlMVP\APWorkersControlPresenterTests\View_GetWorkersNamesAndId_Should.cs" />
+    <Compile Include="AdminPageControlsTests\EventArgumentsTests\StringEventArgsTests\Constructor_Should.cs" />
     <Compile Include="AssemblyIdTests\Assembly_Should.cs" />
     <Compile Include="ContentContainersTests\TopDishesMVPTests\Mocks\FakeTopDishesView.cs" />
     <Compile Include="ContentContainersTests\TopDishesMVPTests\TopDishesPresenterTests\Constructor_Should.cs" />
