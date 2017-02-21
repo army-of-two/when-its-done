@@ -6,10 +6,10 @@ namespace WhenItsDone.MVP.AccountPages.ManageMVP.UploadProfilePictureMVP
 {
     public interface IUploadProfilePictureView : IView<UploadProfilePictureViewModel>
     {
-        event EventHandler<UploadProfilePictureEventArgs> UploadProfilePicture;
+        event EventHandler<UploadProfilePictureEventArgs> OnUploadProfilePicture;
 
-        event EventHandler<UploadProfilePictureFromUrlEventArgs> UploadProfilePictureFromUrl;
+        event EventHandler<UploadProfilePictureFromUrlEventArgs> OnUploadProfilePictureFromUrl;
 
-        event EventHandler<UploadProfilePictureInitialStateEventArgs> InitialState;
+        event EventHandler<UploadProfilePictureInitialStateEventArgs> OnInitialState;
     }
 }
