@@ -29,6 +29,8 @@ namespace WhenItsDone.Services
         {
             Guard.WhenArgument(repository, "IWorkerAsyncRepository").IsNull().Throw();
             Guard.WhenArgument(modelFactory, "modelFactory").IsNull().Throw();
+            Guard.WhenArgument(contactsRepo, "contactsRepo").IsNull().Throw();
+            Guard.WhenArgument(addressRepo, "addressRepo").IsNull().Throw();
 
             this.workerRepo = repository;
             this.modelFactory = modelFactory;
