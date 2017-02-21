@@ -72,9 +72,9 @@ namespace WhenItsDone.WebFormsClient.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Load(new ServicesNinjectModule());
             kernel.Load(new MVPNinjectModule());
             kernel.Load(new DataNinjectModule());
-            kernel.Load(new ServicesNinjectModule());
             kernel.Load(new DefaultAuthNinjectModule());
             kernel.Load(new ModelsNinjectModule());
             kernel.Load(new CommonNinjectModule());

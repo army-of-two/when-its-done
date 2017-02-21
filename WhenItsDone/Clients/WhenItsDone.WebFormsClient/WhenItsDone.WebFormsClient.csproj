@@ -88,6 +88,10 @@
       <HintPath>..\..\packages\Ninject.Extensions.Interception.3.2.0.0\lib\net45-full\Ninject.Extensions.Interception.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ninject.Extensions.Interception.DynamicProxy, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ninject.Extensions.Interception.DynamicProxy.3.2.0.0\lib\net45-full\Ninject.Extensions.Interception.DynamicProxy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Ninject.Web, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Ninject.Web.3.2.1.0\lib\net45-full\Ninject.Web.dll</HintPath>
       <Private>True</Private>
@@ -595,6 +599,10 @@
     <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Lib\WhenItsDone.Caching\WhenItsDone.Caching.csproj">
+      <Project>{DF8D0DD0-46FC-4DD9-8AD9-3A9D1A7A3A6F}</Project>
+      <Name>WhenItsDone.Caching</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Lib\WhenItsDone.Common\WhenItsDone.Common.csproj">
       <Project>{42e362e0-9e6c-4867-88aa-cf2cc00fe1f8}</Project>
       <Name>WhenItsDone.Common</Name>

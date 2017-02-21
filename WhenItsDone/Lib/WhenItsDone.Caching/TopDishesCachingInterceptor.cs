@@ -26,6 +26,12 @@ namespace WhenItsDone.Caching
 
         public void Intercept(IInvocation invocation)
         {
+            if (invocation.Request.Method.Name != "GetTopCountDishesByRating")
+            {
+                invocation.Proceed();
+                return;
+            }
+
             var currentCachedContent = HttpContext.Current.Cache[TopDishesCachingInterceptor.CacheItemName];
             if (currentCachedContent != null)
             {
