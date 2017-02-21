@@ -32,9 +32,9 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
         public void OnUpdateContactInformation(object sender, EventArgs e)
         {
             var loggedUserUsername = this.Page.User.Identity.Name;
-            var country = this.CountryTextBox.Text;
-            var city = this.CityTextBox.Text;
-            var street = this.StreetTextBox.Text;
+            var country = this.CountryTextBox.Value;
+            var city = this.CityTextBox.Value;
+            var street = this.StreetTextBox.Value;
 
             var updateContactInformationUpdateValuesEventArgs = new UpdateContactInformationUpdateValuesEventArgs(loggedUserUsername, country, city, street);
             this.UpdateContactInformationUpdateValues?.Invoke(null, updateContactInformationUpdateValuesEventArgs);

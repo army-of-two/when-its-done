@@ -19,7 +19,7 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CountryTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText CountryTextBox;
         
         /// <summary>
         /// CityTextBox control.
@@ -28,7 +28,7 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CityTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText CityTextBox;
         
         /// <summary>
         /// StreetTextBox control.
@@ -37,6 +37,15 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox StreetTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText StreetTextBox;
+        
+        /// <summary>
+        /// UpdateProfilePictureButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton UpdateProfilePictureButton;
     }
 }

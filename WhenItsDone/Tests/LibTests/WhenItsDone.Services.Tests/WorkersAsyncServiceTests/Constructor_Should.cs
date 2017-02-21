@@ -4,6 +4,7 @@ using System;
 using System.Reflection;
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
+using WhenItsDone.Models;
 using WhenItsDone.Services.Factories;
 
 namespace WhenItsDone.Services.Tests.WorkersAsyncServiceTests
@@ -19,7 +20,11 @@ namespace WhenItsDone.Services.Tests.WorkersAsyncServiceTests
 
             var mockedModelFactory = new Mock<IDbModelFactory>();
 
-            Assert.Throws<ArgumentNullException>(() => new WorkersAsyncService(null, mockedFactory.Object, mockedModelFactory.Object));
+            var mockedContactRepo = new Mock<IAsyncRepository<ContactInformation>>();
+            var mockedAddressRepo = new Mock<IAsyncRepository<Address>>();
+
+            Assert.Throws<ArgumentNullException>(() => new WorkersAsyncService(null, mockedFactory.Object,
+                        mockedModelFactory.Object,mockedContactRepo.Object, mockedAddressRepo.Object));
         }
 
         [Test]
@@ -30,8 +35,11 @@ namespace WhenItsDone.Services.Tests.WorkersAsyncServiceTests
             var mockedFactory = new Mock<IDisposableUnitOfWorkFactory>();
 
             var mockedModelFactory = new Mock<IDbModelFactory>();
+            var mockedContactRepo = new Mock<IAsyncRepository<ContactInformation>>();
+            var mockedAddressRepo = new Mock<IAsyncRepository<Address>>();
 
-            var obj = new WorkersAsyncService(mockedRepo.Object, mockedFactory.Object, mockedModelFactory.Object);
+            var obj = new WorkersAsyncService(mockedRepo.Object, mockedFactory.Object,
+                        mockedModelFactory.Object, mockedContactRepo.Object, mockedAddressRepo.Object);
 
             var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
 
@@ -50,8 +58,11 @@ namespace WhenItsDone.Services.Tests.WorkersAsyncServiceTests
             var mockedFactory = new Mock<IDisposableUnitOfWorkFactory>();
 
             var mockedModelFactory = new Mock<IDbModelFactory>();
+            var mockedContactRepo = new Mock<IAsyncRepository<ContactInformation>>();
+            var mockedAddressRepo = new Mock<IAsyncRepository<Address>>();
 
-            var obj = new WorkersAsyncService(mockedRepo.Object, mockedFactory.Object, mockedModelFactory.Object);
+            var obj = new WorkersAsyncService(mockedRepo.Object, mockedFactory.Object,
+                        mockedModelFactory.Object, mockedContactRepo.Object, mockedAddressRepo.Object);
 
             var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
 
@@ -71,8 +82,11 @@ namespace WhenItsDone.Services.Tests.WorkersAsyncServiceTests
             var mockedFactory = new Mock<IDisposableUnitOfWorkFactory>();
 
             var mockedModelFactory = new Mock<IDbModelFactory>();
+            var mockedContactRepo = new Mock<IAsyncRepository<ContactInformation>>();
+            var mockedAddressRepo = new Mock<IAsyncRepository<Address>>();
 
-            var obj = new WorkersAsyncService(mockedRepo.Object, mockedFactory.Object, mockedModelFactory.Object);
+            var obj = new WorkersAsyncService(mockedRepo.Object, mockedFactory.Object,
+                        mockedModelFactory.Object, mockedContactRepo.Object, mockedAddressRepo.Object);
 
             var bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
 

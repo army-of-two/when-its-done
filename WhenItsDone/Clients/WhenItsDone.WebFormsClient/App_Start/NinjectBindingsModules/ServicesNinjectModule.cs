@@ -1,15 +1,16 @@
-﻿using Ninject;
 using Ninject.Activation;
 using Ninject.Extensions.Conventions;
 using Ninject.Extensions.Factory;
+using Ninject.Extensions.Interception.Infrastructure.Language;
 using Ninject.Modules;
 using Ninject.Web.Common;
 using System.Linq;
+using WhenItsDone.Caching;
 using WhenItsDone.Common.Enums;
 using WhenItsDone.DTOs.WorkerVIewsDTOs;
-using WhenItsDone.Models;
 using WhenItsDone.Models.AssemblyId;
 using WhenItsDone.Models.Contracts;
+using WhenItsDone.Services;
 using WhenItsDone.Services.AssemblyId;
 using WhenItsDone.Services.Contracts;
 using WhenItsDone.Services.Factories;
@@ -26,6 +27,7 @@ namespace WhenItsDone.WebFormsClient.App_Start.NinjectBindingsModules
                 .InheritedFrom<IService>()
                 .BindDefaultInterface()
                 .Configure(y => y.InRequestScope())
+                .ConfigureFor<DishesAsyncService>(dishesService => dishesService.Intercept().With<TopDishesCachingInterceptor>())
             );
 
             this.Kernel.Bind(x =>

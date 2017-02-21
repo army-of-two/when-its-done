@@ -11,9 +11,9 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
     [PresenterBinding(typeof(IUploadProfilePicturePresenter))]
     public partial class UploadProfilePictureUserControl : MvpUserControl<UploadProfilePictureViewModel>, IUploadProfilePictureView, IShouldLoad
     {
-        public event EventHandler<UploadProfilePictureEventArgs> UploadProfilePicture;
-        public event EventHandler<UploadProfilePictureFromUrlEventArgs> UploadProfilePictureFromUrl;
-        public event EventHandler<UploadProfilePictureInitialStateEventArgs> InitialState;
+        public event EventHandler<UploadProfilePictureEventArgs> OnUploadProfilePicture;
+        public event EventHandler<UploadProfilePictureFromUrlEventArgs> OnUploadProfilePictureFromUrl;
+        public event EventHandler<UploadProfilePictureInitialStateEventArgs> OnInitialState;
 
         public bool ShouldLoad { get; set; }
 
@@ -21,7 +21,7 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
         {
             base.OnLoad(e);
 
-            this.ProfilePictureUrlTextBox.Text = string.Empty;
+            this.ProfilePictureUrlTextBox.Value = string.Empty;
 
             var loggedUserUsername = Page.User.Identity.Name;
             this.Model.LoggedUserUsername = loggedUserUsername;
@@ -34,7 +34,7 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
             if (this.ShouldLoad)
             {
                 var uploadProfilePictureInitialStateEventArgs = new UploadProfilePictureInitialStateEventArgs(this.Model.LoggedUserUsername);
-                this.InitialState?.Invoke(null, uploadProfilePictureInitialStateEventArgs);
+                this.OnInitialState?.Invoke(null, uploadProfilePictureInitialStateEventArgs);
 
                 if (!this.Model.IsSuccessful)
                 {
@@ -52,14 +52,14 @@ namespace WhenItsDone.WebFormsClient.ViewControls.ManageUserControls
                 var uploadedFileName = this.ProfilePictureFileUpload.FileName;
 
                 var uploadProfilePictureEventArgs = new UploadProfilePictureEventArgs(loggedUserUsername, uploadedFileName, uploadedFile);
-                this.UploadProfilePicture?.Invoke(null, uploadProfilePictureEventArgs);
+                this.OnUploadProfilePicture?.Invoke(null, uploadProfilePictureEventArgs);
             }
-            else if (!string.IsNullOrEmpty(this.ProfilePictureUrlTextBox.Text))
+            else if (!string.IsNullOrEmpty(this.ProfilePictureUrlTextBox.Value))
             {
-                var profilePictureUrl = this.ProfilePictureUrlTextBox.Text;
+                var profilePictureUrl = this.ProfilePictureUrlTextBox.Value;
 
                 var uploadProfilePictureFromUrlEventArgs = new UploadProfilePictureFromUrlEventArgs(loggedUserUsername, profilePictureUrl);
-                this.UploadProfilePictureFromUrl?.Invoke(null, uploadProfilePictureFromUrlEventArgs);
+                this.OnUploadProfilePictureFromUrl?.Invoke(null, uploadProfilePictureFromUrlEventArgs);
             }
             else
             {

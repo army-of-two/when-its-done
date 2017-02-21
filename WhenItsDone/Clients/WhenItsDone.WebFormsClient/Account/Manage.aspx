@@ -13,6 +13,12 @@
 
 <asp:Content ContentPlaceHolderID="Stylesheets" runat="server">
     <link href="<%= ResolveUrl("~/Content/Css/Manage.css") %>" rel="stylesheet" type="text/css" />
+    <style>
+        img {
+            width: 100%;
+            object-fit: contain;
+        }
+    </style>
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
