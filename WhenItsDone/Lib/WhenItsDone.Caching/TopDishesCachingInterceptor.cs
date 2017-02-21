@@ -32,8 +32,9 @@ namespace WhenItsDone.Caching
                 return;
             }
 
+            var timeElapsedSinceLastUpdate = (DateTime.UtcNow - (lastUpdate ?? DateTime.UtcNow)).Duration();
             var currentCachedContent = HttpContext.Current.Cache[TopDishesCachingInterceptor.CacheItemName];
-            if (currentCachedContent != null)
+            if (currentCachedContent != null && timeElapsedSinceLastUpdate.Minutes < 15)
             {
                 invocation.ReturnValue = currentCachedContent;
                 return;
@@ -49,6 +50,7 @@ namespace WhenItsDone.Caching
                     topDishes = this.dishesAsyncRepository.AddTopCountDishesSampleData(dishesCount, topDishes);
                 }
 
+                this.lastUpdate = DateTime.UtcNow;
                 HttpContext.Current.Cache[TopDishesCachingInterceptor.CacheItemName] = topDishes;
                 invocation.ReturnValue = topDishes;
                 return;
