@@ -15,17 +15,26 @@ namespace WhenItsDone.Services
     public class WorkersAsyncService : GenericAsyncService<Worker>, IWorkersAsyncService, IGenericAsyncService<Worker>, IService
     {
         private readonly IWorkerAsyncRepository workerRepo;
-        //private readonly IDtoToWorkerMapper DtoToWorkerMapper;
+        private readonly IDbModelFactory modelFactory;
 
-        public WorkersAsyncService(IWorkerAsyncRepository repository, IDisposableUnitOfWorkFactory unitOfWorkFactory
-                                       /* , IDtoToWorkerMapper DtoToWorkerMapper*/)
+        private readonly IAsyncRepository<ContactInformation> contactsRepo;
+        private readonly IAsyncRepository<Address> addressRepo;
+
+        public WorkersAsyncService(IWorkerAsyncRepository repository,
+                                    IDisposableUnitOfWorkFactory unitOfWorkFactory,
+                                    IDbModelFactory modelFactory,
+                                    IAsyncRepository<ContactInformation> contactsRepo,
+                                    IAsyncRepository<Address> addressRepo)
             : base(repository, unitOfWorkFactory)
         {
             Guard.WhenArgument(repository, "IWorkerAsyncRepository").IsNull().Throw();
-            //Guard.WhenArgument(DtoToWorkerMapper, "IDtoToWorkerMapper").IsNull().Throw();
+            Guard.WhenArgument(modelFactory, "modelFactory").IsNull().Throw();
 
             this.workerRepo = repository;
-            //this.DtoToWorkerMapper = DtoToWorkerMapper;
+            this.modelFactory = modelFactory;
+
+            this.contactsRepo = contactsRepo;
+            this.addressRepo = addressRepo;
         }
 
         public IEnumerable<WorkerNamesIdDTO> GetWorkersNamesAndId()
@@ -41,8 +50,6 @@ namespace WhenItsDone.Services
         public string UpdateWorkerDetailInformationDTO(WorkerDetailInformationDTO worker)
         {
             string result = "Update fail";
-
-            //var mapped = this.DtoToWorkerMapper.GetWorker(worker);
 
             try
             {
@@ -61,8 +68,26 @@ namespace WhenItsDone.Services
                     original.Gender = worker.Gender;
                     original.Rating = worker.Rating;
 
+                    if (original.ContactInformation == null)
+                    {
+                        var contacts = this.modelFactory.GetEmptyDbModel<ContactInformation>();
+
+                        this.contactsRepo.Add(contacts);
+
+                        original.ContactInformation = contacts;
+                    }
+
                     original.ContactInformation.PhoneNumber = worker.PhoneNumber;
                     original.ContactInformation.Email = worker.Email;
+
+                    if (original.ContactInformation.Address == null)
+                    {
+                        var address = this.modelFactory.GetEmptyDbModel<Address>();
+
+                        this.addressRepo.Add(address);
+
+                        original.ContactInformation.Address = address;
+                    }
 
                     original.ContactInformation.Address.City = worker.City;
                     original.ContactInformation.Address.Street = worker.Street;

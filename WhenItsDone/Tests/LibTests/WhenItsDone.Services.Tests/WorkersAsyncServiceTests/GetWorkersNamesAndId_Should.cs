@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using WhenItsDone.Data.Contracts;
 using WhenItsDone.Data.UnitsOfWork.Factories;
 using WhenItsDone.DTOs.WorkerVIewsDTOs;
+using WhenItsDone.Services.Factories;
 
 namespace WhenItsDone.Services.Tests.WorkersAsyncServiceTests
 {
@@ -23,7 +24,9 @@ namespace WhenItsDone.Services.Tests.WorkersAsyncServiceTests
 
             var mockedFactory = new Mock<IDisposableUnitOfWorkFactory>();
 
-            var obj = new WorkersAsyncService(mockedRepo.Object, mockedFactory.Object);
+            var mockedModelFactory = new Mock<IDbModelFactory>();
+
+            var obj = new WorkersAsyncService(mockedRepo.Object, mockedFactory.Object, mockedModelFactory.Object);
 
             var result = obj.GetWorkersNamesAndId();
 

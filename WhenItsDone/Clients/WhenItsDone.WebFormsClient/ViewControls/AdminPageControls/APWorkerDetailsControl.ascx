@@ -22,11 +22,11 @@
         <div class="row">
             <div class="input-field col s3 offset-s1">
                 <label for="FirstName" class="active">First name</label>
-                <input runat="server" type="text" id="FirstName" value="<%#this.Model.Worker?.FirstName.ToString() %>" />
+                <input runat="server" type="text" id="FirstName" value="<%#this.Model.Worker?.FirstName %>" />
             </div>
             <div class="input-field col s3">
                 <label for="LastName" class="active">Last name</label>
-                <input runat="server" type="text" id="LastName" value="<%#this.Model.Worker?.LastName.ToString() %>" />
+                <input runat="server" type="text" id="LastName" value="<%#this.Model.Worker?.LastName %>" />
             </div>
         </div>
         <div class="row">
@@ -42,25 +42,25 @@
         <div class="row">
             <div class="input-field col s3 offset-s1">
                 <label for="Email" class="active">Email</label>
-                <input runat="server" type="text" id="Email" value="<%#this.Model.Worker?.Email.ToString() %>" />
+                <input runat="server" type="text" id="Email" value="<%#this.Model.Worker?.Email %>" />
             </div>
             <div class="input-field col s3 ">
                 <label for="PhoneNumber" class="active">Phone</label>
-                <input runat="server" type="text" id="PhoneNumber" value="<%#this.Model.Worker?.PhoneNumber.ToString() %>" />
+                <input runat="server" type="text" id="PhoneNumber" value="<%#this.Model.Worker?.PhoneNumber %>" />
             </div>
         </div>
         <div class="row">
             <div class="input-field col s2 offset-s1">
                 <label for="Country" class="active">Country</label>
-                <input runat="server" type="text" id="Country" value="<%#this.Model.Worker?.Country.ToString() %>" />
+                <input runat="server" type="text" id="Country" value="<%#this.Model.Worker?.Country %>" />
             </div>
             <div class="input-field col s2">
                 <label for="City" class="active">City</label>
-                <input runat="server" type="text" id="City" value="<%#this.Model.Worker?.City.ToString() %>" />
+                <input runat="server" type="text" id="City" value="<%#this.Model.Worker?.City %>" />
             </div>
             <div class="input-field col s4">
                 <label for="Address" class="active">Address</label>
-                <input runat="server" type="text" id="Address" value="<%#this.Model.Worker?.Street.ToString() %>" />
+                <input runat="server" type="text" id="Address" value="<%#this.Model.Worker?.Street %>" />
             </div>
         </div>
         <div class="row">
