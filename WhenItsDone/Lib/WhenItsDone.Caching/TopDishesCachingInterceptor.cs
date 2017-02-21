@@ -11,6 +11,7 @@ namespace WhenItsDone.Caching
 {
     public class TopDishesCachingInterceptor : IInterceptor
     {
+        private const int CacheTimeOut = 5;
         private const string CacheItemName = "TopDishes";
 
         private readonly IDishesAsyncRepository dishesAsyncRepository;
@@ -34,25 +35,25 @@ namespace WhenItsDone.Caching
 
             var timeElapsedSinceLastUpdate = (DateTime.UtcNow - (lastUpdate ?? DateTime.UtcNow)).Duration();
             var currentCachedContent = HttpContext.Current.Cache[TopDishesCachingInterceptor.CacheItemName];
-            if (currentCachedContent != null && timeElapsedSinceLastUpdate.Minutes < 15)
+            if (currentCachedContent != null && timeElapsedSinceLastUpdate.Minutes < TopDishesCachingInterceptor.CacheTimeOut)
             {
                 invocation.ReturnValue = currentCachedContent;
                 return;
             }
             else
             {
-                var dishesCount = 3;
-                var addSampleData = true;
+                var dishesCount = (int)invocation.Request.Arguments[0];
+                var addSampleData = (bool)invocation.Request.Arguments[1];
 
-                var topDishes = this.dishesAsyncRepository.GetTopCountDishesByRating(dishesCount).Result;
-                if (topDishes.Count < dishesCount && addSampleData == true)
+                var updatedContent = this.dishesAsyncRepository.GetTopCountDishesByRating(dishesCount).Result;
+                if (updatedContent.Count < dishesCount && addSampleData == true)
                 {
-                    topDishes = this.dishesAsyncRepository.AddTopCountDishesSampleData(dishesCount, topDishes);
+                    updatedContent = this.dishesAsyncRepository.AddTopCountDishesSampleData(dishesCount, updatedContent);
                 }
 
                 this.lastUpdate = DateTime.UtcNow;
-                HttpContext.Current.Cache[TopDishesCachingInterceptor.CacheItemName] = topDishes;
-                invocation.ReturnValue = topDishes;
+                HttpContext.Current.Cache[TopDishesCachingInterceptor.CacheItemName] = updatedContent;
+                invocation.ReturnValue = updatedContent;
                 return;
             }
         }
