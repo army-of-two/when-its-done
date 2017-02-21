@@ -13,6 +13,7 @@ namespace WhenItsDone.Caching
     {
         private const int CacheTimeOut = 5;
         private const string CacheItemName = "TopDishes";
+        private const string MethodToInterceptName = "GetTopCountDishesByRating";
 
         private readonly IDishesAsyncRepository dishesAsyncRepository;
 
@@ -27,7 +28,7 @@ namespace WhenItsDone.Caching
 
         public void Intercept(IInvocation invocation)
         {
-            if (invocation.Request.Method.Name != "GetTopCountDishesByRating")
+            if (invocation.Request.Method.Name != TopDishesCachingInterceptor.MethodToInterceptName)
             {
                 invocation.Proceed();
                 return;
