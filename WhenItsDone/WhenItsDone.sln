@@ -55,6 +55,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhenItsDone.Data.EntityData
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhenItsDone.Data.EntityDataSourceServices", "Lib\WhenItsDone.Data.EntityDataSourceServices\WhenItsDone.Data.EntityDataSourceServices.csproj", "{27405733-9FDF-458B-97BB-A7F371C9F8DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhenItsDone.Caching", "Lib\WhenItsDone.Caching\WhenItsDone.Caching.csproj", "{DF8D0DD0-46FC-4DD9-8AD9-3A9D1A7A3A6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{27405733-9FDF-458B-97BB-A7F371C9F8DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27405733-9FDF-458B-97BB-A7F371C9F8DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27405733-9FDF-458B-97BB-A7F371C9F8DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF8D0DD0-46FC-4DD9-8AD9-3A9D1A7A3A6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF8D0DD0-46FC-4DD9-8AD9-3A9D1A7A3A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF8D0DD0-46FC-4DD9-8AD9-3A9D1A7A3A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF8D0DD0-46FC-4DD9-8AD9-3A9D1A7A3A6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -169,5 +175,6 @@ Global
 		{1C805DD4-7B5A-4935-A571-929C580B9816} = {CE90A517-8C10-46D6-83BB-2A794AB98E22}
 		{8645EE12-B05F-43AD-911E-1FDD8AC1C3E6} = {CE90A517-8C10-46D6-83BB-2A794AB98E22}
 		{27405733-9FDF-458B-97BB-A7F371C9F8DE} = {CE90A517-8C10-46D6-83BB-2A794AB98E22}
+		{DF8D0DD0-46FC-4DD9-8AD9-3A9D1A7A3A6F} = {CE90A517-8C10-46D6-83BB-2A794AB98E22}
 	EndGlobalSection
 EndGlobal
